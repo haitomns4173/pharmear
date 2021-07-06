@@ -1,6 +1,7 @@
 package mms;
 import javax.swing.*;
 import java.sql.*;
+import java.util.*;
 
 public class loginPage extends javax.swing.JFrame {
     public loginPage() {
@@ -14,7 +15,8 @@ public class loginPage extends javax.swing.JFrame {
 
         red_lable_right = new javax.swing.JPanel();
         blue_label_right = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        icon_label = new javax.swing.JLabel();
+        db_status_label = new javax.swing.JLabel();
         login_title_label = new javax.swing.JLabel();
         title_seperator = new javax.swing.JSeparator();
         login_title_label1 = new javax.swing.JLabel();
@@ -40,7 +42,11 @@ public class loginPage extends javax.swing.JFrame {
         blue_label_right.setBackground(new java.awt.Color(11, 119, 169));
         blue_label_right.setToolTipText("");
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("D:\\MMS\\MMS\\src\\mms\\src\\icon.png")); // NOI18N
+        icon_label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mms/src/icon.png"))); // NOI18N
+
+        db_status_label.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 11)); // NOI18N
+        db_status_label.setLabelFor(db_status_label);
+        db_status_label.setText(".");
 
         javax.swing.GroupLayout blue_label_rightLayout = new javax.swing.GroupLayout(blue_label_right);
         blue_label_right.setLayout(blue_label_rightLayout);
@@ -48,15 +54,21 @@ public class loginPage extends javax.swing.JFrame {
             blue_label_rightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(blue_label_rightLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1)
+                .addComponent(icon_label)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, blue_label_rightLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(db_status_label, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(21, 21, 21))
         );
         blue_label_rightLayout.setVerticalGroup(
             blue_label_rightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(blue_label_rightLayout.createSequentialGroup()
                 .addGap(42, 42, 42)
-                .addComponent(jLabel1)
-                .addContainerGap(43, Short.MAX_VALUE))
+                .addComponent(icon_label)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(db_status_label, javax.swing.GroupLayout.DEFAULT_SIZE, 21, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         login_title_label.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 18)); // NOI18N
@@ -144,6 +156,20 @@ public class loginPage extends javax.swing.JFrame {
     private void login_buttomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_login_buttomActionPerformed
         String username = username_input.getText();
         String password = password_input.getText();
+        try {
+            mysql.login_validator(username, password) ;
+        } 
+        catch (SQLException database_error_message) {
+            JOptionPane.showMessageDialog(null, database_error_message);
+            database_error_message.printStackTrace();
+        }
+        if(mysql.login_status){
+            setVisible(false);
+            dispose();
+            
+            medicine_management main_medicine = new medicine_management();
+            main_medicine.setVisible(true); 
+        }
     }//GEN-LAST:event_login_buttomActionPerformed
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
@@ -159,7 +185,7 @@ public class loginPage extends javax.swing.JFrame {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+                if ("Windows".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
@@ -185,7 +211,8 @@ public class loginPage extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel blue_label_right;
-    private javax.swing.JLabel jLabel1;
+    public static javax.swing.JLabel db_status_label;
+    private javax.swing.JLabel icon_label;
     private javax.swing.JButton login_buttom;
     private javax.swing.JLabel login_title_label;
     private javax.swing.JLabel login_title_label1;
