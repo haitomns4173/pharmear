@@ -30,8 +30,26 @@ public class medicine_management extends javax.swing.JFrame {
         cardPane = new javax.swing.JPanel();
         welcomIframe = new javax.swing.JInternalFrame();
         jLabel1 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
         billIframe = new javax.swing.JInternalFrame();
-        jLabel2 = new javax.swing.JLabel();
+        tabel_scrollpane = new javax.swing.JScrollPane();
+        bill_table = new javax.swing.JTable();
+        invoice_label = new javax.swing.JLabel();
+        date_label = new javax.swing.JLabel();
+        title_body_seperator = new javax.swing.JSeparator();
+        patient_name_label = new javax.swing.JLabel();
+        patient_name_input = new javax.swing.JTextField();
+        patient_address_input = new javax.swing.JTextField();
+        paitent_contact_input = new javax.swing.JTextField();
+        patient_name_label1 = new javax.swing.JLabel();
+        patient_name_label2 = new javax.swing.JLabel();
         medicineIframe = new javax.swing.JInternalFrame();
         jLabel3 = new javax.swing.JLabel();
         salesIframe = new javax.swing.JInternalFrame();
@@ -146,54 +164,224 @@ public class medicine_management extends javax.swing.JFrame {
 
         cardPane.setLayout(new java.awt.CardLayout());
 
+        welcomIframe.setBackground(new java.awt.Color(168, 218, 220));
         welcomIframe.setBorder(null);
         welcomIframe.setVisible(true);
 
-        jLabel1.setText("I am welcom");
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Welcome To Pharmacy");
+
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setText("The best way to manage");
+
+        jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel7.setText("your pharmacy. Get");
+
+        jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setText("your bills ready in minutes");
+
+        jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel9.setText("Add medicine whenerve you want.");
+
+        jButton1.setBackground(new java.awt.Color(239, 71, 111));
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mms/src/icons8_billing_machine_48px.png"))); // NOI18N
+        jButton1.setBorder(null);
+
+        jButton2.setBackground(new java.awt.Color(255, 209, 102));
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mms/src/icons8_pill_45px.png"))); // NOI18N
+        jButton2.setBorder(null);
+
+        jButton3.setBackground(new java.awt.Color(17, 138, 178));
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mms/src/icons8_total_sales_45px.png"))); // NOI18N
+        jButton3.setBorder(null);
+
+        jButton4.setBackground(new java.awt.Color(7, 59, 76));
+        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mms/src/icons8_person_45px.png"))); // NOI18N
+        jButton4.setBorder(null);
 
         javax.swing.GroupLayout welcomIframeLayout = new javax.swing.GroupLayout(welcomIframe.getContentPane());
         welcomIframe.getContentPane().setLayout(welcomIframeLayout);
         welcomIframeLayout.setHorizontalGroup(
             welcomIframeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, welcomIframeLayout.createSequentialGroup()
+                .addGap(173, 263, Short.MAX_VALUE)
+                .addGroup(welcomIframeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel9)
+                    .addComponent(jLabel8)
+                    .addComponent(jLabel7)
+                    .addComponent(jLabel6)
+                    .addComponent(jLabel1))
+                .addGap(26, 26, 26))
             .addGroup(welcomIframeLayout.createSequentialGroup()
-                .addGap(226, 226, 226)
-                .addComponent(jLabel1)
-                .addContainerGap(235, Short.MAX_VALUE))
+                .addGroup(welcomIframeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(welcomIframeLayout.createSequentialGroup()
+                        .addGap(50, 50, 50)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(welcomIframeLayout.createSequentialGroup()
+                        .addGap(44, 44, 44)
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         welcomIframeLayout.setVerticalGroup(
             welcomIframeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(welcomIframeLayout.createSequentialGroup()
-                .addGap(111, 111, 111)
+                .addContainerGap()
                 .addComponent(jLabel1)
-                .addContainerGap(303, Short.MAX_VALUE))
+                .addGap(29, 29, 29)
+                .addComponent(jLabel6)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel7)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel8)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel9)
+                .addGap(21, 21, 21)
+                .addGroup(welcomIframeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton3))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(welcomIframeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton4))
+                .addGap(0, 61, Short.MAX_VALUE))
         );
 
         cardPane.add(welcomIframe, "card2");
 
+        billIframe.setBackground(new java.awt.Color(168, 218, 220));
         billIframe.setBorder(null);
         billIframe.setVisible(true);
 
-        jLabel2.setText("I am bill");
+        bill_table.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                { new Short((short) 1), null, null, null, null},
+                { new Short((short) 2), null, null, null, null},
+                { new Short((short) 3), null, null, null, null},
+                { new Short((short) 4), null, null, null, null},
+                { new Short((short) 5), null, null, null, null},
+                { new Short((short) 6), null, null, null, null},
+                { new Short((short) 7), null, null, null, null},
+                { new Short((short) 8), null, null, null, null},
+                { new Short((short) 9), null, null, null, null},
+                { new Short((short) 10), null, null, null, null}
+            },
+            new String [] {
+                "Sn. No", "Medicine Name", "Quantity", "Rate", "Total"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Short.class, java.lang.String.class, java.lang.Short.class, java.lang.Float.class, java.lang.Double.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, true, true, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        bill_table.setRowHeight(30);
+        tabel_scrollpane.setViewportView(bill_table);
+        if (bill_table.getColumnModel().getColumnCount() > 0) {
+            bill_table.getColumnModel().getColumn(0).setPreferredWidth(4);
+            bill_table.getColumnModel().getColumn(1).setPreferredWidth(15);
+            bill_table.getColumnModel().getColumn(2).setPreferredWidth(4);
+            bill_table.getColumnModel().getColumn(3).setPreferredWidth(6);
+            bill_table.getColumnModel().getColumn(4).setPreferredWidth(8);
+        }
+
+        invoice_label.setText("Invoice #");
+
+        date_label.setText("Date");
+
+        patient_name_label.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        patient_name_label.setForeground(new java.awt.Color(45, 45, 43));
+        patient_name_label.setText("Patient Name");
+
+        patient_name_label1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        patient_name_label1.setForeground(new java.awt.Color(45, 45, 43));
+        patient_name_label1.setText("Patient Address");
+
+        patient_name_label2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        patient_name_label2.setForeground(new java.awt.Color(45, 45, 43));
+        patient_name_label2.setText("Patient Contact");
 
         javax.swing.GroupLayout billIframeLayout = new javax.swing.GroupLayout(billIframe.getContentPane());
         billIframe.getContentPane().setLayout(billIframeLayout);
         billIframeLayout.setHorizontalGroup(
             billIframeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(billIframeLayout.createSequentialGroup()
-                .addGap(140, 140, 140)
-                .addComponent(jLabel2)
-                .addContainerGap(344, Short.MAX_VALUE))
+                .addGap(30, 30, 30)
+                .addGroup(billIframeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, billIframeLayout.createSequentialGroup()
+                        .addComponent(tabel_scrollpane, javax.swing.GroupLayout.DEFAULT_SIZE, 620, Short.MAX_VALUE)
+                        .addGap(30, 30, 30))
+                    .addGroup(billIframeLayout.createSequentialGroup()
+                        .addComponent(invoice_label)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(date_label)
+                        .addGap(103, 103, 103))
+                    .addGroup(billIframeLayout.createSequentialGroup()
+                        .addComponent(title_body_seperator)
+                        .addContainerGap())
+                    .addGroup(billIframeLayout.createSequentialGroup()
+                        .addGroup(billIframeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(billIframeLayout.createSequentialGroup()
+                                .addComponent(patient_name_label2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(paitent_contact_input, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(billIframeLayout.createSequentialGroup()
+                                .addComponent(patient_name_label)
+                                .addGap(22, 22, 22)
+                                .addComponent(patient_name_input, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(billIframeLayout.createSequentialGroup()
+                                .addComponent(patient_name_label1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(patient_address_input, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         billIframeLayout.setVerticalGroup(
             billIframeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(billIframeLayout.createSequentialGroup()
-                .addGap(149, 149, 149)
-                .addComponent(jLabel2)
-                .addContainerGap(265, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, billIframeLayout.createSequentialGroup()
+                .addContainerGap(94, Short.MAX_VALUE)
+                .addGroup(billIframeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(invoice_label)
+                    .addComponent(date_label))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(title_body_seperator, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(billIframeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(patient_name_label)
+                    .addComponent(patient_name_input, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(billIframeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(patient_address_input, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(patient_name_label1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(billIframeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(paitent_contact_input, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(patient_name_label2))
+                .addGap(28, 28, 28)
+                .addComponent(tabel_scrollpane, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         cardPane.add(billIframe, "card3");
 
+        medicineIframe.setBackground(new java.awt.Color(168, 218, 220));
         medicineIframe.setBorder(null);
         medicineIframe.setVisible(true);
 
@@ -206,7 +394,7 @@ public class medicine_management extends javax.swing.JFrame {
             .addGroup(medicineIframeLayout.createSequentialGroup()
                 .addGap(140, 140, 140)
                 .addComponent(jLabel3)
-                .addContainerGap(315, Short.MAX_VALUE))
+                .addContainerGap(345, Short.MAX_VALUE))
         );
         medicineIframeLayout.setVerticalGroup(
             medicineIframeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -218,6 +406,7 @@ public class medicine_management extends javax.swing.JFrame {
 
         cardPane.add(medicineIframe, "card3");
 
+        salesIframe.setBackground(new java.awt.Color(168, 218, 220));
         salesIframe.setBorder(null);
         salesIframe.setVisible(true);
 
@@ -230,7 +419,7 @@ public class medicine_management extends javax.swing.JFrame {
             .addGroup(salesIframeLayout.createSequentialGroup()
                 .addGap(140, 140, 140)
                 .addComponent(jLabel4)
-                .addContainerGap(332, Short.MAX_VALUE))
+                .addContainerGap(362, Short.MAX_VALUE))
         );
         salesIframeLayout.setVerticalGroup(
             salesIframeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -242,10 +431,11 @@ public class medicine_management extends javax.swing.JFrame {
 
         cardPane.add(salesIframe, "card3");
 
+        userIframe.setBackground(new java.awt.Color(168, 218, 220));
         userIframe.setBorder(null);
         userIframe.setVisible(true);
 
-        jLabel5.setText("I am user");
+        jLabel5.setText("i am user");
 
         javax.swing.GroupLayout userIframeLayout = new javax.swing.GroupLayout(userIframe.getContentPane());
         userIframe.getContentPane().setLayout(userIframeLayout);
@@ -254,7 +444,7 @@ public class medicine_management extends javax.swing.JFrame {
             .addGroup(userIframeLayout.createSequentialGroup()
                 .addGap(140, 140, 140)
                 .addComponent(jLabel5)
-                .addContainerGap(335, Short.MAX_VALUE))
+                .addContainerGap(367, Short.MAX_VALUE))
         );
         userIframeLayout.setVerticalGroup(
             userIframeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -311,7 +501,7 @@ public class medicine_management extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowActivated
 
     private void bill_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bill_buttonActionPerformed
-        bill_button.setBackground(new Color(229,107,111));
+        bill_button.setBackground(new Color(168,218,220));
         medicine_manage_button.setBackground(new Color(69,123,157));
         sales_button.setBackground(new Color(69,123,157));
         user_button.setBackground(new Color(69,123,157));
@@ -328,7 +518,7 @@ public class medicine_management extends javax.swing.JFrame {
 
     private void medicine_manage_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_medicine_manage_buttonActionPerformed
         bill_button.setBackground(new Color(69,123,157));
-        medicine_manage_button.setBackground(new Color(229,107,111));
+        medicine_manage_button.setBackground(new Color(168,218,220));
         sales_button.setBackground(new Color(69,123,157));
         user_button.setBackground(new Color(69,123,157));
         
@@ -345,7 +535,7 @@ public class medicine_management extends javax.swing.JFrame {
     private void sales_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sales_buttonActionPerformed
         bill_button.setBackground(new Color(69,123,157));
         medicine_manage_button.setBackground(new Color(69,123,157));
-        sales_button.setBackground(new Color(229,107,111));
+        sales_button.setBackground(new Color(168,218,220));
         user_button.setBackground(new Color(69,123,157));
         
         BasicInternalFrameUI sales_titel_hide = (BasicInternalFrameUI)salesIframe.getUI();
@@ -362,7 +552,7 @@ public class medicine_management extends javax.swing.JFrame {
         bill_button.setBackground(new Color(69,123,157));
         medicine_manage_button.setBackground(new Color(69,123,157));
         sales_button.setBackground(new Color(69,123,157));
-        user_button.setBackground(new Color(229,107,111));
+        user_button.setBackground(new Color(168,218,220));
         
         BasicInternalFrameUI user_titel_hide = (BasicInternalFrameUI)userIframe.getUI();
         user_titel_hide.setNorthPane(null);
@@ -410,17 +600,35 @@ public class medicine_management extends javax.swing.JFrame {
     private javax.swing.JPanel background;
     private javax.swing.JInternalFrame billIframe;
     private javax.swing.JButton bill_button;
+    private javax.swing.JTable bill_table;
     private javax.swing.JPanel cardPane;
+    private javax.swing.JLabel date_label;
+    private javax.swing.JLabel invoice_label;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JInternalFrame medicineIframe;
     private javax.swing.JButton medicine_manage_button;
+    private javax.swing.JTextField paitent_contact_input;
+    private javax.swing.JTextField patient_address_input;
+    private javax.swing.JTextField patient_name_input;
+    private javax.swing.JLabel patient_name_label;
+    private javax.swing.JLabel patient_name_label1;
+    private javax.swing.JLabel patient_name_label2;
     private javax.swing.JInternalFrame salesIframe;
     private javax.swing.JButton sales_button;
     private javax.swing.JPanel side_panel_menu;
+    private javax.swing.JScrollPane tabel_scrollpane;
+    private javax.swing.JSeparator title_body_seperator;
     private javax.swing.JPanel title_pane;
     private javax.swing.JInternalFrame userIframe;
     private javax.swing.JButton user_button;
