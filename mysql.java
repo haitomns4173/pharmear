@@ -8,6 +8,10 @@ public class mysql {
     static ResultSet result = null;
     static boolean login_status = false;
     
+    static String company_name;
+    static String company_address;
+    static String company_phoneNo;
+    
     public static void main(String args[]) {
         String db_url = "jdbc:mysql://localhost:3306/pharma_knowhere";
         String db_username = "root";
@@ -37,6 +41,27 @@ public class mysql {
         else{
             JOptionPane.showMessageDialog(null, "Username or Password is Incorrect");
             login_status = false;
+        }
+    }
+    
+    public static void select_query_executor() throws SQLException{
+        int number_of_rows = 0;
+        stmt = connect.createStatement();
+        String query = "SELECT `name`, `address`, `phone` FROM `company` WHERE 1";
+        result = stmt.executeQuery(query);
+        while(result.next()) {
+            company_name = result.getString(1);
+            company_address = result.getString(2);
+            company_phoneNo = result.getString(3);
+        }
+    }
+    
+    public static void auto_suggestion_medicine() throws SQLException{
+        stmt = connect.createStatement();
+        String query = "SELECT * FROM `medicine_list`";
+        result = stmt.executeQuery(query);
+        while(result.next()) {
+            medicine_management.medicine_name_db.add(result.getString(2));
         }
     }
 }

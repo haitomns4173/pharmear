@@ -173,7 +173,7 @@ public class loginPage extends javax.swing.JFrame {
     }//GEN-LAST:event_login_buttomActionPerformed
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
-        ImageIcon icon = new ImageIcon("D:\\MMS\\MMS\\src\\mms\\src\\icon.png");
+        ImageIcon icon = new ImageIcon("D:\\MMS\\MMS\\MMS\\src\\mms\\src\\icon.png");
         setIconImage(icon.getImage());
     }//GEN-LAST:event_formWindowActivated
 
