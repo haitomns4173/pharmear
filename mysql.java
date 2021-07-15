@@ -44,7 +44,6 @@ public class mysql {
     }
     
     public static void select_query_executor() throws SQLException{
-        int number_of_rows = 0;
         stmt = connect.createStatement();
         String query = "SELECT `name`, `address`, `phone` FROM `company` WHERE 1";
         result = stmt.executeQuery(query);
@@ -60,7 +59,16 @@ public class mysql {
         String query = "SELECT * FROM `medicine_list`";
         result = stmt.executeQuery(query);
         while(result.next()) {
-            medicine_management.medicine_name_db.add(result.getString(2));
+            medicine_management.medicine_name_auto.add(result.getString(2));  
+        }
+    }
+    
+    public static void medicine_mrp() throws SQLException{
+        stmt = connect.createStatement();
+        String query = "SELECT * FROM `medicine_list` WHERE `drug` LIKE '%"+medicine_management.medicine_with_under+"%'";
+        result = stmt.executeQuery(query);
+        while(result.next()) {
+            medicine_management.medicine_price = result.getFloat(8);
         }
     }
 }

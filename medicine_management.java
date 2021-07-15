@@ -12,10 +12,13 @@ import java.util.TreeSet;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
 import javax.swing.table.DefaultTableModel;
 
+
 public class medicine_management extends javax.swing.JFrame {
-    static int medicine_bill_id = 1;
-    static Set<String> medicine_name_db =new TreeSet<String>();
-    
+    int medicine_bill_id = 1;
+    static Set<String> medicine_name_auto = new TreeSet<String>();
+    static float medicine_price = 0;
+    static String medicine_with_under;
+            
     public medicine_management() {
         initComponents();
         setExtendedState(medicine_management.MAXIMIZED_BOTH);
@@ -807,22 +810,30 @@ public class medicine_management extends javax.swing.JFrame {
     }//GEN-LAST:event_user_buttonActionPerformed
 
     private void billIframeInternalFrameActivated(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_billIframeInternalFrameActivated
-    try {
+        try {
             mysql.select_query_executor();
-        } 
+        }
         catch (SQLException database_error_message) {
             JOptionPane.showMessageDialog(null, database_error_message);
         }
-    bill_company_name.setText(mysql.company_name);
-    bill_company_address.setText(mysql.company_address);
-    bill_company_phone.setText(mysql.company_phoneNo);
-    
-    DateFormat current_date = new SimpleDateFormat("dd/MM/yyyy");
-    Date current_dateObj = new Date();
-    date_display.setText(current_date.format(current_dateObj));
+        bill_company_name.setText(mysql.company_name);
+        bill_company_address.setText(mysql.company_address);
+        bill_company_phone.setText(mysql.company_phoneNo);
+
+        DateFormat current_date = new SimpleDateFormat("dd/MM/yyyy");
+        Date current_dateObj = new Date();
+        date_display.setText(current_date.format(current_dateObj));
     }//GEN-LAST:event_billIframeInternalFrameActivated
 
     private void add_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_buttonActionPerformed
+        medicine_with_under = medicine_name_input.getText().replace(' ', '%');
+        medicine_with_under = medicine_with_under.substring(0, medicine_with_under.length()-1);
+        try {
+            mysql.medicine_mrp();
+        }
+        catch (SQLException database_error_message) {
+            JOptionPane.showMessageDialog(null, database_error_message);
+        }
         if(medicine_name_input.getText().trim().isEmpty() || medicine_quantity_input.getText().trim().isEmpty())
         {
             add_button.setEnabled(false);
@@ -830,7 +841,7 @@ public class medicine_management extends javax.swing.JFrame {
         }
         else{
             DefaultTableModel bill_table_add = (DefaultTableModel)bill_table.getModel();
-            bill_table_add.addRow(new Object[]{medicine_bill_id++,medicine_name_input.getText(), medicine_quantity_input.getText()});
+            bill_table_add.addRow(new Object[]{medicine_bill_id++,medicine_name_input.getText(), medicine_quantity_input.getText(),medicine_price});
 
             medicine_name_input.setText(null);
             medicine_quantity_input.setText(null);
@@ -838,7 +849,7 @@ public class medicine_management extends javax.swing.JFrame {
     }//GEN-LAST:event_add_buttonActionPerformed
 
     private void medicine_quantity_inputKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_medicine_quantity_inputKeyTyped
-         if (Character.isDigit(evt.getKeyChar()) || Character.isWhitespace(evt.getKeyChar())) {
+        if (Character.isDigit(evt.getKeyChar()) || Character.isWhitespace(evt.getKeyChar())) {
             medicine_input_error.setText("");
             add_button.setEnabled(true);
         }
@@ -853,20 +864,20 @@ public class medicine_management extends javax.swing.JFrame {
         int position_of_medicine_name = medicine_name_input.getCaretPosition();
         medicine_name_input.setText(medicine_name_input.getText().toUpperCase());
         medicine_name_input.setCaretPosition(position_of_medicine_name);
-        
+
         try {
             mysql.auto_suggestion_medicine(); ;
-        } 
+        }
         catch (SQLException database_error_message) {
             JOptionPane.showMessageDialog(null, database_error_message);
         }
-        
+
         if(evt.getKeyCode()==KeyEvent.VK_BACK_SPACE||evt.getKeyCode()==KeyEvent.VK_DELETE){}
         else
-        {   
+        {
             String to_check = medicine_name_input.getText();
             int to_check_len = to_check.length();
-            for(String data:medicine_name_db)
+            for(String data:medicine_name_auto)
             {
                 String check_from_data="";
                 for(int checking=0;checking<to_check_len;checking++)
@@ -887,17 +898,11 @@ public class medicine_management extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_medicine_name_inputKeyReleased
 
-    private void patient_name_inputKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_patient_name_inputKeyPressed
+    private void medicine_name_inputKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_medicine_name_inputKeyPressed
         if (evt.getKeyCode()==KeyEvent.VK_ENTER) {
-            patient_address_input.requestFocus();
+            medicine_quantity_input.requestFocus();
         }
-    }//GEN-LAST:event_patient_name_inputKeyPressed
-
-    private void patient_address_inputKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_patient_address_inputKeyPressed
-        if (evt.getKeyCode()==KeyEvent.VK_ENTER) {
-            paitent_contact_input.requestFocus();
-        }
-    }//GEN-LAST:event_patient_address_inputKeyPressed
+    }//GEN-LAST:event_medicine_name_inputKeyPressed
 
     private void paitent_contact_inputKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_paitent_contact_inputKeyPressed
         char text_in_patient_contact = evt.getKeyChar();
@@ -918,11 +923,17 @@ public class medicine_management extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_paitent_contact_inputKeyPressed
 
-    private void medicine_name_inputKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_medicine_name_inputKeyPressed
-         if (evt.getKeyCode()==KeyEvent.VK_ENTER) {
-            medicine_quantity_input.requestFocus();
-         }
-    }//GEN-LAST:event_medicine_name_inputKeyPressed
+    private void patient_address_inputKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_patient_address_inputKeyPressed
+        if (evt.getKeyCode()==KeyEvent.VK_ENTER) {
+            paitent_contact_input.requestFocus();
+        }
+    }//GEN-LAST:event_patient_address_inputKeyPressed
+
+    private void patient_name_inputKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_patient_name_inputKeyPressed
+        if (evt.getKeyCode()==KeyEvent.VK_ENTER) {
+            patient_address_input.requestFocus();
+        }
+    }//GEN-LAST:event_patient_name_inputKeyPressed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -937,15 +948,11 @@ public class medicine_management extends javax.swing.JFrame {
                     break;
                 }
             }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(medicine_management.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(medicine_management.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(medicine_management.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(medicine_management.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        
         //</editor-fold>
 
         /* Create and display the form */
