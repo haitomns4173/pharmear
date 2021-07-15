@@ -20,9 +20,8 @@ public class mysql {
         try {
             connect = DriverManager.getConnection(db_url, db_username, db_password);
         }
-        catch(Exception database_error_message){
+        catch(SQLException database_error_message){
             JOptionPane.showMessageDialog(null, database_error_message);
-            database_error_message.printStackTrace();
         }
     }
     

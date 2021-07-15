@@ -1,7 +1,7 @@
 package mms;
+import java.awt.event.KeyEvent;
 import javax.swing.*;
 import java.sql.*;
-import java.util.*;
 
 public class loginPage extends javax.swing.JFrame {
     public loginPage() {
@@ -71,21 +71,36 @@ public class loginPage extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        login_title_label.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 18)); // NOI18N
+        login_title_label.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         login_title_label.setForeground(new java.awt.Color(255, 255, 255));
         login_title_label.setText("Login");
 
         title_seperator.setForeground(new java.awt.Color(255, 255, 255));
 
-        login_title_label1.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 14)); // NOI18N
+        login_title_label1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         login_title_label1.setForeground(new java.awt.Color(255, 255, 255));
         login_title_label1.setText("Username");
 
-        login_title_label2.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 14)); // NOI18N
+        login_title_label2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         login_title_label2.setForeground(new java.awt.Color(255, 255, 255));
         login_title_label2.setText("Passowrd");
 
+        username_input.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
+        username_input.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                username_inputKeyPressed(evt);
+            }
+        });
+
+        password_input.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
+        password_input.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                password_inputKeyPressed(evt);
+            }
+        });
+
         login_buttom.setBackground(new java.awt.Color(49, 122, 121));
+        login_buttom.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         login_buttom.setForeground(new java.awt.Color(255, 255, 255));
         login_buttom.setText("Login");
         login_buttom.addActionListener(new java.awt.event.ActionListener() {
@@ -161,7 +176,6 @@ public class loginPage extends javax.swing.JFrame {
         } 
         catch (SQLException database_error_message) {
             JOptionPane.showMessageDialog(null, database_error_message);
-            database_error_message.printStackTrace();
         }
         if(mysql.login_status){
             setVisible(false);
@@ -176,6 +190,18 @@ public class loginPage extends javax.swing.JFrame {
         ImageIcon icon = new ImageIcon("D:\\MMS\\MMS\\MMS\\src\\mms\\src\\icon.png");
         setIconImage(icon.getImage());
     }//GEN-LAST:event_formWindowActivated
+
+    private void username_inputKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_username_inputKeyPressed
+       if (evt.getKeyCode()==KeyEvent.VK_ENTER) {
+            password_input.requestFocus();
+        }
+    }//GEN-LAST:event_username_inputKeyPressed
+
+    private void password_inputKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_password_inputKeyPressed
+        if (evt.getKeyCode()==KeyEvent.VK_ENTER) {
+            login_buttom.doClick(1);
+        }
+    }//GEN-LAST:event_password_inputKeyPressed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -202,10 +228,8 @@ public class loginPage extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new loginPage().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new loginPage().setVisible(true);
         });
     }
 
