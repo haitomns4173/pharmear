@@ -11,8 +11,12 @@ import java.util.Set;
 import java.util.TreeSet;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
 import javax.swing.table.DefaultTableModel;
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.ChartFrame;
 import org.jfree.chart.JFreeChart;
-
+import org.jfree.chart.plot.CategoryPlot;
+import org.jfree.chart.plot.PlotOrientation;
+import org.jfree.data.category.DefaultCategoryDataset;
 
 public class medicine_management extends javax.swing.JFrame {
     int medicine_bill_id = 1;
@@ -1773,7 +1777,18 @@ public class medicine_management extends javax.swing.JFrame {
     }//GEN-LAST:event_medicineIframeInternalFrameActivated
 
     private void justJokingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_justJokingActionPerformed
-
+        DefaultCategoryDataset dcb = new DefaultCategoryDataset();
+        dcb.setValue(100, "Marks", "Haitomns");
+        dcb.setValue(89, "Marks", "Hai");
+        dcb.setValue(90, "Marks", "Haitom");
+        dcb.setValue(60, "Marks", "Haitom");
+        
+        JFreeChart jchart;
+        jchart = ChartFactory.createBarChart("std name", "std marks","std record", dcb, PlotOrientation.VERTICAL, true, true, false);
+        CategoryPlot plot = jchart.getCategoryPlot();
+        
+        ChartFrame chartFrame = new ChartFrame("Std Record", jchart, true);
+        chartFrame.setVisible(true);
     }//GEN-LAST:event_justJokingActionPerformed
 
     public static void main(String args[]) {
