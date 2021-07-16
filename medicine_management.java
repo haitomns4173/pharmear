@@ -90,8 +90,8 @@ public class medicine_management extends javax.swing.JFrame {
         jSeparator1 = new javax.swing.JSeparator();
         medicine_name_label = new javax.swing.JLabel();
         medicine_name_find_input = new javax.swing.JTextField();
-        find_button = new javax.swing.JButton();
         medicine_find_error = new javax.swing.JLabel();
+        find_button1 = new javax.swing.JButton();
         tabel_scrollpanel1 = new javax.swing.JScrollPane();
         bill_table1 = new javax.swing.JTable();
         bill_table.getTableHeader().setBackground(new Color(25,130,196));
@@ -104,7 +104,6 @@ public class medicine_management extends javax.swing.JFrame {
         medicine_name_find_input1 = new javax.swing.JTextField();
         medicine_find_error1 = new javax.swing.JLabel();
         medicine_name_find_input2 = new javax.swing.JTextField();
-        medicine_name_label2 = new javax.swing.JLabel();
         medicine_name_find_input3 = new javax.swing.JTextField();
         medicine_name_label3 = new javax.swing.JLabel();
         medicine_name_label4 = new javax.swing.JLabel();
@@ -114,6 +113,13 @@ public class medicine_management extends javax.swing.JFrame {
         jComboBox1 = new javax.swing.JComboBox<>();
         medicine_name_label6 = new javax.swing.JLabel();
         medicine_name_label7 = new javax.swing.JLabel();
+        medicine_name_label2 = new javax.swing.JLabel();
+        medicine_name_label8 = new javax.swing.JLabel();
+        medicine_name_find_input6 = new javax.swing.JTextField();
+        medicine_name_label9 = new javax.swing.JLabel();
+        medicine_name_find_input7 = new javax.swing.JTextField();
+        find_button = new javax.swing.JButton();
+        find_button2 = new javax.swing.JButton();
         salesIframe = new javax.swing.JInternalFrame();
         sales_panel_label = new javax.swing.JLabel();
         userIframe = new javax.swing.JInternalFrame();
@@ -605,7 +611,7 @@ public class medicine_management extends javax.swing.JFrame {
         command_center_paneLayout.setVerticalGroup(
             command_center_paneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(command_center_paneLayout.createSequentialGroup()
-                .addContainerGap(7, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(command_center)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(command_center_seperator, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -739,19 +745,19 @@ public class medicine_management extends javax.swing.JFrame {
             }
         });
 
-        find_button.setBackground(new java.awt.Color(138, 201, 38));
-        find_button.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
-        find_button.setForeground(new java.awt.Color(255, 255, 255));
-        find_button.setText("Find");
-        find_button.setBorder(null);
-        find_button.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                find_buttonActionPerformed(evt);
-            }
-        });
-
         medicine_find_error.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
         medicine_find_error.setForeground(new java.awt.Color(255, 255, 255));
+
+        find_button1.setBackground(new java.awt.Color(138, 201, 38));
+        find_button1.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
+        find_button1.setForeground(new java.awt.Color(255, 255, 255));
+        find_button1.setText("Find");
+        find_button1.setBorder(null);
+        find_button1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                find_button1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout medicine_find_panelLayout = new javax.swing.GroupLayout(medicine_find_panel);
         medicine_find_panel.setLayout(medicine_find_panelLayout);
@@ -759,8 +765,8 @@ public class medicine_management extends javax.swing.JFrame {
             medicine_find_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(medicine_find_panelLayout.createSequentialGroup()
                 .addGap(24, 24, 24)
-                .addGroup(medicine_find_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jSeparator1)
+                .addGroup(medicine_find_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 475, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(find_medicine_label, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(medicine_find_panelLayout.createSequentialGroup()
                         .addGap(148, 148, 148)
@@ -770,8 +776,8 @@ public class medicine_management extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(medicine_name_find_input, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(find_button, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(36, Short.MAX_VALUE))
+                        .addComponent(find_button1, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(24, Short.MAX_VALUE))
         );
         medicine_find_panelLayout.setVerticalGroup(
             medicine_find_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -784,7 +790,7 @@ public class medicine_management extends javax.swing.JFrame {
                 .addGroup(medicine_find_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(medicine_name_label)
                     .addComponent(medicine_name_find_input, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(find_button, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(find_button1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(48, 48, 48)
                 .addComponent(medicine_find_error)
                 .addGap(0, 0, Short.MAX_VALUE))
@@ -793,7 +799,8 @@ public class medicine_management extends javax.swing.JFrame {
         bill_table1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         bill_table1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-
+                {null, "", null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
                 "Sn. No", "Medicine Name", "Quantity", "Rate", "Total", "Edit"
@@ -849,10 +856,6 @@ public class medicine_management extends javax.swing.JFrame {
             }
         });
 
-        medicine_name_label2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        medicine_name_label2.setForeground(new java.awt.Color(255, 255, 255));
-        medicine_name_label2.setText("Medicine Expiry Date");
-
         medicine_name_find_input3.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 medicine_name_find_input3KeyPressed(evt);
@@ -861,11 +864,11 @@ public class medicine_management extends javax.swing.JFrame {
 
         medicine_name_label3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         medicine_name_label3.setForeground(new java.awt.Color(255, 255, 255));
-        medicine_name_label3.setText("Quantity");
+        medicine_name_label3.setText("Number of Sheet");
 
         medicine_name_label4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         medicine_name_label4.setForeground(new java.awt.Color(255, 255, 255));
-        medicine_name_label4.setText("Cost");
+        medicine_name_label4.setText("Number of Tablet");
 
         medicine_name_find_input4.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -881,7 +884,7 @@ public class medicine_management extends javax.swing.JFrame {
 
         medicine_name_label5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         medicine_name_label5.setForeground(new java.awt.Color(255, 255, 255));
-        medicine_name_label5.setText("Strength/Volume (MG)");
+        medicine_name_label5.setText("Strength/Volume");
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tablet", "Capsule", "Tube", "Bottol", "Sachet", "Ampoule", "Vial", "Pre Filled Pen", "Canister", "Kit" }));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
@@ -897,46 +900,103 @@ public class medicine_management extends javax.swing.JFrame {
         medicine_name_label7.setForeground(new java.awt.Color(255, 255, 255));
         medicine_name_label7.setText("Type");
 
+        medicine_name_label2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        medicine_name_label2.setForeground(new java.awt.Color(255, 255, 255));
+        medicine_name_label2.setText("MRP");
+
+        medicine_name_label8.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        medicine_name_label8.setForeground(new java.awt.Color(255, 255, 255));
+        medicine_name_label8.setText("Number of Box");
+
+        medicine_name_find_input6.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                medicine_name_find_input6KeyPressed(evt);
+            }
+        });
+
+        medicine_name_label9.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        medicine_name_label9.setForeground(new java.awt.Color(255, 255, 255));
+        medicine_name_label9.setText("Expiry Date");
+
+        medicine_name_find_input7.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                medicine_name_find_input7KeyPressed(evt);
+            }
+        });
+
+        find_button.setBackground(new java.awt.Color(138, 201, 38));
+        find_button.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
+        find_button.setForeground(new java.awt.Color(255, 255, 255));
+        find_button.setText("Add");
+        find_button.setBorder(null);
+        find_button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                find_buttonActionPerformed(evt);
+            }
+        });
+
+        find_button2.setBackground(new java.awt.Color(248, 150, 30));
+        find_button2.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
+        find_button2.setForeground(new java.awt.Color(255, 255, 255));
+        find_button2.setText("Update");
+        find_button2.setBorder(null);
+        find_button2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                find_button2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout medicine_find_panel1Layout = new javax.swing.GroupLayout(medicine_find_panel1);
         medicine_find_panel1.setLayout(medicine_find_panel1Layout);
         medicine_find_panel1Layout.setHorizontalGroup(
             medicine_find_panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(medicine_find_panel1Layout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addGroup(medicine_find_panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(medicine_find_panel1Layout.createSequentialGroup()
-                        .addGroup(medicine_find_panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(medicine_name_label3)
-                            .addComponent(medicine_name_label4))
-                        .addGap(63, 63, 63)
-                        .addGroup(medicine_find_panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(medicine_name_find_input4, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(medicine_name_find_input3, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 469, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(medicine_find_panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(find_medicine_label1, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(medicine_find_panel1Layout.createSequentialGroup()
-                        .addGroup(medicine_find_panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(medicine_name_label1)
-                            .addGroup(medicine_find_panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addGroup(medicine_find_panel1Layout.createSequentialGroup()
-                                    .addComponent(medicine_name_label7)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(medicine_name_label6)
-                                    .addGap(39, 39, 39))
-                                .addComponent(medicine_name_label2)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(medicine_find_panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(medicine_name_find_input1, javax.swing.GroupLayout.DEFAULT_SIZE, 279, Short.MAX_VALUE)
-                            .addComponent(medicine_name_find_input2, javax.swing.GroupLayout.DEFAULT_SIZE, 279, Short.MAX_VALUE)
-                            .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(medicine_find_panel1Layout.createSequentialGroup()
                         .addGap(448, 448, 448)
                         .addComponent(medicine_find_error1))
-                    .addGroup(medicine_find_panel1Layout.createSequentialGroup()
-                        .addComponent(medicine_name_label5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(medicine_name_find_input5, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(174, Short.MAX_VALUE))
+                    .addGroup(medicine_find_panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, medicine_find_panel1Layout.createSequentialGroup()
+                            .addComponent(medicine_name_label2)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(medicine_name_find_input4, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jSeparator2, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(medicine_find_panel1Layout.createSequentialGroup()
+                            .addComponent(medicine_name_label4)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(medicine_name_find_input3, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, medicine_find_panel1Layout.createSequentialGroup()
+                            .addGroup(medicine_find_panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(medicine_find_panel1Layout.createSequentialGroup()
+                                    .addComponent(medicine_name_label7)
+                                    .addGap(70, 70, 70)
+                                    .addComponent(medicine_name_label6))
+                                .addComponent(medicine_name_label1)
+                                .addComponent(medicine_name_label5)
+                                .addComponent(medicine_name_label3))
+                            .addGap(34, 34, 34)
+                            .addGroup(medicine_find_panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(medicine_name_find_input5, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(medicine_find_panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(medicine_name_find_input1)
+                                    .addComponent(medicine_name_find_input2)
+                                    .addComponent(jComboBox1, 0, 279, Short.MAX_VALUE))))
+                        .addGroup(medicine_find_panel1Layout.createSequentialGroup()
+                            .addComponent(medicine_name_label8)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(medicine_name_find_input6, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(medicine_find_panel1Layout.createSequentialGroup()
+                            .addComponent(medicine_name_label9)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(medicine_find_panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(medicine_find_panel1Layout.createSequentialGroup()
+                                    .addComponent(find_button, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(find_button2, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(medicine_name_find_input7, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         medicine_find_panel1Layout.setVerticalGroup(
             medicine_find_panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -956,25 +1016,37 @@ public class medicine_management extends javax.swing.JFrame {
                     .addComponent(medicine_name_label7))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(medicine_find_panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(medicine_find_error1)
-                    .addGroup(medicine_find_panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(medicine_name_find_input2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(medicine_name_label2)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
-                .addGroup(medicine_find_panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(medicine_name_label5)
-                    .addComponent(medicine_name_find_input5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(medicine_find_panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(medicine_name_find_input3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(medicine_find_panel1Layout.createSequentialGroup()
-                        .addComponent(medicine_name_label3)
-                        .addGap(2, 2, 2)))
+                        .addComponent(medicine_find_error1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(medicine_name_label5)
+                        .addGap(6, 6, 6))
+                    .addComponent(medicine_name_find_input2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(medicine_find_panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(medicine_name_label4)
-                    .addComponent(medicine_name_find_input4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(17, 17, 17))
+                    .addComponent(medicine_name_find_input5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(medicine_name_label3))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(medicine_find_panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(medicine_name_find_input3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(medicine_name_label4))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(medicine_find_panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(medicine_name_find_input4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(medicine_name_label2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(medicine_find_panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(medicine_name_find_input6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(medicine_name_label8))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(medicine_find_panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(medicine_name_label9)
+                    .addComponent(medicine_name_find_input7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(medicine_find_panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(find_button, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(find_button2, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(23, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout medicineIframeLayout = new javax.swing.GroupLayout(medicineIframe.getContentPane());
@@ -987,9 +1059,9 @@ public class medicine_management extends javax.swing.JFrame {
                     .addComponent(tabel_scrollpanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 786, Short.MAX_VALUE)
                     .addGroup(medicineIframeLayout.createSequentialGroup()
                         .addGroup(medicineIframeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(medicine_find_panel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(medicine_title_lable, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(medicine_find_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(medicine_find_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(medicine_find_panel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -1001,10 +1073,10 @@ public class medicine_management extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(medicine_find_panel, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(tabel_scrollpanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(tabel_scrollpanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(medicine_find_panel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(43, Short.MAX_VALUE))
+                .addContainerGap(88, Short.MAX_VALUE))
         );
 
         cardPane.add(medicineIframe, "card3");
@@ -1337,6 +1409,22 @@ public class medicine_management extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
+    private void medicine_name_find_input6KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_medicine_name_find_input6KeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_medicine_name_find_input6KeyPressed
+
+    private void medicine_name_find_input7KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_medicine_name_find_input7KeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_medicine_name_find_input7KeyPressed
+
+    private void find_button1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_find_button1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_find_button1ActionPerformed
+
+    private void find_button2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_find_button2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_find_button2ActionPerformed
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -1388,6 +1476,8 @@ public class medicine_management extends javax.swing.JFrame {
     private javax.swing.JLabel date_display;
     private javax.swing.JLabel date_label;
     private javax.swing.JButton find_button;
+    private javax.swing.JButton find_button1;
+    private javax.swing.JButton find_button2;
     private javax.swing.JLabel find_medicine_label;
     private javax.swing.JLabel find_medicine_label1;
     private javax.swing.JLabel invoice_label;
@@ -1411,6 +1501,8 @@ public class medicine_management extends javax.swing.JFrame {
     private javax.swing.JTextField medicine_name_find_input3;
     private javax.swing.JTextField medicine_name_find_input4;
     private javax.swing.JTextField medicine_name_find_input5;
+    private javax.swing.JTextField medicine_name_find_input6;
+    private javax.swing.JTextField medicine_name_find_input7;
     private javax.swing.JTextField medicine_name_input;
     private javax.swing.JLabel medicine_name_label;
     private javax.swing.JLabel medicine_name_label1;
@@ -1420,6 +1512,8 @@ public class medicine_management extends javax.swing.JFrame {
     private javax.swing.JLabel medicine_name_label5;
     private javax.swing.JLabel medicine_name_label6;
     private javax.swing.JLabel medicine_name_label7;
+    private javax.swing.JLabel medicine_name_label8;
+    private javax.swing.JLabel medicine_name_label9;
     private javax.swing.JTextField medicine_quantity_input;
     private javax.swing.JPanel medicine_title_lable;
     private javax.swing.JLabel medinine_label;
