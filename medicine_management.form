@@ -307,7 +307,7 @@
                               <Group type="102" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="invoide_date_panel" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="tabel_scrollpanel" alignment="0" pref="766" max="32767" attributes="0"/>
+                                      <Component id="bill_tabel_scrollpanel" alignment="0" pref="766" max="32767" attributes="0"/>
                                       <Group type="102" attributes="0">
                                           <Group type="103" groupAlignment="0" attributes="0">
                                               <Component id="bill_title_label" min="-2" max="-2" attributes="0"/>
@@ -338,7 +338,7 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="patient_details_panel" min="-2" max="-2" attributes="0"/>
                           <EmptySpace pref="39" max="32767" attributes="0"/>
-                          <Component id="tabel_scrollpanel" min="-2" pref="170" max="-2" attributes="0"/>
+                          <Component id="bill_tabel_scrollpanel" min="-2" pref="170" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="bill_input_panel" min="-2" max="-2" attributes="0"/>
@@ -620,7 +620,7 @@
                     </Component>
                   </SubComponents>
                 </Container>
-                <Container class="javax.swing.JScrollPane" name="tabel_scrollpanel">
+                <Container class="javax.swing.JScrollPane" name="bill_tabel_scrollpanel">
                   <AuxValues>
                     <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
                   </AuxValues>
@@ -981,12 +981,12 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="tabel_scrollpanel1" pref="786" max="32767" attributes="0"/>
+                              <Component id="medMgr_tabel_scrollpanel" pref="786" max="32767" attributes="0"/>
                               <Group type="102" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="medicine_title_lable" min="-2" max="-2" attributes="0"/>
-                                      <Component id="medicine_find_panel" min="-2" max="-2" attributes="0"/>
-                                      <Component id="medicine_find_panel1" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="medMgr_title_lable" min="-2" max="-2" attributes="0"/>
+                                      <Component id="medMgr_find_panel" min="-2" max="-2" attributes="0"/>
+                                      <Component id="medMgr_details_panel" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                               </Group>
@@ -998,21 +998,21 @@
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                          <Component id="medicine_title_lable" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                          <Component id="medMgr_title_lable" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="medicine_find_panel" min="-2" pref="89" max="-2" attributes="0"/>
+                          <Component id="medMgr_find_panel" min="-2" pref="89" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="tabel_scrollpanel1" min="-2" pref="83" max="-2" attributes="0"/>
+                          <Component id="medMgr_tabel_scrollpanel" min="-2" pref="83" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="medicine_find_panel1" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="88" max="32767" attributes="0"/>
+                          <Component id="medMgr_details_panel" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
               </Layout>
               <SubComponents>
-                <Container class="javax.swing.JPanel" name="medicine_title_lable">
+                <Container class="javax.swing.JPanel" name="medMgr_title_lable">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="c4" green="82" red="19" type="rgb"/>
@@ -1025,9 +1025,9 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="medicine_company_name" alignment="0" min="-2" pref="181" max="-2" attributes="0"/>
-                                  <Component id="medicine_company_phone" alignment="0" min="-2" pref="170" max="-2" attributes="0"/>
-                                  <Component id="medicine_company_address" alignment="0" min="-2" pref="321" max="-2" attributes="0"/>
+                                  <Component id="medMgr_company_name" alignment="0" min="-2" pref="181" max="-2" attributes="0"/>
+                                  <Component id="medMgr_company_phone" alignment="0" min="-2" pref="170" max="-2" attributes="0"/>
+                                  <Component id="medMgr_company_address" alignment="0" min="-2" pref="321" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="32767" attributes="0"/>
                           </Group>
@@ -1037,18 +1037,18 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="medicine_company_name" min="-2" pref="20" max="-2" attributes="0"/>
+                              <Component id="medMgr_company_name" min="-2" pref="20" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="medicine_company_phone" min="-2" pref="20" max="-2" attributes="0"/>
+                              <Component id="medMgr_company_phone" min="-2" pref="20" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="medicine_company_address" min="-2" max="-2" attributes="0"/>
+                              <Component id="medMgr_company_address" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
                   </Layout>
                   <SubComponents>
-                    <Component class="javax.swing.JLabel" name="medicine_company_name">
+                    <Component class="javax.swing.JLabel" name="medMgr_company_name">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Segoe UI" size="18" style="1"/>
@@ -1060,7 +1060,7 @@
                         <Property name="text" type="java.lang.String" value="Company"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JLabel" name="medicine_company_phone">
+                    <Component class="javax.swing.JLabel" name="medMgr_company_phone">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Segoe UI" size="18" style="1"/>
@@ -1072,7 +1072,7 @@
                         <Property name="text" type="java.lang.String" value="Phone"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JLabel" name="medicine_company_address">
+                    <Component class="javax.swing.JLabel" name="medMgr_company_address">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Segoe UI" size="18" style="1"/>
@@ -1086,7 +1086,7 @@
                     </Component>
                   </SubComponents>
                 </Container>
-                <Container class="javax.swing.JPanel" name="medicine_find_panel">
+                <Container class="javax.swing.JPanel" name="medMgr_find_panel">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="c4" green="82" red="19" type="rgb"/>
@@ -1099,18 +1099,18 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jSeparator1" min="-2" pref="475" max="-2" attributes="0"/>
+                                  <Component id="find_medicine_seperator" min="-2" pref="475" max="-2" attributes="0"/>
                                   <Component id="find_medicine_label" min="-2" pref="124" max="-2" attributes="0"/>
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace min="-2" pref="148" max="-2" attributes="0"/>
-                                      <Component id="medicine_find_error" min="-2" max="-2" attributes="0"/>
+                                      <Component id="medMgr_find_error" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="medicine_name_label" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="medicine_name_find_input" min="-2" pref="279" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="find_button1" min="-2" pref="73" max="-2" attributes="0"/>
+                                      <Component id="find_button" min="-2" pref="73" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <EmptySpace pref="24" max="32767" attributes="0"/>
@@ -1123,15 +1123,15 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="find_medicine_label" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jSeparator1" min="-2" pref="10" max="-2" attributes="0"/>
+                              <Component id="find_medicine_seperator" min="-2" pref="10" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="medicine_name_label" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="medicine_name_find_input" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="find_button1" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
+                                  <Component id="find_button" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
-                              <Component id="medicine_find_error" min="-2" max="-2" attributes="0"/>
+                              <Component id="medMgr_find_error" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
                       </Group>
@@ -1149,7 +1149,7 @@
                         <Property name="text" type="java.lang.String" value="Find Medicine"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JSeparator" name="jSeparator1">
+                    <Component class="javax.swing.JSeparator" name="find_medicine_seperator">
                     </Component>
                     <Component class="javax.swing.JLabel" name="medicine_name_label">
                       <Properties>
@@ -1167,17 +1167,7 @@
                         <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="medicine_name_find_inputKeyPressed"/>
                       </Events>
                     </Component>
-                    <Component class="javax.swing.JLabel" name="medicine_find_error">
-                      <Properties>
-                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Segoe UI" size="11" style="1"/>
-                        </Property>
-                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                          <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                        </Property>
-                      </Properties>
-                    </Component>
-                    <Component class="javax.swing.JButton" name="find_button1">
+                    <Component class="javax.swing.JButton" name="find_button">
                       <Properties>
                         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="26" green="c9" red="8a" type="rgb"/>
@@ -1194,19 +1184,30 @@
                         </Property>
                       </Properties>
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="find_button1ActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="find_buttonActionPerformed"/>
                       </Events>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="medMgr_find_error">
+                      <Properties>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Segoe UI" size="11" style="1"/>
+                        </Property>
+                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                        </Property>
+                        <Property name="text" type="java.lang.String" value="Find ERROR"/>
+                      </Properties>
                     </Component>
                   </SubComponents>
                 </Container>
-                <Container class="javax.swing.JScrollPane" name="tabel_scrollpanel1">
+                <Container class="javax.swing.JScrollPane" name="medMgr_tabel_scrollpanel">
                   <AuxValues>
                     <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
                   </AuxValues>
 
                   <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                   <SubComponents>
-                    <Component class="javax.swing.JTable" name="bill_table1">
+                    <Component class="javax.swing.JTable" name="medMgr_table">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Segoe UI" size="14" style="1"/>
@@ -1264,12 +1265,12 @@
                         </Property>
                       </Properties>
                       <AuxValues>
-                        <AuxValue name="JavaCodeGenerator_CreateCodePost" type="java.lang.String" value="bill_table.getTableHeader().setBackground(new Color(25,130,196));&#xd;&#xa;bill_table.getTableHeader().setFont(new Font(&quot;Segoe UI&quot;, Font.BOLD, 14));&#xd;&#xa;bill_table.getTableHeader().setForeground(Color.WHITE);"/>
+                        <AuxValue name="JavaCodeGenerator_CreateCodePost" type="java.lang.String" value="medMgr_table.getTableHeader().setBackground(new Color(25,130,196));&#xd;&#xa;medMgr_table.getTableHeader().setFont(new Font(&quot;Segoe UI&quot;, Font.BOLD, 14));&#xd;&#xa;medMgr_table.getTableHeader().setForeground(Color.WHITE);"/>
                       </AuxValues>
                     </Component>
                   </SubComponents>
                 </Container>
-                <Container class="javax.swing.JPanel" name="medicine_find_panel1">
+                <Container class="javax.swing.JPanel" name="medMgr_details_panel">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="c4" green="82" red="19" type="rgb"/>
@@ -1280,66 +1281,64 @@
                     <DimensionLayout dim="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="find_medicine_label1" alignment="0" min="-2" pref="124" max="-2" attributes="0"/>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="-2" pref="448" max="-2" attributes="0"/>
-                                      <Component id="medicine_find_error1" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
                                       <Group type="102" alignment="0" attributes="0">
-                                          <Component id="medicine_name_label2" min="-2" max="-2" attributes="0"/>
+                                          <Component id="medMgr_mrp_label" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace max="32767" attributes="0"/>
-                                          <Component id="medicine_name_find_input4" min="-2" pref="279" max="-2" attributes="0"/>
+                                          <Component id="medMgr_mrp_input" min="-2" pref="279" max="-2" attributes="0"/>
                                       </Group>
-                                      <Component id="jSeparator2" alignment="0" max="32767" attributes="0"/>
-                                      <Group type="102" attributes="0">
-                                          <Component id="medicine_name_label4" min="-2" max="-2" attributes="0"/>
+                                      <Group type="102" alignment="1" attributes="0">
+                                          <Component id="medMgr_no_tablet_label" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace pref="29" max="32767" attributes="0"/>
+                                          <Component id="medMgr_no_table_input" min="-2" pref="279" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="1" attributes="0">
+                                          <Component id="medMgr_no_box_label" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace max="32767" attributes="0"/>
-                                          <Component id="medicine_name_find_input3" min="-2" pref="279" max="-2" attributes="0"/>
+                                          <Component id="medMgr_no_box_input" min="-2" pref="279" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="1" attributes="0">
+                                          <Component id="medMgr_expiry_lable" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="32767" attributes="0"/>
+                                          <Component id="medMgr_expiry_input" min="-2" pref="279" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Component id="medicine_label" alignment="0" min="-2" pref="124" max="-2" attributes="0"/>
+                                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                      <Component id="medicine_details_seperator" alignment="0" max="32767" attributes="0"/>
+                                      <Group type="102" alignment="1" attributes="0">
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Group type="102" attributes="0">
+                                                  <Component id="medMgr_add_button" min="-2" pref="73" max="-2" attributes="0"/>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Component id="medMgr_update_button" min="-2" pref="73" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Component id="medMgr_details_error" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace min="-2" pref="127" max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="102" alignment="0" attributes="0">
                                           <Group type="103" groupAlignment="0" attributes="0">
-                                              <Group type="102" attributes="0">
-                                                  <Component id="medicine_name_label7" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
-                                                  <Component id="medicine_name_label6" min="-2" max="-2" attributes="0"/>
-                                              </Group>
-                                              <Component id="medicine_name_label1" min="-2" max="-2" attributes="0"/>
-                                              <Component id="medicine_name_label5" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="medicine_name_label3" min="-2" max="-2" attributes="0"/>
+                                              <Component id="medMgr_type_label" min="-2" max="-2" attributes="0"/>
+                                              <Component id="medMgr_name" min="-2" max="-2" attributes="0"/>
+                                              <Component id="medMgr_strength_label" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="medMgr_no_sheet_label" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                           <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="medicine_name_find_input5" min="-2" pref="279" max="-2" attributes="0"/>
+                                              <Component id="medMgr_no_sheet_input" min="-2" pref="279" max="-2" attributes="0"/>
                                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                  <Component id="medicine_name_find_input1" max="32767" attributes="0"/>
-                                                  <Component id="medicine_name_find_input2" alignment="0" max="32767" attributes="0"/>
-                                                  <Component id="jComboBox1" alignment="0" pref="279" max="32767" attributes="0"/>
+                                                  <Component id="medMgr_name_input" max="32767" attributes="0"/>
+                                                  <Component id="medMgr_strength_input" alignment="0" max="32767" attributes="0"/>
+                                                  <Component id="medMgr_type_comboBox" alignment="0" pref="279" max="32767" attributes="0"/>
                                               </Group>
-                                          </Group>
-                                      </Group>
-                                      <Group type="102" alignment="1" attributes="0">
-                                          <Component id="medicine_name_label8" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="32767" attributes="0"/>
-                                          <Component id="medicine_name_find_input6" min="-2" pref="279" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" alignment="1" attributes="0">
-                                          <Component id="medicine_name_label9" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="32767" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Group type="102" attributes="0">
-                                                  <Component id="find_button" min="-2" pref="73" max="-2" attributes="0"/>
-                                                  <EmptySpace max="-2" attributes="0"/>
-                                                  <Component id="find_button2" min="-2" pref="73" max="-2" attributes="0"/>
-                                              </Group>
-                                              <Component id="medicine_name_find_input7" min="-2" pref="279" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
                                   </Group>
                               </Group>
-                              <EmptySpace max="32767" attributes="0"/>
+                              <EmptySpace pref="24" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -1347,67 +1346,63 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="find_medicine_label1" min="-2" max="-2" attributes="0"/>
+                              <Component id="medicine_label" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jSeparator2" min="-2" pref="10" max="-2" attributes="0"/>
+                              <Component id="medicine_details_seperator" min="-2" pref="10" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="medicine_name_label1" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="medicine_name_find_input1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="medMgr_name" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="medMgr_name_input" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jComboBox1" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="medicine_name_label6" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="medicine_name_label7" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="medMgr_type_comboBox" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="medMgr_type_label" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <Component id="medicine_find_error1" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="medicine_name_label5" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Component id="medicine_name_find_input2" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="medMgr_strength_input" min="-2" max="-2" attributes="0"/>
+                                  <Component id="medMgr_strength_label" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="medicine_name_find_input5" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="medicine_name_label3" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="medMgr_no_sheet_input" min="-2" max="-2" attributes="0"/>
+                                  <Component id="medMgr_no_sheet_label" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="medicine_name_find_input3" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="medicine_name_label4" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="medMgr_no_table_input" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="medMgr_no_tablet_label" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="medicine_name_find_input4" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="medicine_name_label2" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="medMgr_mrp_input" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="medMgr_mrp_label" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="medicine_name_find_input6" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="medicine_name_label8" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="medMgr_no_box_input" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="medMgr_no_box_label" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="medicine_name_label9" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="medicine_name_find_input7" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="medMgr_expiry_lable" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="medMgr_expiry_input" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
+                              <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
+                              <Component id="medMgr_details_error" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="find_button" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
-                                  <Component id="find_button2" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
+                                  <Component id="medMgr_add_button" alignment="0" min="-2" pref="22" max="-2" attributes="0"/>
+                                  <Component id="medMgr_update_button" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace pref="23" max="32767" attributes="0"/>
+                              <EmptySpace pref="22" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
                   </Layout>
                   <SubComponents>
-                    <Component class="javax.swing.JLabel" name="find_medicine_label1">
+                    <Component class="javax.swing.JLabel" name="medicine_label">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Segoe UI" size="14" style="1"/>
@@ -1418,9 +1413,9 @@
                         <Property name="text" type="java.lang.String" value="Medicine Details"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JSeparator" name="jSeparator2">
+                    <Component class="javax.swing.JSeparator" name="medicine_details_seperator">
                     </Component>
-                    <Component class="javax.swing.JLabel" name="medicine_name_label1">
+                    <Component class="javax.swing.JLabel" name="medMgr_name">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Segoe UI" size="14" style="1"/>
@@ -1431,32 +1426,12 @@
                         <Property name="text" type="java.lang.String" value="Medicine Name"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="medicine_name_find_input1">
+                    <Component class="javax.swing.JTextField" name="medMgr_name_input">
                       <Events>
-                        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="medicine_name_find_input1KeyPressed"/>
+                        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="medMgr_name_inputKeyPressed"/>
                       </Events>
                     </Component>
-                    <Component class="javax.swing.JLabel" name="medicine_find_error1">
-                      <Properties>
-                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Segoe UI" size="11" style="1"/>
-                        </Property>
-                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                          <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                        </Property>
-                      </Properties>
-                    </Component>
-                    <Component class="javax.swing.JTextField" name="medicine_name_find_input2">
-                      <Events>
-                        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="medicine_name_find_input2KeyPressed"/>
-                      </Events>
-                    </Component>
-                    <Component class="javax.swing.JTextField" name="medicine_name_find_input3">
-                      <Events>
-                        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="medicine_name_find_input3KeyPressed"/>
-                      </Events>
-                    </Component>
-                    <Component class="javax.swing.JLabel" name="medicine_name_label3">
+                    <Component class="javax.swing.JLabel" name="medMgr_type_label">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Segoe UI" size="14" style="1"/>
@@ -1464,42 +1439,10 @@
                         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="ff" green="ff" red="ff" type="rgb"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="Number of Sheet"/>
+                        <Property name="text" type="java.lang.String" value="Type"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JLabel" name="medicine_name_label4">
-                      <Properties>
-                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Segoe UI" size="14" style="1"/>
-                        </Property>
-                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                          <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                        </Property>
-                        <Property name="text" type="java.lang.String" value="Number of Tablet"/>
-                      </Properties>
-                    </Component>
-                    <Component class="javax.swing.JTextField" name="medicine_name_find_input4">
-                      <Events>
-                        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="medicine_name_find_input4KeyPressed"/>
-                      </Events>
-                    </Component>
-                    <Component class="javax.swing.JTextField" name="medicine_name_find_input5">
-                      <Events>
-                        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="medicine_name_find_input5KeyPressed"/>
-                      </Events>
-                    </Component>
-                    <Component class="javax.swing.JLabel" name="medicine_name_label5">
-                      <Properties>
-                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Segoe UI" size="14" style="1"/>
-                        </Property>
-                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                          <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                        </Property>
-                        <Property name="text" type="java.lang.String" value="Strength/Volume"/>
-                      </Properties>
-                    </Component>
-                    <Component class="javax.swing.JComboBox" name="jComboBox1">
+                    <Component class="javax.swing.JComboBox" name="medMgr_type_comboBox">
                       <Properties>
                         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                           <StringArray count="10">
@@ -1517,13 +1460,13 @@
                         </Property>
                       </Properties>
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jComboBox1ActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="medMgr_type_comboBoxActionPerformed"/>
                       </Events>
                       <AuxValues>
                         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                       </AuxValues>
                     </Component>
-                    <Component class="javax.swing.JLabel" name="medicine_name_label6">
+                    <Component class="javax.swing.JLabel" name="medMgr_strength_label">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Segoe UI" size="14" style="1"/>
@@ -1531,9 +1474,15 @@
                         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="ff" green="ff" red="ff" type="rgb"/>
                         </Property>
+                        <Property name="text" type="java.lang.String" value="Strength/Volume"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JLabel" name="medicine_name_label7">
+                    <Component class="javax.swing.JTextField" name="medMgr_strength_input">
+                      <Events>
+                        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="medMgr_strength_inputKeyPressed"/>
+                      </Events>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="medMgr_no_sheet_label">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Segoe UI" size="14" style="1"/>
@@ -1541,10 +1490,31 @@
                         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="ff" green="ff" red="ff" type="rgb"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="Type"/>
+                        <Property name="text" type="java.lang.String" value="Number of Sheet"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JLabel" name="medicine_name_label2">
+                    <Component class="javax.swing.JTextField" name="medMgr_no_sheet_input">
+                      <Events>
+                        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="medMgr_no_sheet_inputKeyPressed"/>
+                      </Events>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="medMgr_no_tablet_label">
+                      <Properties>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Segoe UI" size="14" style="1"/>
+                        </Property>
+                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                        </Property>
+                        <Property name="text" type="java.lang.String" value="Number of Tablet"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="medMgr_no_table_input">
+                      <Events>
+                        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="medMgr_no_table_inputKeyPressed"/>
+                      </Events>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="medMgr_mrp_label">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Segoe UI" size="14" style="1"/>
@@ -1555,7 +1525,12 @@
                         <Property name="text" type="java.lang.String" value="MRP"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JLabel" name="medicine_name_label8">
+                    <Component class="javax.swing.JTextField" name="medMgr_mrp_input">
+                      <Events>
+                        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="medMgr_mrp_inputKeyPressed"/>
+                      </Events>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="medMgr_no_box_label">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Segoe UI" size="14" style="1"/>
@@ -1566,12 +1541,12 @@
                         <Property name="text" type="java.lang.String" value="Number of Box"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="medicine_name_find_input6">
+                    <Component class="javax.swing.JTextField" name="medMgr_no_box_input">
                       <Events>
-                        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="medicine_name_find_input6KeyPressed"/>
+                        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="medMgr_no_box_inputKeyPressed"/>
                       </Events>
                     </Component>
-                    <Component class="javax.swing.JLabel" name="medicine_name_label9">
+                    <Component class="javax.swing.JLabel" name="medMgr_expiry_lable">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Segoe UI" size="14" style="1"/>
@@ -1582,12 +1557,22 @@
                         <Property name="text" type="java.lang.String" value="Expiry Date"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="medicine_name_find_input7">
+                    <Component class="javax.swing.JTextField" name="medMgr_expiry_input">
                       <Events>
-                        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="medicine_name_find_input7KeyPressed"/>
+                        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="medMgr_expiry_inputKeyPressed"/>
                       </Events>
                     </Component>
-                    <Component class="javax.swing.JButton" name="find_button">
+                    <Component class="javax.swing.JLabel" name="medMgr_details_error">
+                      <Properties>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Segoe UI" size="11" style="1"/>
+                        </Property>
+                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                        </Property>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JButton" name="medMgr_add_button">
                       <Properties>
                         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="26" green="c9" red="8a" type="rgb"/>
@@ -1604,10 +1589,10 @@
                         </Property>
                       </Properties>
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="find_buttonActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="medMgr_add_buttonActionPerformed"/>
                       </Events>
                     </Component>
-                    <Component class="javax.swing.JButton" name="find_button2">
+                    <Component class="javax.swing.JButton" name="medMgr_update_button">
                       <Properties>
                         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="1e" green="96" red="f8" type="rgb"/>
@@ -1624,7 +1609,7 @@
                         </Property>
                       </Properties>
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="find_button2ActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="medMgr_update_buttonActionPerformed"/>
                       </Events>
                     </Component>
                   </SubComponents>
@@ -1678,7 +1663,7 @@
             <Container class="javax.swing.JInternalFrame" name="userIframe">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="dc" green="da" red="a8" type="rgb"/>
+                  <Color blue="d9" green="c2" red="89" type="rgb"/>
                 </Property>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="null"/>
@@ -1695,28 +1680,152 @@
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="230" max="-2" attributes="0"/>
-                          <Component id="user_panel_label" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="539" max="32767" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="patient_details_panel1" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace pref="367" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="230" max="-2" attributes="0"/>
-                          <Component id="user_panel_label" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="439" max="32767" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="patient_details_panel1" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace pref="562" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
               </Layout>
               <SubComponents>
-                <Component class="javax.swing.JLabel" name="user_panel_label">
+                <Container class="javax.swing.JPanel" name="patient_details_panel1">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="i am user"/>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="c4" green="82" red="19" type="rgb"/>
+                    </Property>
                   </Properties>
-                </Component>
+
+                  <Layout>
+                    <DimensionLayout dim="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="patient_contact_label1" min="-2" pref="116" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" attributes="0">
+                                              <EmptySpace min="14" pref="14" max="-2" attributes="0"/>
+                                              <Component id="patient_input_error1" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" alignment="1" attributes="0">
+                                              <EmptySpace max="32767" attributes="0"/>
+                                              <Component id="paitent_contact_input1" min="-2" pref="256" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                  </Group>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="patient_name_label1" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="patient_address_label1" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="32767" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="patient_name_input1" min="-2" pref="258" max="-2" attributes="0"/>
+                                          <Component id="patient_address_input1" min="-2" pref="258" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                              </Group>
+                              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                    </DimensionLayout>
+                    <DimensionLayout dim="1">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="patient_name_input1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="patient_name_label1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="patient_address_input1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="patient_address_label1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="patient_contact_label1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="paitent_contact_input1" alignment="1" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="patient_input_error1" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                          </Group>
+                      </Group>
+                    </DimensionLayout>
+                  </Layout>
+                  <SubComponents>
+                    <Component class="javax.swing.JTextField" name="patient_name_input1">
+                      <Events>
+                        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="patient_name_input1KeyPressed"/>
+                      </Events>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="patient_address_input1">
+                      <Events>
+                        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="patient_address_input1KeyPressed"/>
+                      </Events>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="paitent_contact_input1">
+                      <Events>
+                        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="paitent_contact_input1KeyPressed"/>
+                      </Events>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="patient_name_label1">
+                      <Properties>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Segoe UI" size="14" style="1"/>
+                        </Property>
+                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                        </Property>
+                        <Property name="text" type="java.lang.String" value="Name"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="patient_address_label1">
+                      <Properties>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Segoe UI" size="14" style="1"/>
+                        </Property>
+                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                        </Property>
+                        <Property name="text" type="java.lang.String" value="Username"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="patient_contact_label1">
+                      <Properties>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Segoe UI" size="14" style="1"/>
+                        </Property>
+                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                        </Property>
+                        <Property name="text" type="java.lang.String" value="Password"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="patient_input_error1">
+                      <Properties>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Segoe UI" size="11" style="1"/>
+                        </Property>
+                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                        </Property>
+                      </Properties>
+                    </Component>
+                  </SubComponents>
+                </Container>
               </SubComponents>
             </Container>
           </SubComponents>

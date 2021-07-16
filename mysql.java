@@ -28,7 +28,7 @@ public class mysql {
     public static void login_validator(String username, String password) throws SQLException{
         int number_of_rows = 0;
         stmt = connect.createStatement();
-        String query = "SELECT * FROM `login` WHERE `user` LIKE '"+username+"' AND `pass` LIKE '"+password+"'";
+        String query = "SELECT * FROM `user` WHERE `username` LIKE '"+username+"' AND `password` LIKE '"+password+"'";
         result = stmt.executeQuery(query);
         while(result.next()) {
             number_of_rows++;
