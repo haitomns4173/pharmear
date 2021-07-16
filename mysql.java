@@ -43,7 +43,7 @@ public class mysql {
         }
     }
     
-    public static void select_query_executor() throws SQLException{
+    public static void company_find_query() throws SQLException{
         stmt = connect.createStatement();
         String query = "SELECT `name`, `address`, `phone` FROM `company` WHERE 1";
         result = stmt.executeQuery(query);
