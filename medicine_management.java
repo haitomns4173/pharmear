@@ -11,6 +11,7 @@ import java.util.Set;
 import java.util.TreeSet;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
 import javax.swing.table.DefaultTableModel;
+import org.jfree.chart.JFreeChart;
 
 
 public class medicine_management extends javax.swing.JFrame {
@@ -41,7 +42,22 @@ public class medicine_management extends javax.swing.JFrame {
         title_pane = new javax.swing.JPanel();
         cardPane = new javax.swing.JPanel();
         welcomIframe = new javax.swing.JInternalFrame();
-        welcom_panel_label = new javax.swing.JLabel();
+        welcome_icon = new javax.swing.JLabel();
+        welcome_title = new javax.swing.JLabel();
+        welcome_sub_title = new javax.swing.JLabel();
+        welcome_arrow = new javax.swing.JLabel();
+        welcome_user = new javax.swing.JPanel();
+        welcome_user_image = new javax.swing.JLabel();
+        welcome_user_label = new javax.swing.JLabel();
+        welcome_sales = new javax.swing.JPanel();
+        welcome_sales_image = new javax.swing.JLabel();
+        welcome_sales_label = new javax.swing.JLabel();
+        welcome_medicine = new javax.swing.JPanel();
+        welcome_medicine_image = new javax.swing.JLabel();
+        welcome_medicine_lable = new javax.swing.JLabel();
+        welcome_bill = new javax.swing.JPanel();
+        welcome_bill_image = new javax.swing.JLabel();
+        welcome_bill_label = new javax.swing.JLabel();
         billIframe = new javax.swing.JInternalFrame();
         bill_title_label = new javax.swing.JPanel();
         bill_company_name = new javax.swing.JLabel();
@@ -120,7 +136,8 @@ public class medicine_management extends javax.swing.JFrame {
         medMgr_add_button = new javax.swing.JButton();
         medMgr_update_button = new javax.swing.JButton();
         salesIframe = new javax.swing.JInternalFrame();
-        sales_panel_label = new javax.swing.JLabel();
+        bar = new javax.swing.JPanel();
+        justJoking = new javax.swing.JButton();
         userIframe = new javax.swing.JInternalFrame();
         user_image_panel = new javax.swing.JPanel();
         user_image_label = new javax.swing.JLabel();
@@ -140,7 +157,7 @@ public class medicine_management extends javax.swing.JFrame {
         user_details_pasword_input = new javax.swing.JLabel();
         user_details_password_input = new javax.swing.JTextField();
         user_details_update = new javax.swing.JButton();
-        patient_details_panel2 = new javax.swing.JPanel();
+        shop_details_panel = new javax.swing.JPanel();
         user_shopDtr_label = new javax.swing.JLabel();
         user_shopDtr_seperator = new javax.swing.JSeparator();
         user_shopDtr_shop_name = new javax.swing.JLabel();
@@ -208,7 +225,7 @@ public class medicine_management extends javax.swing.JFrame {
         user_button.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         user_button.setForeground(new java.awt.Color(255, 255, 255));
         user_button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mms/src/icons8_person_45px.png"))); // NOI18N
-        user_button.setText("User");
+        user_button.setText("User Account");
         user_button.setBorder(null);
         user_button.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         user_button.addActionListener(new java.awt.event.ActionListener() {
@@ -258,27 +275,199 @@ public class medicine_management extends javax.swing.JFrame {
 
         cardPane.setLayout(new java.awt.CardLayout());
 
-        welcomIframe.setBackground(new java.awt.Color(168, 218, 220));
+        welcomIframe.setBackground(new java.awt.Color(137, 194, 217));
         welcomIframe.setBorder(null);
         welcomIframe.setVisible(true);
 
-        welcom_panel_label.setText("Welcom Panel");
+        welcome_icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mms/src/icon.png"))); // NOI18N
+
+        welcome_title.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        welcome_title.setForeground(new java.awt.Color(255, 255, 255));
+        welcome_title.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        welcome_title.setText("Welcome To MMS");
+
+        welcome_sub_title.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        welcome_sub_title.setForeground(new java.awt.Color(255, 255, 255));
+        welcome_sub_title.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        welcome_sub_title.setText("Lets Start billing");
+
+        welcome_arrow.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mms/src/icons8_down_4_127px.png"))); // NOI18N
+
+        welcome_user.setBackground(new java.awt.Color(25, 130, 196));
+        welcome_user.setPreferredSize(new java.awt.Dimension(150, 150));
+
+        welcome_user_image.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mms/src/icons8_person_45px.png"))); // NOI18N
+
+        welcome_user_label.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        welcome_user_label.setForeground(new java.awt.Color(255, 255, 255));
+        welcome_user_label.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        welcome_user_label.setText("User Account");
+
+        javax.swing.GroupLayout welcome_userLayout = new javax.swing.GroupLayout(welcome_user);
+        welcome_user.setLayout(welcome_userLayout);
+        welcome_userLayout.setHorizontalGroup(
+            welcome_userLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(welcome_userLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(welcome_userLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(welcome_user_image)
+                    .addComponent(welcome_user_label))
+                .addGap(74, 74, 74))
+        );
+        welcome_userLayout.setVerticalGroup(
+            welcome_userLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(welcome_userLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(welcome_user_image)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
+                .addComponent(welcome_user_label)
+                .addContainerGap())
+        );
+
+        welcome_sales.setBackground(new java.awt.Color(25, 130, 196));
+        welcome_sales.setPreferredSize(new java.awt.Dimension(150, 150));
+
+        welcome_sales_image.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mms/src/icons8_total_sales_45px.png"))); // NOI18N
+
+        welcome_sales_label.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        welcome_sales_label.setForeground(new java.awt.Color(255, 255, 255));
+        welcome_sales_label.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        welcome_sales_label.setText("Sales Report");
+
+        javax.swing.GroupLayout welcome_salesLayout = new javax.swing.GroupLayout(welcome_sales);
+        welcome_sales.setLayout(welcome_salesLayout);
+        welcome_salesLayout.setHorizontalGroup(
+            welcome_salesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(welcome_salesLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(welcome_salesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(welcome_sales_image)
+                    .addComponent(welcome_sales_label))
+                .addGap(74, 74, 74))
+        );
+        welcome_salesLayout.setVerticalGroup(
+            welcome_salesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(welcome_salesLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(welcome_sales_image)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
+                .addComponent(welcome_sales_label)
+                .addContainerGap())
+        );
+
+        welcome_medicine.setBackground(new java.awt.Color(25, 130, 196));
+        welcome_medicine.setPreferredSize(new java.awt.Dimension(150, 150));
+
+        welcome_medicine_image.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mms/src/icons8_pill_45px.png"))); // NOI18N
+
+        welcome_medicine_lable.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        welcome_medicine_lable.setForeground(new java.awt.Color(255, 255, 255));
+        welcome_medicine_lable.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        welcome_medicine_lable.setText("Medicine Manage");
+
+        javax.swing.GroupLayout welcome_medicineLayout = new javax.swing.GroupLayout(welcome_medicine);
+        welcome_medicine.setLayout(welcome_medicineLayout);
+        welcome_medicineLayout.setHorizontalGroup(
+            welcome_medicineLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(welcome_medicineLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(welcome_medicineLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(welcome_medicine_image)
+                    .addComponent(welcome_medicine_lable))
+                .addGap(74, 74, 74))
+        );
+        welcome_medicineLayout.setVerticalGroup(
+            welcome_medicineLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(welcome_medicineLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(welcome_medicine_image)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
+                .addComponent(welcome_medicine_lable)
+                .addContainerGap())
+        );
+
+        welcome_bill.setBackground(new java.awt.Color(25, 130, 196));
+        welcome_bill.setPreferredSize(new java.awt.Dimension(150, 150));
+
+        welcome_bill_image.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mms/src/icons8_billing_machine_48px.png"))); // NOI18N
+
+        welcome_bill_label.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        welcome_bill_label.setForeground(new java.awt.Color(255, 255, 255));
+        welcome_bill_label.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        welcome_bill_label.setText("Medicine Billing");
+
+        javax.swing.GroupLayout welcome_billLayout = new javax.swing.GroupLayout(welcome_bill);
+        welcome_bill.setLayout(welcome_billLayout);
+        welcome_billLayout.setHorizontalGroup(
+            welcome_billLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(welcome_billLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(welcome_billLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(welcome_bill_image)
+                    .addComponent(welcome_bill_label))
+                .addGap(74, 74, 74))
+        );
+        welcome_billLayout.setVerticalGroup(
+            welcome_billLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(welcome_billLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(welcome_bill_image)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
+                .addComponent(welcome_bill_label)
+                .addContainerGap())
+        );
 
         javax.swing.GroupLayout welcomIframeLayout = new javax.swing.GroupLayout(welcomIframe.getContentPane());
         welcomIframe.getContentPane().setLayout(welcomIframeLayout);
         welcomIframeLayout.setHorizontalGroup(
             welcomIframeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(welcomIframeLayout.createSequentialGroup()
-                .addGap(235, 235, 235)
-                .addComponent(welcom_panel_label)
-                .addContainerGap(511, Short.MAX_VALUE))
+                .addGap(75, 75, 75)
+                .addGroup(welcomIframeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(welcomIframeLayout.createSequentialGroup()
+                        .addComponent(welcome_icon)
+                        .addGap(39, 39, 39)
+                        .addGroup(welcomIframeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(welcome_title)
+                            .addGroup(welcomIframeLayout.createSequentialGroup()
+                                .addComponent(welcome_sub_title)
+                                .addGap(18, 18, 18)
+                                .addComponent(welcome_arrow))))
+                    .addGroup(welcomIframeLayout.createSequentialGroup()
+                        .addComponent(welcome_user, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(welcome_sales, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(welcome_medicine, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(welcome_bill, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(111, Short.MAX_VALUE))
         );
         welcomIframeLayout.setVerticalGroup(
             welcomIframeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(welcomIframeLayout.createSequentialGroup()
-                .addGap(224, 224, 224)
-                .addComponent(welcom_panel_label)
-                .addContainerGap(445, Short.MAX_VALUE))
+                .addGroup(welcomIframeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(welcomIframeLayout.createSequentialGroup()
+                        .addGap(58, 58, 58)
+                        .addComponent(welcome_icon)
+                        .addGap(67, 67, 67))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, welcomIframeLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(welcome_title)
+                        .addGroup(welcomIframeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(welcomIframeLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(welcome_sub_title))
+                            .addGroup(welcomIframeLayout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addComponent(welcome_arrow)))
+                        .addGap(42, 42, 42)))
+                .addGroup(welcomIframeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(welcome_bill, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(welcome_medicine, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(welcome_sales, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(welcome_user, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(216, Short.MAX_VALUE))
         );
 
         cardPane.add(welcomIframe, "card2");
@@ -385,11 +574,6 @@ public class medicine_management extends javax.swing.JFrame {
 
         patient_details_panel.setBackground(new java.awt.Color(25, 130, 196));
 
-        patient_name_input.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                patient_name_inputActionPerformed(evt);
-            }
-        });
         patient_name_input.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 patient_name_inputKeyPressed(evt);
@@ -687,13 +871,13 @@ public class medicine_management extends javax.swing.JFrame {
                 .addComponent(invoide_date_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(patient_details_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
                 .addComponent(bill_tabel_scrollpanel, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(billIframeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(bill_input_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(command_center_pane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(88, Short.MAX_VALUE))
+                .addContainerGap(96, Short.MAX_VALUE))
         );
 
         cardPane.add(billIframe, "card3");
@@ -906,11 +1090,6 @@ public class medicine_management extends javax.swing.JFrame {
         medMgr_update_button.setForeground(new java.awt.Color(255, 255, 255));
         medMgr_update_button.setText("Update");
         medMgr_update_button.setBorder(null);
-        medMgr_update_button.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                medMgr_update_buttonActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout medMgr_details_panelLayout = new javax.swing.GroupLayout(medMgr_details_panel);
         medMgr_details_panel.setLayout(medMgr_details_panelLayout);
@@ -1042,27 +1221,49 @@ public class medicine_management extends javax.swing.JFrame {
 
         cardPane.add(medicineIframe, "card3");
 
-        salesIframe.setBackground(new java.awt.Color(168, 218, 220));
+        salesIframe.setBackground(new java.awt.Color(137, 194, 217));
         salesIframe.setBorder(null);
         salesIframe.setVisible(true);
 
-        sales_panel_label.setText("I am sales");
+        javax.swing.GroupLayout barLayout = new javax.swing.GroupLayout(bar);
+        bar.setLayout(barLayout);
+        barLayout.setHorizontalGroup(
+            barLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        barLayout.setVerticalGroup(
+            barLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 500, Short.MAX_VALUE)
+        );
+
+        justJoking.setText("The ULTIMATE BUTTON");
+        justJoking.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                justJokingActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout salesIframeLayout = new javax.swing.GroupLayout(salesIframe.getContentPane());
         salesIframe.getContentPane().setLayout(salesIframeLayout);
         salesIframeLayout.setHorizontalGroup(
             salesIframeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(salesIframeLayout.createSequentialGroup()
-                .addGap(242, 242, 242)
-                .addComponent(sales_panel_label)
-                .addContainerGap(522, Short.MAX_VALUE))
+                .addContainerGap()
+                .addGroup(salesIframeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(bar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(salesIframeLayout.createSequentialGroup()
+                        .addComponent(justJoking)
+                        .addGap(0, 640, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         salesIframeLayout.setVerticalGroup(
             salesIframeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(salesIframeLayout.createSequentialGroup()
-                .addGap(234, 234, 234)
-                .addComponent(sales_panel_label)
-                .addContainerGap(435, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(bar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(justJoking)
+                .addContainerGap(192, Short.MAX_VALUE))
         );
 
         cardPane.add(salesIframe, "card3");
@@ -1154,31 +1355,13 @@ public class medicine_management extends javax.swing.JFrame {
         user_details_name.setForeground(new java.awt.Color(255, 255, 255));
         user_details_name.setText("Name");
 
-        uesr_details_name_input.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                uesr_details_name_inputKeyPressed(evt);
-            }
-        });
-
         user_details_username_label.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         user_details_username_label.setForeground(new java.awt.Color(255, 255, 255));
         user_details_username_label.setText("Username");
 
-        user_details_username_input.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                user_details_username_inputKeyPressed(evt);
-            }
-        });
-
         user_details_pasword_input.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         user_details_pasword_input.setForeground(new java.awt.Color(255, 255, 255));
         user_details_pasword_input.setText("Password");
-
-        user_details_password_input.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                user_details_password_inputKeyPressed(evt);
-            }
-        });
 
         user_details_update.setBackground(new java.awt.Color(248, 150, 30));
         user_details_update.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
@@ -1193,29 +1376,27 @@ public class medicine_management extends javax.swing.JFrame {
             .addGroup(user_details_panelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(user_details_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(user_details_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(user_details_panelLayout.createSequentialGroup()
-                            .addGroup(user_details_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(user_details_name)
-                                .addComponent(user_details_username_label)
-                                .addComponent(user_details_pasword_input, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addGroup(user_details_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(user_details_panelLayout.createSequentialGroup()
-                                    .addComponent(user_details_password_input, javax.swing.GroupLayout.DEFAULT_SIZE, 360, Short.MAX_VALUE)
-                                    .addGap(34, 34, 34))
-                                .addGroup(user_details_panelLayout.createSequentialGroup()
-                                    .addGroup(user_details_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(user_details_update, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGroup(user_details_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                            .addComponent(user_details_username_input, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 360, Short.MAX_VALUE)
-                                            .addComponent(uesr_details_name_input, javax.swing.GroupLayout.Alignment.LEADING)))
-                                    .addGap(0, 0, Short.MAX_VALUE))))
-                        .addGroup(user_details_panelLayout.createSequentialGroup()
-                            .addComponent(user_details_label)
-                            .addGap(22, 22, 22)))
                     .addGroup(user_details_panelLayout.createSequentialGroup()
-                        .addComponent(user_details_seperator, javax.swing.GroupLayout.PREFERRED_SIZE, 464, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(user_details_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(user_details_name)
+                            .addComponent(user_details_username_label)
+                            .addComponent(user_details_pasword_input, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(user_details_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(user_details_panelLayout.createSequentialGroup()
+                                .addComponent(user_details_password_input, javax.swing.GroupLayout.DEFAULT_SIZE, 360, Short.MAX_VALUE)
+                                .addGap(34, 34, 34))
+                            .addGroup(user_details_panelLayout.createSequentialGroup()
+                                .addGroup(user_details_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(user_details_update, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(user_details_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(user_details_username_input, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 360, Short.MAX_VALUE)
+                                        .addComponent(uesr_details_name_input, javax.swing.GroupLayout.Alignment.LEADING)))
+                                .addGap(0, 0, Short.MAX_VALUE))))
+                    .addGroup(user_details_panelLayout.createSequentialGroup()
+                        .addGroup(user_details_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(user_details_label)
+                            .addComponent(user_details_seperator, javax.swing.GroupLayout.PREFERRED_SIZE, 464, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         user_details_panelLayout.setVerticalGroup(
@@ -1226,12 +1407,12 @@ public class medicine_management extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(user_details_seperator, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(user_details_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(user_details_name)
-                    .addComponent(uesr_details_name_input, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(user_details_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(uesr_details_name_input, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(user_details_name))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(user_details_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(user_details_username_input, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(user_details_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(user_details_username_input, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(user_details_username_label))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(user_details_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -1242,7 +1423,7 @@ public class medicine_management extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        patient_details_panel2.setBackground(new java.awt.Color(25, 130, 196));
+        shop_details_panel.setBackground(new java.awt.Color(25, 130, 196));
 
         user_shopDtr_label.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         user_shopDtr_label.setForeground(new java.awt.Color(255, 255, 255));
@@ -1252,31 +1433,13 @@ public class medicine_management extends javax.swing.JFrame {
         user_shopDtr_shop_name.setForeground(new java.awt.Color(255, 255, 255));
         user_shopDtr_shop_name.setText("Shop Name");
 
-        user_shopDtr_shop_name_input.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                user_shopDtr_shop_name_inputKeyPressed(evt);
-            }
-        });
-
         user_shopDtr_shop_contact.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         user_shopDtr_shop_contact.setForeground(new java.awt.Color(255, 255, 255));
         user_shopDtr_shop_contact.setText("Contact");
 
-        user_shopDtr_shop_contact_input.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                user_shopDtr_shop_contact_inputKeyPressed(evt);
-            }
-        });
-
         user_shopDtr_address_label.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         user_shopDtr_address_label.setForeground(new java.awt.Color(255, 255, 255));
         user_shopDtr_address_label.setText("Address");
-
-        user_shopDtr_address_input.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                user_shopDtr_address_inputKeyPressed(evt);
-            }
-        });
 
         user_shopDtr_update_button.setBackground(new java.awt.Color(248, 150, 30));
         user_shopDtr_update_button.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
@@ -1284,49 +1447,46 @@ public class medicine_management extends javax.swing.JFrame {
         user_shopDtr_update_button.setText("Update");
         user_shopDtr_update_button.setBorder(null);
 
-        javax.swing.GroupLayout patient_details_panel2Layout = new javax.swing.GroupLayout(patient_details_panel2);
-        patient_details_panel2.setLayout(patient_details_panel2Layout);
-        patient_details_panel2Layout.setHorizontalGroup(
-            patient_details_panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(patient_details_panel2Layout.createSequentialGroup()
+        javax.swing.GroupLayout shop_details_panelLayout = new javax.swing.GroupLayout(shop_details_panel);
+        shop_details_panel.setLayout(shop_details_panelLayout);
+        shop_details_panelLayout.setHorizontalGroup(
+            shop_details_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(shop_details_panelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(patient_details_panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(patient_details_panel2Layout.createSequentialGroup()
-                        .addComponent(user_shopDtr_label)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(patient_details_panel2Layout.createSequentialGroup()
-                        .addGroup(patient_details_panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(user_shopDtr_seperator, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(patient_details_panel2Layout.createSequentialGroup()
-                                .addGroup(patient_details_panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(user_shopDtr_shop_name)
-                                    .addComponent(user_shopDtr_shop_contact)
-                                    .addComponent(user_shopDtr_address_label, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(6, 6, 6)
-                                .addGroup(patient_details_panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(user_shopDtr_update_button, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(user_shopDtr_address_input, javax.swing.GroupLayout.DEFAULT_SIZE, 360, Short.MAX_VALUE)
-                                    .addComponent(user_shopDtr_shop_contact_input)
-                                    .addComponent(user_shopDtr_shop_name_input))))
-                        .addContainerGap(34, Short.MAX_VALUE))))
+                .addGroup(shop_details_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(user_shopDtr_label)
+                    .addGroup(shop_details_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(user_shopDtr_seperator, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(shop_details_panelLayout.createSequentialGroup()
+                            .addGroup(shop_details_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(user_shopDtr_shop_name)
+                                .addComponent(user_shopDtr_shop_contact)
+                                .addComponent(user_shopDtr_address_label, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGap(6, 6, 6)
+                            .addGroup(shop_details_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(user_shopDtr_update_button, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(user_shopDtr_address_input, javax.swing.GroupLayout.DEFAULT_SIZE, 360, Short.MAX_VALUE)
+                                .addComponent(user_shopDtr_shop_contact_input)
+                                .addComponent(user_shopDtr_shop_name_input)))))
+                .addContainerGap(34, Short.MAX_VALUE))
         );
-        patient_details_panel2Layout.setVerticalGroup(
-            patient_details_panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(patient_details_panel2Layout.createSequentialGroup()
+        shop_details_panelLayout.setVerticalGroup(
+            shop_details_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(shop_details_panelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(user_shopDtr_label)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(user_shopDtr_seperator, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(patient_details_panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(user_shopDtr_shop_name)
-                    .addComponent(user_shopDtr_shop_name_input, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(shop_details_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(user_shopDtr_shop_name_input, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(user_shopDtr_shop_name))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(patient_details_panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(user_shopDtr_shop_contact_input, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(shop_details_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(user_shopDtr_shop_contact_input, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(user_shopDtr_shop_contact))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(patient_details_panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(shop_details_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(user_shopDtr_address_label)
                     .addComponent(user_shopDtr_address_input, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
@@ -1347,7 +1507,7 @@ public class medicine_management extends javax.swing.JFrame {
                             .addComponent(user_image_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(user_welcome_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(patient_details_panel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(shop_details_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(302, Short.MAX_VALUE))
         );
         userIframeLayout.setVerticalGroup(
@@ -1360,8 +1520,8 @@ public class medicine_management extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(user_details_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(patient_details_panel2, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(165, Short.MAX_VALUE))
+                .addComponent(shop_details_panel, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(184, Short.MAX_VALUE))
         );
 
         cardPane.add(userIframe, "card3");
@@ -1612,37 +1772,9 @@ public class medicine_management extends javax.swing.JFrame {
         medMgr_company_phone.setText(mysql.company_phoneNo);
     }//GEN-LAST:event_medicineIframeInternalFrameActivated
 
-    private void uesr_details_name_inputKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_uesr_details_name_inputKeyPressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_uesr_details_name_inputKeyPressed
+    private void justJokingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_justJokingActionPerformed
 
-    private void user_details_username_inputKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_user_details_username_inputKeyPressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_user_details_username_inputKeyPressed
-
-    private void patient_name_inputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_patient_name_inputActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_patient_name_inputActionPerformed
-
-    private void medMgr_update_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_medMgr_update_buttonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_medMgr_update_buttonActionPerformed
-
-    private void user_shopDtr_shop_contact_inputKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_user_shopDtr_shop_contact_inputKeyPressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_user_shopDtr_shop_contact_inputKeyPressed
-
-    private void user_shopDtr_address_inputKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_user_shopDtr_address_inputKeyPressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_user_shopDtr_address_inputKeyPressed
-
-    private void user_shopDtr_shop_name_inputKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_user_shopDtr_shop_name_inputKeyPressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_user_shopDtr_shop_name_inputKeyPressed
-
-    private void user_details_password_inputKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_user_details_password_inputKeyPressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_user_details_password_inputKeyPressed
+    }//GEN-LAST:event_justJokingActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -1675,6 +1807,7 @@ public class medicine_management extends javax.swing.JFrame {
     private javax.swing.JLabel add_medicine_label;
     private javax.swing.JSeparator add_medicine_seperator;
     private javax.swing.JPanel background;
+    private javax.swing.JPanel bar;
     private javax.swing.JInternalFrame billIframe;
     private javax.swing.JButton bill_button;
     private javax.swing.JLabel bill_company_address;
@@ -1699,6 +1832,7 @@ public class medicine_management extends javax.swing.JFrame {
     private javax.swing.JSeparator find_medicine_seperator;
     private javax.swing.JLabel invoice_label;
     private javax.swing.JPanel invoide_date_panel;
+    private javax.swing.JButton justJoking;
     private javax.swing.JButton medMgr_add_button;
     private javax.swing.JLabel medMgr_company_address;
     private javax.swing.JLabel medMgr_company_name;
@@ -1742,14 +1876,13 @@ public class medicine_management extends javax.swing.JFrame {
     private javax.swing.JLabel patient_address_label;
     private javax.swing.JLabel patient_contact_label;
     private javax.swing.JPanel patient_details_panel;
-    private javax.swing.JPanel patient_details_panel2;
     private javax.swing.JLabel patient_input_error;
     private javax.swing.JTextField patient_name_input;
     private javax.swing.JLabel patient_name_label;
     private javax.swing.JLabel quantity_label;
     private javax.swing.JInternalFrame salesIframe;
     private javax.swing.JButton sales_button;
-    private javax.swing.JLabel sales_panel_label;
+    private javax.swing.JPanel shop_details_panel;
     private javax.swing.JPanel side_panel_menu;
     private javax.swing.JPanel title_pane;
     private javax.swing.JTextField uesr_details_name_input;
@@ -1782,6 +1915,21 @@ public class medicine_management extends javax.swing.JFrame {
     private javax.swing.JLabel user_wel_welcome;
     private javax.swing.JPanel user_welcome_panel;
     private javax.swing.JInternalFrame welcomIframe;
-    private javax.swing.JLabel welcom_panel_label;
+    private javax.swing.JLabel welcome_arrow;
+    private javax.swing.JPanel welcome_bill;
+    private javax.swing.JLabel welcome_bill_image;
+    private javax.swing.JLabel welcome_bill_label;
+    private javax.swing.JLabel welcome_icon;
+    private javax.swing.JPanel welcome_medicine;
+    private javax.swing.JLabel welcome_medicine_image;
+    private javax.swing.JLabel welcome_medicine_lable;
+    private javax.swing.JPanel welcome_sales;
+    private javax.swing.JLabel welcome_sales_image;
+    private javax.swing.JLabel welcome_sales_label;
+    private javax.swing.JLabel welcome_sub_title;
+    private javax.swing.JLabel welcome_title;
+    private javax.swing.JPanel welcome_user;
+    private javax.swing.JLabel welcome_user_image;
+    private javax.swing.JLabel welcome_user_label;
     // End of variables declaration//GEN-END:variables
 }
