@@ -122,14 +122,34 @@ public class medicine_management extends javax.swing.JFrame {
         salesIframe = new javax.swing.JInternalFrame();
         sales_panel_label = new javax.swing.JLabel();
         userIframe = new javax.swing.JInternalFrame();
-        patient_details_panel1 = new javax.swing.JPanel();
-        patient_name_input1 = new javax.swing.JTextField();
-        patient_address_input1 = new javax.swing.JTextField();
-        paitent_contact_input1 = new javax.swing.JTextField();
-        patient_name_label1 = new javax.swing.JLabel();
-        patient_address_label1 = new javax.swing.JLabel();
-        patient_contact_label1 = new javax.swing.JLabel();
-        patient_input_error1 = new javax.swing.JLabel();
+        user_image_panel = new javax.swing.JPanel();
+        user_image_label = new javax.swing.JLabel();
+        user_welcome_panel = new javax.swing.JPanel();
+        user_wel_welcome = new javax.swing.JLabel();
+        user_wel_users_name = new javax.swing.JLabel();
+        user_wel_user_type = new javax.swing.JLabel();
+        user_wel_shop_name = new javax.swing.JLabel();
+        user_wel_shop_contact = new javax.swing.JLabel();
+        user_details_panel = new javax.swing.JPanel();
+        user_details_label = new javax.swing.JLabel();
+        user_details_seperator = new javax.swing.JSeparator();
+        user_details_name = new javax.swing.JLabel();
+        uesr_details_name_input = new javax.swing.JTextField();
+        user_details_username_label = new javax.swing.JLabel();
+        user_details_username_input = new javax.swing.JTextField();
+        user_details_pasword_input = new javax.swing.JLabel();
+        user_details_password_input = new javax.swing.JTextField();
+        user_details_update = new javax.swing.JButton();
+        patient_details_panel2 = new javax.swing.JPanel();
+        user_shopDtr_label = new javax.swing.JLabel();
+        user_shopDtr_seperator = new javax.swing.JSeparator();
+        user_shopDtr_shop_name = new javax.swing.JLabel();
+        user_shopDtr_shop_name_input = new javax.swing.JTextField();
+        user_shopDtr_shop_contact = new javax.swing.JLabel();
+        user_shopDtr_shop_contact_input = new javax.swing.JTextField();
+        user_shopDtr_address_label = new javax.swing.JLabel();
+        user_shopDtr_address_input = new javax.swing.JTextField();
+        user_shopDtr_update_button = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Pharmacy");
@@ -223,7 +243,7 @@ public class medicine_management extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        title_pane.setBackground(new java.awt.Color(214, 40, 40));
+        title_pane.setBackground(new java.awt.Color(193, 18, 31));
 
         javax.swing.GroupLayout title_paneLayout = new javax.swing.GroupLayout(title_pane);
         title_pane.setLayout(title_paneLayout);
@@ -365,6 +385,11 @@ public class medicine_management extends javax.swing.JFrame {
 
         patient_details_panel.setBackground(new java.awt.Color(25, 130, 196));
 
+        patient_name_input.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                patient_name_inputActionPerformed(evt);
+            }
+        });
         patient_name_input.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 patient_name_inputKeyPressed(evt);
@@ -745,22 +770,11 @@ public class medicine_management extends javax.swing.JFrame {
         medicine_name_label.setForeground(new java.awt.Color(255, 255, 255));
         medicine_name_label.setText("Medicine Name");
 
-        medicine_name_find_input.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                medicine_name_find_inputKeyPressed(evt);
-            }
-        });
-
         find_button.setBackground(new java.awt.Color(138, 201, 38));
         find_button.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
         find_button.setForeground(new java.awt.Color(255, 255, 255));
         find_button.setText("Find");
         find_button.setBorder(null);
-        find_button.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                find_buttonActionPerformed(evt);
-            }
-        });
 
         medMgr_find_error.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
         medMgr_find_error.setForeground(new java.awt.Color(255, 255, 255));
@@ -848,82 +862,35 @@ public class medicine_management extends javax.swing.JFrame {
         medMgr_name.setForeground(new java.awt.Color(255, 255, 255));
         medMgr_name.setText("Medicine Name");
 
-        medMgr_name_input.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                medMgr_name_inputKeyPressed(evt);
-            }
-        });
-
         medMgr_type_label.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         medMgr_type_label.setForeground(new java.awt.Color(255, 255, 255));
         medMgr_type_label.setText("Type");
 
         medMgr_type_comboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tablet", "Capsule", "Tube", "Bottol", "Sachet", "Ampoule", "Vial", "Pre Filled Pen", "Canister", "Kit" }));
-        medMgr_type_comboBox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                medMgr_type_comboBoxActionPerformed(evt);
-            }
-        });
 
         medMgr_strength_label.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         medMgr_strength_label.setForeground(new java.awt.Color(255, 255, 255));
         medMgr_strength_label.setText("Strength/Volume");
 
-        medMgr_strength_input.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                medMgr_strength_inputKeyPressed(evt);
-            }
-        });
-
         medMgr_no_sheet_label.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         medMgr_no_sheet_label.setForeground(new java.awt.Color(255, 255, 255));
         medMgr_no_sheet_label.setText("Number of Sheet");
-
-        medMgr_no_sheet_input.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                medMgr_no_sheet_inputKeyPressed(evt);
-            }
-        });
 
         medMgr_no_tablet_label.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         medMgr_no_tablet_label.setForeground(new java.awt.Color(255, 255, 255));
         medMgr_no_tablet_label.setText("Number of Tablet");
 
-        medMgr_no_table_input.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                medMgr_no_table_inputKeyPressed(evt);
-            }
-        });
-
         medMgr_mrp_label.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         medMgr_mrp_label.setForeground(new java.awt.Color(255, 255, 255));
         medMgr_mrp_label.setText("MRP");
-
-        medMgr_mrp_input.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                medMgr_mrp_inputKeyPressed(evt);
-            }
-        });
 
         medMgr_no_box_label.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         medMgr_no_box_label.setForeground(new java.awt.Color(255, 255, 255));
         medMgr_no_box_label.setText("Number of Box");
 
-        medMgr_no_box_input.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                medMgr_no_box_inputKeyPressed(evt);
-            }
-        });
-
         medMgr_expiry_lable.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         medMgr_expiry_lable.setForeground(new java.awt.Color(255, 255, 255));
         medMgr_expiry_lable.setText("Expiry Date");
-
-        medMgr_expiry_input.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                medMgr_expiry_inputKeyPressed(evt);
-            }
-        });
 
         medMgr_details_error.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
         medMgr_details_error.setForeground(new java.awt.Color(255, 255, 255));
@@ -933,11 +900,6 @@ public class medicine_management extends javax.swing.JFrame {
         medMgr_add_button.setForeground(new java.awt.Color(255, 255, 255));
         medMgr_add_button.setText("Add");
         medMgr_add_button.setBorder(null);
-        medMgr_add_button.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                medMgr_add_buttonActionPerformed(evt);
-            }
-        });
 
         medMgr_update_button.setBackground(new java.awt.Color(248, 150, 30));
         medMgr_update_button.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
@@ -1042,7 +1004,7 @@ public class medicine_management extends javax.swing.JFrame {
                 .addGap(9, 9, 9)
                 .addComponent(medMgr_details_error)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(medMgr_details_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(medMgr_details_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(medMgr_add_button, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(medMgr_update_button, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(22, Short.MAX_VALUE))
@@ -1109,85 +1071,266 @@ public class medicine_management extends javax.swing.JFrame {
         userIframe.setBorder(null);
         userIframe.setVisible(true);
 
-        patient_details_panel1.setBackground(new java.awt.Color(25, 130, 196));
+        user_image_panel.setBackground(new java.awt.Color(25, 130, 196));
 
-        patient_name_input1.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                patient_name_input1KeyPressed(evt);
-            }
-        });
+        user_image_label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mms/src/admin.png"))); // NOI18N
 
-        patient_address_input1.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                patient_address_input1KeyPressed(evt);
-            }
-        });
-
-        paitent_contact_input1.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                paitent_contact_input1KeyPressed(evt);
-            }
-        });
-
-        patient_name_label1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        patient_name_label1.setForeground(new java.awt.Color(255, 255, 255));
-        patient_name_label1.setText("Name");
-
-        patient_address_label1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        patient_address_label1.setForeground(new java.awt.Color(255, 255, 255));
-        patient_address_label1.setText("Username");
-
-        patient_contact_label1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        patient_contact_label1.setForeground(new java.awt.Color(255, 255, 255));
-        patient_contact_label1.setText("Password");
-
-        patient_input_error1.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
-        patient_input_error1.setForeground(new java.awt.Color(255, 255, 255));
-
-        javax.swing.GroupLayout patient_details_panel1Layout = new javax.swing.GroupLayout(patient_details_panel1);
-        patient_details_panel1.setLayout(patient_details_panel1Layout);
-        patient_details_panel1Layout.setHorizontalGroup(
-            patient_details_panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(patient_details_panel1Layout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addGroup(patient_details_panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(patient_details_panel1Layout.createSequentialGroup()
-                        .addComponent(patient_contact_label1, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(patient_details_panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(patient_details_panel1Layout.createSequentialGroup()
-                                .addGap(14, 14, 14)
-                                .addComponent(patient_input_error1)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, patient_details_panel1Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(paitent_contact_input1, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, patient_details_panel1Layout.createSequentialGroup()
-                        .addGroup(patient_details_panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(patient_name_label1)
-                            .addComponent(patient_address_label1))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(patient_details_panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(patient_name_input1, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(patient_address_input1, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(26, 26, 26))
-        );
-        patient_details_panel1Layout.setVerticalGroup(
-            patient_details_panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(patient_details_panel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout user_image_panelLayout = new javax.swing.GroupLayout(user_image_panel);
+        user_image_panel.setLayout(user_image_panelLayout);
+        user_image_panelLayout.setHorizontalGroup(
+            user_image_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(user_image_panelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(patient_details_panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(patient_name_input1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(patient_name_label1))
+                .addComponent(user_image_label)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        user_image_panelLayout.setVerticalGroup(
+            user_image_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, user_image_panelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(user_image_label)
+                .addContainerGap())
+        );
+
+        user_welcome_panel.setBackground(new java.awt.Color(25, 130, 196));
+
+        user_wel_welcome.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        user_wel_welcome.setForeground(new java.awt.Color(255, 255, 255));
+        user_wel_welcome.setText("Welcome Back,");
+
+        user_wel_users_name.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        user_wel_users_name.setForeground(new java.awt.Color(255, 255, 255));
+        user_wel_users_name.setText("User Name");
+
+        user_wel_user_type.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        user_wel_user_type.setForeground(new java.awt.Color(255, 255, 255));
+        user_wel_user_type.setText("User Type");
+
+        user_wel_shop_name.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        user_wel_shop_name.setForeground(new java.awt.Color(255, 255, 255));
+        user_wel_shop_name.setText("Shop Name");
+
+        user_wel_shop_contact.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        user_wel_shop_contact.setForeground(new java.awt.Color(255, 255, 255));
+        user_wel_shop_contact.setText("Shop Contact");
+
+        javax.swing.GroupLayout user_welcome_panelLayout = new javax.swing.GroupLayout(user_welcome_panel);
+        user_welcome_panel.setLayout(user_welcome_panelLayout);
+        user_welcome_panelLayout.setHorizontalGroup(
+            user_welcome_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(user_welcome_panelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(user_welcome_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(user_wel_welcome)
+                    .addComponent(user_wel_users_name)
+                    .addComponent(user_wel_user_type)
+                    .addComponent(user_wel_shop_name)
+                    .addComponent(user_wel_shop_contact))
+                .addContainerGap(213, Short.MAX_VALUE))
+        );
+        user_welcome_panelLayout.setVerticalGroup(
+            user_welcome_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(user_welcome_panelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(user_wel_welcome)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(patient_details_panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(patient_address_input1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(patient_address_label1))
+                .addComponent(user_wel_users_name)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(patient_details_panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(patient_contact_label1)
-                    .addComponent(paitent_contact_input1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(user_wel_user_type)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(patient_input_error1)
+                .addComponent(user_wel_shop_name)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(user_wel_shop_contact)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        user_details_panel.setBackground(new java.awt.Color(25, 130, 196));
+
+        user_details_label.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        user_details_label.setForeground(new java.awt.Color(255, 255, 255));
+        user_details_label.setText("User Details");
+
+        user_details_name.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        user_details_name.setForeground(new java.awt.Color(255, 255, 255));
+        user_details_name.setText("Name");
+
+        uesr_details_name_input.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                uesr_details_name_inputKeyPressed(evt);
+            }
+        });
+
+        user_details_username_label.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        user_details_username_label.setForeground(new java.awt.Color(255, 255, 255));
+        user_details_username_label.setText("Username");
+
+        user_details_username_input.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                user_details_username_inputKeyPressed(evt);
+            }
+        });
+
+        user_details_pasword_input.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        user_details_pasword_input.setForeground(new java.awt.Color(255, 255, 255));
+        user_details_pasword_input.setText("Password");
+
+        user_details_password_input.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                user_details_password_inputKeyPressed(evt);
+            }
+        });
+
+        user_details_update.setBackground(new java.awt.Color(248, 150, 30));
+        user_details_update.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
+        user_details_update.setForeground(new java.awt.Color(255, 255, 255));
+        user_details_update.setText("Update");
+        user_details_update.setBorder(null);
+
+        javax.swing.GroupLayout user_details_panelLayout = new javax.swing.GroupLayout(user_details_panel);
+        user_details_panel.setLayout(user_details_panelLayout);
+        user_details_panelLayout.setHorizontalGroup(
+            user_details_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(user_details_panelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(user_details_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(user_details_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(user_details_panelLayout.createSequentialGroup()
+                            .addGroup(user_details_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(user_details_name)
+                                .addComponent(user_details_username_label)
+                                .addComponent(user_details_pasword_input, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addGroup(user_details_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(user_details_panelLayout.createSequentialGroup()
+                                    .addComponent(user_details_password_input, javax.swing.GroupLayout.DEFAULT_SIZE, 360, Short.MAX_VALUE)
+                                    .addGap(34, 34, 34))
+                                .addGroup(user_details_panelLayout.createSequentialGroup()
+                                    .addGroup(user_details_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(user_details_update, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGroup(user_details_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                            .addComponent(user_details_username_input, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 360, Short.MAX_VALUE)
+                                            .addComponent(uesr_details_name_input, javax.swing.GroupLayout.Alignment.LEADING)))
+                                    .addGap(0, 0, Short.MAX_VALUE))))
+                        .addGroup(user_details_panelLayout.createSequentialGroup()
+                            .addComponent(user_details_label)
+                            .addGap(22, 22, 22)))
+                    .addGroup(user_details_panelLayout.createSequentialGroup()
+                        .addComponent(user_details_seperator, javax.swing.GroupLayout.PREFERRED_SIZE, 464, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+        );
+        user_details_panelLayout.setVerticalGroup(
+            user_details_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(user_details_panelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(user_details_label)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(user_details_seperator, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(user_details_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(user_details_name)
+                    .addComponent(uesr_details_name_input, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(user_details_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(user_details_username_input, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(user_details_username_label))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(user_details_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(user_details_pasword_input)
+                    .addComponent(user_details_password_input, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(user_details_update, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        patient_details_panel2.setBackground(new java.awt.Color(25, 130, 196));
+
+        user_shopDtr_label.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        user_shopDtr_label.setForeground(new java.awt.Color(255, 255, 255));
+        user_shopDtr_label.setText("Shop Details");
+
+        user_shopDtr_shop_name.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        user_shopDtr_shop_name.setForeground(new java.awt.Color(255, 255, 255));
+        user_shopDtr_shop_name.setText("Shop Name");
+
+        user_shopDtr_shop_name_input.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                user_shopDtr_shop_name_inputKeyPressed(evt);
+            }
+        });
+
+        user_shopDtr_shop_contact.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        user_shopDtr_shop_contact.setForeground(new java.awt.Color(255, 255, 255));
+        user_shopDtr_shop_contact.setText("Contact");
+
+        user_shopDtr_shop_contact_input.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                user_shopDtr_shop_contact_inputKeyPressed(evt);
+            }
+        });
+
+        user_shopDtr_address_label.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        user_shopDtr_address_label.setForeground(new java.awt.Color(255, 255, 255));
+        user_shopDtr_address_label.setText("Address");
+
+        user_shopDtr_address_input.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                user_shopDtr_address_inputKeyPressed(evt);
+            }
+        });
+
+        user_shopDtr_update_button.setBackground(new java.awt.Color(248, 150, 30));
+        user_shopDtr_update_button.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
+        user_shopDtr_update_button.setForeground(new java.awt.Color(255, 255, 255));
+        user_shopDtr_update_button.setText("Update");
+        user_shopDtr_update_button.setBorder(null);
+
+        javax.swing.GroupLayout patient_details_panel2Layout = new javax.swing.GroupLayout(patient_details_panel2);
+        patient_details_panel2.setLayout(patient_details_panel2Layout);
+        patient_details_panel2Layout.setHorizontalGroup(
+            patient_details_panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(patient_details_panel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(patient_details_panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(patient_details_panel2Layout.createSequentialGroup()
+                        .addComponent(user_shopDtr_label)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(patient_details_panel2Layout.createSequentialGroup()
+                        .addGroup(patient_details_panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(user_shopDtr_seperator, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(patient_details_panel2Layout.createSequentialGroup()
+                                .addGroup(patient_details_panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(user_shopDtr_shop_name)
+                                    .addComponent(user_shopDtr_shop_contact)
+                                    .addComponent(user_shopDtr_address_label, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(6, 6, 6)
+                                .addGroup(patient_details_panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(user_shopDtr_update_button, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(user_shopDtr_address_input, javax.swing.GroupLayout.DEFAULT_SIZE, 360, Short.MAX_VALUE)
+                                    .addComponent(user_shopDtr_shop_contact_input)
+                                    .addComponent(user_shopDtr_shop_name_input))))
+                        .addContainerGap(34, Short.MAX_VALUE))))
+        );
+        patient_details_panel2Layout.setVerticalGroup(
+            patient_details_panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(patient_details_panel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(user_shopDtr_label)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(user_shopDtr_seperator, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(patient_details_panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(user_shopDtr_shop_name)
+                    .addComponent(user_shopDtr_shop_name_input, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(patient_details_panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(user_shopDtr_shop_contact_input, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(user_shopDtr_shop_contact))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(patient_details_panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(user_shopDtr_address_label)
+                    .addComponent(user_shopDtr_address_input, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(user_shopDtr_update_button, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -1196,16 +1339,29 @@ public class medicine_management extends javax.swing.JFrame {
         userIframeLayout.setHorizontalGroup(
             userIframeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(userIframeLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(patient_details_panel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(367, Short.MAX_VALUE))
+                .addGap(30, 30, 30)
+                .addGroup(userIframeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(user_details_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(userIframeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(userIframeLayout.createSequentialGroup()
+                            .addComponent(user_image_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(user_welcome_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(patient_details_panel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(302, Short.MAX_VALUE))
         );
         userIframeLayout.setVerticalGroup(
             userIframeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(userIframeLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(patient_details_panel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(562, Short.MAX_VALUE))
+                .addGroup(userIframeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(user_image_panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(user_welcome_panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(user_details_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(patient_details_panel2, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(165, Short.MAX_VALUE))
         );
 
         cardPane.add(userIframe, "card3");
@@ -1285,7 +1441,7 @@ public class medicine_management extends javax.swing.JFrame {
     private void sales_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sales_buttonActionPerformed
         bill_button.setBackground(new Color(69,123,157));
         medicine_manage_button.setBackground(new Color(69,123,157));
-        sales_button.setBackground(new Color(168,218,220));
+        sales_button.setBackground(new Color(137,194,217));
         user_button.setBackground(new Color(69,123,157));
         
         BasicInternalFrameUI sales_titel_hide = (BasicInternalFrameUI)salesIframe.getUI();
@@ -1302,7 +1458,7 @@ public class medicine_management extends javax.swing.JFrame {
         bill_button.setBackground(new Color(69,123,157));
         medicine_manage_button.setBackground(new Color(69,123,157));
         sales_button.setBackground(new Color(69,123,157));
-        user_button.setBackground(new Color(168,218,220));
+        user_button.setBackground(new Color(137,194,217));
         
         BasicInternalFrameUI user_titel_hide = (BasicInternalFrameUI)userIframe.getUI();
         user_titel_hide.setNorthPane(null);
@@ -1456,65 +1612,37 @@ public class medicine_management extends javax.swing.JFrame {
         medMgr_company_phone.setText(mysql.company_phoneNo);
     }//GEN-LAST:event_medicineIframeInternalFrameActivated
 
-    private void medicine_name_find_inputKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_medicine_name_find_inputKeyPressed
+    private void uesr_details_name_inputKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_uesr_details_name_inputKeyPressed
         // TODO add your handling code here:
-    }//GEN-LAST:event_medicine_name_find_inputKeyPressed
+    }//GEN-LAST:event_uesr_details_name_inputKeyPressed
 
-    private void medMgr_add_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_medMgr_add_buttonActionPerformed
+    private void user_details_username_inputKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_user_details_username_inputKeyPressed
         // TODO add your handling code here:
-    }//GEN-LAST:event_medMgr_add_buttonActionPerformed
+    }//GEN-LAST:event_user_details_username_inputKeyPressed
 
-    private void medMgr_name_inputKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_medMgr_name_inputKeyPressed
+    private void patient_name_inputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_patient_name_inputActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_medMgr_name_inputKeyPressed
-
-    private void medMgr_strength_inputKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_medMgr_strength_inputKeyPressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_medMgr_strength_inputKeyPressed
-
-    private void medMgr_no_table_inputKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_medMgr_no_table_inputKeyPressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_medMgr_no_table_inputKeyPressed
-
-    private void medMgr_mrp_inputKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_medMgr_mrp_inputKeyPressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_medMgr_mrp_inputKeyPressed
-
-    private void medMgr_no_sheet_inputKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_medMgr_no_sheet_inputKeyPressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_medMgr_no_sheet_inputKeyPressed
-
-    private void medMgr_type_comboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_medMgr_type_comboBoxActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_medMgr_type_comboBoxActionPerformed
-
-    private void medMgr_no_box_inputKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_medMgr_no_box_inputKeyPressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_medMgr_no_box_inputKeyPressed
-
-    private void medMgr_expiry_inputKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_medMgr_expiry_inputKeyPressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_medMgr_expiry_inputKeyPressed
-
-    private void find_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_find_buttonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_find_buttonActionPerformed
+    }//GEN-LAST:event_patient_name_inputActionPerformed
 
     private void medMgr_update_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_medMgr_update_buttonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_medMgr_update_buttonActionPerformed
 
-    private void patient_name_input1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_patient_name_input1KeyPressed
+    private void user_shopDtr_shop_contact_inputKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_user_shopDtr_shop_contact_inputKeyPressed
         // TODO add your handling code here:
-    }//GEN-LAST:event_patient_name_input1KeyPressed
+    }//GEN-LAST:event_user_shopDtr_shop_contact_inputKeyPressed
 
-    private void patient_address_input1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_patient_address_input1KeyPressed
+    private void user_shopDtr_address_inputKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_user_shopDtr_address_inputKeyPressed
         // TODO add your handling code here:
-    }//GEN-LAST:event_patient_address_input1KeyPressed
+    }//GEN-LAST:event_user_shopDtr_address_inputKeyPressed
 
-    private void paitent_contact_input1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_paitent_contact_input1KeyPressed
+    private void user_shopDtr_shop_name_inputKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_user_shopDtr_shop_name_inputKeyPressed
         // TODO add your handling code here:
-    }//GEN-LAST:event_paitent_contact_input1KeyPressed
+    }//GEN-LAST:event_user_shopDtr_shop_name_inputKeyPressed
+
+    private void user_details_password_inputKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_user_details_password_inputKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_user_details_password_inputKeyPressed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -1610,29 +1738,49 @@ public class medicine_management extends javax.swing.JFrame {
     private javax.swing.JTextField medicine_quantity_input;
     private javax.swing.JLabel medinine_label;
     private javax.swing.JTextField paitent_contact_input;
-    private javax.swing.JTextField paitent_contact_input1;
     private javax.swing.JTextField patient_address_input;
-    private javax.swing.JTextField patient_address_input1;
     private javax.swing.JLabel patient_address_label;
-    private javax.swing.JLabel patient_address_label1;
     private javax.swing.JLabel patient_contact_label;
-    private javax.swing.JLabel patient_contact_label1;
     private javax.swing.JPanel patient_details_panel;
-    private javax.swing.JPanel patient_details_panel1;
+    private javax.swing.JPanel patient_details_panel2;
     private javax.swing.JLabel patient_input_error;
-    private javax.swing.JLabel patient_input_error1;
     private javax.swing.JTextField patient_name_input;
-    private javax.swing.JTextField patient_name_input1;
     private javax.swing.JLabel patient_name_label;
-    private javax.swing.JLabel patient_name_label1;
     private javax.swing.JLabel quantity_label;
     private javax.swing.JInternalFrame salesIframe;
     private javax.swing.JButton sales_button;
     private javax.swing.JLabel sales_panel_label;
     private javax.swing.JPanel side_panel_menu;
     private javax.swing.JPanel title_pane;
+    private javax.swing.JTextField uesr_details_name_input;
     private javax.swing.JInternalFrame userIframe;
     private javax.swing.JButton user_button;
+    private javax.swing.JLabel user_details_label;
+    private javax.swing.JLabel user_details_name;
+    private javax.swing.JPanel user_details_panel;
+    private javax.swing.JTextField user_details_password_input;
+    private javax.swing.JLabel user_details_pasword_input;
+    private javax.swing.JSeparator user_details_seperator;
+    private javax.swing.JButton user_details_update;
+    private javax.swing.JTextField user_details_username_input;
+    private javax.swing.JLabel user_details_username_label;
+    private javax.swing.JLabel user_image_label;
+    private javax.swing.JPanel user_image_panel;
+    private javax.swing.JTextField user_shopDtr_address_input;
+    private javax.swing.JLabel user_shopDtr_address_label;
+    private javax.swing.JLabel user_shopDtr_label;
+    private javax.swing.JSeparator user_shopDtr_seperator;
+    private javax.swing.JLabel user_shopDtr_shop_contact;
+    private javax.swing.JTextField user_shopDtr_shop_contact_input;
+    private javax.swing.JLabel user_shopDtr_shop_name;
+    private javax.swing.JTextField user_shopDtr_shop_name_input;
+    private javax.swing.JButton user_shopDtr_update_button;
+    private javax.swing.JLabel user_wel_shop_contact;
+    private javax.swing.JLabel user_wel_shop_name;
+    private javax.swing.JLabel user_wel_user_type;
+    private javax.swing.JLabel user_wel_users_name;
+    private javax.swing.JLabel user_wel_welcome;
+    private javax.swing.JPanel user_welcome_panel;
     private javax.swing.JInternalFrame welcomIframe;
     private javax.swing.JLabel welcom_panel_label;
     // End of variables declaration//GEN-END:variables
