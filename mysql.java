@@ -65,7 +65,7 @@ public class mysql {
     
     public static void medicine_mrp() throws SQLException{
         stmt = connect.createStatement();
-        String query = "SELECT * FROM `medicine_list` WHERE `drug` LIKE '%"+medicine_management.medicine_with_under+"%'";
+        String query = "SELECT * FROM `medicine_list` WHERE `medicine_name` LIKE '%"+medicine_management.medicine_with_under+"%'";
         result = stmt.executeQuery(query);
         while(result.next()) {
             medicine_management.medicine_price = result.getFloat(8);

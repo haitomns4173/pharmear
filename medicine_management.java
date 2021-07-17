@@ -23,6 +23,7 @@ public class medicine_management extends javax.swing.JFrame {
     static Set<String> medicine_name_auto = new TreeSet<String>();
     static float medicine_price = 0;
     static String medicine_with_under;
+    int medicine_total = 0;
             
     public medicine_management() {
         initComponents();
@@ -84,6 +85,9 @@ public class medicine_management extends javax.swing.JFrame {
         bill_table.getTableHeader().setBackground(new Color(25,130,196));
         bill_table.getTableHeader().setFont(new Font("Segoe UI", Font.BOLD, 14));
         bill_table.getTableHeader().setForeground(Color.WHITE);
+        bill_total_panel = new javax.swing.JPanel();
+        bill_total_label = new javax.swing.JLabel();
+        bill_total_display = new javax.swing.JLabel();
         bill_input_panel = new javax.swing.JPanel();
         add_medicine_label = new javax.swing.JLabel();
         add_medicine_seperator = new javax.swing.JSeparator();
@@ -299,6 +303,17 @@ public class medicine_management extends javax.swing.JFrame {
 
         welcome_user.setBackground(new java.awt.Color(25, 130, 196));
         welcome_user.setPreferredSize(new java.awt.Dimension(150, 150));
+        welcome_user.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                welcome_userMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                welcome_userMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                welcome_userMouseExited(evt);
+            }
+        });
 
         welcome_user_image.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mms/src/icons8_person_45px.png"))); // NOI18N
 
@@ -316,7 +331,7 @@ public class medicine_management extends javax.swing.JFrame {
                 .addGroup(welcome_userLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(welcome_user_image)
                     .addComponent(welcome_user_label))
-                .addGap(74, 74, 74))
+                .addGap(62, 62, 62))
         );
         welcome_userLayout.setVerticalGroup(
             welcome_userLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -330,6 +345,17 @@ public class medicine_management extends javax.swing.JFrame {
 
         welcome_sales.setBackground(new java.awt.Color(25, 130, 196));
         welcome_sales.setPreferredSize(new java.awt.Dimension(150, 150));
+        welcome_sales.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                welcome_salesMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                welcome_salesMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                welcome_salesMouseExited(evt);
+            }
+        });
 
         welcome_sales_image.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mms/src/icons8_total_sales_45px.png"))); // NOI18N
 
@@ -361,6 +387,17 @@ public class medicine_management extends javax.swing.JFrame {
 
         welcome_medicine.setBackground(new java.awt.Color(25, 130, 196));
         welcome_medicine.setPreferredSize(new java.awt.Dimension(150, 150));
+        welcome_medicine.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                welcome_medicineMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                welcome_medicineMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                welcome_medicineMouseExited(evt);
+            }
+        });
 
         welcome_medicine_image.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mms/src/icons8_pill_45px.png"))); // NOI18N
 
@@ -392,6 +429,17 @@ public class medicine_management extends javax.swing.JFrame {
 
         welcome_bill.setBackground(new java.awt.Color(25, 130, 196));
         welcome_bill.setPreferredSize(new java.awt.Dimension(150, 150));
+        welcome_bill.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                welcome_billMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                welcome_billMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                welcome_billMouseExited(evt);
+            }
+        });
 
         welcome_bill_image.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mms/src/icons8_billing_machine_48px.png"))); // NOI18N
 
@@ -661,14 +709,14 @@ public class medicine_management extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Sn. No", "Medicine Name", "Quantity", "Rate", "Total", "Edit"
+                "Sn. No", "Medicine Name", "Quantity", "Rate", "Sub-Total", "Edit"
             }
         ) {
             Class[] types = new Class [] {
                 java.lang.Short.class, java.lang.String.class, java.lang.Short.class, java.lang.String.class, java.lang.Double.class, java.lang.Object.class
             };
             boolean[] canEdit = new boolean [] {
-                false, true, true, false, false, true
+                false, false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -682,12 +730,40 @@ public class medicine_management extends javax.swing.JFrame {
         bill_table.setRowHeight(30);
         bill_tabel_scrollpanel.setViewportView(bill_table);
         if (bill_table.getColumnModel().getColumnCount() > 0) {
-            bill_table.getColumnModel().getColumn(0).setPreferredWidth(4);
-            bill_table.getColumnModel().getColumn(1).setPreferredWidth(15);
-            bill_table.getColumnModel().getColumn(2).setPreferredWidth(4);
-            bill_table.getColumnModel().getColumn(3).setPreferredWidth(6);
+            bill_table.getColumnModel().getColumn(0).setPreferredWidth(2);
+            bill_table.getColumnModel().getColumn(1).setPreferredWidth(20);
+            bill_table.getColumnModel().getColumn(2).setPreferredWidth(2);
+            bill_table.getColumnModel().getColumn(3).setPreferredWidth(2);
             bill_table.getColumnModel().getColumn(4).setPreferredWidth(8);
         }
+
+        bill_total_panel.setBackground(new java.awt.Color(25, 130, 196));
+
+        bill_total_label.setBackground(new java.awt.Color(255, 255, 255));
+        bill_total_label.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
+        bill_total_label.setForeground(new java.awt.Color(255, 255, 255));
+        bill_total_label.setText("Total : ");
+
+        bill_total_display.setBackground(new java.awt.Color(255, 255, 255));
+        bill_total_display.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
+        bill_total_display.setForeground(new java.awt.Color(255, 255, 255));
+
+        javax.swing.GroupLayout bill_total_panelLayout = new javax.swing.GroupLayout(bill_total_panel);
+        bill_total_panel.setLayout(bill_total_panelLayout);
+        bill_total_panelLayout.setHorizontalGroup(
+            bill_total_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(bill_total_panelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(bill_total_label)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(bill_total_display, javax.swing.GroupLayout.DEFAULT_SIZE, 86, Short.MAX_VALUE))
+        );
+        bill_total_panelLayout.setVerticalGroup(
+            bill_total_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(bill_total_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(bill_total_label, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(bill_total_display, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
 
         bill_input_panel.setBackground(new java.awt.Color(25, 130, 196));
 
@@ -714,8 +790,8 @@ public class medicine_management extends javax.swing.JFrame {
 
         medicine_quantity_input.setActionCommand("<Not Set>");
         medicine_quantity_input.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                medicine_quantity_inputKeyTyped(evt);
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                medicine_quantity_inputKeyPressed(evt);
             }
         });
 
@@ -770,11 +846,11 @@ public class medicine_management extends javax.swing.JFrame {
                 .addComponent(add_medicine_label)
                 .addGap(3, 3, 3)
                 .addComponent(add_medicine_seperator, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(bill_input_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(medicine_name_input, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(medinine_label, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(medinine_label))
+                .addGap(7, 7, 7)
                 .addGroup(bill_input_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(quantity_label)
                     .addGroup(bill_input_panelLayout.createSequentialGroup()
@@ -794,19 +870,52 @@ public class medicine_management extends javax.swing.JFrame {
         command_center.setForeground(new java.awt.Color(255, 255, 255));
         command_center.setText("Command Center");
 
+        bill_save_button.setBackground(new java.awt.Color(25, 130, 196));
         bill_save_button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mms/src/icons8_save_40px_2.png"))); // NOI18N
         bill_save_button.setBorder(null);
         bill_save_button.setBorderPainted(false);
         bill_save_button.setContentAreaFilled(false);
+        bill_save_button.setOpaque(true);
+        bill_save_button.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                bill_save_buttonMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                bill_save_buttonMouseExited(evt);
+            }
+        });
 
+        bill_discard_button.setBackground(new java.awt.Color(25, 130, 196));
         bill_discard_button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mms/src/icons8_waste_40px_1.png"))); // NOI18N
         bill_discard_button.setBorder(null);
         bill_discard_button.setContentAreaFilled(false);
+        bill_discard_button.setOpaque(true);
+        bill_discard_button.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                bill_discard_buttonMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                bill_discard_buttonMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                bill_discard_buttonMouseExited(evt);
+            }
+        });
 
+        bill_print_button.setBackground(new java.awt.Color(25, 130, 196));
         bill_print_button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mms/src/icons8_print_40px_4.png"))); // NOI18N
         bill_print_button.setBorder(null);
         bill_print_button.setBorderPainted(false);
         bill_print_button.setContentAreaFilled(false);
+        bill_print_button.setOpaque(true);
+        bill_print_button.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                bill_print_buttonMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                bill_print_buttonMouseExited(evt);
+            }
+        });
 
         javax.swing.GroupLayout command_center_paneLayout = new javax.swing.GroupLayout(command_center_pane);
         command_center_pane.setLayout(command_center_paneLayout);
@@ -816,16 +925,24 @@ public class medicine_management extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(command_center_paneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(command_center_paneLayout.createSequentialGroup()
-                        .addComponent(bill_save_button, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(bill_discard_button, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(command_center_seperator, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(bill_print_button, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, command_center_paneLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(command_center, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                        .addGroup(command_center_paneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, command_center_paneLayout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(command_center, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(command_center_paneLayout.createSequentialGroup()
+                                .addComponent(bill_print_button, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE)))
+                        .addContainerGap())
+                    .addGroup(command_center_paneLayout.createSequentialGroup()
+                        .addGroup(command_center_paneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(command_center_paneLayout.createSequentialGroup()
+                                .addComponent(bill_save_button, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(bill_discard_button, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(command_center_paneLayout.createSequentialGroup()
+                                .addComponent(command_center_seperator, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE)))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         command_center_paneLayout.setVerticalGroup(
             command_center_paneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -847,24 +964,27 @@ public class medicine_management extends javax.swing.JFrame {
         billIframe.getContentPane().setLayout(billIframeLayout);
         billIframeLayout.setHorizontalGroup(
             billIframeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, billIframeLayout.createSequentialGroup()
+            .addGroup(billIframeLayout.createSequentialGroup()
                 .addGap(30, 30, 30)
                 .addGroup(billIframeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(billIframeLayout.createSequentialGroup()
+                        .addComponent(patient_details_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(billIframeLayout.createSequentialGroup()
                         .addGroup(billIframeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(invoide_date_panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(bill_tabel_scrollpanel, javax.swing.GroupLayout.DEFAULT_SIZE, 766, Short.MAX_VALUE)
+                            .addComponent(bill_tabel_scrollpanel, javax.swing.GroupLayout.DEFAULT_SIZE, 794, Short.MAX_VALUE)
                             .addGroup(billIframeLayout.createSequentialGroup()
-                                .addGroup(billIframeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(bill_title_label, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(patient_details_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(0, 326, Short.MAX_VALUE)))
+                                .addComponent(bill_title_label, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE)))
                         .addGap(16, 16, 16))
                     .addGroup(billIframeLayout.createSequentialGroup()
-                        .addComponent(bill_input_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addGroup(billIframeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(bill_input_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(bill_total_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(command_center_pane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(41, Short.MAX_VALUE))))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         billIframeLayout.setVerticalGroup(
             billIframeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -875,13 +995,15 @@ public class medicine_management extends javax.swing.JFrame {
                 .addComponent(invoide_date_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(patient_details_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(bill_tabel_scrollpanel, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(billIframeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(bill_input_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(command_center_pane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(96, Short.MAX_VALUE))
+                .addComponent(bill_total_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(billIframeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(command_center_pane, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(bill_input_panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(136, Short.MAX_VALUE))
         );
 
         cardPane.add(billIframe, "card3");
@@ -1654,6 +1776,10 @@ public class medicine_management extends javax.swing.JFrame {
         medicine_with_under = medicine_name_input.getText().replace(' ', '%');
         medicine_with_under = medicine_with_under.substring(0, medicine_with_under.length()-1);
         
+        medicine_total =+ Integer.parseInt(medicine_quantity_input.getText());
+        bill_total_display.setText("");
+        bill_total_display.setText(String.valueOf(medicine_total));
+        
         try {
             mysql.medicine_mrp();
         }
@@ -1676,17 +1802,6 @@ public class medicine_management extends javax.swing.JFrame {
             medicine_quantity_input.setText(null);
         }
     }//GEN-LAST:event_add_buttonActionPerformed
-
-    private void medicine_quantity_inputKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_medicine_quantity_inputKeyTyped
-        if (Character.isDigit(evt.getKeyChar()) || Character.isWhitespace(evt.getKeyChar())) {
-            medicine_input_error.setText("");
-            add_button.setEnabled(true);
-        }
-        else{
-            medicine_input_error.setText("Invalid Medicine Quantity!");
-            add_button.setEnabled(false);
-        }
-    }//GEN-LAST:event_medicine_quantity_inputKeyTyped
 
     @SuppressWarnings("empty-statement")
     private void medicine_name_inputKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_medicine_name_inputKeyReleased
@@ -1737,9 +1852,11 @@ public class medicine_management extends javax.swing.JFrame {
         char text_in_patient_contact = evt.getKeyChar();
         if (Character.isDigit(text_in_patient_contact)||Character.isISOControl(text_in_patient_contact)) {
             patient_input_error.setText("");
+            paitent_contact_input.setEditable(true);
             if(evt.getKeyCode()==KeyEvent.VK_ENTER){
                 if(paitent_contact_input.getText().length() != 10)
                 {
+                    paitent_contact_input.setEditable(false);
                     patient_input_error.setText("Worong Phone");
                 }
                 else{
@@ -1748,6 +1865,7 @@ public class medicine_management extends javax.swing.JFrame {
             }
         }
         else{
+            paitent_contact_input.setEditable(false);
             patient_input_error.setText("Worong Phone");
         }
     }//GEN-LAST:event_paitent_contact_inputKeyPressed
@@ -1776,6 +1894,7 @@ public class medicine_management extends javax.swing.JFrame {
         medMgr_company_phone.setText(mysql.company_phoneNo);
     }//GEN-LAST:event_medicineIframeInternalFrameActivated
 
+    //This is just for testing
     private void justJokingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_justJokingActionPerformed
         DefaultCategoryDataset dcb = new DefaultCategoryDataset();
         dcb.setValue(100, "Marks", "Haitomns");
@@ -1790,6 +1909,109 @@ public class medicine_management extends javax.swing.JFrame {
         ChartFrame chartFrame = new ChartFrame("Std Record", jchart, true);
         chartFrame.setVisible(true);
     }//GEN-LAST:event_justJokingActionPerformed
+    //here the testing ends
+    
+    private void welcome_userMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_welcome_userMouseEntered
+        welcome_user.setBackground(new Color(25,130,196).darker());
+    }//GEN-LAST:event_welcome_userMouseEntered
+
+    private void welcome_userMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_welcome_userMouseExited
+        welcome_user.setBackground(new Color(25,130,196));
+    }//GEN-LAST:event_welcome_userMouseExited
+
+    private void welcome_salesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_welcome_salesMouseEntered
+        welcome_sales.setBackground(new Color(25,130,196).darker());
+    }//GEN-LAST:event_welcome_salesMouseEntered
+
+    private void welcome_salesMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_welcome_salesMouseExited
+        welcome_sales.setBackground(new Color(25,130,196));
+    }//GEN-LAST:event_welcome_salesMouseExited
+
+    private void welcome_medicineMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_welcome_medicineMouseEntered
+        welcome_medicine.setBackground(new Color(25,130,196).darker());
+    }//GEN-LAST:event_welcome_medicineMouseEntered
+
+    private void welcome_medicineMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_welcome_medicineMouseExited
+        welcome_medicine.setBackground(new Color(25,130,196));
+    }//GEN-LAST:event_welcome_medicineMouseExited
+
+    private void welcome_billMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_welcome_billMouseEntered
+        welcome_bill.setBackground(new Color(25,130,196).darker());
+    }//GEN-LAST:event_welcome_billMouseEntered
+
+    private void welcome_billMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_welcome_billMouseExited
+        welcome_bill.setBackground(new Color(25,130,196));
+    }//GEN-LAST:event_welcome_billMouseExited
+
+    private void welcome_billMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_welcome_billMouseClicked
+        bill_button.doClick();
+    }//GEN-LAST:event_welcome_billMouseClicked
+
+    private void welcome_medicineMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_welcome_medicineMouseClicked
+        medicine_manage_button.doClick();
+    }//GEN-LAST:event_welcome_medicineMouseClicked
+
+    private void welcome_salesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_welcome_salesMouseClicked
+        sales_button.doClick();
+    }//GEN-LAST:event_welcome_salesMouseClicked
+
+    private void welcome_userMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_welcome_userMouseClicked
+        user_button.doClick();
+    }//GEN-LAST:event_welcome_userMouseClicked
+
+    private void bill_save_buttonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bill_save_buttonMouseEntered
+        bill_save_button.setBackground(new Color(25,130,196).darker());
+    }//GEN-LAST:event_bill_save_buttonMouseEntered
+
+    private void bill_save_buttonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bill_save_buttonMouseExited
+        bill_save_button.setBackground(new Color(25,130,196));
+    }//GEN-LAST:event_bill_save_buttonMouseExited
+
+    private void bill_discard_buttonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bill_discard_buttonMouseEntered
+        bill_discard_button.setBackground(new Color(25,130,196).darker());
+    }//GEN-LAST:event_bill_discard_buttonMouseEntered
+
+    private void bill_discard_buttonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bill_discard_buttonMouseExited
+        bill_discard_button.setBackground(new Color(25,130,196));
+    }//GEN-LAST:event_bill_discard_buttonMouseExited
+
+    private void bill_print_buttonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bill_print_buttonMouseEntered
+        bill_print_button.setBackground(new Color(25,130,196).darker());
+    }//GEN-LAST:event_bill_print_buttonMouseEntered
+
+    private void bill_print_buttonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bill_print_buttonMouseExited
+        bill_print_button.setBackground(new Color(25,130,196));
+    }//GEN-LAST:event_bill_print_buttonMouseExited
+
+    private void bill_discard_buttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bill_discard_buttonMouseClicked
+        int discard_confirm = JOptionPane.showConfirmDialog(null, "Are you sure you want to delete the Bill ?", "Delete Bill",
+        JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+        switch (discard_confirm) {
+            case JOptionPane.NO_OPTION -> {
+            }
+            case JOptionPane.YES_OPTION -> {
+                ((DefaultTableModel)bill_table.getModel()).setNumRows(0);
+                medicine_bill_id = 1;
+            }
+            case JOptionPane.CLOSED_OPTION -> {
+            }
+            default -> {
+            }
+        }   
+    }//GEN-LAST:event_bill_discard_buttonMouseClicked
+
+    private void medicine_quantity_inputKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_medicine_quantity_inputKeyPressed
+        if (Character.isDigit(evt.getKeyChar()) || Character.isWhitespace(evt.getKeyChar())) {
+            medicine_input_error.setText("");
+            add_button.setEnabled(true);
+            medicine_quantity_input.setEditable(true);
+        }
+        else{
+            medicine_input_error.setText("Invalid Medicine Quantity!");
+            add_button.setEnabled(false);
+            medicine_quantity_input.setEditable(false);
+        }
+    }//GEN-LAST:event_medicine_quantity_inputKeyPressed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -1824,7 +2046,7 @@ public class medicine_management extends javax.swing.JFrame {
     private javax.swing.JPanel background;
     private javax.swing.JPanel bar;
     private javax.swing.JInternalFrame billIframe;
-    private javax.swing.JButton bill_button;
+    protected javax.swing.JButton bill_button;
     private javax.swing.JLabel bill_company_address;
     private javax.swing.JLabel bill_company_name;
     private javax.swing.JLabel bill_company_phone;
@@ -1835,6 +2057,9 @@ public class medicine_management extends javax.swing.JFrame {
     private javax.swing.JScrollPane bill_tabel_scrollpanel;
     private javax.swing.JTable bill_table;
     private javax.swing.JPanel bill_title_label;
+    private javax.swing.JLabel bill_total_display;
+    private javax.swing.JLabel bill_total_label;
+    private javax.swing.JPanel bill_total_panel;
     private javax.swing.JButton cancel_button;
     private javax.swing.JPanel cardPane;
     private javax.swing.JLabel command_center;

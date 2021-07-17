@@ -136,6 +136,9 @@
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bill_buttonActionPerformed"/>
               </Events>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
+              </AuxValues>
             </Component>
             <Component class="javax.swing.JButton" name="medicine_manage_button">
               <Properties>
@@ -367,6 +370,11 @@
                       <Dimension value="[150, 150]"/>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="welcome_userMouseClicked"/>
+                    <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="welcome_userMouseEntered"/>
+                    <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="welcome_userMouseExited"/>
+                  </Events>
 
                   <Layout>
                     <DimensionLayout dim="0">
@@ -377,7 +385,7 @@
                                   <Component id="welcome_user_image" min="-2" max="-2" attributes="0"/>
                                   <Component id="welcome_user_label" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace min="-2" pref="74" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="62" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -424,6 +432,11 @@
                       <Dimension value="[150, 150]"/>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="welcome_salesMouseClicked"/>
+                    <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="welcome_salesMouseEntered"/>
+                    <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="welcome_salesMouseExited"/>
+                  </Events>
 
                   <Layout>
                     <DimensionLayout dim="0">
@@ -481,6 +494,11 @@
                       <Dimension value="[150, 150]"/>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="welcome_medicineMouseClicked"/>
+                    <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="welcome_medicineMouseEntered"/>
+                    <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="welcome_medicineMouseExited"/>
+                  </Events>
 
                   <Layout>
                     <DimensionLayout dim="0">
@@ -538,6 +556,11 @@
                       <Dimension value="[150, 150]"/>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="welcome_billMouseClicked"/>
+                    <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="welcome_billMouseEntered"/>
+                    <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="welcome_billMouseExited"/>
+                  </Events>
 
                   <Layout>
                     <DimensionLayout dim="0">
@@ -610,28 +633,32 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="1" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
+                                  <Component id="patient_details_panel" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              </Group>
+                              <Group type="102" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="invoide_date_panel" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="bill_tabel_scrollpanel" alignment="0" pref="766" max="32767" attributes="0"/>
+                                      <Component id="bill_tabel_scrollpanel" alignment="0" pref="794" max="32767" attributes="0"/>
                                       <Group type="102" attributes="0">
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="bill_title_label" min="-2" max="-2" attributes="0"/>
-                                              <Component id="patient_details_panel" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                          <EmptySpace min="0" pref="326" max="32767" attributes="0"/>
+                                          <Component id="bill_title_label" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
                               </Group>
-                              <Group type="102" attributes="0">
-                                  <Component id="bill_input_panel" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="1" attributes="0">
+                                      <Component id="bill_input_panel" min="-2" max="-2" attributes="0"/>
+                                      <Component id="bill_total_panel" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Component id="command_center_pane" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace pref="41" max="32767" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -646,14 +673,16 @@
                           <Component id="invoide_date_panel" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="patient_details_panel" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="48" max="32767" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
                           <Component id="bill_tabel_scrollpanel" min="-2" pref="170" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="bill_input_panel" min="-2" max="-2" attributes="0"/>
-                              <Component id="command_center_pane" min="-2" max="-2" attributes="0"/>
+                          <Component id="bill_total_panel" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="command_center_pane" pref="0" max="32767" attributes="0"/>
+                              <Component id="bill_input_panel" max="32767" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="96" max="32767" attributes="0"/>
+                          <EmptySpace pref="136" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -944,31 +973,31 @@
                         <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                           <Table columnCount="6" rowCount="0">
                             <Column editable="false" title="Sn. No" type="java.lang.Short"/>
-                            <Column editable="true" title="Medicine Name" type="java.lang.String"/>
-                            <Column editable="true" title="Quantity" type="java.lang.Short"/>
+                            <Column editable="false" title="Medicine Name" type="java.lang.String"/>
+                            <Column editable="false" title="Quantity" type="java.lang.Short"/>
                             <Column editable="false" title="Rate" type="java.lang.String"/>
-                            <Column editable="false" title="Total" type="java.lang.Double"/>
-                            <Column editable="true" title="Edit" type="java.lang.Object"/>
+                            <Column editable="false" title="Sub-Total" type="java.lang.Double"/>
+                            <Column editable="false" title="Edit" type="java.lang.Object"/>
                           </Table>
                         </Property>
                         <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
                           <TableColumnModel selectionModel="0">
-                            <Column maxWidth="-1" minWidth="-1" prefWidth="4" resizable="true">
+                            <Column maxWidth="-1" minWidth="-1" prefWidth="2" resizable="true">
                               <Title/>
                               <Editor/>
                               <Renderer/>
                             </Column>
-                            <Column maxWidth="-1" minWidth="-1" prefWidth="15" resizable="true">
+                            <Column maxWidth="-1" minWidth="-1" prefWidth="20" resizable="true">
                               <Title/>
                               <Editor/>
                               <Renderer/>
                             </Column>
-                            <Column maxWidth="-1" minWidth="-1" prefWidth="4" resizable="true">
+                            <Column maxWidth="-1" minWidth="-1" prefWidth="2" resizable="true">
                               <Title/>
                               <Editor/>
                               <Renderer/>
                             </Column>
-                            <Column maxWidth="-1" minWidth="-1" prefWidth="6" resizable="true">
+                            <Column maxWidth="-1" minWidth="-1" prefWidth="2" resizable="true">
                               <Title/>
                               <Editor/>
                               <Renderer/>
@@ -993,6 +1022,63 @@
                       <AuxValues>
                         <AuxValue name="JavaCodeGenerator_CreateCodePost" type="java.lang.String" value="bill_table.getTableHeader().setBackground(new Color(25,130,196));&#xd;&#xa;bill_table.getTableHeader().setFont(new Font(&quot;Segoe UI&quot;, Font.BOLD, 14));&#xd;&#xa;bill_table.getTableHeader().setForeground(Color.WHITE);"/>
                       </AuxValues>
+                    </Component>
+                  </SubComponents>
+                </Container>
+                <Container class="javax.swing.JPanel" name="bill_total_panel">
+                  <Properties>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="c4" green="82" red="19" type="rgb"/>
+                    </Property>
+                  </Properties>
+
+                  <Layout>
+                    <DimensionLayout dim="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="bill_total_label" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="bill_total_display" pref="86" max="32767" attributes="0"/>
+                          </Group>
+                      </Group>
+                    </DimensionLayout>
+                    <DimensionLayout dim="1">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                              <Component id="bill_total_label" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
+                              <Component id="bill_total_display" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                    </DimensionLayout>
+                  </Layout>
+                  <SubComponents>
+                    <Component class="javax.swing.JLabel" name="bill_total_label">
+                      <Properties>
+                        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                        </Property>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Segoe UI" size="13" style="1"/>
+                        </Property>
+                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                        </Property>
+                        <Property name="text" type="java.lang.String" value="Total : "/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="bill_total_display">
+                      <Properties>
+                        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                        </Property>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Segoe UI" size="13" style="1"/>
+                        </Property>
+                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                        </Property>
+                      </Properties>
                     </Component>
                   </SubComponents>
                 </Container>
@@ -1040,12 +1126,12 @@
                               <Component id="add_medicine_label" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
                               <Component id="add_medicine_seperator" min="-2" pref="10" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="medicine_name_input" min="-2" max="-2" attributes="0"/>
-                                  <Component id="medinine_label" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="medinine_label" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="quantity_label" min="-2" max="-2" attributes="0"/>
                                   <Group type="102" attributes="0">
@@ -1111,7 +1197,7 @@
                         <Property name="actionCommand" type="java.lang.String" value="&lt;Not Set&gt;"/>
                       </Properties>
                       <Events>
-                        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="medicine_quantity_inputKeyTyped"/>
+                        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="medicine_quantity_inputKeyPressed"/>
                       </Events>
                     </Component>
                     <Component class="javax.swing.JLabel" name="medicine_input_error">
@@ -1176,20 +1262,34 @@
                           <Group type="102" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="bill_save_button" min="-2" pref="49" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="bill_discard_button" min="-2" pref="49" max="-2" attributes="0"/>
+                                  <Group type="102" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" alignment="1" attributes="0">
+                                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                              <Component id="command_center" min="-2" pref="124" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="bill_print_button" min="-2" pref="49" max="-2" attributes="0"/>
+                                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
                                   </Group>
-                                  <Component id="command_center_seperator" min="-2" pref="124" max="-2" attributes="0"/>
-                                  <Component id="bill_print_button" alignment="0" min="-2" pref="49" max="-2" attributes="0"/>
+                                  <Group type="102" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="bill_save_button" min="-2" pref="49" max="-2" attributes="0"/>
+                                              <EmptySpace max="32767" attributes="0"/>
+                                              <Component id="bill_discard_button" min="-2" pref="49" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" attributes="0">
+                                              <Component id="command_center_seperator" min="-2" pref="124" max="-2" attributes="0"/>
+                                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                      <EmptySpace max="32767" attributes="0"/>
+                                  </Group>
                               </Group>
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace max="32767" attributes="0"/>
-                              <Component id="command_center" min="-2" pref="124" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -1228,6 +1328,9 @@
                     </Component>
                     <Component class="javax.swing.JButton" name="bill_save_button">
                       <Properties>
+                        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="c4" green="82" red="19" type="rgb"/>
+                        </Property>
                         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                           <Image iconType="3" name="/mms/src/icons8_save_40px_2.png"/>
                         </Property>
@@ -1236,10 +1339,18 @@
                         </Property>
                         <Property name="borderPainted" type="boolean" value="false"/>
                         <Property name="contentAreaFilled" type="boolean" value="false"/>
+                        <Property name="opaque" type="boolean" value="true"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="bill_save_buttonMouseEntered"/>
+                        <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="bill_save_buttonMouseExited"/>
+                      </Events>
                     </Component>
                     <Component class="javax.swing.JButton" name="bill_discard_button">
                       <Properties>
+                        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="c4" green="82" red="19" type="rgb"/>
+                        </Property>
                         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                           <Image iconType="3" name="/mms/src/icons8_waste_40px_1.png"/>
                         </Property>
@@ -1247,10 +1358,19 @@
                           <Border info="null"/>
                         </Property>
                         <Property name="contentAreaFilled" type="boolean" value="false"/>
+                        <Property name="opaque" type="boolean" value="true"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="bill_discard_buttonMouseClicked"/>
+                        <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="bill_discard_buttonMouseEntered"/>
+                        <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="bill_discard_buttonMouseExited"/>
+                      </Events>
                     </Component>
                     <Component class="javax.swing.JButton" name="bill_print_button">
                       <Properties>
+                        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="c4" green="82" red="19" type="rgb"/>
+                        </Property>
                         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                           <Image iconType="3" name="/mms/src/icons8_print_40px_4.png"/>
                         </Property>
@@ -1259,7 +1379,12 @@
                         </Property>
                         <Property name="borderPainted" type="boolean" value="false"/>
                         <Property name="contentAreaFilled" type="boolean" value="false"/>
+                        <Property name="opaque" type="boolean" value="true"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="bill_print_buttonMouseEntered"/>
+                        <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="bill_print_buttonMouseExited"/>
+                      </Events>
                     </Component>
                   </SubComponents>
                 </Container>
