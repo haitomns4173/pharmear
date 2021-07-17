@@ -12,6 +12,10 @@ public class mysql {
     static String company_address;
     static String company_phoneNo;
     
+    static String users_name;
+    static String username;
+    static String user_type;
+    
     public static void main(String args[]) {
         String db_url = "jdbc:mysql://localhost:3306/pharma_knowhere";
         String db_username = "root";
@@ -51,6 +55,37 @@ public class mysql {
             company_name = result.getString(1);
             company_address = result.getString(2);
             company_phoneNo = result.getString(3);
+        }
+    }
+    
+    public static void user_find_query() throws SQLException{
+        stmt = connect.createStatement();
+        String query = "SELECT * FROM `user` WHERE `username` LIKE '"+loginPage.username_stored+"'";
+        result = stmt.executeQuery(query);
+        while(result.next()) {
+            users_name = result.getString(2);
+            user_type = result.getString(3);
+            username = result.getString(4);
+        }
+    }
+    
+    public static int user_update_query(String users_name_update, String username, String password, String username_to_change) throws SQLException{
+        int username_duplicate = 0;
+        stmt = connect.createStatement(); 
+        String query = "SELECT * FROM `user` WHERE `username` LIKE '"+username+"'";
+        result = stmt.executeQuery(query);
+        result = stmt.executeQuery(query);
+        while(result.next()) {
+            username_duplicate++;
+        }
+        System.out.print(username_duplicate);
+        if(username_duplicate == 0){
+            String update_query = "UPDATE `user` SET `name`='"+users_name_update+"',`username`='"+username+"',`password`='"+password+"' WHERE `username` = '"+username_to_change+"'";
+            stmt.executeUpdate(update_query);
+            return 0;
+        }
+        else{
+            return 1;
         }
     }
     

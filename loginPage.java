@@ -4,6 +4,9 @@ import javax.swing.*;
 import java.sql.*;
 
 public class loginPage extends javax.swing.JFrame {
+    
+    static String username_stored;
+    
     public loginPage() {
         initComponents();
         setLocationRelativeTo(null);
@@ -171,6 +174,9 @@ public class loginPage extends javax.swing.JFrame {
     private void login_buttomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_login_buttomActionPerformed
         String username = username_input.getText();
         String password = password_input.getText();
+        
+        username_stored = username;
+        
         try {
             mysql.login_validator(username, password) ;
         } 
