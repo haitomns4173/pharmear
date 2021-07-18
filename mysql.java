@@ -36,6 +36,7 @@ public class mysql {
         result = stmt.executeQuery(query);
         while(result.next()) {
             number_of_rows++;
+            loginPage.user_id_stored = result.getInt(1);
         }
         if(number_of_rows == 1){
             JOptionPane.showMessageDialog(null, "Login Successful");
@@ -69,17 +70,29 @@ public class mysql {
         }
     }
     
-    public static int user_update_query(String users_name_update, String username, String password, String username_to_change) throws SQLException{
+    public static int user_update_query(String users_name_update, String username_update, String password_update, String username_to_change) throws SQLException{
         int username_duplicate = 0;
+        int temp_user_id = 0;
+        
         stmt = connect.createStatement(); 
-        String query = "SELECT * FROM `user` WHERE `username` LIKE '"+username+"'";
+        String query = "SELECT * FROM `user` WHERE `username` LIKE '"+username_update+"'";
         result = stmt.executeQuery(query);
         while(result.next()) {
             username_duplicate++;
+            temp_user_id = result.getInt(1);
         }
-        System.out.print(username_duplicate);
+        
+        if(username_duplicate != 0){
+            if(temp_user_id == loginPage.user_id_stored){
+                username_duplicate = 0;
+            }
+            else{
+                username_duplicate = 1;
+            }
+        }
+        
         if(username_duplicate == 0){
-            String update_query = "UPDATE `user` SET `name`='"+users_name_update+"',`username`='"+username+"',`password`='"+password+"' WHERE `username` = '"+username_to_change+"'";
+            String update_query = "UPDATE `user` SET `name`='"+users_name_update+"',`username`='"+username_update+"',`password`='"+password_update+"' WHERE `username` = '"+username_to_change+"'";
             stmt.executeUpdate(update_query);
             return 0;
         }

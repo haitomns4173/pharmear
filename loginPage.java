@@ -6,6 +6,7 @@ import java.sql.*;
 public class loginPage extends javax.swing.JFrame {
     
     static String username_stored;
+    static int user_id_stored;
     
     public loginPage() {
         initComponents();
