@@ -172,7 +172,7 @@ public class loginPage extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void login_buttomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_login_buttomActionPerformed
-        String username = username_input.getText();
+        String username = username_input.getText().trim();
         String password = password_input.getText();
         
         username_stored = username;

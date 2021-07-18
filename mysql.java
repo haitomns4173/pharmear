@@ -74,7 +74,6 @@ public class mysql {
         stmt = connect.createStatement(); 
         String query = "SELECT * FROM `user` WHERE `username` LIKE '"+username+"'";
         result = stmt.executeQuery(query);
-        result = stmt.executeQuery(query);
         while(result.next()) {
             username_duplicate++;
         }
@@ -87,6 +86,11 @@ public class mysql {
         else{
             return 1;
         }
+    }
+    
+    public static void company_update_query(String shop_name_update, String shop_address_update, String shop_contact_update) throws SQLException{
+        String update_query = "UPDATE `company` SET `name`='"+shop_name_update+"',`address`='"+shop_address_update+"',`phone`='"+shop_contact_update+"' WHERE 1";
+        stmt.executeUpdate(update_query);
     }
     
     public static void auto_suggestion_medicine() throws SQLException{

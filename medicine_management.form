@@ -700,10 +700,10 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
                               <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="bill_company_name" alignment="0" min="-2" pref="181" max="-2" attributes="0"/>
-                                  <Component id="bill_company_phone" alignment="0" min="-2" pref="170" max="-2" attributes="0"/>
-                                  <Component id="bill_company_address" alignment="0" min="-2" pref="321" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="bill_company_address" alignment="0" pref="321" max="32767" attributes="0"/>
+                                  <Component id="bill_company_name" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="bill_company_phone" alignment="0" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace max="32767" attributes="0"/>
                           </Group>
@@ -1267,16 +1267,15 @@
                                       <Component id="command_center" min="-2" pref="124" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
-                                      <Component id="bill_print_button" min="-2" pref="49" max="-2" attributes="0"/>
-                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
                                       <Component id="bill_save_button" min="-2" pref="49" max="-2" attributes="0"/>
                                       <EmptySpace max="32767" attributes="0"/>
                                       <Component id="bill_discard_button" min="-2" pref="49" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" attributes="0">
-                                      <Component id="command_center_seperator" min="-2" pref="124" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="bill_print_button" alignment="0" min="-2" pref="49" max="-2" attributes="0"/>
+                                          <Component id="command_center_seperator" min="-2" pref="124" max="-2" attributes="0"/>
+                                      </Group>
                                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
@@ -1413,7 +1412,7 @@
                                       <Component id="medMgr_find_panel" min="-2" max="-2" attributes="0"/>
                                       <Component id="medMgr_details_panel" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                  <EmptySpace min="0" pref="275" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
@@ -1449,10 +1448,10 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="medMgr_company_name" alignment="0" min="-2" pref="181" max="-2" attributes="0"/>
-                                  <Component id="medMgr_company_phone" alignment="0" min="-2" pref="170" max="-2" attributes="0"/>
-                                  <Component id="medMgr_company_address" alignment="0" min="-2" pref="321" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="medMgr_company_address" alignment="0" pref="321" max="32767" attributes="0"/>
+                                  <Component id="medMgr_company_name" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="medMgr_company_phone" alignment="0" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace max="32767" attributes="0"/>
                           </Group>
@@ -2099,18 +2098,16 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="1" attributes="0">
-                              <Component id="user_details_panel" min="-2" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <Component id="user_image_panel" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="32767" attributes="0"/>
-                                      <Component id="user_welcome_panel" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Component id="shop_details_panel" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="user_details_panel" max="32767" attributes="0"/>
+                              <Group type="102" attributes="0">
+                                  <Component id="user_image_panel" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="user_welcome_panel" min="-2" max="-2" attributes="0"/>
                               </Group>
+                              <Component id="shop_details_panel" alignment="0" max="32767" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="293" max="32767" attributes="0"/>
+                          <EmptySpace pref="300" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -2122,11 +2119,11 @@
                               <Component id="user_image_panel" max="32767" attributes="0"/>
                               <Component id="user_welcome_panel" max="32767" attributes="0"/>
                           </Group>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="user_details_panel" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                          <Component id="user_details_panel" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="shop_details_panel" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="173" max="32767" attributes="0"/>
+                          <EmptySpace pref="178" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -2191,7 +2188,7 @@
                                           <Component id="user_wel_shop_name" alignment="0" min="-2" max="-2" attributes="0"/>
                                           <Component id="user_wel_shop_contact" alignment="0" min="-2" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace min="0" pref="201" max="32767" attributes="0"/>
+                                      <EmptySpace min="0" pref="213" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
@@ -2296,7 +2293,7 @@
                                           <Component id="user_details_label" min="-2" max="-2" attributes="0"/>
                                           <Component id="user_details_seperator" alignment="0" min="-2" pref="464" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace pref="32" max="32767" attributes="0"/>
+                                      <EmptySpace max="32767" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
@@ -2342,9 +2339,9 @@
                                   <Component id="user_details_pasword_input" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="user_details_password_input" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
-                              <Component id="username_error" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
+                              <Component id="username_error" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
                               <Component id="user_details_update" min="-2" pref="24" max="-2" attributes="0"/>
                               <EmptySpace max="32767" attributes="0"/>
                           </Group>
@@ -2382,6 +2379,9 @@
                           <Font name="Segoe UI" size="11" style="0"/>
                         </Property>
                       </Properties>
+                      <Events>
+                        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="uesr_details_name_inputKeyPressed"/>
+                      </Events>
                     </Component>
                     <Component class="javax.swing.JLabel" name="user_details_username_label">
                       <Properties>
@@ -2415,6 +2415,16 @@
                         <Property name="text" type="java.lang.String" value="Password"/>
                       </Properties>
                     </Component>
+                    <Component class="javax.swing.JPasswordField" name="user_details_password_input">
+                      <Properties>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Segoe UI" size="11" style="0"/>
+                        </Property>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="user_details_password_inputKeyPressed"/>
+                      </Events>
+                    </Component>
                     <Component class="javax.swing.JButton" name="user_details_update">
                       <Properties>
                         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -2433,16 +2443,6 @@
                       </Properties>
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="user_details_updateActionPerformed"/>
-                      </Events>
-                    </Component>
-                    <Component class="javax.swing.JPasswordField" name="user_details_password_input">
-                      <Properties>
-                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Segoe UI" size="11" style="0"/>
-                        </Property>
-                      </Properties>
-                      <Events>
-                        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="user_details_password_inputKeyPressed"/>
                       </Events>
                     </Component>
                     <Component class="javax.swing.JLabel" name="username_error">
@@ -2488,16 +2488,19 @@
                                                   <EmptySpace max="-2" attributes="0"/>
                                               </Group>
                                           </Group>
-                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                              <Component id="user_shopDtr_update_button" alignment="0" min="-2" pref="73" max="-2" attributes="0"/>
-                                              <Component id="user_shopDtr_address_input" pref="360" max="32767" attributes="0"/>
-                                              <Component id="user_shopDtr_shop_contact_input" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="user_shopDtr_shop_name_input" alignment="0" max="32767" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="shop_details_error" min="-2" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                  <Component id="user_shopDtr_update_button" alignment="0" min="-2" pref="73" max="-2" attributes="0"/>
+                                                  <Component id="user_shopDtr_address_input" pref="360" max="32767" attributes="0"/>
+                                                  <Component id="user_shopDtr_shop_contact_input" alignment="0" max="32767" attributes="0"/>
+                                                  <Component id="user_shopDtr_shop_name_input" alignment="0" max="32767" attributes="0"/>
+                                              </Group>
                                           </Group>
                                       </Group>
                                   </Group>
                               </Group>
-                              <EmptySpace pref="34" max="32767" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -2522,10 +2525,12 @@
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="user_shopDtr_shop_contact" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="user_shopDtr_shop_contact_input" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="user_shopDtr_shop_contact" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="shop_details_error" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
                               <Component id="user_shopDtr_update_button" min="-2" pref="24" max="-2" attributes="0"/>
                               <EmptySpace pref="18" max="32767" attributes="0"/>
                           </Group>
@@ -2563,24 +2568,9 @@
                           <Font name="Segoe UI" size="11" style="0"/>
                         </Property>
                       </Properties>
-                    </Component>
-                    <Component class="javax.swing.JLabel" name="user_shopDtr_shop_contact">
-                      <Properties>
-                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Segoe UI" size="14" style="1"/>
-                        </Property>
-                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                          <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                        </Property>
-                        <Property name="text" type="java.lang.String" value="Contact"/>
-                      </Properties>
-                    </Component>
-                    <Component class="javax.swing.JTextField" name="user_shopDtr_shop_contact_input">
-                      <Properties>
-                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Segoe UI" size="11" style="0"/>
-                        </Property>
-                      </Properties>
+                      <Events>
+                        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="user_shopDtr_shop_name_inputKeyPressed"/>
+                      </Events>
                     </Component>
                     <Component class="javax.swing.JLabel" name="user_shopDtr_address_label">
                       <Properties>
@@ -2599,6 +2589,30 @@
                           <Font name="Segoe UI" size="11" style="0"/>
                         </Property>
                       </Properties>
+                      <Events>
+                        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="user_shopDtr_address_inputKeyPressed"/>
+                      </Events>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="user_shopDtr_shop_contact">
+                      <Properties>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Segoe UI" size="14" style="1"/>
+                        </Property>
+                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                        </Property>
+                        <Property name="text" type="java.lang.String" value="Contact"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="user_shopDtr_shop_contact_input">
+                      <Properties>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Segoe UI" size="11" style="0"/>
+                        </Property>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="user_shopDtr_shop_contact_inputKeyPressed"/>
+                      </Events>
                     </Component>
                     <Component class="javax.swing.JButton" name="user_shopDtr_update_button">
                       <Properties>
@@ -2615,6 +2629,20 @@
                         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                           <Border info="null"/>
                         </Property>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="user_shopDtr_update_buttonActionPerformed"/>
+                      </Events>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="shop_details_error">
+                      <Properties>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Segoe UI" size="12" style="1"/>
+                        </Property>
+                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                        </Property>
+                        <Property name="text" type="java.lang.String" value="Shop Error"/>
                       </Properties>
                     </Component>
                   </SubComponents>

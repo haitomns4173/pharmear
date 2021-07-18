@@ -166,19 +166,20 @@ public class medicine_management extends javax.swing.JFrame {
         user_details_username_label = new javax.swing.JLabel();
         user_details_username_input = new javax.swing.JTextField();
         user_details_pasword_input = new javax.swing.JLabel();
-        user_details_update = new javax.swing.JButton();
         user_details_password_input = new javax.swing.JPasswordField();
+        user_details_update = new javax.swing.JButton();
         username_error = new javax.swing.JLabel();
         shop_details_panel = new javax.swing.JPanel();
         user_shopDtr_label = new javax.swing.JLabel();
         user_shopDtr_seperator = new javax.swing.JSeparator();
         user_shopDtr_shop_name = new javax.swing.JLabel();
         user_shopDtr_shop_name_input = new javax.swing.JTextField();
-        user_shopDtr_shop_contact = new javax.swing.JLabel();
-        user_shopDtr_shop_contact_input = new javax.swing.JTextField();
         user_shopDtr_address_label = new javax.swing.JLabel();
         user_shopDtr_address_input = new javax.swing.JTextField();
+        user_shopDtr_shop_contact = new javax.swing.JLabel();
+        user_shopDtr_shop_contact_input = new javax.swing.JTextField();
         user_shopDtr_update_button = new javax.swing.JButton();
+        shop_details_error = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Pharmacy");
@@ -572,10 +573,10 @@ public class medicine_management extends javax.swing.JFrame {
             bill_title_labelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(bill_title_labelLayout.createSequentialGroup()
                 .addGap(24, 24, 24)
-                .addGroup(bill_title_labelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(bill_company_name, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(bill_company_phone, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(bill_company_address, javax.swing.GroupLayout.PREFERRED_SIZE, 321, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(bill_title_labelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(bill_company_address, javax.swing.GroupLayout.DEFAULT_SIZE, 321, Short.MAX_VALUE)
+                    .addComponent(bill_company_name, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(bill_company_phone, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         bill_title_labelLayout.setVerticalGroup(
@@ -932,14 +933,13 @@ public class medicine_management extends javax.swing.JFrame {
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(command_center, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(command_center_paneLayout.createSequentialGroup()
-                        .addComponent(bill_print_button, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(command_center_paneLayout.createSequentialGroup()
                         .addComponent(bill_save_button, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(bill_discard_button, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(command_center_paneLayout.createSequentialGroup()
-                        .addComponent(command_center_seperator, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(command_center_paneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(bill_print_button, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(command_center_seperator, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -1051,10 +1051,10 @@ public class medicine_management extends javax.swing.JFrame {
             medMgr_title_lableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(medMgr_title_lableLayout.createSequentialGroup()
                 .addGap(24, 24, 24)
-                .addGroup(medMgr_title_lableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(medMgr_company_name, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(medMgr_company_phone, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(medMgr_company_address, javax.swing.GroupLayout.PREFERRED_SIZE, 321, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(medMgr_title_lableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(medMgr_company_address, javax.swing.GroupLayout.DEFAULT_SIZE, 321, Short.MAX_VALUE)
+                    .addComponent(medMgr_company_name, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(medMgr_company_phone, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         medMgr_title_lableLayout.setVerticalGroup(
@@ -1327,7 +1327,7 @@ public class medicine_management extends javax.swing.JFrame {
                             .addComponent(medMgr_title_lable, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(medMgr_find_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(medMgr_details_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(0, 275, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         medicineIframeLayout.setVerticalGroup(
@@ -1472,7 +1472,7 @@ public class medicine_management extends javax.swing.JFrame {
                             .addComponent(user_wel_user_type)
                             .addComponent(user_wel_shop_name)
                             .addComponent(user_wel_shop_contact))
-                        .addGap(0, 201, Short.MAX_VALUE)))
+                        .addGap(0, 213, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         user_welcome_panelLayout.setVerticalGroup(
@@ -1504,6 +1504,11 @@ public class medicine_management extends javax.swing.JFrame {
         user_details_name.setText("Name");
 
         uesr_details_name_input.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
+        uesr_details_name_input.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                uesr_details_name_inputKeyPressed(evt);
+            }
+        });
 
         user_details_username_label.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         user_details_username_label.setForeground(new java.awt.Color(255, 255, 255));
@@ -1520,6 +1525,13 @@ public class medicine_management extends javax.swing.JFrame {
         user_details_pasword_input.setForeground(new java.awt.Color(255, 255, 255));
         user_details_pasword_input.setText("Password");
 
+        user_details_password_input.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
+        user_details_password_input.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                user_details_password_inputKeyPressed(evt);
+            }
+        });
+
         user_details_update.setBackground(new java.awt.Color(248, 150, 30));
         user_details_update.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
         user_details_update.setForeground(new java.awt.Color(255, 255, 255));
@@ -1528,13 +1540,6 @@ public class medicine_management extends javax.swing.JFrame {
         user_details_update.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 user_details_updateActionPerformed(evt);
-            }
-        });
-
-        user_details_password_input.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
-        user_details_password_input.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                user_details_password_inputKeyPressed(evt);
             }
         });
 
@@ -1553,7 +1558,7 @@ public class medicine_management extends javax.swing.JFrame {
                         .addGroup(user_details_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(user_details_label)
                             .addComponent(user_details_seperator, javax.swing.GroupLayout.PREFERRED_SIZE, 464, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(32, Short.MAX_VALUE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(user_details_panelLayout.createSequentialGroup()
                         .addGroup(user_details_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(user_details_name)
@@ -1588,9 +1593,9 @@ public class medicine_management extends javax.swing.JFrame {
                 .addGroup(user_details_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(user_details_pasword_input)
                     .addComponent(user_details_password_input, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(3, 3, 3)
-                .addComponent(username_error)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(username_error)
+                .addGap(3, 3, 3)
                 .addComponent(user_details_update, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -1606,24 +1611,48 @@ public class medicine_management extends javax.swing.JFrame {
         user_shopDtr_shop_name.setText("Shop Name");
 
         user_shopDtr_shop_name_input.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
-
-        user_shopDtr_shop_contact.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        user_shopDtr_shop_contact.setForeground(new java.awt.Color(255, 255, 255));
-        user_shopDtr_shop_contact.setText("Contact");
-
-        user_shopDtr_shop_contact_input.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
+        user_shopDtr_shop_name_input.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                user_shopDtr_shop_name_inputKeyPressed(evt);
+            }
+        });
 
         user_shopDtr_address_label.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         user_shopDtr_address_label.setForeground(new java.awt.Color(255, 255, 255));
         user_shopDtr_address_label.setText("Address");
 
         user_shopDtr_address_input.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
+        user_shopDtr_address_input.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                user_shopDtr_address_inputKeyPressed(evt);
+            }
+        });
+
+        user_shopDtr_shop_contact.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        user_shopDtr_shop_contact.setForeground(new java.awt.Color(255, 255, 255));
+        user_shopDtr_shop_contact.setText("Contact");
+
+        user_shopDtr_shop_contact_input.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
+        user_shopDtr_shop_contact_input.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                user_shopDtr_shop_contact_inputKeyPressed(evt);
+            }
+        });
 
         user_shopDtr_update_button.setBackground(new java.awt.Color(248, 150, 30));
         user_shopDtr_update_button.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
         user_shopDtr_update_button.setForeground(new java.awt.Color(255, 255, 255));
         user_shopDtr_update_button.setText("Update");
         user_shopDtr_update_button.setBorder(null);
+        user_shopDtr_update_button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                user_shopDtr_update_buttonActionPerformed(evt);
+            }
+        });
+
+        shop_details_error.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        shop_details_error.setForeground(new java.awt.Color(255, 255, 255));
+        shop_details_error.setText("Shop Error");
 
         javax.swing.GroupLayout shop_details_panelLayout = new javax.swing.GroupLayout(shop_details_panel);
         shop_details_panel.setLayout(shop_details_panelLayout);
@@ -1645,12 +1674,14 @@ public class medicine_management extends javax.swing.JFrame {
                                 .addGroup(javax.swing.GroupLayout.Alignment.LEADING, shop_details_panelLayout.createSequentialGroup()
                                     .addComponent(user_shopDtr_address_label, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
-                            .addGroup(shop_details_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(user_shopDtr_update_button, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(user_shopDtr_address_input, javax.swing.GroupLayout.DEFAULT_SIZE, 360, Short.MAX_VALUE)
-                                .addComponent(user_shopDtr_shop_contact_input)
-                                .addComponent(user_shopDtr_shop_name_input)))))
-                .addContainerGap(34, Short.MAX_VALUE))
+                            .addGroup(shop_details_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(shop_details_error)
+                                .addGroup(shop_details_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(user_shopDtr_update_button, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(user_shopDtr_address_input, javax.swing.GroupLayout.DEFAULT_SIZE, 360, Short.MAX_VALUE)
+                                    .addComponent(user_shopDtr_shop_contact_input)
+                                    .addComponent(user_shopDtr_shop_name_input))))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         shop_details_panelLayout.setVerticalGroup(
             shop_details_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1670,9 +1701,11 @@ public class medicine_management extends javax.swing.JFrame {
                             .addComponent(user_shopDtr_address_label))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(shop_details_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(user_shopDtr_shop_contact_input, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(user_shopDtr_shop_contact))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(user_shopDtr_shop_contact)
+                    .addComponent(user_shopDtr_shop_contact_input, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(shop_details_error)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(user_shopDtr_update_button, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(18, Short.MAX_VALUE))
         );
@@ -1683,15 +1716,14 @@ public class medicine_management extends javax.swing.JFrame {
             userIframeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(userIframeLayout.createSequentialGroup()
                 .addGap(30, 30, 30)
-                .addGroup(userIframeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(user_details_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(userIframeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(userIframeLayout.createSequentialGroup()
-                            .addComponent(user_image_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(user_welcome_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(shop_details_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(293, Short.MAX_VALUE))
+                .addGroup(userIframeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(user_details_panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(userIframeLayout.createSequentialGroup()
+                        .addComponent(user_image_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(user_welcome_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(shop_details_panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(300, Short.MAX_VALUE))
         );
         userIframeLayout.setVerticalGroup(
             userIframeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1704,7 +1736,7 @@ public class medicine_management extends javax.swing.JFrame {
                 .addComponent(user_details_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(shop_details_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(173, Short.MAX_VALUE))
+                .addContainerGap(178, Short.MAX_VALUE))
         );
 
         cardPane.add(userIframe, "card3");
@@ -1914,7 +1946,7 @@ public class medicine_management extends javax.swing.JFrame {
                 if(paitent_contact_input.getText().length() != 10)
                 {
                     paitent_contact_input.setEditable(false);
-                    patient_input_error.setText("Worong Phone");
+                    patient_input_error.setText("Phone Number is of 10 Digits");
                 }
                 else{
                     medicine_name_input.requestFocus();
@@ -2041,9 +2073,9 @@ public class medicine_management extends javax.swing.JFrame {
     }//GEN-LAST:event_bill_print_buttonMouseExited
 
     private void bill_discard_buttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bill_discard_buttonMouseClicked
-        int discard_confirm = JOptionPane.showConfirmDialog(null, "Are you sure you want to delete the Bill ?", "Delete Bill",
+        int discard_bill_table_confirm = JOptionPane.showConfirmDialog(null, "Are you sure you want to delete the Bill ?", "Delete Bill",
         JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
-        switch (discard_confirm) {
+        switch (discard_bill_table_confirm) {
             case JOptionPane.NO_OPTION -> {
             }
             case JOptionPane.YES_OPTION -> {
@@ -2096,7 +2128,8 @@ public class medicine_management extends javax.swing.JFrame {
         
         user_shopDtr_shop_name_input.setText(mysql.company_name);
         user_shopDtr_address_input.setText(mysql.company_address);
-        user_shopDtr_shop_contact_input.setText(mysql.company_phoneNo); 
+        user_shopDtr_shop_contact_input.setText(mysql.company_phoneNo);
+        shop_details_error.setText("");
     }//GEN-LAST:event_userIframeInternalFrameActivated
 
     private void user_details_updateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_user_details_updateActionPerformed
@@ -2110,29 +2143,60 @@ public class medicine_management extends javax.swing.JFrame {
         if(users_name_update.trim().isEmpty() || username_update.trim().isEmpty() || password_update.trim().isEmpty()){
             username_error.setText("Details are Empty");
             user_details_update.setEnabled(false);
-            uesr_details_name_input.requestFocus();
+            if(users_name_update.trim().isEmpty()){
+                uesr_details_name_input.requestFocus();
+            }
+            else if(username_update.trim().isEmpty()){
+                user_details_username_input.requestFocus();
+            }
+            else{
+                user_details_password_input.requestFocus();
+            }    
         }
         else{
             username_error.setText("");
             user_details_update.setEnabled(true);
             
-            try {
-                user_Dtr_update_result = mysql.user_update_query(users_name_update, username_update, password_update, loginPage.username_stored);
-            } catch (SQLException ex) {
-                Logger.getLogger(medicine_management.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            var update_user_deatils_confirm = JOptionPane.showConfirmDialog(null, "Are you sure you want to update the details ?", "Update User Details", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+            
+            switch (update_user_deatils_confirm) {
+                case JOptionPane.NO_OPTION -> {
+                    uesr_details_name_input.setText(mysql.users_name);
+                    user_details_username_input.setText(mysql.username);
+                    user_details_password_input.setText("password");
+                }
+                case JOptionPane.YES_OPTION -> {
+                    
+                    try {
+                        user_Dtr_update_result = mysql.user_update_query(users_name_update, username_update, password_update, loginPage.username_stored);
+                    } catch (SQLException ex) {
+                        Logger.getLogger(medicine_management.class.getName()).log(Level.SEVERE, null, ex);
+                    }
 
-            if(user_Dtr_update_result == 0){
-                JOptionPane.showMessageDialog(null, "User Details Updated");
-                user_wel_users_name.setText(users_name_update);
-                user_wel_user_type.setText(mysql.user_type);
-            }
-            else{
-                JOptionPane.showMessageDialog(null, "Username Already Taken");
-                uesr_details_name_input.setText(mysql.users_name);
-                user_details_username_input.setText(mysql.username);
-                user_details_password_input.setText("password");
-            }
+                    if(user_Dtr_update_result == 0){
+                        JOptionPane.showMessageDialog(null, "User Details Updated");
+                        user_wel_users_name.setText(users_name_update);
+                        user_wel_user_type.setText(mysql.user_type);
+                        loginPage.username_stored = username_update;
+                    }
+                    else{
+                        JOptionPane.showMessageDialog(null, "Username Already Taken");
+                        uesr_details_name_input.setText(mysql.users_name);
+                        user_details_username_input.setText(mysql.username);
+                        user_details_password_input.setText("password");
+                    }
+                }
+                case JOptionPane.CLOSED_OPTION -> {
+                    uesr_details_name_input.setText(mysql.users_name);
+                    user_details_username_input.setText(mysql.username);
+                    user_details_password_input.setText("password");
+                }
+                default -> {
+                    uesr_details_name_input.setText(mysql.users_name);
+                    user_details_username_input.setText(mysql.username);
+                    user_details_password_input.setText("password");
+                }
+            }   
         }
     }//GEN-LAST:event_user_details_updateActionPerformed
 
@@ -2143,7 +2207,7 @@ public class medicine_management extends javax.swing.JFrame {
             user_details_update.setEnabled(false);
         }
         else if(user_details_username_input.getText().length() < 3){
-            username_error.setText("Username should be at least 3 Digits");
+            username_error.setText("Username should be at least 4 Digits");
             user_details_username_input.setEditable(true);
             user_details_update.setEnabled(false);
         }
@@ -2151,17 +2215,126 @@ public class medicine_management extends javax.swing.JFrame {
             username_error.setText("");
             user_details_username_input.setEditable(true);
             user_details_update.setEnabled(true);
+            if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+                user_details_password_input.requestFocus();
+            }
         }
     }//GEN-LAST:event_user_details_username_inputKeyPressed
 
     private void user_details_password_inputKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_user_details_password_inputKeyPressed
-        if(!user_details_password_input.getText().isEmpty() && user_details_password_input.getText().length() >= 2){
-            user_details_update.setEnabled(true);
-        }
-        else{
+        if(user_details_password_input.getText().isEmpty() || user_details_password_input.getText().length() < 2){
+            username_error.setText("Password Should be at least 3 Digits");
             user_details_update.setEnabled(false);
         }
+        else{
+            user_details_update.setEnabled(true);
+            username_error.setText("");
+            if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+                user_details_update.doClick();
+            }
+        }
     }//GEN-LAST:event_user_details_password_inputKeyPressed
+
+    private void uesr_details_name_inputKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_uesr_details_name_inputKeyPressed
+        user_details_update.setEnabled(true);
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+            user_details_username_input.requestFocus();
+        }
+    }//GEN-LAST:event_uesr_details_name_inputKeyPressed
+
+    private void user_shopDtr_update_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_user_shopDtr_update_buttonActionPerformed
+        String shop_name_update, shop_address_update, shop_contact_update;
+        shop_name_update = user_shopDtr_shop_name_input.getText();
+        shop_address_update = user_shopDtr_address_input.getText();
+        shop_contact_update = user_shopDtr_shop_contact_input.getText();
+        
+        if(shop_name_update.trim().isEmpty() || shop_address_update.trim().isEmpty() || shop_contact_update.trim().isEmpty()){
+            user_shopDtr_update_button.setEnabled(false);
+            shop_details_error.setText("Details are Empty");
+            if(shop_name_update.trim().isEmpty()){
+                user_shopDtr_shop_name_input.requestFocus();
+            }
+            else if(shop_address_update.trim().isEmpty()){
+                user_shopDtr_address_input.requestFocus();
+            }
+            else{
+                user_shopDtr_shop_contact_input.requestFocus();
+            }
+        }
+        else if(user_shopDtr_shop_contact_input.getText().length() != 10){
+            shop_details_error.setText("Phone Nuumber is of 10 Digits");
+        }
+        else{
+            int shopDtr_update_confirm = JOptionPane.showConfirmDialog(null, "Are you sure you want to update the details ?", "Update Shop Details",
+            JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+            switch (shopDtr_update_confirm) {
+                case JOptionPane.NO_OPTION -> {
+                    user_shopDtr_shop_name_input.setText(mysql.company_name);
+                    user_shopDtr_address_input.setText(mysql.company_address);
+                    user_shopDtr_shop_contact_input.setText(mysql.company_phoneNo);
+                    shop_details_error.setText("");
+                }
+                case JOptionPane.YES_OPTION -> {
+                    try {
+                        mysql.company_update_query(shop_name_update, shop_address_update, shop_contact_update);
+                     } catch (SQLException ex) {
+                        Logger.getLogger(medicine_management.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                     
+                    JOptionPane.showMessageDialog(null, "Shop Details Updated");
+                    
+                    user_wel_shop_name.setText(shop_name_update);
+                    user_wel_shop_contact.setText(shop_contact_update);
+                }
+                case JOptionPane.CLOSED_OPTION -> {
+                    user_shopDtr_shop_name_input.setText(mysql.company_name);
+                    user_shopDtr_address_input.setText(mysql.company_address);
+                    user_shopDtr_shop_contact_input.setText(mysql.company_phoneNo);
+                    shop_details_error.setText("");
+                }
+                default -> {
+                    user_shopDtr_shop_name_input.setText(mysql.company_name);
+                    user_shopDtr_address_input.setText(mysql.company_address);
+                    user_shopDtr_shop_contact_input.setText(mysql.company_phoneNo);
+                    shop_details_error.setText("");
+                }
+            }   
+        }
+    }//GEN-LAST:event_user_shopDtr_update_buttonActionPerformed
+
+    private void user_shopDtr_shop_name_inputKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_user_shopDtr_shop_name_inputKeyPressed
+        user_shopDtr_update_button.setEnabled(true);
+        shop_details_error.setText("");
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+            user_shopDtr_address_input.requestFocus();
+        }
+    }//GEN-LAST:event_user_shopDtr_shop_name_inputKeyPressed
+
+    private void user_shopDtr_address_inputKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_user_shopDtr_address_inputKeyPressed
+        user_shopDtr_update_button.setEnabled(true);
+        shop_details_error.setText("");
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+            user_shopDtr_shop_contact_input.requestFocus();
+        }
+    }//GEN-LAST:event_user_shopDtr_address_inputKeyPressed
+
+    private void user_shopDtr_shop_contact_inputKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_user_shopDtr_shop_contact_inputKeyPressed
+        user_shopDtr_update_button.setEnabled(true);
+        shop_details_error.setText("");
+        
+        char text_in_shop_contact = evt.getKeyChar();
+        if (Character.isDigit(text_in_shop_contact)||Character.isISOControl(text_in_shop_contact)) {
+            shop_details_error.setText("");
+            user_shopDtr_shop_contact_input.setEditable(true);
+        }
+        else{
+            shop_details_error.setText("Wrong Number");
+            user_shopDtr_shop_contact_input.setEditable(false);
+        }
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+            user_shopDtr_update_button.doClick();
+        }
+    }//GEN-LAST:event_user_shopDtr_shop_contact_inputKeyPressed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -2273,6 +2446,7 @@ public class medicine_management extends javax.swing.JFrame {
     private javax.swing.JLabel quantity_label;
     private javax.swing.JInternalFrame salesIframe;
     private javax.swing.JButton sales_button;
+    private javax.swing.JLabel shop_details_error;
     private javax.swing.JPanel shop_details_panel;
     private javax.swing.JPanel side_panel_menu;
     private javax.swing.JPanel title_pane;
