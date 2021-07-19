@@ -122,6 +122,25 @@ public class mysql {
         }
     }
     
+    public static void medicine_import_query(String med_name, String med_type, String med_strength) throws SQLException{
+        String insert_query = "INSERT INTO `medicine_import`(`medicine_name`, `medicine_type`, `medicine_strength`) VALUES ('"+med_name+"','"+med_type+"','"+med_strength+"')";
+        stmt.executeUpdate(insert_query);
+    }
+    
+    public static void medicine_import_details__query(String med_sheet, String med_tablet, String med_box, String med_batch ,String med_expiry_month, String med_expiry_year, String med_mrp) throws SQLException{
+        int med_id = 0;
+        
+        stmt = connect.createStatement();
+        String query = "SELECT * FROM `medicine_import` ORDER BY id DESC LIMIT 1";
+        result = stmt.executeQuery(query);
+        while(result.next()) {
+            med_id = result.getInt(1);
+        }
+        
+        String insert_query = "INSERT INTO `medicine_import_details`(`medicine_id`, `number_of_sheets`, `number_of_tablets`, `number_of_box`, `batch_no`, `expiry_date`, `mrp`) VALUES ('"+med_id+"', '"+med_sheet+"','"+med_tablet+"','"+med_box+"','"+med_batch+"','20"+med_expiry_year+"-"+med_expiry_month+"-01','"+med_mrp+"')";
+        stmt.executeUpdate(insert_query);
+    }
+    
     public static void medicine_mrp() throws SQLException{
         stmt = connect.createStatement();
         String query = "SELECT * FROM `medicine_list` WHERE `medicine_name` LIKE '%"+medicine_management.medicine_with_under+"%'";
