@@ -1410,7 +1410,7 @@
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="medMgr_title_lable" min="-2" max="-2" attributes="0"/>
                                       <Component id="medMgr_find_panel" min="-2" max="-2" attributes="0"/>
-                                      <Component id="medMgr_details_panel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="medMgr_details_panel" alignment="0" min="-2" pref="500" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="0" pref="275" max="32767" attributes="0"/>
                               </Group>
@@ -1430,7 +1430,7 @@
                           <Component id="medMgr_tabel_scrollpanel" min="-2" pref="83" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="medMgr_details_panel" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
+                          <EmptySpace pref="129" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -1701,42 +1701,46 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Component id="medMgr_mrp_label" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="32767" attributes="0"/>
-                                          <Component id="medMgr_mrp_input" min="-2" pref="279" max="-2" attributes="0"/>
+                                  <Component id="medicine_label" alignment="0" min="-2" pref="124" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="medMgr_expiry_lable1" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="455" max="-2" attributes="0"/>
+                                      <Component id="medMgr_details_error" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="103" alignment="0" groupAlignment="1" attributes="0">
+                                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="medMgr_mrp_label" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace max="32767" attributes="0"/>
+                                              <Component id="medMgr_mrp_input" min="-2" pref="279" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" alignment="1" attributes="0">
+                                              <Component id="medMgr_no_tablet_label" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace pref="29" max="32767" attributes="0"/>
+                                              <Component id="medMgr_no_table_input" min="-2" pref="279" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" alignment="1" attributes="0">
+                                              <Component id="medMgr_no_box_label" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace max="32767" attributes="0"/>
+                                              <Component id="medMgr_no_box_input" min="-2" pref="279" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" alignment="1" attributes="0">
+                                              <Component id="medMgr_expiry_lable" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace max="32767" attributes="0"/>
+                                              <Component id="medMgr_expiry_input" min="-2" pref="279" max="-2" attributes="0"/>
+                                          </Group>
                                       </Group>
-                                      <Group type="102" alignment="1" attributes="0">
-                                          <Component id="medMgr_no_tablet_label" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace pref="29" max="32767" attributes="0"/>
-                                          <Component id="medMgr_no_table_input" min="-2" pref="279" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" alignment="1" attributes="0">
-                                          <Component id="medMgr_no_box_label" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="32767" attributes="0"/>
-                                          <Component id="medMgr_no_box_input" min="-2" pref="279" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" alignment="1" attributes="0">
-                                          <Component id="medMgr_expiry_lable" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="32767" attributes="0"/>
-                                          <Component id="medMgr_expiry_input" min="-2" pref="279" max="-2" attributes="0"/>
+                                      <Group type="103" alignment="1" groupAlignment="0" attributes="0">
+                                          <Component id="medMgr_expiry_input1" min="-2" pref="279" max="-2" attributes="0"/>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="medMgr_add_button" min="-2" pref="73" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="medMgr_update_button" min="-2" pref="73" max="-2" attributes="0"/>
+                                          </Group>
                                       </Group>
                                   </Group>
-                                  <Component id="medicine_label" alignment="0" min="-2" pref="124" max="-2" attributes="0"/>
                                   <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
                                       <Component id="medicine_details_seperator" alignment="0" max="32767" attributes="0"/>
-                                      <Group type="102" alignment="1" attributes="0">
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Group type="102" attributes="0">
-                                                  <Component id="medMgr_add_button" min="-2" pref="73" max="-2" attributes="0"/>
-                                                  <EmptySpace max="-2" attributes="0"/>
-                                                  <Component id="medMgr_update_button" min="-2" pref="73" max="-2" attributes="0"/>
-                                              </Group>
-                                              <Component id="medMgr_details_error" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                          <EmptySpace min="-2" pref="127" max="-2" attributes="0"/>
-                                      </Group>
                                       <Group type="102" alignment="0" attributes="0">
                                           <Group type="103" groupAlignment="0" attributes="0">
                                               <Component id="medMgr_type_label" min="-2" max="-2" attributes="0"/>
@@ -1756,7 +1760,7 @@
                                       </Group>
                                   </Group>
                               </Group>
-                              <EmptySpace pref="24" max="32767" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -1807,14 +1811,25 @@
                                   <Component id="medMgr_expiry_lable" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="medMgr_expiry_input" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
-                              <Component id="medMgr_details_error" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="medMgr_add_button" alignment="0" min="-2" pref="22" max="-2" attributes="0"/>
-                                  <Component id="medMgr_update_button" min="-2" pref="22" max="-2" attributes="0"/>
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
+                                      <Component id="medMgr_details_error" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="medMgr_expiry_lable1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="medMgr_expiry_input1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
                               </Group>
-                              <EmptySpace pref="22" max="32767" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="medMgr_add_button" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
+                                  <Component id="medMgr_update_button" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -1999,6 +2014,19 @@
                           <Border info="null"/>
                         </Property>
                       </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="medMgr_expiry_lable1">
+                      <Properties>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Segoe UI" size="14" style="1"/>
+                        </Property>
+                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                        </Property>
+                        <Property name="text" type="java.lang.String" value="Expiry Date"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="medMgr_expiry_input1">
                     </Component>
                   </SubComponents>
                 </Container>

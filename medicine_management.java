@@ -145,6 +145,8 @@ public class medicine_management extends javax.swing.JFrame {
         medMgr_details_error = new javax.swing.JLabel();
         medMgr_add_button = new javax.swing.JButton();
         medMgr_update_button = new javax.swing.JButton();
+        medMgr_expiry_lable1 = new javax.swing.JLabel();
+        medMgr_expiry_input1 = new javax.swing.JTextField();
         salesIframe = new javax.swing.JInternalFrame();
         bar = new javax.swing.JPanel();
         justJoking = new javax.swing.JButton();
@@ -1216,6 +1218,10 @@ public class medicine_management extends javax.swing.JFrame {
         medMgr_update_button.setText("Update");
         medMgr_update_button.setBorder(null);
 
+        medMgr_expiry_lable1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        medMgr_expiry_lable1.setForeground(new java.awt.Color(255, 255, 255));
+        medMgr_expiry_lable1.setText("Expiry Date");
+
         javax.swing.GroupLayout medMgr_details_panelLayout = new javax.swing.GroupLayout(medMgr_details_panel);
         medMgr_details_panel.setLayout(medMgr_details_panelLayout);
         medMgr_details_panelLayout.setHorizontalGroup(
@@ -1223,34 +1229,37 @@ public class medicine_management extends javax.swing.JFrame {
             .addGroup(medMgr_details_panelLayout.createSequentialGroup()
                 .addGap(24, 24, 24)
                 .addGroup(medMgr_details_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(medMgr_details_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, medMgr_details_panelLayout.createSequentialGroup()
-                            .addComponent(medMgr_mrp_label)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(medMgr_mrp_input, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(medMgr_details_panelLayout.createSequentialGroup()
-                            .addComponent(medMgr_no_tablet_label)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
-                            .addComponent(medMgr_no_table_input, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(medMgr_details_panelLayout.createSequentialGroup()
-                            .addComponent(medMgr_no_box_label)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(medMgr_no_box_input, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(medMgr_details_panelLayout.createSequentialGroup()
-                            .addComponent(medMgr_expiry_lable)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(medMgr_expiry_input, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(medicine_label, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(medMgr_details_panelLayout.createSequentialGroup()
+                        .addComponent(medMgr_expiry_lable1)
+                        .addGap(455, 455, 455)
+                        .addComponent(medMgr_details_error))
+                    .addGroup(medMgr_details_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(medMgr_details_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, medMgr_details_panelLayout.createSequentialGroup()
+                                .addComponent(medMgr_mrp_label)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(medMgr_mrp_input, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(medMgr_details_panelLayout.createSequentialGroup()
+                                .addComponent(medMgr_no_tablet_label)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
+                                .addComponent(medMgr_no_table_input, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(medMgr_details_panelLayout.createSequentialGroup()
+                                .addComponent(medMgr_no_box_label)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(medMgr_no_box_input, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(medMgr_details_panelLayout.createSequentialGroup()
+                                .addComponent(medMgr_expiry_lable)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(medMgr_expiry_input, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(medMgr_details_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(medMgr_expiry_input1, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(medMgr_details_panelLayout.createSequentialGroup()
+                                .addComponent(medMgr_add_button, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(medMgr_update_button, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(medMgr_details_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addComponent(medicine_details_seperator, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(medMgr_details_panelLayout.createSequentialGroup()
-                            .addGroup(medMgr_details_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(medMgr_details_panelLayout.createSequentialGroup()
-                                    .addComponent(medMgr_add_button, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(medMgr_update_button, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addComponent(medMgr_details_error))
-                            .addGap(127, 127, 127))
                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, medMgr_details_panelLayout.createSequentialGroup()
                             .addGroup(medMgr_details_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(medMgr_type_label)
@@ -1264,7 +1273,7 @@ public class medicine_management extends javax.swing.JFrame {
                                     .addComponent(medMgr_name_input)
                                     .addComponent(medMgr_strength_input)
                                     .addComponent(medMgr_type_comboBox, 0, 279, Short.MAX_VALUE))))))
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         medMgr_details_panelLayout.setVerticalGroup(
             medMgr_details_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1305,13 +1314,20 @@ public class medicine_management extends javax.swing.JFrame {
                 .addGroup(medMgr_details_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(medMgr_expiry_lable)
                     .addComponent(medMgr_expiry_input, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(9, 9, 9)
-                .addComponent(medMgr_details_error)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(medMgr_details_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(medMgr_details_panelLayout.createSequentialGroup()
+                        .addGap(9, 9, 9)
+                        .addComponent(medMgr_details_error))
+                    .addGroup(medMgr_details_panelLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(medMgr_details_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(medMgr_expiry_lable1)
+                            .addComponent(medMgr_expiry_input1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(medMgr_details_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(medMgr_add_button, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(medMgr_update_button, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout medicineIframeLayout = new javax.swing.GroupLayout(medicineIframe.getContentPane());
@@ -1326,7 +1342,7 @@ public class medicine_management extends javax.swing.JFrame {
                         .addGroup(medicineIframeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(medMgr_title_lable, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(medMgr_find_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(medMgr_details_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(medMgr_details_panel, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 275, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -1341,7 +1357,7 @@ public class medicine_management extends javax.swing.JFrame {
                 .addComponent(medMgr_tabel_scrollpanel, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(medMgr_details_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(129, Short.MAX_VALUE))
         );
 
         cardPane.add(medicineIframe, "card3");
@@ -2404,7 +2420,9 @@ public class medicine_management extends javax.swing.JFrame {
     private javax.swing.JLabel medMgr_details_error;
     private javax.swing.JPanel medMgr_details_panel;
     private javax.swing.JTextField medMgr_expiry_input;
+    private javax.swing.JTextField medMgr_expiry_input1;
     private javax.swing.JLabel medMgr_expiry_lable;
+    private javax.swing.JLabel medMgr_expiry_lable1;
     private javax.swing.JLabel medMgr_find_error;
     private javax.swing.JPanel medMgr_find_panel;
     private javax.swing.JTextField medMgr_mrp_input;
