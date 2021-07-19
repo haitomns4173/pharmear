@@ -92,9 +92,16 @@ public class mysql {
         }
         
         if(username_duplicate == 0){
-            String update_query = "UPDATE `user` SET `name`='"+users_name_update+"',`username`='"+username_update+"',`password`='"+password_update+"' WHERE `username` = '"+username_to_change+"'";
-            stmt.executeUpdate(update_query);
-            return 0;
+            if(password_update.equals("password")){
+                String update_query = "UPDATE `user` SET `name`='"+users_name_update+"',`username`='"+username_update+"' WHERE `username` = '"+username_to_change+"'";
+                stmt.executeUpdate(update_query);
+                return 0;
+            }
+            else{
+                String update_query = "UPDATE `user` SET `name`='"+users_name_update+"',`username`='"+username_update+"',`password`='"+password_update+"' WHERE `username` = '"+username_to_change+"'";
+                stmt.executeUpdate(update_query);
+                return 0;
+            }
         }
         else{
             return 1;
