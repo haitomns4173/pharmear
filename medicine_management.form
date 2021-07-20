@@ -1405,14 +1405,14 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="medMgr_tabel_scrollpanel" pref="786" max="32767" attributes="0"/>
+                              <Component id="medMgr_tabel_scrollpanel" max="32767" attributes="0"/>
                               <Group type="102" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="medMgr_title_lable" min="-2" max="-2" attributes="0"/>
                                       <Component id="medMgr_find_panel" min="-2" max="-2" attributes="0"/>
-                                      <Component id="medMgr_details_panel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="medMgr_details_panel" alignment="0" min="-2" pref="800" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace min="0" pref="275" max="32767" attributes="0"/>
+                                  <EmptySpace min="0" pref="43" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
@@ -1427,10 +1427,10 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="medMgr_find_panel" min="-2" pref="89" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="medMgr_tabel_scrollpanel" min="-2" pref="54" max="-2" attributes="0"/>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Component id="medMgr_tabel_scrollpanel" min="-2" pref="202" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="medMgr_details_panel" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
+                          <EmptySpace pref="146" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -1698,76 +1698,88 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="medicine_label" alignment="0" min="-2" pref="124" max="-2" attributes="0"/>
-                                  <Component id="medMgr_expiry_lable" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Component id="medMgr_mrp_label" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="32767" attributes="0"/>
-                                          <Component id="medMgr_mrp_input" min="-2" pref="279" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" alignment="1" attributes="0">
-                                          <Component id="medMgr_no_tablet_label" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace pref="29" max="32767" attributes="0"/>
-                                          <Component id="medMgr_no_table_input" min="-2" pref="279" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" alignment="1" attributes="0">
-                                          <Component id="medMgr_no_box_label" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="32767" attributes="0"/>
-                                          <Component id="medMgr_no_box_input" min="-2" pref="279" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" alignment="1" attributes="0">
-                                          <Component id="medMgr_batch_lable" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="32767" attributes="0"/>
-                                          <Component id="medMgr_batch_input" min="-2" pref="279" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" alignment="1" attributes="0">
-                                          <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Group type="102" alignment="0" attributes="0">
-                                                  <Component id="medMgr_add_button" min="-2" pref="73" max="-2" attributes="0"/>
-                                                  <EmptySpace max="-2" attributes="0"/>
-                                                  <Component id="medMgr_update_button" min="-2" pref="73" max="-2" attributes="0"/>
+                                  <Group type="102" attributes="0">
+                                      <Component id="medicine_details_seperator" min="-2" pref="740" max="-2" attributes="0"/>
+                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" attributes="0">
+                                      <Group type="103" groupAlignment="1" attributes="0">
+                                          <Group type="102" attributes="0">
+                                              <Component id="medMgr_no_tablet_label" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+                                              <Component id="medMgr_no_table_input" min="-2" pref="220" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="medMgr_type_label" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="medMgr_name" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="medMgr_strength_label" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="medMgr_no_sheet_label" min="-2" max="-2" attributes="0"/>
                                               </Group>
-                                              <Group type="102" alignment="0" attributes="0">
-                                                  <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
-                                                  <Group type="103" groupAlignment="0" attributes="0">
-                                                      <Component id="medicine_error" min="-2" max="-2" attributes="0"/>
-                                                      <Group type="102" attributes="0">
-                                                          <Component id="medMgr_expiry_input_month" min="-2" pref="35" max="-2" attributes="0"/>
-                                                          <EmptySpace max="-2" attributes="0"/>
-                                                          <Component id="medMgr_expiry_slash" min="-2" max="-2" attributes="0"/>
-                                                          <EmptySpace max="-2" attributes="0"/>
-                                                          <Component id="medMgr_expiry_input_year" min="-2" pref="35" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                                  <Component id="medMgr_strength_input" alignment="0" pref="220" max="32767" attributes="0"/>
+                                                  <Component id="medMgr_type_input" alignment="0" max="32767" attributes="0"/>
+                                                  <Component id="medMgr_name_input" alignment="0" max="32767" attributes="0"/>
+                                                  <Component id="medMgr_no_sheet_input" max="32767" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="medMgr_mrp_label" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="medMgr_batch_lable" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="medMgr_expiry_lable" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Group type="102" attributes="0">
+                                                      <EmptySpace type="unrelated" max="32767" attributes="0"/>
+                                                      <Group type="103" groupAlignment="0" attributes="0">
+                                                          <Group type="102" alignment="0" attributes="0">
+                                                              <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
+                                                              <Component id="medMgr_expiry_input_month" min="-2" pref="35" max="-2" attributes="0"/>
+                                                              <EmptySpace max="-2" attributes="0"/>
+                                                              <Component id="medMgr_expiry_slash" min="-2" max="-2" attributes="0"/>
+                                                              <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
+                                                              <Component id="medMgr_expiry_input_year" min="-2" pref="35" max="-2" attributes="0"/>
+                                                          </Group>
+                                                          <Group type="102" alignment="0" attributes="0">
+                                                              <Component id="medMgr_add_button" min="-2" pref="73" max="-2" attributes="0"/>
+                                                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                                                              <Component id="medMgr_update_button" min="-2" pref="73" max="-2" attributes="0"/>
+                                                              <EmptySpace max="-2" attributes="0"/>
+                                                              <Component id="medicine_error" min="-2" max="-2" attributes="0"/>
+                                                          </Group>
                                                       </Group>
+                                                      <EmptySpace min="-2" pref="118" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <Group type="102" alignment="0" attributes="0">
+                                                      <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+                                                      <Group type="103" groupAlignment="0" attributes="0">
+                                                          <Component id="medMgr_no_box_input" min="-2" pref="205" max="-2" attributes="0"/>
+                                                          <Component id="medMgr_mrp_input" min="-2" pref="204" max="-2" attributes="0"/>
+                                                          <Component id="medMgr_batch_input" alignment="0" min="-2" pref="205" max="-2" attributes="0"/>
+                                                      </Group>
+                                                      <EmptySpace max="32767" attributes="0"/>
                                                   </Group>
                                               </Group>
                                           </Group>
-                                          <EmptySpace min="-2" pref="127" max="-2" attributes="0"/>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="medMgr_no_box_label" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
+                                              <Component id="filler1" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace max="32767" attributes="0"/>
+                                          </Group>
                                       </Group>
                                   </Group>
-                                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                      <Component id="medicine_details_seperator" alignment="0" max="32767" attributes="0"/>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="medMgr_type_label" min="-2" max="-2" attributes="0"/>
-                                              <Component id="medMgr_name" min="-2" max="-2" attributes="0"/>
-                                              <Component id="medMgr_strength_label" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="medMgr_no_sheet_label" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                          <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="medMgr_no_sheet_input" min="-2" pref="279" max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                  <Component id="medMgr_name_input" max="32767" attributes="0"/>
-                                                  <Component id="medMgr_strength_input" alignment="0" max="32767" attributes="0"/>
-                                                  <Component id="medMgr_type_comboBox" alignment="0" pref="279" max="32767" attributes="0"/>
-                                              </Group>
-                                          </Group>
-                                      </Group>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                      <Component id="medicine_label" min="-2" pref="124" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="747" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <EmptySpace pref="49" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -1779,58 +1791,65 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="medicine_details_seperator" min="-2" pref="4" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="medMgr_name" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="medMgr_name_input" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="medMgr_type_comboBox" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="medMgr_type_label" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="medMgr_strength_input" min="-2" max="-2" attributes="0"/>
-                                  <Component id="medMgr_strength_label" alignment="0" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="medMgr_no_sheet_input" min="-2" max="-2" attributes="0"/>
-                                  <Component id="medMgr_no_sheet_label" alignment="0" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="medMgr_no_table_input" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="medMgr_no_tablet_label" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="medMgr_mrp_input" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="medMgr_mrp_label" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="medMgr_no_box_input" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="medMgr_no_box_label" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="medMgr_batch_lable" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="medMgr_batch_input" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="medMgr_expiry_lable" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="medMgr_expiry_input_month" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="medMgr_expiry_input_year" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="medMgr_expiry_slash" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="medicine_error" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="medMgr_add_button" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
-                                  <Component id="medMgr_update_button" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
+                                  <Group type="102" attributes="0">
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="medMgr_name" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="medMgr_name_input" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="medMgr_mrp_label" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="medMgr_type_label" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="medMgr_type_input" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="medMgr_no_box_label" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="103" groupAlignment="3" attributes="0">
+                                              <Component id="medMgr_strength_input" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              <Component id="medMgr_batch_lable" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Component id="medMgr_strength_label" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="103" groupAlignment="3" attributes="0">
+                                              <Component id="medMgr_no_sheet_input" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              <Component id="medMgr_expiry_lable" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Component id="medMgr_no_sheet_label" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="medMgr_no_table_input" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="medMgr_no_tablet_label" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Group type="102" attributes="0">
+                                      <Component id="medMgr_mrp_input" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="1" attributes="0">
+                                          <Component id="medMgr_no_box_input" min="-2" max="-2" attributes="0"/>
+                                          <Component id="filler1" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="medMgr_batch_input" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="medMgr_expiry_input_month" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="medMgr_expiry_slash" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="medMgr_expiry_input_year" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="103" groupAlignment="3" attributes="0">
+                                              <Component id="medMgr_update_button" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
+                                              <Component id="medicine_error" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Component id="medMgr_add_button" alignment="0" min="-2" pref="22" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
                               </Group>
                               <EmptySpace max="32767" attributes="0"/>
                           </Group>
@@ -1864,6 +1883,7 @@
                     </Component>
                     <Component class="javax.swing.JTextField" name="medMgr_name_input">
                       <Events>
+                        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="medMgr_name_inputMouseClicked"/>
                         <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="medMgr_name_inputKeyPressed"/>
                         <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="medMgr_name_inputKeyReleased"/>
                       </Events>
@@ -1879,27 +1899,6 @@
                         <Property name="text" type="java.lang.String" value="Type"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JComboBox" name="medMgr_type_comboBox">
-                      <Properties>
-                        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                          <StringArray count="10">
-                            <StringItem index="0" value="Tablet"/>
-                            <StringItem index="1" value="Capsule"/>
-                            <StringItem index="2" value="Tube"/>
-                            <StringItem index="3" value="Bottol"/>
-                            <StringItem index="4" value="Sachet"/>
-                            <StringItem index="5" value="Ampoule"/>
-                            <StringItem index="6" value="Vial"/>
-                            <StringItem index="7" value="Pre Filled Pen"/>
-                            <StringItem index="8" value="Canister"/>
-                            <StringItem index="9" value="Kit"/>
-                          </StringArray>
-                        </Property>
-                      </Properties>
-                      <AuxValues>
-                        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-                      </AuxValues>
-                    </Component>
                     <Component class="javax.swing.JLabel" name="medMgr_strength_label">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -1913,6 +1912,7 @@
                     </Component>
                     <Component class="javax.swing.JTextField" name="medMgr_strength_input">
                       <Events>
+                        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="medMgr_strength_inputMouseClicked"/>
                         <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="medMgr_strength_inputKeyReleased"/>
                       </Events>
                     </Component>
@@ -1929,6 +1929,7 @@
                     </Component>
                     <Component class="javax.swing.JTextField" name="medMgr_no_sheet_input">
                       <Events>
+                        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="medMgr_no_sheet_inputMouseClicked"/>
                         <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="medMgr_no_sheet_inputKeyPressed"/>
                       </Events>
                     </Component>
@@ -1944,6 +1945,9 @@
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="medMgr_no_table_input">
+                      <Events>
+                        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="medMgr_no_table_inputMouseClicked"/>
+                      </Events>
                     </Component>
                     <Component class="javax.swing.JLabel" name="medMgr_mrp_label">
                       <Properties>
@@ -1957,6 +1961,10 @@
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="medMgr_mrp_input">
+                      <Events>
+                        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="medMgr_mrp_inputMouseClicked"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="medMgr_mrp_inputActionPerformed"/>
+                      </Events>
                     </Component>
                     <Component class="javax.swing.JLabel" name="medMgr_no_box_label">
                       <Properties>
@@ -2063,6 +2071,21 @@
                           <Border info="null"/>
                         </Property>
                       </Properties>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="medMgr_type_input">
+                      <Events>
+                        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="medMgr_type_inputMouseClicked"/>
+                      </Events>
+                    </Component>
+                    <Component class="javax.swing.Box$Filler" name="filler1">
+                      <Properties>
+                        <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                          <Dimension value="[32767, 0]"/>
+                        </Property>
+                      </Properties>
+                      <AuxValues>
+                        <AuxValue name="classDetails" type="java.lang.String" value="Box.Filler.HorizontalGlue"/>
+                      </AuxValues>
                     </Component>
                   </SubComponents>
                 </Container>
