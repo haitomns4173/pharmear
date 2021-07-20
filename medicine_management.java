@@ -25,6 +25,7 @@ public class medicine_management extends javax.swing.JFrame {
     static Set<String> medicine_name_auto = new TreeSet<String>();
     static Set<String> medicine_name_auto_med_mgr = new TreeSet<String>();
     static float medicine_price = 0;
+    static String expiry_cur_year, expiry_cur_month;
     
     static String medicine_unit, medicine_strength;
     static int mecicine_no_pack, medicine_no_quantity;
@@ -145,14 +146,13 @@ public class medicine_management extends javax.swing.JFrame {
         medMgr_batch_lable = new javax.swing.JLabel();
         medMgr_batch_input = new javax.swing.JTextField();
         medMgr_expiry_lable = new javax.swing.JLabel();
-        medMgr_expiry_input_month = new javax.swing.JTextField();
-        medMgr_expiry_slash = new javax.swing.JLabel();
-        medMgr_expiry_input_year = new javax.swing.JTextField();
         medicine_error = new javax.swing.JLabel();
         medMgr_add_button = new javax.swing.JButton();
         medMgr_update_button = new javax.swing.JButton();
         medMgr_type_input = new javax.swing.JTextField();
         filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 0), new java.awt.Dimension(32767, 0));
+        medMgr_expiry_input_month = new javax.swing.JTextField();
+        medMgr_expiry_input_year = new javax.swing.JTextField();
         salesIframe = new javax.swing.JInternalFrame();
         bar = new javax.swing.JPanel();
         justJoking = new javax.swing.JButton();
@@ -1254,6 +1254,9 @@ public class medicine_management extends javax.swing.JFrame {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 medMgr_mrp_inputKeyPressed(evt);
             }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                medMgr_mrp_inputKeyTyped(evt);
+            }
         });
 
         medMgr_no_box_label.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -1279,44 +1282,6 @@ public class medicine_management extends javax.swing.JFrame {
         medMgr_expiry_lable.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         medMgr_expiry_lable.setForeground(new java.awt.Color(255, 255, 255));
         medMgr_expiry_lable.setText("Expiry Date");
-
-        medMgr_expiry_input_month.setText("mm");
-        medMgr_expiry_input_month.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                medMgr_expiry_input_monthFocusGained(evt);
-            }
-        });
-        medMgr_expiry_input_month.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                medMgr_expiry_input_monthMouseClicked(evt);
-            }
-        });
-        medMgr_expiry_input_month.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                medMgr_expiry_input_monthKeyPressed(evt);
-            }
-        });
-
-        medMgr_expiry_slash.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        medMgr_expiry_slash.setForeground(new java.awt.Color(255, 255, 255));
-        medMgr_expiry_slash.setText("/");
-
-        medMgr_expiry_input_year.setText("yy");
-        medMgr_expiry_input_year.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                medMgr_expiry_input_yearFocusGained(evt);
-            }
-        });
-        medMgr_expiry_input_year.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                medMgr_expiry_input_yearMouseClicked(evt);
-            }
-        });
-        medMgr_expiry_input_year.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                medMgr_expiry_input_yearKeyPressed(evt);
-            }
-        });
 
         medicine_error.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         medicine_error.setForeground(new java.awt.Color(255, 0, 0));
@@ -1347,6 +1312,30 @@ public class medicine_management extends javax.swing.JFrame {
         medMgr_type_input.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 medMgr_type_inputKeyPressed(evt);
+            }
+        });
+
+        medMgr_expiry_input_month.setText("mm");
+        medMgr_expiry_input_month.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                medMgr_expiry_input_monthFocusGained(evt);
+            }
+        });
+        medMgr_expiry_input_month.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                medMgr_expiry_input_monthKeyPressed(evt);
+            }
+        });
+
+        medMgr_expiry_input_year.setText("yy");
+        medMgr_expiry_input_year.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                medMgr_expiry_input_yearFocusGained(evt);
+            }
+        });
+        medMgr_expiry_input_year.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                medMgr_expiry_input_yearKeyPressed(evt);
             }
         });
 
@@ -1387,12 +1376,6 @@ public class medicine_management extends javax.swing.JFrame {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addGroup(medMgr_details_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addGroup(medMgr_details_panelLayout.createSequentialGroup()
-                                                .addComponent(medMgr_expiry_input_month, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(medMgr_expiry_slash)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(medMgr_expiry_input_year, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addGroup(medMgr_details_panelLayout.createSequentialGroup()
                                                 .addComponent(medMgr_add_button, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                 .addComponent(medMgr_update_button, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -1400,10 +1383,14 @@ public class medicine_management extends javax.swing.JFrame {
                                         .addGap(131, 131, 131))
                                     .addGroup(medMgr_details_panelLayout.createSequentialGroup()
                                         .addGap(33, 33, 33)
-                                        .addGroup(medMgr_details_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(medMgr_no_box_input, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGroup(medMgr_details_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(medMgr_no_box_input, javax.swing.GroupLayout.DEFAULT_SIZE, 205, Short.MAX_VALUE)
                                             .addComponent(medMgr_mrp_input, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(medMgr_batch_input, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(medMgr_batch_input, javax.swing.GroupLayout.DEFAULT_SIZE, 205, Short.MAX_VALUE)
+                                            .addGroup(medMgr_details_panelLayout.createSequentialGroup()
+                                                .addComponent(medMgr_expiry_input_month, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(medMgr_expiry_input_year, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                             .addGroup(medMgr_details_panelLayout.createSequentialGroup()
                                 .addComponent(medMgr_no_box_label)
@@ -1460,12 +1447,11 @@ public class medicine_management extends javax.swing.JFrame {
                             .addComponent(filler1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(medMgr_batch_input, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(medMgr_details_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(medMgr_expiry_input_month, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(medMgr_expiry_slash)
                             .addComponent(medMgr_expiry_input_year, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(4, 4, 4)
                         .addComponent(medicine_error)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(medMgr_details_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -1484,9 +1470,9 @@ public class medicine_management extends javax.swing.JFrame {
                     .addComponent(medMgr_tabel_scrollpanel)
                     .addGroup(medicineIframeLayout.createSequentialGroup()
                         .addGroup(medicineIframeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(medMgr_details_panel, javax.swing.GroupLayout.PREFERRED_SIZE, 800, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(medMgr_title_lable, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(medMgr_find_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(medMgr_details_panel, javax.swing.GroupLayout.PREFERRED_SIZE, 800, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(medMgr_find_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 43, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -1499,9 +1485,9 @@ public class medicine_management extends javax.swing.JFrame {
                 .addComponent(medMgr_find_panel, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(medMgr_tabel_scrollpanel, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(medMgr_details_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(49, Short.MAX_VALUE))
+                .addContainerGap(43, Short.MAX_VALUE))
         );
 
         cardPane.add(medicineIframe, "card3");
@@ -2143,6 +2129,14 @@ public class medicine_management extends javax.swing.JFrame {
         medMgr_company_phone.setText(mysql.company_phoneNo);
         
         medicine_error.setText("");
+        
+        DateFormat expiry_year_check = new SimpleDateFormat("yyyy");
+        Date current_expiry_year = new Date();
+        expiry_cur_year = expiry_year_check.format(current_expiry_year);
+        
+        DateFormat expiry_month_check = new SimpleDateFormat("MM");
+        Date current_expiry_month = new Date();
+        expiry_cur_month = expiry_month_check.format(current_expiry_month);
     }//GEN-LAST:event_medicineIframeInternalFrameActivated
 
     //This is just for testing
@@ -2634,14 +2628,6 @@ public class medicine_management extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_medMgr_name_inputKeyReleased
 
-    private void medMgr_expiry_input_monthMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_medMgr_expiry_input_monthMouseClicked
-        medMgr_expiry_input_month.setText("");
-    }//GEN-LAST:event_medMgr_expiry_input_monthMouseClicked
-
-    private void medMgr_expiry_input_yearMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_medMgr_expiry_input_yearMouseClicked
-        medMgr_expiry_input_year.setText("");
-    }//GEN-LAST:event_medMgr_expiry_input_yearMouseClicked
-
     private void medMgr_type_inputKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_medMgr_type_inputKeyPressed
         if (evt.getKeyCode()==KeyEvent.VK_ENTER) {
             medMgr_strength_input.requestFocus();
@@ -2660,16 +2646,18 @@ public class medicine_management extends javax.swing.JFrame {
 
     private void medMgr_no_tablet_inputKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_medMgr_no_tablet_inputKeyPressed
          if (Character.isDigit(evt.getKeyChar()) || Character.isWhitespace(evt.getKeyChar())) {
-            if(medMgr_no_tablet_input.getText().equals("0")){
-                    medicine_error.setText("No of Tablet can not be zero!");
-                    medMgr_add_button.setEnabled(false);
-                }
-                else{
-                    medMgr_mrp_input.requestFocus();
-                    medicine_error.setText("");
-                    medMgr_add_button.setEnabled(true);
-                }
-        }
+            if (evt.getKeyCode()==KeyEvent.VK_ENTER) {
+                if(medMgr_no_tablet_input.getText().equals("0")){
+                       medicine_error.setText("No of Tablet can not be zero!");
+                       medMgr_add_button.setEnabled(false);
+                   }
+                   else{
+                       medMgr_mrp_input.requestFocus();
+                       medicine_error.setText("");
+                       medMgr_add_button.setEnabled(true);
+                   }
+               }
+         }
         else if(medMgr_no_tablet_input.getText().length() <= 0)
         {
             medicine_error.setText("No of Tablet can not be zero!");
@@ -2681,33 +2669,11 @@ public class medicine_management extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_medMgr_no_tablet_inputKeyPressed
 
-    private void medMgr_mrp_inputKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_medMgr_mrp_inputKeyPressed
-        if (Character.isDigit(evt.getKeyChar()) || Character.isWhitespace(evt.getKeyChar())) {
-            if(medMgr_mrp_input.getText().equals("0")){
-                    medicine_error.setText("MRP can not be zero!");
-                    medMgr_add_button.setEnabled(false);
-                }
-                else{
-                    medMgr_no_box_input.requestFocus();
-                    medicine_error.setText("");
-                    medMgr_add_button.setEnabled(true);
-                }
-        }
-        else if(medMgr_mrp_input.getText().length() <= 0)
-        {
-            medicine_error.setText("MRP Box can not be zero!");
-            medMgr_add_button.setEnabled(false);
-        }
-        else{
-            medicine_error.setText("Details Need To be filled!");
-            medMgr_add_button.setEnabled(false);
-        }
-    }//GEN-LAST:event_medMgr_mrp_inputKeyPressed
-
     private void medMgr_no_box_inputKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_medMgr_no_box_inputKeyPressed
         if (Character.isDigit(evt.getKeyChar()) || Character.isWhitespace(evt.getKeyChar())) {
-            if(medMgr_no_box_input.getText().equals("0")){
-                    medicine_error.setText("No of Box can not be zero!");
+            if (evt.getKeyCode()==KeyEvent.VK_ENTER) {
+                if(medMgr_no_box_input.getText().equals("0")){
+                    medicine_error.setText("No of Boxes can not be zero!");
                     medMgr_add_button.setEnabled(false);
                 }
                 else{
@@ -2715,10 +2681,10 @@ public class medicine_management extends javax.swing.JFrame {
                     medicine_error.setText("");
                     medMgr_add_button.setEnabled(true);
                 }
-        }
-        else if(medMgr_no_box_input.getText().length() <= 0)
-        {
-            medicine_error.setText("No of Box can not be zero!");
+            } 
+        } 
+        else if(medMgr_no_box_input.getText().length() <= 0){
+            medicine_error.setText("No of Boxes can not be NULL!");
             medMgr_add_button.setEnabled(false);
         }
         else{
@@ -2733,14 +2699,72 @@ public class medicine_management extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_medMgr_batch_inputKeyPressed
 
-    private void medMgr_expiry_input_monthKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_medMgr_expiry_input_monthKeyPressed
+    private void medMgr_mrp_inputKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_medMgr_mrp_inputKeyTyped
+        if (Character.isDigit(evt.getKeyChar()) || evt.getKeyChar() == '.' || Character.isWhitespace(evt.getKeyChar())) {
+            medicine_error.setText("");
+            medMgr_add_button.setEnabled(true);
+        }  
+        else{
+            evt.consume();
+            medicine_error.setText("Only Numbers Allowed!");
+            medMgr_add_button.setEnabled(false);
+        }       
+    }//GEN-LAST:event_medMgr_mrp_inputKeyTyped
+
+    private void medMgr_mrp_inputKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_medMgr_mrp_inputKeyPressed
         if (evt.getKeyCode()==KeyEvent.VK_ENTER) {
-            medMgr_expiry_input_year.requestFocus();
+                medMgr_no_box_input.requestFocus();
+            }
+    }//GEN-LAST:event_medMgr_mrp_inputKeyPressed
+
+    private void medMgr_expiry_input_monthKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_medMgr_expiry_input_monthKeyPressed
+         if (Character.isDigit(evt.getKeyChar()) || Character.isWhitespace(evt.getKeyChar())) {
+            if (evt.getKeyCode()==KeyEvent.VK_ENTER) {
+                if(medMgr_expiry_input_month.getText().equals("0")){
+                        medicine_error.setText("Month can not be Zero!");
+                        medMgr_add_button.setEnabled(false);
+                    }
+                    else{
+                        medMgr_expiry_input_year.requestFocus();
+                        medicine_error.setText("");
+                        medMgr_add_button.setEnabled(true);
+                    }
+                }
+         }
+        else if(medMgr_expiry_input_month.getText().length() <= 0)
+        {
+            medicine_error.setText("Month can not be Zero!");
+            medMgr_add_button.setEnabled(false);
+        }
+        else{
+            medicine_error.setText("Details Need To be filled!");
+            medMgr_add_button.setEnabled(false);
         }
     }//GEN-LAST:event_medMgr_expiry_input_monthKeyPressed
 
     private void medMgr_expiry_input_yearKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_medMgr_expiry_input_yearKeyPressed
-        medMgr_add_button.doClick();
+        if (Character.isDigit(evt.getKeyChar()) || Character.isWhitespace(evt.getKeyChar())) {
+            if (evt.getKeyCode()==KeyEvent.VK_ENTER) {
+                if(medMgr_expiry_input_year.getText().equals("0")){
+                        medicine_error.setText("Year can not be Zero!");
+                        medMgr_add_button.setEnabled(false);
+                    }
+                    else{
+                        medMgr_add_button.doClick();
+                        medicine_error.setText("");
+                        medMgr_add_button.setEnabled(true);
+                    }
+                }
+            }
+        else if(medMgr_expiry_input_year.getText().length() <= 0)
+        {
+            medicine_error.setText("Year can not be Zero!");
+            medMgr_add_button.setEnabled(false);
+        }
+        else{
+            medicine_error.setText("Details Need To be filled!");
+            medMgr_add_button.setEnabled(false);
+        }
     }//GEN-LAST:event_medMgr_expiry_input_yearKeyPressed
 
     private void medMgr_expiry_input_monthFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_medMgr_expiry_input_monthFocusGained
@@ -2823,7 +2847,6 @@ public class medicine_management extends javax.swing.JFrame {
     private javax.swing.JTextField medMgr_expiry_input_month;
     private javax.swing.JTextField medMgr_expiry_input_year;
     private javax.swing.JLabel medMgr_expiry_lable;
-    private javax.swing.JLabel medMgr_expiry_slash;
     private javax.swing.JLabel medMgr_find_error;
     private javax.swing.JPanel medMgr_find_panel;
     private javax.swing.JTextField medMgr_mrp_input;
