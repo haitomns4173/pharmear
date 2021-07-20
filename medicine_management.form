@@ -1427,10 +1427,10 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="medMgr_find_panel" min="-2" pref="89" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="medMgr_tabel_scrollpanel" min="-2" pref="202" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="medMgr_tabel_scrollpanel" min="-2" pref="185" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
                           <Component id="medMgr_details_panel" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="146" max="32767" attributes="0"/>
+                          <EmptySpace pref="49" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -1698,11 +1698,7 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <Component id="medicine_details_seperator" min="-2" pref="740" max="-2" attributes="0"/>
-                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" attributes="0">
+                                  <Group type="102" alignment="1" attributes="0">
                                       <Group type="103" groupAlignment="1" attributes="0">
                                           <Group type="102" attributes="0">
                                               <Component id="medMgr_no_tablet_label" min="-2" max="-2" attributes="0"/>
@@ -1735,25 +1731,23 @@
                                               </Group>
                                               <Group type="103" groupAlignment="0" attributes="0">
                                                   <Group type="102" attributes="0">
-                                                      <EmptySpace type="unrelated" max="32767" attributes="0"/>
+                                                      <EmptySpace max="32767" attributes="0"/>
                                                       <Group type="103" groupAlignment="0" attributes="0">
                                                           <Group type="102" alignment="0" attributes="0">
-                                                              <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
                                                               <Component id="medMgr_expiry_input_month" min="-2" pref="35" max="-2" attributes="0"/>
-                                                              <EmptySpace max="-2" attributes="0"/>
+                                                              <EmptySpace min="-2" max="-2" attributes="0"/>
                                                               <Component id="medMgr_expiry_slash" min="-2" max="-2" attributes="0"/>
-                                                              <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
+                                                              <EmptySpace max="-2" attributes="0"/>
                                                               <Component id="medMgr_expiry_input_year" min="-2" pref="35" max="-2" attributes="0"/>
                                                           </Group>
                                                           <Group type="102" alignment="0" attributes="0">
                                                               <Component id="medMgr_add_button" min="-2" pref="73" max="-2" attributes="0"/>
-                                                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                                                              <Component id="medMgr_update_button" min="-2" pref="73" max="-2" attributes="0"/>
                                                               <EmptySpace max="-2" attributes="0"/>
-                                                              <Component id="medicine_error" min="-2" max="-2" attributes="0"/>
+                                                              <Component id="medMgr_update_button" min="-2" pref="73" max="-2" attributes="0"/>
                                                           </Group>
+                                                          <Component id="medicine_error" min="-2" pref="229" max="-2" attributes="0"/>
                                                       </Group>
-                                                      <EmptySpace min="-2" pref="118" max="-2" attributes="0"/>
+                                                      <EmptySpace min="-2" pref="131" max="-2" attributes="0"/>
                                                   </Group>
                                                   <Group type="102" alignment="0" attributes="0">
                                                       <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
@@ -1770,7 +1764,6 @@
                                               <Component id="medMgr_no_box_label" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
                                               <Component id="filler1" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace max="32767" attributes="0"/>
                                           </Group>
                                       </Group>
                                   </Group>
@@ -1778,6 +1771,10 @@
                                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                       <Component id="medicine_label" min="-2" pref="124" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="747" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="medicine_details_seperator" min="-2" pref="740" max="-2" attributes="0"/>
+                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -1789,7 +1786,7 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="medicine_label" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="medicine_details_seperator" min="-2" pref="4" max="-2" attributes="0"/>
+                              <Component id="medicine_details_seperator" min="-2" pref="10" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" attributes="0">
@@ -1841,17 +1838,16 @@
                                           <Component id="medMgr_expiry_slash" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="medMgr_expiry_input_year" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="103" groupAlignment="3" attributes="0">
-                                              <Component id="medMgr_update_button" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
-                                              <Component id="medicine_error" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Component id="medMgr_add_button" alignment="0" min="-2" pref="22" max="-2" attributes="0"/>
-                                      </Group>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Component id="medicine_error" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <EmptySpace max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="medMgr_add_button" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
+                                  <Component id="medMgr_update_button" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -1913,8 +1909,11 @@
                     <Component class="javax.swing.JTextField" name="medMgr_strength_input">
                       <Events>
                         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="medMgr_strength_inputMouseClicked"/>
-                        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="medMgr_strength_inputKeyReleased"/>
+                        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="medMgr_strength_inputKeyPressed"/>
                       </Events>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_SerializeTo" type="java.lang.String" value="medicine_management_medMgr_strength_input"/>
+                      </AuxValues>
                     </Component>
                     <Component class="javax.swing.JLabel" name="medMgr_no_sheet_label">
                       <Properties>
@@ -1947,6 +1946,7 @@
                     <Component class="javax.swing.JTextField" name="medMgr_no_table_input">
                       <Events>
                         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="medMgr_no_table_inputMouseClicked"/>
+                        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="medMgr_no_table_inputKeyPressed"/>
                       </Events>
                     </Component>
                     <Component class="javax.swing.JLabel" name="medMgr_mrp_label">
@@ -1964,6 +1964,7 @@
                       <Events>
                         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="medMgr_mrp_inputMouseClicked"/>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="medMgr_mrp_inputActionPerformed"/>
+                        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="medMgr_mrp_inputKeyPressed"/>
                       </Events>
                     </Component>
                     <Component class="javax.swing.JLabel" name="medMgr_no_box_label">
@@ -1978,6 +1979,9 @@
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="medMgr_no_box_input">
+                      <Events>
+                        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="medMgr_no_box_inputKeyPressed"/>
+                      </Events>
                     </Component>
                     <Component class="javax.swing.JLabel" name="medMgr_batch_lable">
                       <Properties>
@@ -1991,6 +1995,9 @@
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="medMgr_batch_input">
+                      <Events>
+                        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="medMgr_batch_inputKeyPressed"/>
+                      </Events>
                     </Component>
                     <Component class="javax.swing.JLabel" name="medMgr_expiry_lable">
                       <Properties>
@@ -2007,6 +2014,11 @@
                       <Properties>
                         <Property name="text" type="java.lang.String" value="mm"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="medMgr_expiry_input_monthFocusGained"/>
+                        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="medMgr_expiry_input_monthMouseClicked"/>
+                        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="medMgr_expiry_input_monthKeyPressed"/>
+                      </Events>
                     </Component>
                     <Component class="javax.swing.JLabel" name="medMgr_expiry_slash">
                       <Properties>
@@ -2023,14 +2035,19 @@
                       <Properties>
                         <Property name="text" type="java.lang.String" value="yy"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="medMgr_expiry_input_yearFocusGained"/>
+                        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="medMgr_expiry_input_yearMouseClicked"/>
+                        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="medMgr_expiry_input_yearKeyPressed"/>
+                      </Events>
                     </Component>
                     <Component class="javax.swing.JLabel" name="medicine_error">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Segoe UI" size="12" style="1"/>
+                          <Font name="Segoe UI" size="14" style="1"/>
                         </Property>
                         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                          <Color blue="0" green="0" red="ff" type="rgb"/>
                         </Property>
                         <Property name="text" type="java.lang.String" value="Medicine Error"/>
                       </Properties>
@@ -2075,6 +2092,7 @@
                     <Component class="javax.swing.JTextField" name="medMgr_type_input">
                       <Events>
                         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="medMgr_type_inputMouseClicked"/>
+                        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="medMgr_type_inputKeyPressed"/>
                       </Events>
                     </Component>
                     <Component class="javax.swing.Box$Filler" name="filler1">
