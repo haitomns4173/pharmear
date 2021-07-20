@@ -137,7 +137,7 @@ public class medicine_management extends javax.swing.JFrame {
         medMgr_no_sheet_label = new javax.swing.JLabel();
         medMgr_no_sheet_input = new javax.swing.JTextField();
         medMgr_no_tablet_label = new javax.swing.JLabel();
-        medMgr_no_table_input = new javax.swing.JTextField();
+        medMgr_no_tablet_input = new javax.swing.JTextField();
         medMgr_mrp_label = new javax.swing.JLabel();
         medMgr_mrp_input = new javax.swing.JTextField();
         medMgr_no_box_label = new javax.swing.JLabel();
@@ -1230,14 +1230,14 @@ public class medicine_management extends javax.swing.JFrame {
         medMgr_no_tablet_label.setForeground(new java.awt.Color(255, 255, 255));
         medMgr_no_tablet_label.setText("Number of Tablet");
 
-        medMgr_no_table_input.addMouseListener(new java.awt.event.MouseAdapter() {
+        medMgr_no_tablet_input.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                medMgr_no_table_inputMouseClicked(evt);
+                medMgr_no_tablet_inputMouseClicked(evt);
             }
         });
-        medMgr_no_table_input.addKeyListener(new java.awt.event.KeyAdapter() {
+        medMgr_no_tablet_input.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                medMgr_no_table_inputKeyPressed(evt);
+                medMgr_no_tablet_inputKeyPressed(evt);
             }
         });
 
@@ -1248,11 +1248,6 @@ public class medicine_management extends javax.swing.JFrame {
         medMgr_mrp_input.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 medMgr_mrp_inputMouseClicked(evt);
-            }
-        });
-        medMgr_mrp_input.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                medMgr_mrp_inputActionPerformed(evt);
             }
         });
         medMgr_mrp_input.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -1367,7 +1362,7 @@ public class medicine_management extends javax.swing.JFrame {
                             .addGroup(medMgr_details_panelLayout.createSequentialGroup()
                                 .addComponent(medMgr_no_tablet_label)
                                 .addGap(29, 29, 29)
-                                .addComponent(medMgr_no_table_input, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(medMgr_no_tablet_input, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, medMgr_details_panelLayout.createSequentialGroup()
                                 .addGroup(medMgr_details_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(medMgr_type_label)
@@ -1455,7 +1450,7 @@ public class medicine_management extends javax.swing.JFrame {
                             .addComponent(medMgr_no_sheet_label))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(medMgr_details_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(medMgr_no_table_input, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(medMgr_no_tablet_input, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(medMgr_no_tablet_label)))
                     .addGroup(medMgr_details_panelLayout.createSequentialGroup()
                         .addComponent(medMgr_mrp_input, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -2515,7 +2510,7 @@ public class medicine_management extends javax.swing.JFrame {
         med_type = medMgr_type_input.getText();
         med_strength = medMgr_strength_input.getText();
         med_sheet = medMgr_no_sheet_input.getText();
-        med_tablet = medMgr_no_table_input.getText();
+        med_tablet = medMgr_no_tablet_input.getText();
         med_mrp = medMgr_mrp_input.getText();
         med_box = medMgr_no_box_input.getText();
         med_batch = medMgr_batch_input.getText();
@@ -2538,29 +2533,30 @@ public class medicine_management extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_medMgr_add_buttonActionPerformed
 
-    private void medMgr_mrp_inputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_medMgr_mrp_inputActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_medMgr_mrp_inputActionPerformed
-
     private void medMgr_mrp_inputMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_medMgr_mrp_inputMouseClicked
         medMgr_mrp_input.selectAll();
     }//GEN-LAST:event_medMgr_mrp_inputMouseClicked
 
-    private void medMgr_no_table_inputMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_medMgr_no_table_inputMouseClicked
-        medMgr_no_table_input.selectAll();
-    }//GEN-LAST:event_medMgr_no_table_inputMouseClicked
+    private void medMgr_no_tablet_inputMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_medMgr_no_tablet_inputMouseClicked
+        medMgr_no_tablet_input.selectAll();
+    }//GEN-LAST:event_medMgr_no_tablet_inputMouseClicked
 
     private void medMgr_no_sheet_inputKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_medMgr_no_sheet_inputKeyPressed
         if (Character.isDigit(evt.getKeyChar()) || Character.isWhitespace(evt.getKeyChar())) {
             if (evt.getKeyCode()==KeyEvent.VK_ENTER) {
-                medMgr_no_table_input.requestFocus();
-            }
-            medicine_error.setText("");
-            medMgr_add_button.setEnabled(true);
-        }
-        else if(medMgr_no_sheet_input.getText().length() <= 0)
-        {
-            medicine_error.setText("No of Sheets can not be zero!");
+                if(medMgr_no_sheet_input.getText().equals("0")){
+                    medicine_error.setText("No of Sheets can not be zero!");
+                    medMgr_add_button.setEnabled(false);
+                }
+                else{
+                    medMgr_no_tablet_input.requestFocus();
+                    medicine_error.setText("");
+                    medMgr_add_button.setEnabled(true);
+                }
+            } 
+        } 
+        else if(medMgr_no_sheet_input.getText().length() <= 0){
+            medicine_error.setText("No of Sheets can not be NULL!");
             medMgr_add_button.setEnabled(false);
         }
         else{
@@ -2591,7 +2587,7 @@ public class medicine_management extends javax.swing.JFrame {
                 medMgr_type_input.setText(medicine_unit);
                 medMgr_strength_input.setText(medicine_strength);
                 medMgr_no_sheet_input.setText(String.valueOf(mecicine_no_pack));
-                medMgr_no_table_input.setText(String.valueOf(medicine_no_quantity));
+                medMgr_no_tablet_input.setText(String.valueOf(medicine_no_quantity));
                 medMgr_mrp_input.setText(String.valueOf(medicien_mrp));
                 medMgr_no_box_input.requestFocus();
             }
@@ -2662,21 +2658,72 @@ public class medicine_management extends javax.swing.JFrame {
         medMgr_strength_input.selectAll();
     }//GEN-LAST:event_medMgr_strength_inputMouseClicked
 
-    private void medMgr_no_table_inputKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_medMgr_no_table_inputKeyPressed
-        if (evt.getKeyCode()==KeyEvent.VK_ENTER) {
-            medMgr_mrp_input.requestFocus();
+    private void medMgr_no_tablet_inputKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_medMgr_no_tablet_inputKeyPressed
+         if (Character.isDigit(evt.getKeyChar()) || Character.isWhitespace(evt.getKeyChar())) {
+            if(medMgr_no_tablet_input.getText().equals("0")){
+                    medicine_error.setText("No of Tablet can not be zero!");
+                    medMgr_add_button.setEnabled(false);
+                }
+                else{
+                    medMgr_mrp_input.requestFocus();
+                    medicine_error.setText("");
+                    medMgr_add_button.setEnabled(true);
+                }
         }
-    }//GEN-LAST:event_medMgr_no_table_inputKeyPressed
+        else if(medMgr_no_tablet_input.getText().length() <= 0)
+        {
+            medicine_error.setText("No of Tablet can not be zero!");
+            medMgr_add_button.setEnabled(false);
+        }
+        else{
+            medicine_error.setText("Details Need To be filled!");
+            medMgr_add_button.setEnabled(false);
+        }
+    }//GEN-LAST:event_medMgr_no_tablet_inputKeyPressed
 
     private void medMgr_mrp_inputKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_medMgr_mrp_inputKeyPressed
-        if (evt.getKeyCode()==KeyEvent.VK_ENTER) {
-            medMgr_no_box_input.requestFocus();
+        if (Character.isDigit(evt.getKeyChar()) || Character.isWhitespace(evt.getKeyChar())) {
+            if(medMgr_mrp_input.getText().equals("0")){
+                    medicine_error.setText("MRP can not be zero!");
+                    medMgr_add_button.setEnabled(false);
+                }
+                else{
+                    medMgr_no_box_input.requestFocus();
+                    medicine_error.setText("");
+                    medMgr_add_button.setEnabled(true);
+                }
+        }
+        else if(medMgr_mrp_input.getText().length() <= 0)
+        {
+            medicine_error.setText("MRP Box can not be zero!");
+            medMgr_add_button.setEnabled(false);
+        }
+        else{
+            medicine_error.setText("Details Need To be filled!");
+            medMgr_add_button.setEnabled(false);
         }
     }//GEN-LAST:event_medMgr_mrp_inputKeyPressed
 
     private void medMgr_no_box_inputKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_medMgr_no_box_inputKeyPressed
-        if (evt.getKeyCode()==KeyEvent.VK_ENTER) {
-            medMgr_batch_input.requestFocus();
+        if (Character.isDigit(evt.getKeyChar()) || Character.isWhitespace(evt.getKeyChar())) {
+            if(medMgr_no_box_input.getText().equals("0")){
+                    medicine_error.setText("No of Box can not be zero!");
+                    medMgr_add_button.setEnabled(false);
+                }
+                else{
+                    medMgr_batch_input.requestFocus();
+                    medicine_error.setText("");
+                    medMgr_add_button.setEnabled(true);
+                }
+        }
+        else if(medMgr_no_box_input.getText().length() <= 0)
+        {
+            medicine_error.setText("No of Box can not be zero!");
+            medMgr_add_button.setEnabled(false);
+        }
+        else{
+            medicine_error.setText("Details Need To be filled!");
+            medMgr_add_button.setEnabled(false);
         }
     }//GEN-LAST:event_medMgr_no_box_inputKeyPressed
 
@@ -2787,7 +2834,7 @@ public class medicine_management extends javax.swing.JFrame {
     private javax.swing.JLabel medMgr_no_box_label;
     private javax.swing.JTextField medMgr_no_sheet_input;
     private javax.swing.JLabel medMgr_no_sheet_label;
-    private javax.swing.JTextField medMgr_no_table_input;
+    private javax.swing.JTextField medMgr_no_tablet_input;
     private javax.swing.JLabel medMgr_no_tablet_label;
     private javax.swing.JTextField medMgr_strength_input;
     private javax.swing.JLabel medMgr_strength_label;
