@@ -1320,6 +1320,9 @@ public class medicine_management extends javax.swing.JFrame {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 medMgr_expiry_input_monthFocusGained(evt);
             }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                medMgr_expiry_input_monthFocusLost(evt);
+            }
         });
         medMgr_expiry_input_month.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -2510,20 +2513,36 @@ public class medicine_management extends javax.swing.JFrame {
         med_batch = medMgr_batch_input.getText();
         med_expiry_month = medMgr_expiry_input_month.getText();
         med_expiry_year = medMgr_expiry_input_year.getText();
-
-        try {
-            mysql.medicine_import_query(med_name, med_type, med_strength);
-        } catch (SQLException ex) {
-            Logger.getLogger(medicine_management.class.getName()).log(Level.SEVERE, null, ex);
+        
+        int month_check = Integer.parseInt(med_expiry_month);
+        int year_check = Integer.parseInt(med_expiry_year);       
+        int cur_month = Integer.parseInt(expiry_cur_month);
+        int cur_year = Integer.parseInt(expiry_cur_year);
+        
+        if(month_check <= cur_month || year_check < cur_year){
+            JOptionPane.showMessageDialog(null, "You can not input EXPIRED Medicine");
         }
+        else{
+            if(med_name.isEmpty() || med_type.isEmpty() || med_strength.isEmpty() || med_sheet.isEmpty() || med_tablet.isEmpty() || med_mrp.isEmpty() || med_box.isEmpty() || med_batch.isEmpty() || med_expiry_month.isEmpty() || med_expiry_year.isEmpty())
+            {
+                JOptionPane.showMessageDialog(null, "Fill all the details!");
+            }
+            else{
+                try {
+                    mysql.medicine_import_query(med_name, med_type, med_strength);
+                } catch (SQLException ex) {
+                    Logger.getLogger(medicine_management.class.getName()).log(Level.SEVERE, null, ex);
+                }
 
-        medicine_with_percentage = med_name.replace(' ', '%');
-        medicine_with_percentage = medicine_with_percentage.substring(0, medicine_with_percentage.length()-1);
+                medicine_with_percentage = med_name.replace(' ', '%');
+                medicine_with_percentage = medicine_with_percentage.substring(0, medicine_with_percentage.length()-1);
 
-        try {
-            mysql.medicine_import_details__query(medicine_with_percentage, med_sheet, med_tablet, med_box, med_batch , med_expiry_month, med_expiry_year, med_mrp);
-        } catch (SQLException ex) {
-            Logger.getLogger(medicine_management.class.getName()).log(Level.SEVERE, null, ex);
+                try {
+                    mysql.medicine_import_details__query(medicine_with_percentage, med_sheet, med_tablet, med_box, med_batch , med_expiry_month, med_expiry_year, med_mrp);
+                } catch (SQLException ex) {
+                    Logger.getLogger(medicine_management.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
         }
     }//GEN-LAST:event_medMgr_add_buttonActionPerformed
 
@@ -2774,6 +2793,14 @@ public class medicine_management extends javax.swing.JFrame {
     private void medMgr_expiry_input_yearFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_medMgr_expiry_input_yearFocusGained
         medMgr_expiry_input_year.setText("");
     }//GEN-LAST:event_medMgr_expiry_input_yearFocusGained
+
+    private void medMgr_expiry_input_monthFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_medMgr_expiry_input_monthFocusLost
+        int month_check = Integer.parseInt(medMgr_expiry_input_month.getText());
+        if(month_check<1 || month_check>12){
+            medicine_error.setText("Invalid Month!");
+            medMgr_add_button.setEnabled(false);
+        }
+    }//GEN-LAST:event_medMgr_expiry_input_monthFocusLost
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
