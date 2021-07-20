@@ -17,7 +17,7 @@ public class mysql {
     static String user_type;
     
     public static void main(String args[]) {
-        String db_url = "jdbc:mysql://localhost:3306/pharma_knowhere";
+        String db_url = "jdbc:mysql://localhost:3306/pharma_db";
         String db_username = "root";
         String db_password = "";  
         
@@ -115,10 +115,19 @@ public class mysql {
     
     public static void auto_suggestion_medicine() throws SQLException{
         stmt = connect.createStatement();
-        String query = "SELECT * FROM `medicine_list`";
+        String query = "SELECT * FROM `medicine_import`";
         result = stmt.executeQuery(query);
         while(result.next()) {
             medicine_management.medicine_name_auto.add(result.getString(2));  
+        }
+    }
+    
+    public static void auto_suggestion_medicine_for_mrdMgr() throws SQLException{
+        stmt = connect.createStatement();
+        String query = "SELECT * FROM `medicine_list`";
+        result = stmt.executeQuery(query);
+        while(result.next()) {
+            medicine_management.medicine_name_auto_med_mgr.add(result.getString(2));  
         }
     }
     
@@ -127,11 +136,11 @@ public class mysql {
         stmt.executeUpdate(insert_query);
     }
     
-    public static void medicine_import_details__query(String med_sheet, String med_tablet, String med_box, String med_batch ,String med_expiry_month, String med_expiry_year, String med_mrp) throws SQLException{
+    public static void medicine_import_details__query(String med_name, String med_sheet, String med_tablet, String med_box, String med_batch ,String med_expiry_month, String med_expiry_year, String med_mrp) throws SQLException{
         int med_id = 0;
         
         stmt = connect.createStatement();
-        String query = "SELECT * FROM `medicine_import` ORDER BY id DESC LIMIT 1";
+        String query = "SELECT * FROM `medicine_import` WHERE `medicine_name` LIKE '%"+med_name+"%'";
         result = stmt.executeQuery(query);
         while(result.next()) {
             med_id = result.getInt(1);
@@ -141,12 +150,33 @@ public class mysql {
         stmt.executeUpdate(insert_query);
     }
     
-    public static void medicine_mrp() throws SQLException{
+    public static void medicine_mrp(String medicine_with_under) throws SQLException{
+        int medicine_id_temp = 0;
         stmt = connect.createStatement();
-        String query = "SELECT * FROM `medicine_list` WHERE `medicine_name` LIKE '%"+medicine_management.medicine_with_under+"%'";
+        String query_id = "SELECT * FROM `medicine_import` WHERE `medicine_name` LIKE '%"+medicine_with_under+"%'";
+        result = stmt.executeQuery(query_id);
+        while(result.next()) {
+            medicine_id_temp = result.getInt(1);
+        }
+        
+        stmt = connect.createStatement();
+        String query = "SELECT * FROM `medicine_import_details` WHERE id = "+medicine_id_temp+"";
         result = stmt.executeQuery(query);
         while(result.next()) {
             medicine_management.medicine_price = result.getFloat(8);
+        }
+    }
+    
+    public static void medicine_details(String medicine_search) throws SQLException{
+        stmt = connect.createStatement();
+        String query = "SELECT * FROM `medicine_list` WHERE `medicine_name` LIKE '%"+medicine_search+"%'";
+        result = stmt.executeQuery(query);
+        while(result.next()) {
+            medicine_management.medicine_unit = result.getString(4);
+            medicine_management.medicine_strength = result.getString(5);
+            medicine_management.mecicine_no_pack = result.getInt(6);
+            medicine_management.medicine_no_quantity = result.getInt(7);
+            medicine_management.medicien_mrp = result.getFloat(8);
         }
     }
 }
