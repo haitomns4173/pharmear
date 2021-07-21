@@ -1277,6 +1277,9 @@ public class medicine_management extends javax.swing.JFrame {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 medMgr_batch_inputKeyPressed(evt);
             }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                medMgr_batch_inputKeyTyped(evt);
+            }
         });
 
         medMgr_expiry_lable.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -1301,8 +1304,13 @@ public class medicine_management extends javax.swing.JFrame {
         medMgr_update_button.setBackground(new java.awt.Color(248, 150, 30));
         medMgr_update_button.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
         medMgr_update_button.setForeground(new java.awt.Color(255, 255, 255));
-        medMgr_update_button.setText("Update");
+        medMgr_update_button.setText("Clear");
         medMgr_update_button.setBorder(null);
+        medMgr_update_button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                medMgr_update_buttonActionPerformed(evt);
+            }
+        });
 
         medMgr_type_input.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -2012,7 +2020,7 @@ public class medicine_management extends javax.swing.JFrame {
 
     private void add_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_buttonActionPerformed
         String medicine_with_under;
-        int medicine_total = 0;
+        int medicine_total;
         
         medicine_with_under = medicine_name_input.getText().replace(' ', '%');
         
@@ -2514,14 +2522,14 @@ public class medicine_management extends javax.swing.JFrame {
         med_expiry_month = medMgr_expiry_input_month.getText();
         med_expiry_year = medMgr_expiry_input_year.getText();
         
-        int exp_date_check = 0;
+        int exp_date_check;
         exp_date_check = expiry_date_checker(med_expiry_month, med_expiry_year);
         
         if(exp_date_check == 0){
             JOptionPane.showMessageDialog(null, "You can not input EXPIRED Medicine");
         }
         else{
-            if(med_name.isEmpty() || med_type.isEmpty() || med_strength.isEmpty() || med_sheet.isEmpty() || med_tablet.isEmpty() || med_mrp.isEmpty() || med_box.isEmpty() || med_batch.isEmpty() || med_expiry_month.isEmpty() || med_expiry_year.isEmpty())
+            if(med_name.isEmpty() || med_type.isEmpty() || med_strength.isEmpty() || med_sheet.isEmpty() || med_tablet.isEmpty() || med_mrp.isEmpty() || med_batch.isEmpty() || med_expiry_month.isEmpty() || med_expiry_year.isEmpty())
             {
                 JOptionPane.showMessageDialog(null, "Fill all the details!");
             }
@@ -2545,10 +2553,20 @@ public class medicine_management extends javax.swing.JFrame {
     }//GEN-LAST:event_medMgr_add_buttonActionPerformed
 
     public static int expiry_date_checker(String med_expiry_month, String med_expiry_year){
-        int month_check = Integer.parseInt(med_expiry_month);
-        int year_check = Integer.parseInt(med_expiry_year);       
-        int cur_month = Integer.parseInt(expiry_cur_month);
-        int cur_year = Integer.parseInt(expiry_cur_year)-2000;
+        int month_check;
+        int year_check;       
+        int cur_month;
+        int cur_year;
+        
+        try{
+            month_check = Integer.parseInt(med_expiry_month);
+            year_check = Integer.parseInt(med_expiry_year);
+            cur_month = Integer.parseInt(expiry_cur_month);
+            cur_year = Integer.parseInt(expiry_cur_year)-2000;
+        }
+        catch(NumberFormatException ex){
+            return 1;
+        }
         
         if(cur_year <= year_check){
             if(cur_year == year_check)
@@ -2812,12 +2830,37 @@ public class medicine_management extends javax.swing.JFrame {
     }//GEN-LAST:event_medMgr_expiry_input_yearFocusGained
 
     private void medMgr_expiry_input_monthFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_medMgr_expiry_input_monthFocusLost
-        int month_check = Integer.parseInt(medMgr_expiry_input_month.getText());
-        if(month_check<1 || month_check>12){
-            medicine_error.setText("Invalid Month!");
+        try{
+            int month_check = Integer.parseInt(medMgr_expiry_input_month.getText());
+            if(month_check<1 || month_check>12){
+                medicine_error.setText("Invalid Month!");
+                medMgr_add_button.setEnabled(false);
+            }
+        }
+        catch(NumberFormatException ex){
+            medicine_error.setText("You can not enter Letters in Date!");
             medMgr_add_button.setEnabled(false);
         }
     }//GEN-LAST:event_medMgr_expiry_input_monthFocusLost
+
+    private void medMgr_batch_inputKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_medMgr_batch_inputKeyTyped
+        medMgr_batch_input.setText(medMgr_batch_input.getText().toUpperCase());
+    }//GEN-LAST:event_medMgr_batch_inputKeyTyped
+
+    private void medMgr_update_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_medMgr_update_buttonActionPerformed
+        medMgr_name_input.setText("");
+        medMgr_type_input.setText("");
+        medMgr_strength_input.setText("");
+        medMgr_no_sheet_input.setText("");
+        medMgr_no_tablet_input.setText("");
+        medMgr_mrp_input.setText("");
+        medMgr_no_box_input.setText("");
+        medMgr_batch_input.setText("");
+        medMgr_expiry_input_month.setText("");
+        medMgr_expiry_input_year.setText("");
+        medicine_error.setText("");
+        medMgr_add_button.setEnabled(true);
+    }//GEN-LAST:event_medMgr_update_buttonActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */

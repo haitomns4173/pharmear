@@ -7,6 +7,7 @@ public class loginPage extends javax.swing.JFrame {
     
     static String username_stored;
     static int user_id_stored;
+    static int user_code;
     
     public loginPage() {
         initComponents();

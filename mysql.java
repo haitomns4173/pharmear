@@ -37,6 +37,7 @@ public class mysql {
         while(result.next()) {
             number_of_rows++;
             loginPage.user_id_stored = result.getInt(1);
+            loginPage.user_code = result.getInt(6);
         }
         if(number_of_rows == 1){
             JOptionPane.showMessageDialog(null, "Login Successful");
