@@ -2514,12 +2514,10 @@ public class medicine_management extends javax.swing.JFrame {
         med_expiry_month = medMgr_expiry_input_month.getText();
         med_expiry_year = medMgr_expiry_input_year.getText();
         
-        int month_check = Integer.parseInt(med_expiry_month);
-        int year_check = Integer.parseInt(med_expiry_year);       
-        int cur_month = Integer.parseInt(expiry_cur_month);
-        int cur_year = Integer.parseInt(expiry_cur_year);
+        int exp_date_check = 0;
+        exp_date_check = expiry_date_checker(med_expiry_month, med_expiry_year);
         
-        if(month_check <= cur_month || year_check < cur_year){
+        if(exp_date_check == 0){
             JOptionPane.showMessageDialog(null, "You can not input EXPIRED Medicine");
         }
         else{
@@ -2546,6 +2544,31 @@ public class medicine_management extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_medMgr_add_buttonActionPerformed
 
+    public static int expiry_date_checker(String med_expiry_month, String med_expiry_year){
+        int month_check = Integer.parseInt(med_expiry_month);
+        int year_check = Integer.parseInt(med_expiry_year);       
+        int cur_month = Integer.parseInt(expiry_cur_month);
+        int cur_year = Integer.parseInt(expiry_cur_year)-2000;
+        
+        if(cur_year <= year_check){
+            if(cur_year == year_check)
+            {
+                if(cur_month < month_check){
+                    return 1;
+                }
+                else{
+                    return 0;
+                }
+            }
+            else{
+                return 1;
+            }       
+        }
+        else{
+            return 1;
+        }
+    }
+    
     private void medMgr_mrp_inputMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_medMgr_mrp_inputMouseClicked
         medMgr_mrp_input.selectAll();
     }//GEN-LAST:event_medMgr_mrp_inputMouseClicked
@@ -2691,15 +2714,9 @@ public class medicine_management extends javax.swing.JFrame {
     private void medMgr_no_box_inputKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_medMgr_no_box_inputKeyPressed
         if (Character.isDigit(evt.getKeyChar()) || Character.isWhitespace(evt.getKeyChar())) {
             if (evt.getKeyCode()==KeyEvent.VK_ENTER) {
-                if(medMgr_no_box_input.getText().equals("0")){
-                    medicine_error.setText("No of Boxes can not be zero!");
-                    medMgr_add_button.setEnabled(false);
-                }
-                else{
-                    medMgr_batch_input.requestFocus();
-                    medicine_error.setText("");
-                    medMgr_add_button.setEnabled(true);
-                }
+                medMgr_batch_input.requestFocus();
+                medicine_error.setText("");
+                medMgr_add_button.setEnabled(true);
             } 
         } 
         else if(medMgr_no_box_input.getText().length() <= 0){
