@@ -1,6 +1,7 @@
 package mms;
 import java.sql.*;
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
 
 public class mysql {
     static Connection connect = null;
@@ -191,5 +192,28 @@ public class mysql {
             med_id = result.getInt(1);
         }
         return med_id;
+    }
+    
+    public static void medicine_find(String medicine_find) throws SQLException{
+        String id, medicine_name, medicine_strength, box_no, batch_no, find_mrp, import_date;
+        
+        
+        stmt = connect.createStatement();
+        String query = "select medicine_import.id, medicine_import.medicine_name, medicine_import.medicine_strength, medicine_import_details.number_of_box, medicine_import_details.batch_no, medicine_import_details.mrp, medicine_import_details.med_import_date FROM medicine_import INNER JOIN medicine_import_details on medicine_import.id = medicine_import_details.medicine_id WHERE medicine_name LIKE '%"+medicine_find+"%';";
+        result = stmt.executeQuery(query);
+        while(result.next()) {
+            id = result.getString(1);
+            medicine_name = result.getString(2);
+            medicine_strength = result.getString(3);
+            box_no = result.getString(4);
+            batch_no = result.getString(5);
+            find_mrp = result.getString(6);
+            import_date = result.getString(7);
+            String table_find_date[] = {id, medicine_name, medicine_strength, box_no, batch_no, find_mrp, import_date};
+            
+
+            DefaultTableModel medMgr_find_table_add = (DefaultTableModel)medicine_management.medMgr_table_find.getModel();
+            medMgr_find_table_add.addRow(table_find_date);
+        }
     }
 }
