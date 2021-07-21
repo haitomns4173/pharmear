@@ -26,6 +26,7 @@ public class medicine_management extends javax.swing.JFrame {
     static Set<String> medicine_name_auto_med_mgr = new TreeSet<String>();
     static float medicine_price = 0;
     static String expiry_cur_year, expiry_cur_month;
+    static int duplicate_med_id;
     
     static String medicine_unit, medicine_strength;
     static int mecicine_no_pack, medicine_no_quantity;
@@ -1277,8 +1278,8 @@ public class medicine_management extends javax.swing.JFrame {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 medMgr_batch_inputKeyPressed(evt);
             }
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                medMgr_batch_inputKeyTyped(evt);
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                medMgr_batch_inputKeyReleased(evt);
             }
         });
 
@@ -2534,10 +2535,12 @@ public class medicine_management extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Fill all the details!");
             }
             else{
-                try {
-                    mysql.medicine_import_query(med_name, med_type, med_strength);
-                } catch (SQLException ex) {
-                    Logger.getLogger(medicine_management.class.getName()).log(Level.SEVERE, null, ex);
+                if(duplicate_med_id <= 0 ){
+                    try {
+                        mysql.medicine_import_query(med_name, med_type, med_strength);
+                    } catch (SQLException ex) {
+                        Logger.getLogger(medicine_management.class.getName()).log(Level.SEVERE, null, ex);
+                    }
                 }
 
                 medicine_with_percentage = med_name.replace(' ', '%');
@@ -2633,6 +2636,12 @@ public class medicine_management extends javax.swing.JFrame {
             } catch (SQLException ex) {
                 Logger.getLogger(medicine_management.class.getName()).log(Level.SEVERE, null, ex);
             }
+            try {
+                duplicate_med_id = mysql.medicine_duplicate(medicine_with_search);
+            } catch (SQLException ex) {
+                Logger.getLogger(medicine_management.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
             if(medicine_unit == null)
             {
                 medMgr_type_input.requestFocus();
@@ -2843,10 +2852,6 @@ public class medicine_management extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_medMgr_expiry_input_monthFocusLost
 
-    private void medMgr_batch_inputKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_medMgr_batch_inputKeyTyped
-        medMgr_batch_input.setText(medMgr_batch_input.getText().toUpperCase());
-    }//GEN-LAST:event_medMgr_batch_inputKeyTyped
-
     private void medMgr_update_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_medMgr_update_buttonActionPerformed
         medMgr_name_input.setText("");
         medMgr_type_input.setText("");
@@ -2861,6 +2866,10 @@ public class medicine_management extends javax.swing.JFrame {
         medicine_error.setText("");
         medMgr_add_button.setEnabled(true);
     }//GEN-LAST:event_medMgr_update_buttonActionPerformed
+
+    private void medMgr_batch_inputKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_medMgr_batch_inputKeyReleased
+        medMgr_batch_input.setText(medMgr_batch_input.getText().toUpperCase());
+    }//GEN-LAST:event_medMgr_batch_inputKeyReleased
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */

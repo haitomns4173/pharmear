@@ -180,4 +180,16 @@ public class mysql {
             medicine_management.medicien_mrp = result.getFloat(8);
         }
     }
+    
+    public static int medicine_duplicate(String medicine_search_duplicate) throws SQLException{
+        int med_id = 0;
+        
+        stmt = connect.createStatement();
+        String query = "SELECT * FROM `medicine_import` WHERE `medicine_name` LIKE '%"+medicine_search_duplicate+"%'";
+        result = stmt.executeQuery(query);
+        while(result.next()) {
+            med_id = result.getInt(1);
+        }
+        return med_id;
+    }
 }
