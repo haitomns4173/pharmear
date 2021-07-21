@@ -1588,6 +1588,8 @@
                     </Component>
                     <Component class="javax.swing.JTextField" name="medicine_name_find_input">
                       <Events>
+                        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="medicine_name_find_inputMouseClicked"/>
+                        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="medicine_name_find_inputKeyPressed"/>
                         <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="medicine_name_find_inputKeyReleased"/>
                       </Events>
                     </Component>
@@ -1638,7 +1640,7 @@
                         </Property>
                         <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                           <Table columnCount="6" rowCount="0">
-                            <Column editable="false" title="Sn. No" type="java.lang.Integer"/>
+                            <Column editable="false" title="Medicine ID" type="java.lang.Integer"/>
                             <Column editable="true" title="Medicine Name" type="java.lang.String"/>
                             <Column editable="true" title="Strength" type="java.lang.String"/>
                             <Column editable="false" title="No of Box" type="java.lang.Integer"/>
@@ -1743,7 +1745,7 @@
                                                           <Group type="102" alignment="0" attributes="0">
                                                               <Component id="medMgr_add_button" min="-2" pref="73" max="-2" attributes="0"/>
                                                               <EmptySpace max="-2" attributes="0"/>
-                                                              <Component id="medMgr_update_button" min="-2" pref="73" max="-2" attributes="0"/>
+                                                              <Component id="medMgr_clear_button" min="-2" pref="73" max="-2" attributes="0"/>
                                                           </Group>
                                                           <Component id="medicine_error" min="-2" pref="229" max="-2" attributes="0"/>
                                                       </Group>
@@ -1852,7 +1854,7 @@
                               <EmptySpace max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="medMgr_add_button" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
-                                  <Component id="medMgr_update_button" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
+                                  <Component id="medMgr_clear_button" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
@@ -2049,7 +2051,7 @@
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="medMgr_add_buttonActionPerformed"/>
                       </Events>
                     </Component>
-                    <Component class="javax.swing.JButton" name="medMgr_update_button">
+                    <Component class="javax.swing.JButton" name="medMgr_clear_button">
                       <Properties>
                         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="1e" green="96" red="f8" type="rgb"/>
@@ -2066,7 +2068,7 @@
                         </Property>
                       </Properties>
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="medMgr_update_buttonActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="medMgr_clear_buttonActionPerformed"/>
                       </Events>
                     </Component>
                     <Component class="javax.swing.JTextField" name="medMgr_type_input">

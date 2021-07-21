@@ -149,7 +149,7 @@ public class medicine_management extends javax.swing.JFrame {
         medMgr_expiry_lable = new javax.swing.JLabel();
         medicine_error = new javax.swing.JLabel();
         medMgr_add_button = new javax.swing.JButton();
-        medMgr_update_button = new javax.swing.JButton();
+        medMgr_clear_button = new javax.swing.JButton();
         medMgr_type_input = new javax.swing.JTextField();
         filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 0), new java.awt.Dimension(32767, 0));
         medMgr_expiry_input_month = new javax.swing.JTextField();
@@ -1089,7 +1089,15 @@ public class medicine_management extends javax.swing.JFrame {
         medicine_name_label.setForeground(new java.awt.Color(255, 255, 255));
         medicine_name_label.setText("Medicine Name");
 
+        medicine_name_find_input.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                medicine_name_find_inputMouseClicked(evt);
+            }
+        });
         medicine_name_find_input.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                medicine_name_find_inputKeyPressed(evt);
+            }
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 medicine_name_find_inputKeyReleased(evt);
             }
@@ -1153,7 +1161,7 @@ public class medicine_management extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Sn. No", "Medicine Name", "Strength", "No of Box", "Batch No", "MRP"
+                "Medicine ID", "Medicine Name", "Strength", "No of Box", "Batch No", "MRP"
             }
         ) {
             Class[] types = new Class [] {
@@ -1315,14 +1323,14 @@ public class medicine_management extends javax.swing.JFrame {
             }
         });
 
-        medMgr_update_button.setBackground(new java.awt.Color(248, 150, 30));
-        medMgr_update_button.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
-        medMgr_update_button.setForeground(new java.awt.Color(255, 255, 255));
-        medMgr_update_button.setText("Clear");
-        medMgr_update_button.setBorder(null);
-        medMgr_update_button.addActionListener(new java.awt.event.ActionListener() {
+        medMgr_clear_button.setBackground(new java.awt.Color(248, 150, 30));
+        medMgr_clear_button.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
+        medMgr_clear_button.setForeground(new java.awt.Color(255, 255, 255));
+        medMgr_clear_button.setText("Clear");
+        medMgr_clear_button.setBorder(null);
+        medMgr_clear_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                medMgr_update_buttonActionPerformed(evt);
+                medMgr_clear_buttonActionPerformed(evt);
             }
         });
 
@@ -1407,7 +1415,7 @@ public class medicine_management extends javax.swing.JFrame {
                                             .addGroup(medMgr_details_panelLayout.createSequentialGroup()
                                                 .addComponent(medMgr_add_button, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(medMgr_update_button, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addComponent(medMgr_clear_button, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
                                             .addComponent(medicine_error, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addGap(131, 131, 131))
                                     .addGroup(medMgr_details_panelLayout.createSequentialGroup()
@@ -1488,7 +1496,7 @@ public class medicine_management extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(medMgr_details_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(medMgr_add_button, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(medMgr_update_button, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(medMgr_clear_button, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
@@ -2571,6 +2579,9 @@ public class medicine_management extends javax.swing.JFrame {
                 } catch (SQLException ex) {
                     Logger.getLogger(medicine_management.class.getName()).log(Level.SEVERE, null, ex);
                 }
+                JOptionPane.showMessageDialog(null, "Medicine Succesfully Saved :)");
+                medMgr_clear_button.doClick();
+                medMgr_name_input.requestFocus();
             }
         }
     }//GEN-LAST:event_medMgr_add_buttonActionPerformed
@@ -2872,7 +2883,7 @@ public class medicine_management extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_medMgr_expiry_input_monthFocusLost
 
-    private void medMgr_update_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_medMgr_update_buttonActionPerformed
+    private void medMgr_clear_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_medMgr_clear_buttonActionPerformed
         medMgr_name_input.setText("");
         medMgr_type_input.setText("");
         medMgr_strength_input.setText("");
@@ -2885,7 +2896,7 @@ public class medicine_management extends javax.swing.JFrame {
         medMgr_expiry_input_year.setText("");
         medicine_error.setText("");
         medMgr_add_button.setEnabled(true);
-    }//GEN-LAST:event_medMgr_update_buttonActionPerformed
+    }//GEN-LAST:event_medMgr_clear_buttonActionPerformed
 
     private void medMgr_batch_inputKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_medMgr_batch_inputKeyReleased
         medMgr_batch_input.setText(medMgr_batch_input.getText().toUpperCase());
@@ -2928,6 +2939,7 @@ public class medicine_management extends javax.swing.JFrame {
     }//GEN-LAST:event_medicine_name_find_inputKeyReleased
 
     private void find_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_find_buttonActionPerformed
+        
         String medicine_with_find;
         medicine_with_find = medicine_name_find_input.getText().replace(' ', '%');
 
@@ -2937,6 +2949,16 @@ public class medicine_management extends javax.swing.JFrame {
             Logger.getLogger(medicine_management.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_find_buttonActionPerformed
+
+    private void medicine_name_find_inputKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_medicine_name_find_inputKeyPressed
+        if (evt.getKeyCode()==KeyEvent.VK_ENTER) {
+            find_button.doClick();
+        }
+    }//GEN-LAST:event_medicine_name_find_inputKeyPressed
+
+    private void medicine_name_find_inputMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_medicine_name_find_inputMouseClicked
+        medicine_name_find_input.selectAll();
+    }//GEN-LAST:event_medicine_name_find_inputMouseClicked
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -3003,6 +3025,7 @@ public class medicine_management extends javax.swing.JFrame {
     private javax.swing.JButton medMgr_add_button;
     private javax.swing.JTextField medMgr_batch_input;
     private javax.swing.JLabel medMgr_batch_lable;
+    private javax.swing.JButton medMgr_clear_button;
     private javax.swing.JLabel medMgr_company_address;
     private javax.swing.JLabel medMgr_company_name;
     private javax.swing.JLabel medMgr_company_phone;
@@ -3030,7 +3053,6 @@ public class medicine_management extends javax.swing.JFrame {
     private javax.swing.JPanel medMgr_title_lable;
     private javax.swing.JTextField medMgr_type_input;
     private javax.swing.JLabel medMgr_type_label;
-    private javax.swing.JButton medMgr_update_button;
     private javax.swing.JInternalFrame medicineIframe;
     private javax.swing.JSeparator medicine_details_seperator;
     private javax.swing.JLabel medicine_error;
