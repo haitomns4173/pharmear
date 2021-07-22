@@ -78,6 +78,14 @@ public class mysql {
         while(result.next()) {
             medicine_management.total_expired = result.getString(1);
         }
+        
+        stmt = connect.createStatement();
+        String query_out = "SELECT count(batch_no) FROM `medicine_import_details` WHERE total_tablets = 0;";
+        result = stmt.executeQuery(query_out);
+        while(result.next()) {
+            medicine_management.total_out = result.getString(1);
+        }
+        
     }
     
     public static void company_find_query() throws SQLException{

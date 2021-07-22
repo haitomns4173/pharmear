@@ -39,6 +39,7 @@ public class medicine_management extends javax.swing.JFrame {
     static String total_quantity;
     static String total_cost;
     static String total_expired;
+    static String total_out;
             
     public medicine_management() {
         initComponents();
@@ -47,6 +48,29 @@ public class medicine_management extends javax.swing.JFrame {
         BasicInternalFrameUI welcom_titel_hide = (BasicInternalFrameUI)welcomIframe.getUI();
         welcom_titel_hide.setNorthPane(null);
         welcomIframe.setVisible(true);
+        
+        switch(loginPage.user_code){
+            case 0:
+                break;
+            case 1:
+                break;
+            case 2:
+                sales_button.setEnabled(false);
+                break;
+            case 3:
+                medicine_manage_button.setEnabled(false);
+                sales_button.setEnabled(false);
+                break;
+            case 4:
+                bill_button.setEnabled(false);
+                sales_button.setEnabled(false);
+                break;
+            default:
+                bill_button.setEnabled(false);
+                medicine_manage_button.setEnabled(false);
+                sales_button.setEnabled(false);
+                break;
+        }
     }
     
     @SuppressWarnings("unchecked")
@@ -98,6 +122,7 @@ public class medicine_management extends javax.swing.JFrame {
         out_of_stock_panel = new javax.swing.JPanel();
         out_of_stock_icon = new javax.swing.JLabel();
         out_of_stock_label = new javax.swing.JLabel();
+        total_out_display = new javax.swing.JLabel();
         expiry_panel = new javax.swing.JPanel();
         expired_icon = new javax.swing.JLabel();
         expirrd_label = new javax.swing.JLabel();
@@ -114,6 +139,7 @@ public class medicine_management extends javax.swing.JFrame {
         total_medicine_icon = new javax.swing.JLabel();
         total_medicine_label = new javax.swing.JLabel();
         total_medicine_display = new javax.swing.JLabel();
+        refrresh_for_status = new javax.swing.JButton();
         billIframe = new javax.swing.JInternalFrame();
         bill_title_label = new javax.swing.JPanel();
         bill_company_name = new javax.swing.JLabel();
@@ -492,23 +518,6 @@ public class medicine_management extends javax.swing.JFrame {
         welcomIframe.setBackground(new java.awt.Color(137, 194, 217));
         welcomIframe.setBorder(null);
         welcomIframe.setVisible(false);
-        welcomIframe.addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
-            public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
-                welcomIframeInternalFrameActivated(evt);
-            }
-            public void internalFrameClosed(javax.swing.event.InternalFrameEvent evt) {
-            }
-            public void internalFrameClosing(javax.swing.event.InternalFrameEvent evt) {
-            }
-            public void internalFrameDeactivated(javax.swing.event.InternalFrameEvent evt) {
-            }
-            public void internalFrameDeiconified(javax.swing.event.InternalFrameEvent evt) {
-            }
-            public void internalFrameIconified(javax.swing.event.InternalFrameEvent evt) {
-            }
-            public void internalFrameOpened(javax.swing.event.InternalFrameEvent evt) {
-            }
-        });
 
         welcome_icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mms/src/icon.png"))); // NOI18N
 
@@ -699,17 +708,6 @@ public class medicine_management extends javax.swing.JFrame {
 
         status_panel.setBackground(new java.awt.Color(25, 130, 196));
         status_panel.setPreferredSize(new java.awt.Dimension(150, 150));
-        status_panel.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                status_panelMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                status_panelMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                status_panelMouseExited(evt);
-            }
-        });
 
         out_of_stock_panel.setBackground(new java.awt.Color(234, 105, 139));
 
@@ -720,6 +718,11 @@ public class medicine_management extends javax.swing.JFrame {
         out_of_stock_label.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         out_of_stock_label.setText("Out of Stock");
 
+        total_out_display.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        total_out_display.setForeground(new java.awt.Color(255, 255, 255));
+        total_out_display.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        total_out_display.setText("  ");
+
         javax.swing.GroupLayout out_of_stock_panelLayout = new javax.swing.GroupLayout(out_of_stock_panel);
         out_of_stock_panel.setLayout(out_of_stock_panelLayout);
         out_of_stock_panelLayout.setHorizontalGroup(
@@ -728,7 +731,9 @@ public class medicine_management extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(out_of_stock_icon)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(out_of_stock_label)
+                .addGroup(out_of_stock_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(out_of_stock_label)
+                    .addComponent(total_out_display))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         out_of_stock_panelLayout.setVerticalGroup(
@@ -736,7 +741,10 @@ public class medicine_management extends javax.swing.JFrame {
             .addGroup(out_of_stock_panelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(out_of_stock_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(out_of_stock_label)
+                    .addGroup(out_of_stock_panelLayout.createSequentialGroup()
+                        .addComponent(out_of_stock_label)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(total_out_display))
                     .addComponent(out_of_stock_icon))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -766,7 +774,7 @@ public class medicine_management extends javax.swing.JFrame {
                 .addGroup(expiry_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(expirrd_label)
                     .addComponent(total_expired_display))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(127, Short.MAX_VALUE))
         );
         expiry_panelLayout.setVerticalGroup(
             expiry_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -935,6 +943,17 @@ public class medicine_management extends javax.swing.JFrame {
                 .addContainerGap(27, Short.MAX_VALUE))
         );
 
+        refrresh_for_status.setBackground(new java.awt.Color(42, 157, 143));
+        refrresh_for_status.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        refrresh_for_status.setForeground(new java.awt.Color(255, 255, 255));
+        refrresh_for_status.setText("Refresh");
+        refrresh_for_status.setBorder(null);
+        refrresh_for_status.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                refrresh_for_statusActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout welcomIframeLayout = new javax.swing.GroupLayout(welcomIframe.getContentPane());
         welcomIframe.getContentPane().setLayout(welcomIframeLayout);
         welcomIframeLayout.setHorizontalGroup(
@@ -962,7 +981,8 @@ public class medicine_management extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 295, Short.MAX_VALUE)
                 .addGroup(welcomIframeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(pharmacy_lable)
-                    .addComponent(status_panel, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(status_panel, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(refrresh_for_status, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(42, 42, 42))
         );
         welcomIframeLayout.setVerticalGroup(
@@ -991,7 +1011,9 @@ public class medicine_management extends javax.swing.JFrame {
                             .addComponent(welcome_medicine, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(welcome_sales, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(welcome_user, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(204, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(refrresh_for_status, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(169, Short.MAX_VALUE))
         );
 
         cardPane.add(welcomIframe, "card2");
@@ -2348,17 +2370,6 @@ public class medicine_management extends javax.swing.JFrame {
 
         status_panel1.setBackground(new java.awt.Color(25, 130, 196));
         status_panel1.setPreferredSize(new java.awt.Dimension(150, 150));
-        status_panel1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                status_panel1MouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                status_panel1MouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                status_panel1MouseExited(evt);
-            }
-        });
 
         out_of_stock_panel1.setBackground(new java.awt.Color(234, 105, 139));
 
@@ -3003,6 +3014,14 @@ public class medicine_management extends javax.swing.JFrame {
         user_shopDtr_address_input.setText(mysql.company_address);
         user_shopDtr_shop_contact_input.setText(mysql.company_phoneNo);
         shop_details_error.setText("");
+        
+        if(!(loginPage.user_code == 1 || loginPage.user_code == 0))
+        {
+            user_shopDtr_shop_name_input.setEnabled(false);
+            user_shopDtr_address_input.setEnabled(false);
+            user_shopDtr_shop_contact_input.setEnabled(false);
+            user_shopDtr_update_button.setEnabled(false);
+        }
     }//GEN-LAST:event_userIframeInternalFrameActivated
 
     private void user_details_updateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_user_details_updateActionPerformed
@@ -3120,7 +3139,7 @@ public class medicine_management extends javax.swing.JFrame {
         shop_name_update = user_shopDtr_shop_name_input.getText();
         shop_address_update = user_shopDtr_address_input.getText();
         shop_contact_update = user_shopDtr_shop_contact_input.getText();
-        
+
         if(shop_name_update.trim().isEmpty() || shop_address_update.trim().isEmpty() || shop_contact_update.trim().isEmpty()){
             user_shopDtr_update_button.setEnabled(false);
             shop_details_error.setText("Details are Empty");
@@ -3153,9 +3172,9 @@ public class medicine_management extends javax.swing.JFrame {
                      } catch (SQLException ex) {
                         Logger.getLogger(medicine_management.class.getName()).log(Level.SEVERE, null, ex);
                     }
-                     
+
                     JOptionPane.showMessageDialog(null, "Shop Details Updated");
-                    
+
                     user_wel_shop_name.setText(shop_name_update);
                     user_wel_shop_contact.setText(shop_contact_update);
                 }
@@ -3690,38 +3709,14 @@ public class medicine_management extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_delete_buttonActionPerformed
 
-    private void status_panelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_status_panelMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_status_panelMouseClicked
-
-    private void status_panelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_status_panelMouseEntered
-        // TODO add your handling code here:
-    }//GEN-LAST:event_status_panelMouseEntered
-
-    private void status_panelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_status_panelMouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_status_panelMouseExited
-
-    private void status_panel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_status_panel1MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_status_panel1MouseClicked
-
-    private void status_panel1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_status_panel1MouseEntered
-        // TODO add your handling code here:
-    }//GEN-LAST:event_status_panel1MouseEntered
-
-    private void status_panel1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_status_panel1MouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_status_panel1MouseExited
-
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         about_dialog.setSize(new Dimension(350, 300));
         about_dialog.setResizable(false);
         about_dialog.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void welcomIframeInternalFrameActivated(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_welcomIframeInternalFrameActivated
-        try {
+    private void refrresh_for_statusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refrresh_for_statusActionPerformed
+       try {
             mysql.pharmacy_status();
         } catch (SQLException ex) {
             Logger.getLogger(medicine_management.class.getName()).log(Level.SEVERE, null, ex);
@@ -3730,7 +3725,8 @@ public class medicine_management extends javax.swing.JFrame {
         total_stocks_display.setText(total_quantity);
         total_cost_display.setText(total_cost);
         total_expired_display.setText(total_expired);
-    }//GEN-LAST:event_welcomIframeInternalFrameActivated
+        total_out_display.setText(total_out);
+    }//GEN-LAST:event_refrresh_for_statusActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -3868,6 +3864,7 @@ public class medicine_management extends javax.swing.JFrame {
     private javax.swing.JLabel pharmacy_lable;
     private javax.swing.JLabel pharmacy_lable2;
     private javax.swing.JLabel quantity_label;
+    private javax.swing.JButton refrresh_for_status;
     private javax.swing.JLabel requirements;
     private javax.swing.JInternalFrame salesIframe;
     private javax.swing.JButton sales_button;
@@ -3893,6 +3890,7 @@ public class medicine_management extends javax.swing.JFrame {
     private javax.swing.JLabel total_medicine_label1;
     private javax.swing.JPanel total_medicine_panel;
     private javax.swing.JPanel total_medicine_panel1;
+    private javax.swing.JLabel total_out_display;
     private javax.swing.JLabel total_stock_icon;
     private javax.swing.JLabel total_stock_icon1;
     private javax.swing.JLabel total_stock_label;
