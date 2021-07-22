@@ -190,7 +190,7 @@ public class loginPage extends javax.swing.JFrame {
             dispose();
             
             medicine_management main_medicine = new medicine_management();
-            main_medicine.setVisible(true); 
+            main_medicine.setVisible(true);
         }
     }//GEN-LAST:event_login_buttomActionPerformed
 

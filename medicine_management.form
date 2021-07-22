@@ -88,9 +88,11 @@
                           <Component id="java_version_value" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="xaamp_version" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="xaamp_version_value" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="xaamp_version_value" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="software_version" min="-2" max="-2" attributes="0"/>
@@ -498,8 +500,13 @@
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="null"/>
                 </Property>
-                <Property name="visible" type="boolean" value="true"/>
+                <Property name="visible" type="boolean" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="false" type="code"/>
+                </Property>
               </Properties>
+              <Events>
+                <EventHandler event="internalFrameActivated" listener="javax.swing.event.InternalFrameListener" parameters="javax.swing.event.InternalFrameEvent" handler="welcomIframeInternalFrameActivated"/>
+              </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
                   <CardConstraints cardName="card2"/>
@@ -1006,7 +1013,10 @@
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="expired_icon" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="expirrd_label" min="-2" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="expirrd_label" min="-2" max="-2" attributes="0"/>
+                                      <Component id="total_expired_display" min="-2" max="-2" attributes="0"/>
+                                  </Group>
                                   <EmptySpace max="32767" attributes="0"/>
                               </Group>
                           </Group>
@@ -1015,8 +1025,12 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="expirrd_label" min="-2" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Group type="102" attributes="0">
+                                          <Component id="expirrd_label" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="32767" attributes="0"/>
+                                          <Component id="total_expired_display" min="-2" max="-2" attributes="0"/>
+                                      </Group>
                                       <Component id="expired_icon" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="32767" attributes="0"/>
@@ -1044,6 +1058,18 @@
                             <Property name="text" type="java.lang.String" value="Expired"/>
                           </Properties>
                         </Component>
+                        <Component class="javax.swing.JLabel" name="total_expired_display">
+                          <Properties>
+                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                              <Font name="Segoe UI" size="14" style="1"/>
+                            </Property>
+                            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                            </Property>
+                            <Property name="horizontalAlignment" type="int" value="2"/>
+                            <Property name="text" type="java.lang.String" value="  "/>
+                          </Properties>
+                        </Component>
                       </SubComponents>
                     </Container>
                     <Container class="javax.swing.JPanel" name="total_cost_panel">
@@ -1060,7 +1086,10 @@
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="total_cost_icon" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="total_cost_label" min="-2" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="total_cost_label" min="-2" max="-2" attributes="0"/>
+                                      <Component id="total_cost_display" min="-2" max="-2" attributes="0"/>
+                                  </Group>
                                   <EmptySpace max="32767" attributes="0"/>
                               </Group>
                           </Group>
@@ -1070,7 +1099,11 @@
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="total_cost_label" min="-2" max="-2" attributes="0"/>
+                                      <Group type="102" attributes="0">
+                                          <Component id="total_cost_label" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="total_cost_display" min="-2" max="-2" attributes="0"/>
+                                      </Group>
                                       <Component id="total_cost_icon" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="32767" attributes="0"/>
@@ -1098,6 +1131,18 @@
                             <Property name="text" type="java.lang.String" value="Total Cost"/>
                           </Properties>
                         </Component>
+                        <Component class="javax.swing.JLabel" name="total_cost_display">
+                          <Properties>
+                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                              <Font name="Segoe UI" size="14" style="1"/>
+                            </Property>
+                            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                            </Property>
+                            <Property name="horizontalAlignment" type="int" value="2"/>
+                            <Property name="text" type="java.lang.String" value="  "/>
+                          </Properties>
+                        </Component>
                       </SubComponents>
                     </Container>
                     <Container class="javax.swing.JPanel" name="total_stocks_panel">
@@ -1114,7 +1159,10 @@
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="total_stock_icon" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="total_stock_label" min="-2" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="total_stock_label" min="-2" max="-2" attributes="0"/>
+                                      <Component id="total_stocks_display" min="-2" max="-2" attributes="0"/>
+                                  </Group>
                                   <EmptySpace max="32767" attributes="0"/>
                               </Group>
                           </Group>
@@ -1126,7 +1174,8 @@
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" attributes="0">
                                           <Component id="total_stock_label" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                          <EmptySpace max="32767" attributes="0"/>
+                                          <Component id="total_stocks_display" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <Component id="total_stock_icon" max="32767" attributes="0"/>
                                   </Group>
@@ -1155,6 +1204,18 @@
                             <Property name="text" type="java.lang.String" value="Total Stocks"/>
                           </Properties>
                         </Component>
+                        <Component class="javax.swing.JLabel" name="total_stocks_display">
+                          <Properties>
+                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                              <Font name="Segoe UI" size="14" style="1"/>
+                            </Property>
+                            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                            </Property>
+                            <Property name="horizontalAlignment" type="int" value="2"/>
+                            <Property name="text" type="java.lang.String" value="  "/>
+                          </Properties>
+                        </Component>
                       </SubComponents>
                     </Container>
                     <Container class="javax.swing.JPanel" name="total_medicine_panel">
@@ -1171,7 +1232,10 @@
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="total_medicine_icon" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="total_medicine_label" min="-2" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="total_medicine_label" min="-2" max="-2" attributes="0"/>
+                                      <Component id="total_medicine_display" min="-2" max="-2" attributes="0"/>
+                                  </Group>
                                   <EmptySpace pref="86" max="32767" attributes="0"/>
                               </Group>
                           </Group>
@@ -1181,11 +1245,12 @@
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" alignment="0" attributes="0">
+                                      <Group type="102" attributes="0">
                                           <Component id="total_medicine_label" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                          <EmptySpace max="32767" attributes="0"/>
+                                          <Component id="total_medicine_display" min="-2" max="-2" attributes="0"/>
                                       </Group>
-                                      <Component id="total_medicine_icon" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="total_medicine_icon" max="32767" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
                               </Group>
@@ -1210,6 +1275,18 @@
                             </Property>
                             <Property name="horizontalAlignment" type="int" value="2"/>
                             <Property name="text" type="java.lang.String" value="Total Medicine"/>
+                          </Properties>
+                        </Component>
+                        <Component class="javax.swing.JLabel" name="total_medicine_display">
+                          <Properties>
+                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                              <Font name="Segoe UI" size="14" style="1"/>
+                            </Property>
+                            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                            </Property>
+                            <Property name="horizontalAlignment" type="int" value="2"/>
+                            <Property name="text" type="java.lang.String" value="  "/>
                           </Properties>
                         </Component>
                       </SubComponents>
@@ -2863,7 +2940,7 @@
                                   <Component id="pharmacy_lable2" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Component id="status_panel1" min="-2" pref="470" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                                   <Component id="jButton1" max="32767" attributes="0"/>
                               </Group>
                           </Group>

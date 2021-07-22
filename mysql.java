@@ -50,6 +50,36 @@ public class mysql {
         }
     }
     
+    public static void pharmacy_status() throws SQLException{
+        stmt = connect.createStatement();
+        String query_import = "SELECT count(id) FROM medicine_import;";
+        result = stmt.executeQuery(query_import);
+        while(result.next()) {
+            medicine_management.total_medicine = result.getString(1);
+        }
+        
+        stmt = connect.createStatement();
+        String query_quantity = "SELECT SUM(total_tablets) FROM medicine_import_details;";
+        result = stmt.executeQuery(query_quantity);
+        while(result.next()) {
+            medicine_management.total_quantity = result.getString(1);
+        }
+        
+        stmt = connect.createStatement();
+        String query_cost = "select sum(cast(total_cost as decimal(10,2))) from medicine_import_details";
+        result = stmt.executeQuery(query_cost);
+        while(result.next()) {
+            medicine_management.total_cost = result.getString(1);
+        }
+        
+        stmt = connect.createStatement();
+        String query_expired = "select count(batch_no) from medicine_import_details where expiry_date <= CURRENT_DATE";
+        result = stmt.executeQuery(query_expired);
+        while(result.next()) {
+            medicine_management.total_expired = result.getString(1);
+        }
+    }
+    
     public static void company_find_query() throws SQLException{
         stmt = connect.createStatement();
         String query = "SELECT `name`, `address`, `phone` FROM `company` WHERE 1";
