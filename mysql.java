@@ -138,7 +138,7 @@ public class mysql {
         stmt.executeUpdate(insert_query);
     }
     
-    public static void medicine_import_details__query(String med_name, String med_sheet, String med_tablet, String med_box,String med_expiry_month, String med_expiry_year, String med_mrp) throws SQLException{
+    public static void medicine_import_details__query(String med_name, String med_sheet, String med_tablet, String med_box,String med_expiry_month, String med_expiry_year, String med_mrp, int tablets_total, float cost_total) throws SQLException{
         int med_id = 0;
         
         stmt = connect.createStatement();
@@ -148,7 +148,7 @@ public class mysql {
             med_id = result.getInt(1);
         }
         
-        String insert_query = "INSERT INTO `medicine_import_details`(`medicine_id`, `number_of_sheets`, `number_of_tablets`, `number_of_box`, `expiry_date`, `mrp`) VALUES ('"+med_id+"', '"+med_sheet+"','"+med_tablet+"','"+med_box+"','20"+med_expiry_year+"-"+med_expiry_month+"-01','"+med_mrp+"')";
+        String insert_query = "INSERT INTO `medicine_import_details`(`medicine_id`, `number_of_sheets`, `number_of_tablets`, `number_of_box`, `expiry_date`, `mrp`, `total_tablets`, `total_cost`) VALUES ('"+med_id+"', '"+med_sheet+"','"+med_tablet+"','"+med_box+"','20"+med_expiry_year+"-"+med_expiry_month+"-01','"+med_mrp+"', "+tablets_total+", "+cost_total+")";
         stmt.executeUpdate(insert_query);
     }
     

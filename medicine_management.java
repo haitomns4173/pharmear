@@ -510,7 +510,7 @@ public class medicine_management extends javax.swing.JFrame {
                         .addComponent(welcome_medicine, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(welcome_bill, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(111, Short.MAX_VALUE))
+                .addContainerGap(637, Short.MAX_VALUE))
         );
         welcomIframeLayout.setVerticalGroup(
             welcomIframeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2529,6 +2529,9 @@ public class medicine_management extends javax.swing.JFrame {
     private void medMgr_add_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_medMgr_add_buttonActionPerformed
         String med_name, med_type, med_strength, med_sheet, med_tablet, med_box, med_expiry_month, med_expiry_year, med_mrp;
         String medicine_with_percentage;
+        
+        int total_no_tablets = 0;
+        float total_cost_of_medicine = 0;
 
         med_name = medMgr_name_input.getText();
         med_type = medMgr_type_input.getText();
@@ -2539,6 +2542,9 @@ public class medicine_management extends javax.swing.JFrame {
         med_box = medMgr_no_box_input.getText();
         med_expiry_month = medMgr_expiry_input_month.getText();
         med_expiry_year = medMgr_expiry_input_year.getText();
+        
+        total_no_tablets = ( Integer.parseInt(med_sheet) * Integer.parseInt(med_tablet) ) * Integer.parseInt(med_box);
+        total_cost_of_medicine = total_no_tablets * Float.parseFloat(med_mrp);
         
         int exp_date_check;
         exp_date_check = expiry_date_checker(med_expiry_month, med_expiry_year);
@@ -2564,7 +2570,7 @@ public class medicine_management extends javax.swing.JFrame {
                 medicine_with_percentage = medicine_with_percentage.substring(0, medicine_with_percentage.length()-1);
 
                 try {
-                    mysql.medicine_import_details__query(medicine_with_percentage, med_sheet, med_tablet, med_box, med_expiry_month, med_expiry_year, med_mrp);
+                    mysql.medicine_import_details__query(medicine_with_percentage, med_sheet, med_tablet, med_box, med_expiry_month, med_expiry_year, med_mrp, total_no_tablets, total_cost_of_medicine);
                 } catch (SQLException ex) {
                     Logger.getLogger(medicine_management.class.getName()).log(Level.SEVERE, null, ex);
                 }
@@ -2589,11 +2595,6 @@ public class medicine_management extends javax.swing.JFrame {
                 year_check = Integer.parseInt(med_expiry_year);
                 cur_month = Integer.parseInt(expiry_cur_month);
                 cur_year = Integer.parseInt(expiry_cur_year)-2000;
-                
-                System.out.println(month_check);
-                System.out.println(year_check);
-                System.out.println(cur_month);
-                System.out.println(cur_year);
             }
             catch(NumberFormatException ex){
                 return 1;
@@ -2851,6 +2852,7 @@ public class medicine_management extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Invalid Month!");
                 medMgr_expiry_input_month.setText("");
                 medMgr_add_button.setEnabled(false);
+                medMgr_expiry_input_month.requestFocus();
             }
         }
         catch(NumberFormatException ex){
