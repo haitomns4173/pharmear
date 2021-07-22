@@ -138,7 +138,7 @@ public class mysql {
         stmt.executeUpdate(insert_query);
     }
     
-    public static void medicine_import_details__query(String med_name, String med_sheet, String med_tablet, String med_box, String med_batch ,String med_expiry_month, String med_expiry_year, String med_mrp) throws SQLException{
+    public static void medicine_import_details__query(String med_name, String med_sheet, String med_tablet, String med_box,String med_expiry_month, String med_expiry_year, String med_mrp) throws SQLException{
         int med_id = 0;
         
         stmt = connect.createStatement();
@@ -148,7 +148,7 @@ public class mysql {
             med_id = result.getInt(1);
         }
         
-        String insert_query = "INSERT INTO `medicine_import_details`(`medicine_id`, `number_of_sheets`, `number_of_tablets`, `number_of_box`, `batch_no`, `expiry_date`, `mrp`) VALUES ('"+med_id+"', '"+med_sheet+"','"+med_tablet+"','"+med_box+"','"+med_batch+"','20"+med_expiry_year+"-"+med_expiry_month+"-01','"+med_mrp+"')";
+        String insert_query = "INSERT INTO `medicine_import_details`(`medicine_id`, `number_of_sheets`, `number_of_tablets`, `number_of_box`, `expiry_date`, `mrp`) VALUES ('"+med_id+"', '"+med_sheet+"','"+med_tablet+"','"+med_box+"','20"+med_expiry_year+"-"+med_expiry_month+"-01','"+med_mrp+"')";
         stmt.executeUpdate(insert_query);
     }
     
@@ -174,11 +174,11 @@ public class mysql {
         String query = "SELECT * FROM `medicine_list` WHERE `medicine_name` LIKE '%"+medicine_search+"%'";
         result = stmt.executeQuery(query);
         while(result.next()) {
-            medicine_management.medicine_unit = result.getString(4);
-            medicine_management.medicine_strength = result.getString(5);
-            medicine_management.mecicine_no_pack = result.getInt(6);
-            medicine_management.medicine_no_quantity = result.getInt(7);
-            medicine_management.medicien_mrp = result.getFloat(8);
+            medicine_management.medicine_unit = result.getString(3);
+            medicine_management.medicine_strength = result.getString(4);
+            medicine_management.mecicine_no_pack = result.getInt(5);
+            medicine_management.medicine_no_quantity = result.getInt(6);
+            medicine_management.medicien_mrp = result.getFloat(7);
         }
     }
     
@@ -194,8 +194,9 @@ public class mysql {
         return med_id;
     }
     
-    public static void medicine_find(String medicine_find) throws SQLException{
-        String id, medicine_name, medicine_strength, box_no, batch_no, find_mrp, import_date;
+    public static int medicine_find(String medicine_find) throws SQLException{
+        String medicine_id, medicine_name, medicine_strength, box_no, batch_no, find_mrp, import_date;
+        int number_of_rows_find = 0;
         
         DefaultTableModel medMgr_find_table_add = (DefaultTableModel)medicine_management.medMgr_table_find.getModel();
         medMgr_find_table_add.getDataVector().removeAllElements();
@@ -204,7 +205,9 @@ public class mysql {
         String query = "select medicine_import.id, medicine_import.medicine_name, medicine_import.medicine_strength, medicine_import_details.number_of_box, medicine_import_details.batch_no, medicine_import_details.mrp, medicine_import_details.med_import_date FROM medicine_import INNER JOIN medicine_import_details on medicine_import.id = medicine_import_details.medicine_id WHERE medicine_name LIKE '%"+medicine_find+"%';";
         result = stmt.executeQuery(query);
         while(result.next()) {
-            id = result.getString(1);
+            number_of_rows_find++;
+            
+            medicine_id = result.getString(1);
             medicine_name = result.getString(2);
             medicine_strength = result.getString(3);
             box_no = result.getString(4);
@@ -212,8 +215,29 @@ public class mysql {
             find_mrp = result.getString(6);
             import_date = result.getString(7);
             
-            String table_find_date[] = {id, medicine_name, medicine_strength, box_no, batch_no, find_mrp, import_date};
+            String table_find_date[] = { medicine_id, medicine_name, medicine_strength, box_no, batch_no, find_mrp, import_date};
             medMgr_find_table_add.addRow(table_find_date);
+        }
+        return number_of_rows_find;
+    }
+    
+    public static void medicine_delete(String medicine_id, String medicine_batch) throws SQLException{
+        int number_of_rows_delete = 0;
+        stmt = connect.createStatement();
+        String query = "SELECT * FROM `medicine_import_details` WHERE `medicine_id` = "+medicine_id+"";
+        result = stmt.executeQuery(query);
+        while(result.next()) {
+            number_of_rows_delete++;
+        }
+        
+        String delete_query_details = "DELETE FROM `medicine_import_details` WHERE batch_no = "+medicine_batch+"";
+        String delete_query_import = "DELETE FROM `medicine_import` WHERE id = "+medicine_id+"";
+        if(number_of_rows_delete == 1){
+            stmt.executeUpdate(delete_query_details);
+            stmt.executeUpdate(delete_query_import);
+        }
+        else{
+            stmt.executeUpdate(delete_query_details);
         }
     }
 }
