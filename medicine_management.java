@@ -23,6 +23,11 @@ import org.jfree.data.category.DefaultCategoryDataset;
 
 public class medicine_management extends javax.swing.JFrame {
     int medicine_bill_id = 1;
+    String patient_name, patient_address, patient_contact;
+    int medicine_total_quantity = 0;
+    float medicine_total_price = 0;
+    int bill_id_delete = 0;
+    
     static Set<String> medicine_name_auto = new TreeSet<String>();
     static Set<String> medicine_name_auto_med_mgr = new TreeSet<String>();
     static float medicine_price = 0;
@@ -149,26 +154,28 @@ public class medicine_management extends javax.swing.JFrame {
         invoice_label = new javax.swing.JLabel();
         date_label = new javax.swing.JLabel();
         date_display = new javax.swing.JLabel();
-        patient_details_panel = new javax.swing.JPanel();
-        patient_name_input = new javax.swing.JTextField();
-        patient_address_input = new javax.swing.JTextField();
-        paitent_contact_input = new javax.swing.JTextField();
-        patient_name_label = new javax.swing.JLabel();
-        patient_address_label = new javax.swing.JLabel();
-        patient_contact_label = new javax.swing.JLabel();
-        patient_input_error = new javax.swing.JLabel();
-        add_medicine_label1 = new javax.swing.JLabel();
-        jSeparator2 = new javax.swing.JSeparator();
-        add_button1 = new javax.swing.JButton();
-        cancel_button1 = new javax.swing.JButton();
         bill_tabel_scrollpanel = new javax.swing.JScrollPane();
         bill_table = new javax.swing.JTable();
         bill_table.getTableHeader().setBackground(new Color(25,130,196));
         bill_table.getTableHeader().setFont(new Font("Segoe UI", Font.BOLD, 14));
         bill_table.getTableHeader().setForeground(Color.WHITE);
         bill_total_panel = new javax.swing.JPanel();
+        bill_delete_button = new javax.swing.JButton();
         bill_total_label = new javax.swing.JLabel();
-        bill_total_display = new javax.swing.JLabel();
+        bill_total_quantity = new javax.swing.JLabel();
+        bill_total_cost = new javax.swing.JLabel();
+        patient_details_panel = new javax.swing.JPanel();
+        patient_label = new javax.swing.JLabel();
+        patient_details_seperator = new javax.swing.JSeparator();
+        patient_name_label = new javax.swing.JLabel();
+        patient_name_input = new javax.swing.JTextField();
+        patient_address_label = new javax.swing.JLabel();
+        patient_address_input = new javax.swing.JTextField();
+        patient_contact_label = new javax.swing.JLabel();
+        paitent_contact_input = new javax.swing.JTextField();
+        patient_input_error = new javax.swing.JLabel();
+        patient_details_save = new javax.swing.JButton();
+        patient_details_clear = new javax.swing.JButton();
         bill_input_panel = new javax.swing.JPanel();
         add_medicine_label = new javax.swing.JLabel();
         add_medicine_seperator = new javax.swing.JSeparator();
@@ -177,10 +184,10 @@ public class medicine_management extends javax.swing.JFrame {
         quantity_label = new javax.swing.JLabel();
         medicine_quantity_input = new javax.swing.JTextField();
         medicine_input_error = new javax.swing.JLabel();
-        add_button = new javax.swing.JButton();
-        cancel_button = new javax.swing.JButton();
         no_of_unit_toogle = new javax.swing.JToggleButton();
         no_of_unit_status = new javax.swing.JLabel();
+        add_button = new javax.swing.JButton();
+        clear_button = new javax.swing.JButton();
         command_center_pane = new javax.swing.JPanel();
         command_center = new javax.swing.JLabel();
         command_center_seperator = new javax.swing.JSeparator();
@@ -1052,6 +1059,7 @@ public class medicine_management extends javax.swing.JFrame {
         });
 
         bill_title_label.setBackground(new java.awt.Color(25, 130, 196));
+        bill_title_label.setPreferredSize(new java.awt.Dimension(357, 101));
 
         bill_company_name.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         bill_company_name.setForeground(new java.awt.Color(255, 255, 255));
@@ -1074,11 +1082,11 @@ public class medicine_management extends javax.swing.JFrame {
             bill_title_labelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(bill_title_labelLayout.createSequentialGroup()
                 .addGap(24, 24, 24)
-                .addGroup(bill_title_labelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(bill_company_address, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(bill_company_name, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(bill_company_phone, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(bill_title_labelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(bill_company_name, javax.swing.GroupLayout.DEFAULT_SIZE, 321, Short.MAX_VALUE)
+                    .addComponent(bill_company_phone, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(bill_company_address, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         bill_title_labelLayout.setVerticalGroup(
             bill_title_labelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1130,131 +1138,6 @@ public class medicine_management extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        patient_details_panel.setBackground(new java.awt.Color(25, 130, 196));
-
-        patient_name_input.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                patient_name_inputKeyPressed(evt);
-            }
-        });
-
-        patient_address_input.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                patient_address_inputActionPerformed(evt);
-            }
-        });
-
-        paitent_contact_input.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                paitent_contact_inputKeyPressed(evt);
-            }
-        });
-
-        patient_name_label.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        patient_name_label.setForeground(new java.awt.Color(255, 255, 255));
-        patient_name_label.setText("Patient Name");
-
-        patient_address_label.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        patient_address_label.setForeground(new java.awt.Color(255, 255, 255));
-        patient_address_label.setText("Patient Address");
-
-        patient_contact_label.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        patient_contact_label.setForeground(new java.awt.Color(255, 255, 255));
-        patient_contact_label.setText("Patient Contact");
-
-        patient_input_error.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
-        patient_input_error.setForeground(new java.awt.Color(255, 255, 255));
-
-        add_medicine_label1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        add_medicine_label1.setForeground(new java.awt.Color(255, 255, 255));
-        add_medicine_label1.setText("Patient Details");
-
-        add_button1.setBackground(new java.awt.Color(138, 201, 38));
-        add_button1.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
-        add_button1.setForeground(new java.awt.Color(255, 255, 255));
-        add_button1.setText("Save");
-        add_button1.setBorder(null);
-        add_button1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                add_button1ActionPerformed(evt);
-            }
-        });
-
-        cancel_button1.setBackground(new java.awt.Color(255, 89, 94));
-        cancel_button1.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
-        cancel_button1.setForeground(new java.awt.Color(255, 255, 255));
-        cancel_button1.setText("Clear");
-        cancel_button1.setBorder(null);
-
-        javax.swing.GroupLayout patient_details_panelLayout = new javax.swing.GroupLayout(patient_details_panel);
-        patient_details_panel.setLayout(patient_details_panelLayout);
-        patient_details_panelLayout.setHorizontalGroup(
-            patient_details_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(patient_details_panelLayout.createSequentialGroup()
-                .addGap(12, 12, 12)
-                .addGroup(patient_details_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(add_medicine_label1)
-                    .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(patient_details_panelLayout.createSequentialGroup()
-                        .addComponent(patient_name_label)
-                        .addGap(43, 43, 43)
-                        .addComponent(patient_name_input, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(patient_details_panelLayout.createSequentialGroup()
-                        .addComponent(patient_address_label)
-                        .addGap(29, 29, 29)
-                        .addComponent(patient_address_input, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(patient_details_panelLayout.createSequentialGroup()
-                        .addComponent(patient_contact_label, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addGroup(patient_details_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(patient_details_panelLayout.createSequentialGroup()
-                                .addGroup(patient_details_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(patient_details_panelLayout.createSequentialGroup()
-                                        .addGap(85, 85, 85)
-                                        .addComponent(patient_input_error))
-                                    .addComponent(add_button1, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(cancel_button1, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(paitent_contact_input, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap())
-        );
-        patient_details_panelLayout.setVerticalGroup(
-            patient_details_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(patient_details_panelLayout.createSequentialGroup()
-                .addGap(12, 12, 12)
-                .addComponent(add_medicine_label1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 4, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(patient_details_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(patient_name_label)
-                    .addGroup(patient_details_panelLayout.createSequentialGroup()
-                        .addGap(2, 2, 2)
-                        .addComponent(patient_name_input, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(6, 6, 6)
-                .addGroup(patient_details_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(patient_address_label)
-                    .addGroup(patient_details_panelLayout.createSequentialGroup()
-                        .addGap(2, 2, 2)
-                        .addComponent(patient_address_input, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(6, 6, 6)
-                .addGroup(patient_details_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(patient_contact_label)
-                    .addGroup(patient_details_panelLayout.createSequentialGroup()
-                        .addGap(2, 2, 2)
-                        .addComponent(paitent_contact_input, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGroup(patient_details_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, patient_details_panelLayout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addComponent(patient_input_error))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, patient_details_panelLayout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addGroup(patient_details_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(add_button1, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cancel_button1, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap())
-        );
-
         bill_table.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         bill_table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -1268,7 +1151,7 @@ public class medicine_management extends javax.swing.JFrame {
                 java.lang.Short.class, java.lang.String.class, java.lang.Short.class, java.lang.String.class, java.lang.Double.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
+                false, false, true, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -1291,31 +1174,184 @@ public class medicine_management extends javax.swing.JFrame {
 
         bill_total_panel.setBackground(new java.awt.Color(25, 130, 196));
 
+        bill_delete_button.setBackground(new java.awt.Color(255, 0, 0));
+        bill_delete_button.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
+        bill_delete_button.setForeground(new java.awt.Color(255, 255, 255));
+        bill_delete_button.setText("Delete");
+        bill_delete_button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bill_delete_buttonActionPerformed(evt);
+            }
+        });
+
         bill_total_label.setBackground(new java.awt.Color(255, 255, 255));
         bill_total_label.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
         bill_total_label.setForeground(new java.awt.Color(255, 255, 255));
         bill_total_label.setText("Total : ");
 
-        bill_total_display.setBackground(new java.awt.Color(255, 255, 255));
-        bill_total_display.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
-        bill_total_display.setForeground(new java.awt.Color(255, 255, 255));
+        bill_total_quantity.setBackground(new java.awt.Color(255, 255, 255));
+        bill_total_quantity.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
+        bill_total_quantity.setForeground(new java.awt.Color(255, 255, 255));
+        bill_total_quantity.setText("0");
+        bill_total_quantity.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+
+        bill_total_cost.setBackground(new java.awt.Color(255, 255, 255));
+        bill_total_cost.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
+        bill_total_cost.setForeground(new java.awt.Color(255, 255, 255));
+        bill_total_cost.setText("0");
+        bill_total_cost.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
 
         javax.swing.GroupLayout bill_total_panelLayout = new javax.swing.GroupLayout(bill_total_panel);
         bill_total_panel.setLayout(bill_total_panelLayout);
         bill_total_panelLayout.setHorizontalGroup(
             bill_total_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(bill_total_panelLayout.createSequentialGroup()
-                .addContainerGap()
+                .addComponent(bill_delete_button, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(282, 282, 282)
                 .addComponent(bill_total_label)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(bill_total_display, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(177, 177, 177)
+                .addComponent(bill_total_quantity, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(bill_total_cost, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0))
         );
         bill_total_panelLayout.setVerticalGroup(
             bill_total_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(bill_total_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bill_total_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                 .addComponent(bill_total_label, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addComponent(bill_total_display, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(bill_total_quantity, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(bill_total_cost, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(bill_delete_button, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        patient_details_panel.setBackground(new java.awt.Color(25, 130, 196));
+
+        patient_label.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        patient_label.setForeground(new java.awt.Color(255, 255, 255));
+        patient_label.setText("Patient Details");
+
+        patient_name_label.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        patient_name_label.setForeground(new java.awt.Color(255, 255, 255));
+        patient_name_label.setText("Patient Name");
+
+        patient_name_input.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                patient_name_inputKeyPressed(evt);
+            }
+        });
+
+        patient_address_label.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        patient_address_label.setForeground(new java.awt.Color(255, 255, 255));
+        patient_address_label.setText("Patient Address");
+
+        patient_address_input.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                patient_address_inputActionPerformed(evt);
+            }
+        });
+        patient_address_input.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                patient_address_inputKeyPressed(evt);
+            }
+        });
+
+        patient_contact_label.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        patient_contact_label.setForeground(new java.awt.Color(255, 255, 255));
+        patient_contact_label.setText("Patient Contact");
+
+        paitent_contact_input.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                paitent_contact_inputKeyPressed(evt);
+            }
+        });
+
+        patient_input_error.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
+        patient_input_error.setForeground(new java.awt.Color(255, 255, 255));
+        patient_input_error.setText(" ");
+
+        patient_details_save.setBackground(new java.awt.Color(138, 201, 38));
+        patient_details_save.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
+        patient_details_save.setForeground(new java.awt.Color(255, 255, 255));
+        patient_details_save.setText("Save");
+        patient_details_save.setBorder(null);
+        patient_details_save.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                patient_details_saveActionPerformed(evt);
+            }
+        });
+
+        patient_details_clear.setBackground(new java.awt.Color(255, 89, 94));
+        patient_details_clear.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
+        patient_details_clear.setForeground(new java.awt.Color(255, 255, 255));
+        patient_details_clear.setText("Clear");
+        patient_details_clear.setBorder(null);
+        patient_details_clear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                patient_details_clearActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout patient_details_panelLayout = new javax.swing.GroupLayout(patient_details_panel);
+        patient_details_panel.setLayout(patient_details_panelLayout);
+        patient_details_panelLayout.setHorizontalGroup(
+            patient_details_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(patient_details_panelLayout.createSequentialGroup()
+                .addGap(12, 12, 12)
+                .addGroup(patient_details_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(patient_label)
+                    .addComponent(patient_details_seperator, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(patient_details_panelLayout.createSequentialGroup()
+                        .addComponent(patient_name_label)
+                        .addGap(43, 43, 43)
+                        .addComponent(patient_name_input, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(patient_details_panelLayout.createSequentialGroup()
+                        .addComponent(patient_address_label)
+                        .addGap(29, 29, 29)
+                        .addComponent(patient_address_input, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(patient_details_panelLayout.createSequentialGroup()
+                        .addComponent(patient_contact_label, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addGroup(patient_details_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(patient_details_panelLayout.createSequentialGroup()
+                                .addComponent(patient_details_save, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(patient_details_clear, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(paitent_contact_input, javax.swing.GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE)
+                            .addComponent(patient_input_error, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addContainerGap())
+        );
+        patient_details_panelLayout.setVerticalGroup(
+            patient_details_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(patient_details_panelLayout.createSequentialGroup()
+                .addGap(12, 12, 12)
+                .addComponent(patient_label)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(patient_details_seperator, javax.swing.GroupLayout.PREFERRED_SIZE, 4, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(patient_details_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(patient_name_label)
+                    .addGroup(patient_details_panelLayout.createSequentialGroup()
+                        .addGap(2, 2, 2)
+                        .addComponent(patient_name_input, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(6, 6, 6)
+                .addGroup(patient_details_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(patient_address_label)
+                    .addGroup(patient_details_panelLayout.createSequentialGroup()
+                        .addGap(2, 2, 2)
+                        .addComponent(patient_address_input, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(6, 6, 6)
+                .addGroup(patient_details_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(patient_contact_label)
+                    .addGroup(patient_details_panelLayout.createSequentialGroup()
+                        .addGap(2, 2, 2)
+                        .addComponent(paitent_contact_input, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(7, 7, 7)
+                .addComponent(patient_input_error)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(patient_details_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(patient_details_save, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(patient_details_clear, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         bill_input_panel.setBackground(new java.awt.Color(25, 130, 196));
@@ -1350,23 +1386,7 @@ public class medicine_management extends javax.swing.JFrame {
 
         medicine_input_error.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
         medicine_input_error.setForeground(new java.awt.Color(255, 255, 255));
-
-        add_button.setBackground(new java.awt.Color(138, 201, 38));
-        add_button.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
-        add_button.setForeground(new java.awt.Color(255, 255, 255));
-        add_button.setText("Add");
-        add_button.setBorder(null);
-        add_button.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                add_buttonActionPerformed(evt);
-            }
-        });
-
-        cancel_button.setBackground(new java.awt.Color(255, 89, 94));
-        cancel_button.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
-        cancel_button.setForeground(new java.awt.Color(255, 255, 255));
-        cancel_button.setText("Clear");
-        cancel_button.setBorder(null);
+        medicine_input_error.setText("  ");
 
         no_of_unit_toogle.setBackground(new java.awt.Color(255, 159, 28));
         no_of_unit_toogle.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -1382,6 +1402,28 @@ public class medicine_management extends javax.swing.JFrame {
         no_of_unit_status.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         no_of_unit_status.setForeground(new java.awt.Color(255, 255, 255));
         no_of_unit_status.setText("ON");
+
+        add_button.setBackground(new java.awt.Color(138, 201, 38));
+        add_button.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
+        add_button.setForeground(new java.awt.Color(255, 255, 255));
+        add_button.setText("Add");
+        add_button.setBorder(null);
+        add_button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                add_buttonActionPerformed(evt);
+            }
+        });
+
+        clear_button.setBackground(new java.awt.Color(255, 89, 94));
+        clear_button.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
+        clear_button.setForeground(new java.awt.Color(255, 255, 255));
+        clear_button.setText("Clear");
+        clear_button.setBorder(null);
+        clear_button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                clear_buttonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout bill_input_panelLayout = new javax.swing.GroupLayout(bill_input_panel);
         bill_input_panel.setLayout(bill_input_panelLayout);
@@ -1407,12 +1449,12 @@ public class medicine_management extends javax.swing.JFrame {
                                     .addGroup(bill_input_panelLayout.createSequentialGroup()
                                         .addComponent(add_button, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(cancel_button, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(clear_button, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addComponent(medicine_input_error)
                                     .addComponent(no_of_unit_toogle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(no_of_unit_status)
-                                .addGap(0, 56, Short.MAX_VALUE)))))
+                                .addGap(0, 416, Short.MAX_VALUE)))))
                 .addGap(25, 25, 25))
         );
         bill_input_panelLayout.setVerticalGroup(
@@ -1440,8 +1482,8 @@ public class medicine_management extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(bill_input_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(add_button, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cancel_button, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(clear_button, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(17, Short.MAX_VALUE))
         );
 
         command_center_pane.setBackground(new java.awt.Color(25, 130, 196));
@@ -1527,7 +1569,7 @@ public class medicine_management extends javax.swing.JFrame {
                 .addGroup(command_center_paneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(bill_save_button)
                     .addComponent(bill_discard_button))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(bill_print_button)
                 .addGap(12, 12, 12))
         );
@@ -1544,13 +1586,13 @@ public class medicine_management extends javax.swing.JFrame {
                         .addComponent(bill_title_label, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addComponent(bill_tabel_scrollpanel)
-                    .addComponent(bill_total_panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(billIframeLayout.createSequentialGroup()
                         .addComponent(patient_details_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(bill_input_panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
-                        .addComponent(command_center_pane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(command_center_pane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(bill_total_panel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         billIframeLayout.setVerticalGroup(
@@ -1561,14 +1603,14 @@ public class medicine_management extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(invoide_date_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(bill_tabel_scrollpanel, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(bill_tabel_scrollpanel, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(bill_total_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(billIframeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(bill_input_panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(command_center_pane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(patient_details_panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(command_center_pane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(patient_details_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -1619,8 +1661,8 @@ public class medicine_management extends javax.swing.JFrame {
             .addGroup(medMgr_title_lableLayout.createSequentialGroup()
                 .addGap(24, 24, 24)
                 .addGroup(medMgr_title_lableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(medMgr_company_address, javax.swing.GroupLayout.DEFAULT_SIZE, 321, Short.MAX_VALUE)
-                    .addComponent(medMgr_company_name, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(medMgr_company_address, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(medMgr_company_name, javax.swing.GroupLayout.DEFAULT_SIZE, 321, Short.MAX_VALUE)
                     .addComponent(medMgr_company_phone, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -2055,8 +2097,8 @@ public class medicine_management extends javax.swing.JFrame {
                     .addGroup(medicineIframeLayout.createSequentialGroup()
                         .addGroup(medicineIframeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(medMgr_details_panel, javax.swing.GroupLayout.PREFERRED_SIZE, 800, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(medMgr_title_lable, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(medMgr_find_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(medMgr_find_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(medMgr_title_lable, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 43, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -2874,13 +2916,11 @@ public class medicine_management extends javax.swing.JFrame {
 
     private void add_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_buttonActionPerformed
         String medicine_with_under;
-        int medicine_total;
         
         medicine_with_under = medicine_name_input.getText().replace(' ', '%');
         
-        medicine_total =+ Integer.parseInt(medicine_quantity_input.getText());
-        bill_total_display.setText("");
-        bill_total_display.setText(String.valueOf(medicine_total));
+        medicine_total_quantity = medicine_total_quantity + Integer.parseInt(medicine_quantity_input.getText());
+        bill_total_quantity.setText(String.valueOf(medicine_total_quantity));
         
         try {
             mysql.medicine_mrp(medicine_with_under);
@@ -2890,6 +2930,9 @@ public class medicine_management extends javax.swing.JFrame {
         }
         
         float medicine_total_cost = Float.parseFloat(medicine_quantity_input.getText()) * medicine_price;
+        
+        medicine_total_price = medicine_total_price + medicine_total_cost;
+        bill_total_cost.setText(String.valueOf(String.format("%.1f", medicine_total_price)));
                 
         if(medicine_name_input.getText().trim().isEmpty() || medicine_quantity_input.getText().trim().isEmpty())
         {
@@ -2902,6 +2945,7 @@ public class medicine_management extends javax.swing.JFrame {
 
             medicine_name_input.setText(null);
             medicine_quantity_input.setText(null);
+            medicine_name_input.requestFocus();
         }
     }//GEN-LAST:event_add_buttonActionPerformed
 
@@ -3084,6 +3128,11 @@ public class medicine_management extends javax.swing.JFrame {
             case JOptionPane.YES_OPTION -> {
                 ((DefaultTableModel)bill_table.getModel()).setNumRows(0);
                 medicine_bill_id = 1;
+                medicine_name_input.setText("");
+                medicine_quantity_input.setText("");
+                patient_name_input.setText("");
+                patient_address_input.setText("");
+                paitent_contact_input.setText("");
             }
             case JOptionPane.CLOSED_OPTION -> {
             }
@@ -3094,14 +3143,24 @@ public class medicine_management extends javax.swing.JFrame {
 
     private void medicine_quantity_inputKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_medicine_quantity_inputKeyPressed
         if (Character.isDigit(evt.getKeyChar()) || Character.isWhitespace(evt.getKeyChar())) {
-            medicine_input_error.setText("");
-            add_button.setEnabled(true);
-            medicine_quantity_input.setEditable(true);
+            if (evt.getKeyCode()==KeyEvent.VK_ENTER) {
+                if(medicine_quantity_input.getText().isEmpty()){
+                    medicine_input_error.setText("No of Quantity can not be Empty!");
+                    add_button.setEnabled(false);
+                }else{
+                    add_button.doClick();
+                    medicine_input_error.setText(" ");
+                    add_button.setEnabled(true);
+                }
+            } 
+        } 
+        else if(medMgr_no_box_input.getText().length() <= 0){
+            medicine_input_error.setText("No of Quantity can not be NULL!");
+            add_button.setEnabled(false);
         }
         else{
-            medicine_input_error.setText("Invalid Medicine Quantity!");
-            add_button.setEnabled(false);
-            medicine_quantity_input.setEditable(false);
+            medicine_error.setText("Details Need To be filled!");
+            medMgr_add_button.setEnabled(false);
         }
     }//GEN-LAST:event_medicine_quantity_inputKeyPressed
 
@@ -3822,9 +3881,7 @@ public class medicine_management extends javax.swing.JFrame {
         else{
             int medicine_delete_confirm = JOptionPane.showConfirmDialog(null, "Are you sure you want to Delete ?", "Medicine Delete",
             JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
-
-            System.out.println(med_id_delete+" "+med_batch_delete);
-
+            
             switch (medicine_delete_confirm) {
                 case JOptionPane.NO_OPTION -> {
                 }
@@ -3880,7 +3937,7 @@ public class medicine_management extends javax.swing.JFrame {
     private void paitent_contact_inputKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_paitent_contact_inputKeyPressed
         char text_in_patient_contact = evt.getKeyChar();
         if (Character.isDigit(text_in_patient_contact)||Character.isISOControl(text_in_patient_contact)) {
-            patient_input_error.setText("");
+            patient_input_error.setText(" ");
             paitent_contact_input.setEditable(true);
             if(evt.getKeyCode()==KeyEvent.VK_ENTER){
                 if(paitent_contact_input.getText().length() != 10)
@@ -3889,7 +3946,7 @@ public class medicine_management extends javax.swing.JFrame {
                     patient_input_error.setText("Phone Number is of 10 Digits");
                 }
                 else{
-                    medicine_name_input.requestFocus();
+                    patient_details_save.doClick();
                 }
             }
         }
@@ -3909,13 +3966,62 @@ public class medicine_management extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_patient_address_inputActionPerformed
 
-    private void add_button1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_button1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_add_button1ActionPerformed
+    private void patient_details_saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_patient_details_saveActionPerformed
+        patient_name = patient_name_input.getText();
+        patient_address = patient_address_input.getText();
+        patient_contact = paitent_contact_input.getText();
+        
+        patient_input_error.setText("SAVED");
+        medicine_name_input.requestFocus();
+    }//GEN-LAST:event_patient_details_saveActionPerformed
 
     private void no_of_unit_toogleStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_no_of_unit_toogleStateChanged
-        no_of_unit_status.setText("ON");
+        if(no_of_unit_toogle.isSelected()){
+            no_of_unit_status.setText("OFF");
+        }
     }//GEN-LAST:event_no_of_unit_toogleStateChanged
+
+    private void clear_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clear_buttonActionPerformed
+        medicine_name_input.setText("");
+        medicine_quantity_input.setText("");
+    }//GEN-LAST:event_clear_buttonActionPerformed
+
+    private void patient_details_clearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_patient_details_clearActionPerformed
+        patient_name_input.setText("");
+        patient_address_input.setText("");
+        paitent_contact_input.setText("");
+        patient_input_error.setText(" ");
+    }//GEN-LAST:event_patient_details_clearActionPerformed
+
+    private void patient_address_inputKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_patient_address_inputKeyPressed
+        if (evt.getKeyCode()==KeyEvent.VK_ENTER) {
+            paitent_contact_input.requestFocus();
+        }
+    }//GEN-LAST:event_patient_address_inputKeyPressed
+
+    private void bill_delete_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bill_delete_buttonActionPerformed
+        DefaultTableModel delete_bill_table = (DefaultTableModel)bill_table.getModel();
+        
+        if(bill_table.getSelectedRowCount()==1){
+            int bill_delete_confirm = JOptionPane.showConfirmDialog(null, "Are you sure you want to Delete ?", "Medicine Delete",
+            JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+            
+            switch (bill_delete_confirm) {
+                case JOptionPane.NO_OPTION -> {
+                }
+                case JOptionPane.YES_OPTION -> {
+                    delete_bill_table.removeRow(bill_table.getSelectedRow());
+                }
+                case JOptionPane.CLOSED_OPTION -> {
+                }
+                default -> {
+                }
+            }
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "Select a row to Delete!");
+        }
+    }//GEN-LAST:event_bill_delete_buttonActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -3948,9 +4054,7 @@ public class medicine_management extends javax.swing.JFrame {
     private javax.swing.JLabel about_developer;
     private javax.swing.JDialog about_dialog;
     private javax.swing.JButton add_button;
-    private javax.swing.JButton add_button1;
     private javax.swing.JLabel add_medicine_label;
-    private javax.swing.JLabel add_medicine_label1;
     private javax.swing.JSeparator add_medicine_seperator;
     private javax.swing.JPanel background;
     private javax.swing.JPanel bar;
@@ -3959,6 +4063,7 @@ public class medicine_management extends javax.swing.JFrame {
     private javax.swing.JLabel bill_company_address;
     private javax.swing.JLabel bill_company_name;
     private javax.swing.JLabel bill_company_phone;
+    private javax.swing.JButton bill_delete_button;
     private javax.swing.JButton bill_discard_button;
     private javax.swing.JPanel bill_input_panel;
     private javax.swing.JButton bill_print_button;
@@ -3966,12 +4071,12 @@ public class medicine_management extends javax.swing.JFrame {
     private javax.swing.JScrollPane bill_tabel_scrollpanel;
     private javax.swing.JTable bill_table;
     private javax.swing.JPanel bill_title_label;
-    private javax.swing.JLabel bill_total_display;
+    private javax.swing.JLabel bill_total_cost;
     private javax.swing.JLabel bill_total_label;
     private javax.swing.JPanel bill_total_panel;
-    private javax.swing.JButton cancel_button;
-    private javax.swing.JButton cancel_button1;
+    private javax.swing.JLabel bill_total_quantity;
     private javax.swing.JPanel cardPane;
+    private javax.swing.JButton clear_button;
     private javax.swing.JLabel command_center;
     private javax.swing.JPanel command_center_pane;
     private javax.swing.JSeparator command_center_seperator;
@@ -3996,7 +4101,6 @@ public class medicine_management extends javax.swing.JFrame {
     private javax.swing.JPanel invoide_date_panel;
     private javax.swing.JButton jButton1;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JSeparator jSeparator2;
     private javax.swing.JLabel java_version;
     private javax.swing.JLabel java_version_value;
     private javax.swing.JButton justJoking;
@@ -4052,8 +4156,12 @@ public class medicine_management extends javax.swing.JFrame {
     private javax.swing.JTextField patient_address_input;
     private javax.swing.JLabel patient_address_label;
     private javax.swing.JLabel patient_contact_label;
+    private javax.swing.JButton patient_details_clear;
     private javax.swing.JPanel patient_details_panel;
+    private javax.swing.JButton patient_details_save;
+    private javax.swing.JSeparator patient_details_seperator;
     private javax.swing.JLabel patient_input_error;
+    private javax.swing.JLabel patient_label;
     private javax.swing.JTextField patient_name_input;
     private javax.swing.JLabel patient_name_label;
     private javax.swing.JLabel pharmacy_lable;

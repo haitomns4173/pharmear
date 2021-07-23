@@ -200,10 +200,10 @@ public class mysql {
         }
         
         stmt = connect.createStatement();
-        String query = "SELECT * FROM `medicine_import_details` WHERE id = "+medicine_id_temp+"";
+        String query = "SELECT * FROM `medicine_import_details` WHERE medicine_id = "+medicine_id_temp+" && total_tablets != 0 ORDER BY batch_no ASC LIMIT 1;";
         result = stmt.executeQuery(query);
         while(result.next()) {
-            medicine_management.medicine_price = result.getFloat(8);
+            medicine_management.medicine_price = result.getFloat(7);
         }
     }
     
