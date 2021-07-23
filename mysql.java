@@ -12,10 +12,14 @@ public class mysql {
     static String company_name;
     static String company_address;
     static String company_phoneNo;
+    static String company_vatNo;
     
     static String users_name;
     static String username;
     static String user_type;
+    
+    static int medicine_mrp_result = 0;
+    static int medicine_mrp_out_of_stock = 0;
     
     public static void main(String args[]) {
         String db_url = "jdbc:mysql://localhost:3306/pharma_db";
@@ -90,12 +94,13 @@ public class mysql {
     
     public static void company_find_query() throws SQLException{
         stmt = connect.createStatement();
-        String query = "SELECT `name`, `address`, `phone` FROM `company` WHERE 1";
+        String query = "SELECT * FROM `company` WHERE 1";
         result = stmt.executeQuery(query);
         while(result.next()) {
-            company_name = result.getString(1);
-            company_address = result.getString(2);
-            company_phoneNo = result.getString(3);
+            company_name = result.getString(2);
+            company_address = result.getString(3);
+            company_phoneNo = result.getString(4);
+            company_vatNo = result.getString(5);
         }
     }
     
@@ -191,18 +196,18 @@ public class mysql {
     }
     
     public static void medicine_mrp(String medicine_with_under) throws SQLException{
-        int medicine_id_temp = 0;
         stmt = connect.createStatement();
         String query_id = "SELECT * FROM `medicine_import` WHERE `medicine_name` LIKE '%"+medicine_with_under+"%'";
         result = stmt.executeQuery(query_id);
         while(result.next()) {
-            medicine_id_temp = result.getInt(1);
+            medicine_mrp_result = result.getInt(1);
         }
-        
+
         stmt = connect.createStatement();
-        String query = "SELECT * FROM `medicine_import_details` WHERE medicine_id = "+medicine_id_temp+" && total_tablets != 0 ORDER BY batch_no ASC LIMIT 1;";
+        String query = "SELECT * FROM `medicine_import_details` WHERE medicine_id = "+medicine_mrp_result+" && total_tablets != 0 ORDER BY batch_no ASC LIMIT 1;";
         result = stmt.executeQuery(query);
         while(result.next()) {
+            medicine_mrp_out_of_stock++;
             medicine_management.medicine_price = result.getFloat(7);
         }
     }

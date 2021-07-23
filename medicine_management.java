@@ -39,6 +39,7 @@ public class medicine_management extends javax.swing.JFrame {
     static String medicine_unit, medicine_strength;
     static int mecicine_no_pack, medicine_no_quantity;
     static float medicien_mrp;
+    static int quantity_unit_pack = 0;
     
     static String total_medicine;
     static String total_quantity;
@@ -272,7 +273,9 @@ public class medicine_management extends javax.swing.JFrame {
         user_shopDtr_shop_contact_input = new javax.swing.JTextField();
         user_shopDtr_update_button = new javax.swing.JButton();
         shop_details_error = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        vat_no_label = new javax.swing.JLabel();
+        vat_no_input = new javax.swing.JTextField();
+        about_devloper_button = new javax.swing.JButton();
         pharmacy_lable1 = new javax.swing.JLabel();
         refrresh_for_status1 = new javax.swing.JButton();
         status_panel_user = new javax.swing.JPanel();
@@ -1375,7 +1378,7 @@ public class medicine_management extends javax.swing.JFrame {
 
         quantity_label.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         quantity_label.setForeground(new java.awt.Color(255, 255, 255));
-        quantity_label.setText("Quantity");
+        quantity_label.setText("Quantity (Unit)");
 
         medicine_quantity_input.setActionCommand("<Not Set>");
         medicine_quantity_input.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -1437,9 +1440,9 @@ public class medicine_management extends javax.swing.JFrame {
                         .addComponent(add_medicine_label)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(bill_input_panelLayout.createSequentialGroup()
-                        .addGroup(bill_input_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(medinine_label)
-                            .addComponent(quantity_label))
+                        .addGroup(bill_input_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(medinine_label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(quantity_label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(bill_input_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(medicine_name_input)
@@ -1454,7 +1457,7 @@ public class medicine_management extends javax.swing.JFrame {
                                     .addComponent(no_of_unit_toogle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(no_of_unit_status)
-                                .addGap(0, 416, Short.MAX_VALUE)))))
+                                .addGap(0, 417, Short.MAX_VALUE)))))
                 .addGap(25, 25, 25))
         );
         bill_input_panelLayout.setVerticalGroup(
@@ -1483,7 +1486,7 @@ public class medicine_management extends javax.swing.JFrame {
                         .addGroup(bill_input_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(add_button, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(clear_button, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(17, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         command_center_pane.setBackground(new java.awt.Color(25, 130, 196));
@@ -1552,9 +1555,9 @@ public class medicine_management extends javax.swing.JFrame {
                         .addComponent(bill_discard_button, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(command_center_paneLayout.createSequentialGroup()
                         .addGroup(command_center_paneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(bill_print_button, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(command_center_seperator, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(command_center, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(command_center, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(bill_print_button, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -1569,9 +1572,9 @@ public class medicine_management extends javax.swing.JFrame {
                 .addGroup(command_center_paneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(bill_save_button)
                     .addComponent(bill_discard_button))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
                 .addComponent(bill_print_button)
-                .addGap(12, 12, 12))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout billIframeLayout = new javax.swing.GroupLayout(billIframe.getContentPane());
@@ -1607,11 +1610,12 @@ public class medicine_management extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(bill_total_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(billIframeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(bill_input_panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(command_center_pane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(patient_details_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(billIframeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(command_center_pane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(billIframeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(bill_input_panel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE)
+                        .addComponent(patient_details_panel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap(133, Short.MAX_VALUE))
         );
 
         cardPane.add(billIframe, "card3");
@@ -2325,11 +2329,8 @@ public class medicine_management extends javax.swing.JFrame {
             .addGroup(user_details_panelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(user_details_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(user_details_panelLayout.createSequentialGroup()
-                        .addGroup(user_details_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(user_details_label)
-                            .addComponent(user_details_seperator, javax.swing.GroupLayout.PREFERRED_SIZE, 464, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(user_details_label)
+                    .addComponent(user_details_seperator, javax.swing.GroupLayout.PREFERRED_SIZE, 464, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(user_details_panelLayout.createSequentialGroup()
                         .addGroup(user_details_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(user_details_name)
@@ -2342,8 +2343,8 @@ public class medicine_management extends javax.swing.JFrame {
                                 .addComponent(user_details_update, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(user_details_username_input, javax.swing.GroupLayout.DEFAULT_SIZE, 360, Short.MAX_VALUE)
                                 .addComponent(uesr_details_name_input)
-                                .addComponent(user_details_password_input)))
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                                .addComponent(user_details_password_input)))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         user_details_panelLayout.setVerticalGroup(
             user_details_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2364,11 +2365,11 @@ public class medicine_management extends javax.swing.JFrame {
                 .addGroup(user_details_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(user_details_pasword_input)
                     .addComponent(user_details_password_input, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(username_error)
-                .addGap(3, 3, 3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(user_details_update, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         shop_details_panel.setBackground(new java.awt.Color(25, 130, 196));
@@ -2425,6 +2426,17 @@ public class medicine_management extends javax.swing.JFrame {
         shop_details_error.setForeground(new java.awt.Color(255, 255, 255));
         shop_details_error.setText("Shop Error");
 
+        vat_no_label.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        vat_no_label.setForeground(new java.awt.Color(255, 255, 255));
+        vat_no_label.setText("VAT No.");
+
+        vat_no_input.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
+        vat_no_input.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                vat_no_inputKeyPressed(evt);
+            }
+        });
+
         javax.swing.GroupLayout shop_details_panelLayout = new javax.swing.GroupLayout(shop_details_panel);
         shop_details_panel.setLayout(shop_details_panelLayout);
         shop_details_panelLayout.setHorizontalGroup(
@@ -2443,15 +2455,17 @@ public class medicine_management extends javax.swing.JFrame {
                                         .addComponent(user_shopDtr_shop_contact))
                                     .addGap(24, 24, 24))
                                 .addGroup(javax.swing.GroupLayout.Alignment.LEADING, shop_details_panelLayout.createSequentialGroup()
-                                    .addComponent(user_shopDtr_address_label, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(shop_details_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(user_shopDtr_address_label, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(vat_no_label, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
-                            .addGroup(shop_details_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(shop_details_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(shop_details_error)
-                                .addGroup(shop_details_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(user_shopDtr_update_button, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(user_shopDtr_address_input, javax.swing.GroupLayout.DEFAULT_SIZE, 360, Short.MAX_VALUE)
-                                    .addComponent(user_shopDtr_shop_contact_input)
-                                    .addComponent(user_shopDtr_shop_name_input))))))
+                                .addComponent(user_shopDtr_update_button, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(user_shopDtr_address_input, javax.swing.GroupLayout.DEFAULT_SIZE, 360, Short.MAX_VALUE)
+                                .addComponent(user_shopDtr_shop_contact_input)
+                                .addComponent(user_shopDtr_shop_name_input)
+                                .addComponent(vat_no_input)))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         shop_details_panelLayout.setVerticalGroup(
@@ -2474,22 +2488,27 @@ public class medicine_management extends javax.swing.JFrame {
                 .addGroup(shop_details_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(user_shopDtr_shop_contact)
                     .addComponent(user_shopDtr_shop_contact_input, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(shop_details_error)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(user_shopDtr_update_button, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(18, Short.MAX_VALUE))
+                .addGroup(shop_details_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(shop_details_panelLayout.createSequentialGroup()
+                        .addComponent(vat_no_input, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(shop_details_error)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(user_shopDtr_update_button, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(vat_no_label))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jButton1.setBackground(new java.awt.Color(255, 255, 255));
-        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(0, 0, 0));
-        jButton1.setText("About Developer");
-        jButton1.setBorder(new javax.swing.border.MatteBorder(null));
-        jButton1.setMargin(new java.awt.Insets(14, 14, 14, 14));
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        about_devloper_button.setBackground(new java.awt.Color(255, 255, 255));
+        about_devloper_button.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        about_devloper_button.setForeground(new java.awt.Color(0, 0, 0));
+        about_devloper_button.setText("About Developer");
+        about_devloper_button.setBorder(new javax.swing.border.MatteBorder(null));
+        about_devloper_button.setMargin(new java.awt.Insets(14, 14, 14, 14));
+        about_devloper_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                about_devloper_buttonActionPerformed(evt);
             }
         });
 
@@ -2752,20 +2771,21 @@ public class medicine_management extends javax.swing.JFrame {
             userIframeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(userIframeLayout.createSequentialGroup()
                 .addGap(30, 30, 30)
-                .addGroup(userIframeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(userIframeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(user_details_panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(userIframeLayout.createSequentialGroup()
-                            .addComponent(user_image_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(user_welcome_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(shop_details_panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGroup(userIframeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(user_details_panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(userIframeLayout.createSequentialGroup()
+                        .addComponent(user_image_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(user_welcome_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(shop_details_panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(77, 77, 77)
                 .addGroup(userIframeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(pharmacy_lable1)
-                    .addComponent(status_panel_user, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(refrresh_for_status1, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(userIframeLayout.createSequentialGroup()
+                        .addComponent(refrresh_for_status1, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(about_devloper_button, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(status_panel_user, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(471, Short.MAX_VALUE))
         );
         userIframeLayout.setVerticalGroup(
@@ -2778,7 +2798,7 @@ public class medicine_management extends javax.swing.JFrame {
                             .addComponent(user_image_panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(user_welcome_panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(18, 18, 18)
-                        .addComponent(user_details_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(user_details_panel, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(shop_details_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(userIframeLayout.createSequentialGroup()
@@ -2786,10 +2806,10 @@ public class medicine_management extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(status_panel_user, javax.swing.GroupLayout.PREFERRED_SIZE, 470, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(refrresh_for_status1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(121, Short.MAX_VALUE))
+                        .addGroup(userIframeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(refrresh_for_status1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(about_devloper_button, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(151, Short.MAX_VALUE))
         );
 
         cardPane.add(userIframe, "card3");
@@ -2916,11 +2936,7 @@ public class medicine_management extends javax.swing.JFrame {
 
     private void add_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_buttonActionPerformed
         String medicine_with_under;
-        
         medicine_with_under = medicine_name_input.getText().replace(' ', '%');
-        
-        medicine_total_quantity = medicine_total_quantity + Integer.parseInt(medicine_quantity_input.getText());
-        bill_total_quantity.setText(String.valueOf(medicine_total_quantity));
         
         try {
             mysql.medicine_mrp(medicine_with_under);
@@ -2929,22 +2945,36 @@ public class medicine_management extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, database_error_message);
         }
         
-        float medicine_total_cost = Float.parseFloat(medicine_quantity_input.getText()) * medicine_price;
-        
-        medicine_total_price = medicine_total_price + medicine_total_cost;
-        bill_total_cost.setText(String.valueOf(String.format("%.1f", medicine_total_price)));
-                
-        if(medicine_name_input.getText().trim().isEmpty() || medicine_quantity_input.getText().trim().isEmpty())
-        {
-            add_button.setEnabled(false);
-            medicine_name_input.requestFocus();
+        if(mysql.medicine_mrp_result != 0 && mysql.medicine_mrp_out_of_stock != 0){
+            if(medicine_name_input.getText().trim().isEmpty() || medicine_quantity_input.getText().trim().isEmpty())
+            {
+                add_button.setEnabled(false);
+                medicine_name_input.requestFocus();
+            }
+            else{
+                medicine_total_quantity = medicine_total_quantity + Integer.parseInt(medicine_quantity_input.getText());
+                bill_total_quantity.setText(String.valueOf(medicine_total_quantity));
+                float medicine_total_cost = Float.parseFloat(medicine_quantity_input.getText()) * medicine_price;
+                medicine_total_price = medicine_total_price + medicine_total_cost;
+                bill_total_cost.setText(String.valueOf(String.format("%.1f", medicine_total_price)));
+
+                DefaultTableModel bill_table_add = (DefaultTableModel)bill_table.getModel();
+                bill_table_add.addRow(new Object[]{medicine_bill_id++,medicine_name_input.getText(), medicine_quantity_input.getText(), medicine_price, medicine_total_cost});
+
+                medicine_name_input.setText(null);
+                medicine_quantity_input.setText(null);
+                medicine_name_input.requestFocus();
+            }
         }
         else{
-            DefaultTableModel bill_table_add = (DefaultTableModel)bill_table.getModel();
-            bill_table_add.addRow(new Object[]{medicine_bill_id++,medicine_name_input.getText(), medicine_quantity_input.getText(), medicine_price, medicine_total_cost});
-
-            medicine_name_input.setText(null);
-            medicine_quantity_input.setText(null);
+            if(mysql.medicine_mrp_result == 0){
+                JOptionPane.showMessageDialog(null, "    The Medicine You Entered is was not found.\n Add the medicine in the Medicine Manage Page.\n           Then make the bill.");
+            }
+            else{
+                JOptionPane.showMessageDialog(null, " The Medicine you entered is out of stock.");
+            }
+            medicine_name_input.setText("");
+            medicine_quantity_input.setText("");
             medicine_name_input.requestFocus();
         }
     }//GEN-LAST:event_add_buttonActionPerformed
@@ -3133,7 +3163,10 @@ public class medicine_management extends javax.swing.JFrame {
                 patient_name_input.setText("");
                 patient_address_input.setText("");
                 paitent_contact_input.setText("");
-            }
+                patient_input_error.setText(" ");
+                medicine_input_error.setText(" ");
+                paitent_contact_input.setEnabled(true);
+                add_button.setEnabled(true);            }
             case JOptionPane.CLOSED_OPTION -> {
             }
             default -> {
@@ -3142,7 +3175,9 @@ public class medicine_management extends javax.swing.JFrame {
     }//GEN-LAST:event_bill_discard_buttonMouseClicked
 
     private void medicine_quantity_inputKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_medicine_quantity_inputKeyPressed
-        if (Character.isDigit(evt.getKeyChar()) || Character.isWhitespace(evt.getKeyChar())) {
+        if (Character.isDigit(evt.getKeyChar()) || Character.isISOControl(evt.getKeyChar())) {
+            medicine_quantity_input.setEditable(true);
+            medicine_input_error.setText(" ");
             if (evt.getKeyCode()==KeyEvent.VK_ENTER) {
                 if(medicine_quantity_input.getText().isEmpty()){
                     medicine_input_error.setText("No of Quantity can not be Empty!");
@@ -3156,6 +3191,7 @@ public class medicine_management extends javax.swing.JFrame {
         } 
         else if(medMgr_no_box_input.getText().length() <= 0){
             medicine_input_error.setText("No of Quantity can not be NULL!");
+            medicine_quantity_input.setEditable(false);
             add_button.setEnabled(false);
         }
         else{
@@ -3208,6 +3244,7 @@ public class medicine_management extends javax.swing.JFrame {
         user_shopDtr_shop_name_input.setText(mysql.company_name);
         user_shopDtr_address_input.setText(mysql.company_address);
         user_shopDtr_shop_contact_input.setText(mysql.company_phoneNo);
+        vat_no_input.setText(mysql.company_vatNo);
         shop_details_error.setText("");
         
         if(!(loginPage.user_code == 1 || loginPage.user_code == 0))
@@ -3330,12 +3367,13 @@ public class medicine_management extends javax.swing.JFrame {
     }//GEN-LAST:event_uesr_details_name_inputKeyPressed
 
     private void user_shopDtr_update_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_user_shopDtr_update_buttonActionPerformed
-        String shop_name_update, shop_address_update, shop_contact_update;
+        String shop_name_update, shop_address_update, shop_contact_update, shop_vat;
         shop_name_update = user_shopDtr_shop_name_input.getText();
         shop_address_update = user_shopDtr_address_input.getText();
         shop_contact_update = user_shopDtr_shop_contact_input.getText();
+        shop_vat = vat_no_input.getText();
 
-        if(shop_name_update.trim().isEmpty() || shop_address_update.trim().isEmpty() || shop_contact_update.trim().isEmpty()){
+        if(shop_name_update.trim().isEmpty() || shop_address_update.trim().isEmpty() || shop_contact_update.trim().isEmpty() || shop_vat.trim().isEmpty()){
             user_shopDtr_update_button.setEnabled(false);
             shop_details_error.setText("Details are Empty");
             if(shop_name_update.trim().isEmpty()){
@@ -3344,12 +3382,18 @@ public class medicine_management extends javax.swing.JFrame {
             else if(shop_address_update.trim().isEmpty()){
                 user_shopDtr_address_input.requestFocus();
             }
+            else if(shop_vat.trim().isEmpty()){
+                vat_no_input.requestFocus();
+            }
             else{
                 user_shopDtr_shop_contact_input.requestFocus();
             }
         }
         else if(user_shopDtr_shop_contact_input.getText().length() != 10){
             shop_details_error.setText("Phone Nuumber is of 10 Digits");
+        }
+        else if(vat_no_input.getText().length() < 4 || vat_no_input.getText().length() > 15){
+            shop_details_error.setText("Vat Number is of 4-15 Digits");
         }
         else{
             int shopDtr_update_confirm = JOptionPane.showConfirmDialog(null, "Are you sure you want to update the details ?", "Update Shop Details",
@@ -3419,7 +3463,7 @@ public class medicine_management extends javax.swing.JFrame {
             user_shopDtr_shop_contact_input.setEditable(false);
         }
         if(evt.getKeyCode() == KeyEvent.VK_ENTER){
-            user_shopDtr_update_button.doClick();
+            vat_no_input.requestFocus();
         }
     }//GEN-LAST:event_user_shopDtr_shop_contact_inputKeyPressed
 
@@ -3902,11 +3946,11 @@ public class medicine_management extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_delete_buttonActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void about_devloper_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_about_devloper_buttonActionPerformed
         about_dialog.setSize(new Dimension(350, 300));
         about_dialog.setResizable(false);
         about_dialog.setVisible(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_about_devloper_buttonActionPerformed
 
     private void refrresh_for_statusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refrresh_for_statusActionPerformed
        try {
@@ -3978,6 +4022,13 @@ public class medicine_management extends javax.swing.JFrame {
     private void no_of_unit_toogleStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_no_of_unit_toogleStateChanged
         if(no_of_unit_toogle.isSelected()){
             no_of_unit_status.setText("OFF");
+            quantity_label.setText("Quantity (Pack)");
+            quantity_unit_pack = 1;
+        }
+        else{
+            no_of_unit_status.setText("ON");
+            quantity_label.setText("Quantity (Unit)");
+            quantity_unit_pack = 0;
         }
     }//GEN-LAST:event_no_of_unit_toogleStateChanged
 
@@ -4010,7 +4061,19 @@ public class medicine_management extends javax.swing.JFrame {
                 case JOptionPane.NO_OPTION -> {
                 }
                 case JOptionPane.YES_OPTION -> {
+                    TableModel bill_table_model = bill_table.getModel();
                     delete_bill_table.removeRow(bill_table.getSelectedRow());
+                    int index_re = 1;
+                    int rows_inc = 0;
+                    int rows_in_bill = bill_table.getModel().getRowCount();
+                    
+                    while(rows_in_bill > 0){
+                        bill_table_model.setValueAt(index_re++, rows_inc, 0);
+                        rows_in_bill--;
+                        rows_inc++;
+                    }
+                    
+                    medicine_bill_id = index_re;
                 }
                 case JOptionPane.CLOSED_OPTION -> {
                 }
@@ -4022,6 +4085,24 @@ public class medicine_management extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Select a row to Delete!");
         }
     }//GEN-LAST:event_bill_delete_buttonActionPerformed
+
+    private void vat_no_inputKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_vat_no_inputKeyPressed
+        user_shopDtr_update_button.setEnabled(true);
+        shop_details_error.setText("");
+        
+        char text_in_shop_vat = evt.getKeyChar();
+        if (Character.isDigit(text_in_shop_vat)||Character.isISOControl(text_in_shop_vat)) {
+            shop_details_error.setText("");
+            vat_no_input.setEditable(true);
+        }
+        else{
+            shop_details_error.setText("Wrong Number");
+            vat_no_input.setEditable(false);
+        }
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+            user_shopDtr_update_button.doClick();
+        }
+    }//GEN-LAST:event_vat_no_inputKeyPressed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -4052,6 +4133,7 @@ public class medicine_management extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel about_backgroung;
     private javax.swing.JLabel about_developer;
+    private javax.swing.JButton about_devloper_button;
     private javax.swing.JDialog about_dialog;
     private javax.swing.JButton add_button;
     private javax.swing.JLabel add_medicine_label;
@@ -4099,7 +4181,6 @@ public class medicine_management extends javax.swing.JFrame {
     private javax.swing.JSeparator find_medicine_seperator;
     private javax.swing.JLabel invoice_label;
     private javax.swing.JPanel invoide_date_panel;
-    private javax.swing.JButton jButton1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel java_version;
     private javax.swing.JLabel java_version_value;
@@ -4237,6 +4318,8 @@ public class medicine_management extends javax.swing.JFrame {
     private javax.swing.JLabel user_wel_welcome;
     private javax.swing.JPanel user_welcome_panel;
     private javax.swing.JLabel username_error;
+    private javax.swing.JTextField vat_no_input;
+    private javax.swing.JLabel vat_no_label;
     private javax.swing.JLabel version;
     private javax.swing.JLabel version_value;
     private javax.swing.JInternalFrame welcomIframe;
