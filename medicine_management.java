@@ -259,24 +259,30 @@ public class medicine_management extends javax.swing.JFrame {
         user_shopDtr_shop_contact_input = new javax.swing.JTextField();
         user_shopDtr_update_button = new javax.swing.JButton();
         shop_details_error = new javax.swing.JLabel();
-        pharmacy_lable2 = new javax.swing.JLabel();
-        status_panel1 = new javax.swing.JPanel();
-        out_of_stock_panel1 = new javax.swing.JPanel();
-        out_of_stock_icon1 = new javax.swing.JLabel();
-        out_of_stock_label1 = new javax.swing.JLabel();
-        expiry_panel1 = new javax.swing.JPanel();
-        expired_icon1 = new javax.swing.JLabel();
-        expirrd_label1 = new javax.swing.JLabel();
-        total_cost_panel1 = new javax.swing.JPanel();
-        total_cost_icon1 = new javax.swing.JLabel();
-        total_cost_label1 = new javax.swing.JLabel();
-        total_stocks_panel1 = new javax.swing.JPanel();
-        total_stock_icon1 = new javax.swing.JLabel();
-        total_stock_label1 = new javax.swing.JLabel();
-        total_medicine_panel1 = new javax.swing.JPanel();
-        total_medicine_icon1 = new javax.swing.JLabel();
-        total_medicine_label1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        pharmacy_lable1 = new javax.swing.JLabel();
+        refrresh_for_status1 = new javax.swing.JButton();
+        status_panel_user = new javax.swing.JPanel();
+        out_of_stock_panel_user = new javax.swing.JPanel();
+        out_of_stock_icon_user = new javax.swing.JLabel();
+        out_of_stock_label_user = new javax.swing.JLabel();
+        total_out_display_user = new javax.swing.JLabel();
+        expiry_panel_user = new javax.swing.JPanel();
+        expired_icon_user = new javax.swing.JLabel();
+        expirrd_label_user = new javax.swing.JLabel();
+        total_expired_display_user = new javax.swing.JLabel();
+        total_cost_panel_user = new javax.swing.JPanel();
+        total_cost_icon_user = new javax.swing.JLabel();
+        total_cost_label_user = new javax.swing.JLabel();
+        total_cost_display_user = new javax.swing.JLabel();
+        total_stocks_panel_user = new javax.swing.JPanel();
+        total_stock_icon_user = new javax.swing.JLabel();
+        total_stock_label_user = new javax.swing.JLabel();
+        total_stocks_display_user = new javax.swing.JLabel();
+        total_medicine_panel_user = new javax.swing.JPanel();
+        total_medicine_icon_user = new javax.swing.JLabel();
+        total_medicine_label_user = new javax.swing.JLabel();
+        total_medicine_display_user = new javax.swing.JLabel();
 
         about_dialog.setTitle("About");
 
@@ -409,7 +415,7 @@ public class medicine_management extends javax.swing.JFrame {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Pharmacy");
+        setTitle("Pharmaer");
         setName("medicine"); // NOI18N
         setSize(new java.awt.Dimension(500, 500));
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -524,7 +530,7 @@ public class medicine_management extends javax.swing.JFrame {
         welcome_title.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         welcome_title.setForeground(new java.awt.Color(255, 255, 255));
         welcome_title.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        welcome_title.setText("Welcome To MMS");
+        welcome_title.setText("Welcome To Pharmaer");
 
         welcome_sub_title.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         welcome_sub_title.setForeground(new java.awt.Color(255, 255, 255));
@@ -978,7 +984,7 @@ public class medicine_management extends javax.swing.JFrame {
                         .addComponent(welcome_medicine, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(welcome_bill, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 295, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 268, Short.MAX_VALUE)
                 .addGroup(welcomIframeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(pharmacy_lable)
                     .addComponent(status_panel, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -2069,22 +2075,20 @@ public class medicine_management extends javax.swing.JFrame {
 
         user_image_panel.setBackground(new java.awt.Color(25, 130, 196));
 
-        user_image_label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mms/src/admin.png"))); // NOI18N
-
         javax.swing.GroupLayout user_image_panelLayout = new javax.swing.GroupLayout(user_image_panel);
         user_image_panel.setLayout(user_image_panelLayout);
         user_image_panelLayout.setHorizontalGroup(
             user_image_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(user_image_panelLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, user_image_panelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(user_image_label)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(user_image_label, javax.swing.GroupLayout.DEFAULT_SIZE, 104, Short.MAX_VALUE)
+                .addContainerGap())
         );
         user_image_panelLayout.setVerticalGroup(
             user_image_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, user_image_panelLayout.createSequentialGroup()
-                .addContainerGap(18, Short.MAX_VALUE)
-                .addComponent(user_image_label)
+                .addContainerGap()
+                .addComponent(user_image_label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -2363,212 +2367,270 @@ public class medicine_management extends javax.swing.JFrame {
                 .addContainerGap(18, Short.MAX_VALUE))
         );
 
-        pharmacy_lable2.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        pharmacy_lable2.setForeground(new java.awt.Color(255, 255, 255));
-        pharmacy_lable2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        pharmacy_lable2.setText("Pharmacy Status");
-
-        status_panel1.setBackground(new java.awt.Color(25, 130, 196));
-        status_panel1.setPreferredSize(new java.awt.Dimension(150, 150));
-
-        out_of_stock_panel1.setBackground(new java.awt.Color(234, 105, 139));
-
-        out_of_stock_icon1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mms/src/icons8_box_52px.png"))); // NOI18N
-
-        out_of_stock_label1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        out_of_stock_label1.setForeground(new java.awt.Color(255, 255, 255));
-        out_of_stock_label1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        out_of_stock_label1.setText("Out of Stock");
-
-        javax.swing.GroupLayout out_of_stock_panel1Layout = new javax.swing.GroupLayout(out_of_stock_panel1);
-        out_of_stock_panel1.setLayout(out_of_stock_panel1Layout);
-        out_of_stock_panel1Layout.setHorizontalGroup(
-            out_of_stock_panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(out_of_stock_panel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(out_of_stock_icon1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(out_of_stock_label1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        out_of_stock_panel1Layout.setVerticalGroup(
-            out_of_stock_panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(out_of_stock_panel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(out_of_stock_panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(out_of_stock_label1)
-                    .addComponent(out_of_stock_icon1))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        expiry_panel1.setBackground(new java.awt.Color(213, 93, 146));
-
-        expired_icon1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mms/src/icons8_expired_48px_1.png"))); // NOI18N
-
-        expirrd_label1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        expirrd_label1.setForeground(new java.awt.Color(255, 255, 255));
-        expirrd_label1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        expirrd_label1.setText("Expired");
-
-        javax.swing.GroupLayout expiry_panel1Layout = new javax.swing.GroupLayout(expiry_panel1);
-        expiry_panel1.setLayout(expiry_panel1Layout);
-        expiry_panel1Layout.setHorizontalGroup(
-            expiry_panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(expiry_panel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(expired_icon1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(expirrd_label1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        expiry_panel1Layout.setVerticalGroup(
-            expiry_panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(expiry_panel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(expiry_panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(expirrd_label1)
-                    .addComponent(expired_icon1))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        total_cost_panel1.setBackground(new java.awt.Color(192, 82, 153));
-
-        total_cost_icon1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mms/src/icons8_cheap_2_52px.png"))); // NOI18N
-
-        total_cost_label1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        total_cost_label1.setForeground(new java.awt.Color(255, 255, 255));
-        total_cost_label1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        total_cost_label1.setText("Total Cost");
-
-        javax.swing.GroupLayout total_cost_panel1Layout = new javax.swing.GroupLayout(total_cost_panel1);
-        total_cost_panel1.setLayout(total_cost_panel1Layout);
-        total_cost_panel1Layout.setHorizontalGroup(
-            total_cost_panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(total_cost_panel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(total_cost_icon1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(total_cost_label1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        total_cost_panel1Layout.setVerticalGroup(
-            total_cost_panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(total_cost_panel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(total_cost_panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(total_cost_label1)
-                    .addComponent(total_cost_icon1))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        total_stocks_panel1.setBackground(new java.awt.Color(172, 70, 161));
-
-        total_stock_icon1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mms/src/icons8_boxes_48px.png"))); // NOI18N
-
-        total_stock_label1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        total_stock_label1.setForeground(new java.awt.Color(255, 255, 255));
-        total_stock_label1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        total_stock_label1.setText("Total Stocks");
-
-        javax.swing.GroupLayout total_stocks_panel1Layout = new javax.swing.GroupLayout(total_stocks_panel1);
-        total_stocks_panel1.setLayout(total_stocks_panel1Layout);
-        total_stocks_panel1Layout.setHorizontalGroup(
-            total_stocks_panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(total_stocks_panel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(total_stock_icon1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(total_stock_label1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        total_stocks_panel1Layout.setVerticalGroup(
-            total_stocks_panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(total_stocks_panel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(total_stocks_panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(total_stocks_panel1Layout.createSequentialGroup()
-                        .addComponent(total_stock_label1)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(total_stock_icon1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
-        );
-
-        total_medicine_panel1.setBackground(new java.awt.Color(151, 58, 168));
-
-        total_medicine_icon1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mms/src/icons8_pill_bottle_48px.png"))); // NOI18N
-
-        total_medicine_label1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        total_medicine_label1.setForeground(new java.awt.Color(255, 255, 255));
-        total_medicine_label1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        total_medicine_label1.setText("Total Medicine");
-
-        javax.swing.GroupLayout total_medicine_panel1Layout = new javax.swing.GroupLayout(total_medicine_panel1);
-        total_medicine_panel1.setLayout(total_medicine_panel1Layout);
-        total_medicine_panel1Layout.setHorizontalGroup(
-            total_medicine_panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(total_medicine_panel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(total_medicine_icon1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(total_medicine_label1)
-                .addContainerGap(86, Short.MAX_VALUE))
-        );
-        total_medicine_panel1Layout.setVerticalGroup(
-            total_medicine_panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(total_medicine_panel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(total_medicine_panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(total_medicine_panel1Layout.createSequentialGroup()
-                        .addComponent(total_medicine_label1)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(total_medicine_icon1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
-        );
-
-        javax.swing.GroupLayout status_panel1Layout = new javax.swing.GroupLayout(status_panel1);
-        status_panel1.setLayout(status_panel1Layout);
-        status_panel1Layout.setHorizontalGroup(
-            status_panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(status_panel1Layout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addGroup(status_panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(status_panel1Layout.createSequentialGroup()
-                        .addComponent(total_medicine_panel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(24, 24, 24))
-                    .addGroup(status_panel1Layout.createSequentialGroup()
-                        .addGroup(status_panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(total_stocks_panel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(total_cost_panel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(out_of_stock_panel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(expiry_panel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(25, 25, 25))))
-        );
-        status_panel1Layout.setVerticalGroup(
-            status_panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(status_panel1Layout.createSequentialGroup()
-                .addGap(27, 27, 27)
-                .addComponent(out_of_stock_panel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(expiry_panel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(total_cost_panel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(total_stocks_panel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(total_medicine_panel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(27, Short.MAX_VALUE))
-        );
-
         jButton1.setBackground(new java.awt.Color(255, 255, 255));
         jButton1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jButton1.setForeground(new java.awt.Color(0, 0, 0));
         jButton1.setText("About Developer");
         jButton1.setBorder(new javax.swing.border.MatteBorder(null));
+        jButton1.setMargin(new java.awt.Insets(14, 14, 14, 14));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
+
+        pharmacy_lable1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        pharmacy_lable1.setForeground(new java.awt.Color(255, 255, 255));
+        pharmacy_lable1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        pharmacy_lable1.setText("Pharmacy Status");
+
+        refrresh_for_status1.setBackground(new java.awt.Color(42, 157, 143));
+        refrresh_for_status1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        refrresh_for_status1.setForeground(new java.awt.Color(255, 255, 255));
+        refrresh_for_status1.setText("Refresh");
+        refrresh_for_status1.setBorder(null);
+        refrresh_for_status1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                refrresh_for_status1ActionPerformed(evt);
+            }
+        });
+
+        status_panel_user.setBackground(new java.awt.Color(25, 130, 196));
+        status_panel_user.setPreferredSize(new java.awt.Dimension(150, 150));
+
+        out_of_stock_panel_user.setBackground(new java.awt.Color(234, 105, 139));
+
+        out_of_stock_icon_user.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mms/src/icons8_box_52px.png"))); // NOI18N
+
+        out_of_stock_label_user.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        out_of_stock_label_user.setForeground(new java.awt.Color(255, 255, 255));
+        out_of_stock_label_user.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        out_of_stock_label_user.setText("Out of Stock");
+
+        total_out_display_user.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        total_out_display_user.setForeground(new java.awt.Color(255, 255, 255));
+        total_out_display_user.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        total_out_display_user.setText("  ");
+
+        javax.swing.GroupLayout out_of_stock_panel_userLayout = new javax.swing.GroupLayout(out_of_stock_panel_user);
+        out_of_stock_panel_user.setLayout(out_of_stock_panel_userLayout);
+        out_of_stock_panel_userLayout.setHorizontalGroup(
+            out_of_stock_panel_userLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(out_of_stock_panel_userLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(out_of_stock_icon_user)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(out_of_stock_panel_userLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(out_of_stock_label_user)
+                    .addComponent(total_out_display_user))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        out_of_stock_panel_userLayout.setVerticalGroup(
+            out_of_stock_panel_userLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(out_of_stock_panel_userLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(out_of_stock_panel_userLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(out_of_stock_panel_userLayout.createSequentialGroup()
+                        .addComponent(out_of_stock_label_user)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(total_out_display_user))
+                    .addComponent(out_of_stock_icon_user))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        expiry_panel_user.setBackground(new java.awt.Color(213, 93, 146));
+
+        expired_icon_user.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mms/src/icons8_expired_48px_1.png"))); // NOI18N
+
+        expirrd_label_user.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        expirrd_label_user.setForeground(new java.awt.Color(255, 255, 255));
+        expirrd_label_user.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        expirrd_label_user.setText("Expired");
+
+        total_expired_display_user.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        total_expired_display_user.setForeground(new java.awt.Color(255, 255, 255));
+        total_expired_display_user.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        total_expired_display_user.setText("  ");
+
+        javax.swing.GroupLayout expiry_panel_userLayout = new javax.swing.GroupLayout(expiry_panel_user);
+        expiry_panel_user.setLayout(expiry_panel_userLayout);
+        expiry_panel_userLayout.setHorizontalGroup(
+            expiry_panel_userLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(expiry_panel_userLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(expired_icon_user)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(expiry_panel_userLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(expirrd_label_user)
+                    .addComponent(total_expired_display_user))
+                .addContainerGap(127, Short.MAX_VALUE))
+        );
+        expiry_panel_userLayout.setVerticalGroup(
+            expiry_panel_userLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(expiry_panel_userLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(expiry_panel_userLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(expiry_panel_userLayout.createSequentialGroup()
+                        .addComponent(expirrd_label_user)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(total_expired_display_user))
+                    .addComponent(expired_icon_user))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        total_cost_panel_user.setBackground(new java.awt.Color(192, 82, 153));
+
+        total_cost_icon_user.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mms/src/icons8_cheap_2_52px.png"))); // NOI18N
+
+        total_cost_label_user.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        total_cost_label_user.setForeground(new java.awt.Color(255, 255, 255));
+        total_cost_label_user.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        total_cost_label_user.setText("Total Cost");
+
+        total_cost_display_user.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        total_cost_display_user.setForeground(new java.awt.Color(255, 255, 255));
+        total_cost_display_user.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        total_cost_display_user.setText("  ");
+
+        javax.swing.GroupLayout total_cost_panel_userLayout = new javax.swing.GroupLayout(total_cost_panel_user);
+        total_cost_panel_user.setLayout(total_cost_panel_userLayout);
+        total_cost_panel_userLayout.setHorizontalGroup(
+            total_cost_panel_userLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(total_cost_panel_userLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(total_cost_icon_user)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(total_cost_panel_userLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(total_cost_label_user)
+                    .addComponent(total_cost_display_user))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        total_cost_panel_userLayout.setVerticalGroup(
+            total_cost_panel_userLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(total_cost_panel_userLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(total_cost_panel_userLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(total_cost_panel_userLayout.createSequentialGroup()
+                        .addComponent(total_cost_label_user)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(total_cost_display_user))
+                    .addComponent(total_cost_icon_user))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        total_stocks_panel_user.setBackground(new java.awt.Color(172, 70, 161));
+
+        total_stock_icon_user.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mms/src/icons8_boxes_48px.png"))); // NOI18N
+
+        total_stock_label_user.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        total_stock_label_user.setForeground(new java.awt.Color(255, 255, 255));
+        total_stock_label_user.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        total_stock_label_user.setText("Total Stocks");
+
+        total_stocks_display_user.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        total_stocks_display_user.setForeground(new java.awt.Color(255, 255, 255));
+        total_stocks_display_user.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        total_stocks_display_user.setText("  ");
+
+        javax.swing.GroupLayout total_stocks_panel_userLayout = new javax.swing.GroupLayout(total_stocks_panel_user);
+        total_stocks_panel_user.setLayout(total_stocks_panel_userLayout);
+        total_stocks_panel_userLayout.setHorizontalGroup(
+            total_stocks_panel_userLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(total_stocks_panel_userLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(total_stock_icon_user)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(total_stocks_panel_userLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(total_stock_label_user)
+                    .addComponent(total_stocks_display_user))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        total_stocks_panel_userLayout.setVerticalGroup(
+            total_stocks_panel_userLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(total_stocks_panel_userLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(total_stocks_panel_userLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(total_stocks_panel_userLayout.createSequentialGroup()
+                        .addComponent(total_stock_label_user)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(total_stocks_display_user))
+                    .addComponent(total_stock_icon_user, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+
+        total_medicine_panel_user.setBackground(new java.awt.Color(151, 58, 168));
+
+        total_medicine_icon_user.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mms/src/icons8_pill_bottle_48px.png"))); // NOI18N
+
+        total_medicine_label_user.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        total_medicine_label_user.setForeground(new java.awt.Color(255, 255, 255));
+        total_medicine_label_user.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        total_medicine_label_user.setText("Total Medicine");
+
+        total_medicine_display_user.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        total_medicine_display_user.setForeground(new java.awt.Color(255, 255, 255));
+        total_medicine_display_user.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        total_medicine_display_user.setText("  ");
+
+        javax.swing.GroupLayout total_medicine_panel_userLayout = new javax.swing.GroupLayout(total_medicine_panel_user);
+        total_medicine_panel_user.setLayout(total_medicine_panel_userLayout);
+        total_medicine_panel_userLayout.setHorizontalGroup(
+            total_medicine_panel_userLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(total_medicine_panel_userLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(total_medicine_icon_user)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(total_medicine_panel_userLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(total_medicine_label_user)
+                    .addComponent(total_medicine_display_user))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        total_medicine_panel_userLayout.setVerticalGroup(
+            total_medicine_panel_userLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(total_medicine_panel_userLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(total_medicine_panel_userLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(total_medicine_panel_userLayout.createSequentialGroup()
+                        .addComponent(total_medicine_label_user)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(total_medicine_display_user))
+                    .addComponent(total_medicine_icon_user, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+
+        javax.swing.GroupLayout status_panel_userLayout = new javax.swing.GroupLayout(status_panel_user);
+        status_panel_user.setLayout(status_panel_userLayout);
+        status_panel_userLayout.setHorizontalGroup(
+            status_panel_userLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(status_panel_userLayout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addGroup(status_panel_userLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(status_panel_userLayout.createSequentialGroup()
+                        .addComponent(total_medicine_panel_user, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(24, 24, 24))
+                    .addGroup(status_panel_userLayout.createSequentialGroup()
+                        .addGroup(status_panel_userLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(total_stocks_panel_user, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(total_cost_panel_user, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(out_of_stock_panel_user, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(expiry_panel_user, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(25, 25, 25))))
+        );
+        status_panel_userLayout.setVerticalGroup(
+            status_panel_userLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(status_panel_userLayout.createSequentialGroup()
+                .addGap(27, 27, 27)
+                .addComponent(out_of_stock_panel_user, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(expiry_panel_user, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(total_cost_panel_user, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(total_stocks_panel_user, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(total_medicine_panel_user, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(27, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout userIframeLayout = new javax.swing.GroupLayout(userIframe.getContentPane());
         userIframe.getContentPane().setLayout(userIframeLayout);
@@ -2576,25 +2638,27 @@ public class medicine_management extends javax.swing.JFrame {
             userIframeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(userIframeLayout.createSequentialGroup()
                 .addGap(30, 30, 30)
-                .addGroup(userIframeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(user_details_panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(userIframeLayout.createSequentialGroup()
-                        .addComponent(user_image_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(user_welcome_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(shop_details_panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(37, 37, 37)
-                .addGroup(userIframeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(pharmacy_lable2)
-                    .addComponent(status_panel1, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(489, Short.MAX_VALUE))
+                .addGroup(userIframeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(userIframeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(user_details_panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(userIframeLayout.createSequentialGroup()
+                            .addComponent(user_image_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(user_welcome_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(shop_details_panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGap(77, 77, 77)
+                .addGroup(userIframeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(pharmacy_lable1)
+                    .addComponent(status_panel_user, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(refrresh_for_status1, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(471, Short.MAX_VALUE))
         );
         userIframeLayout.setVerticalGroup(
             userIframeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(userIframeLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(userIframeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(userIframeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(userIframeLayout.createSequentialGroup()
                         .addGroup(userIframeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(user_image_panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -2604,12 +2668,14 @@ public class medicine_management extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(shop_details_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(userIframeLayout.createSequentialGroup()
-                        .addComponent(pharmacy_lable2)
+                        .addComponent(pharmacy_lable1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(status_panel_user, javax.swing.GroupLayout.PREFERRED_SIZE, 470, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(status_panel1, javax.swing.GroupLayout.PREFERRED_SIZE, 470, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(21, 21, 21)
-                        .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap(166, Short.MAX_VALUE))
+                        .addComponent(refrresh_for_status1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(121, Short.MAX_VALUE))
         );
 
         cardPane.add(userIframe, "card3");
@@ -2650,7 +2716,7 @@ public class medicine_management extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
-        ImageIcon icon = new ImageIcon("D:\\MMS\\MMS\\MMS\\src\\mms\\src\\icon.png");
+        ImageIcon icon = new ImageIcon(getClass().getResource("/mms/src/icon.png"));
         setIconImage(icon.getImage());
     }//GEN-LAST:event_formWindowActivated
 
@@ -2917,15 +2983,30 @@ public class medicine_management extends javax.swing.JFrame {
     }//GEN-LAST:event_welcome_billMouseExited
 
     private void welcome_billMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_welcome_billMouseClicked
-        bill_button.doClick();
+        if(loginPage.user_code == 4){
+            JOptionPane.showMessageDialog(null, "You do not have permission for Bill Management");
+        }
+        else{
+            bill_button.doClick();
+        }
     }//GEN-LAST:event_welcome_billMouseClicked
 
     private void welcome_medicineMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_welcome_medicineMouseClicked
-        medicine_manage_button.doClick();
+        if(loginPage.user_code == 3){
+            JOptionPane.showMessageDialog(null, "You do not have permission for Medicine Management");
+        }
+        else{
+            medicine_manage_button.doClick();
+        }
     }//GEN-LAST:event_welcome_medicineMouseClicked
 
     private void welcome_salesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_welcome_salesMouseClicked
-        sales_button.doClick();
+        if(loginPage.user_code == 1 || loginPage.user_code == 2){
+            sales_button.doClick();
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "You do not have permission for Sales Report");
+        }
     }//GEN-LAST:event_welcome_salesMouseClicked
 
     private void welcome_userMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_welcome_userMouseClicked
@@ -3004,6 +3085,23 @@ public class medicine_management extends javax.swing.JFrame {
         
         user_wel_users_name.setText(mysql.users_name);
         user_wel_user_type.setText(mysql.user_type);
+        
+        if(loginPage.user_code == 0)
+        {
+            user_image_label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mms/src/admin.png")));
+        }
+        else if(loginPage.user_code == 1){
+            user_image_label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mms/src/manager.png")));
+        }
+        else if(loginPage.user_code == 3){
+            user_image_label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mms/src/bill.png")));
+        }
+        else if(loginPage.user_code == 4){
+            user_image_label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mms/src/pharmacist.png")));
+        }
+        else{
+            user_image_label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mms/src/employee.png")));
+        }
         
         uesr_details_name_input.setText(mysql.users_name);
         user_details_username_input.setText(mysql.username);
@@ -3728,6 +3826,19 @@ public class medicine_management extends javax.swing.JFrame {
         total_out_display.setText(total_out);
     }//GEN-LAST:event_refrresh_for_statusActionPerformed
 
+    private void refrresh_for_status1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refrresh_for_status1ActionPerformed
+        try {
+            mysql.pharmacy_status();
+        } catch (SQLException ex) {
+            Logger.getLogger(medicine_management.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        total_medicine_display_user.setText(total_medicine);
+        total_stocks_display_user.setText(total_quantity);
+        total_cost_display_user.setText(total_cost);
+        total_expired_display_user.setText(total_expired);
+        total_out_display_user.setText(total_out);
+    }//GEN-LAST:event_refrresh_for_status1ActionPerformed
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -3791,11 +3902,11 @@ public class medicine_management extends javax.swing.JFrame {
     private javax.swing.JLabel email;
     private javax.swing.JLabel email_value;
     private javax.swing.JLabel expired_icon;
-    private javax.swing.JLabel expired_icon1;
+    private javax.swing.JLabel expired_icon_user;
     private javax.swing.JLabel expirrd_label;
-    private javax.swing.JLabel expirrd_label1;
+    private javax.swing.JLabel expirrd_label_user;
     private javax.swing.JPanel expiry_panel;
-    private javax.swing.JPanel expiry_panel1;
+    private javax.swing.JPanel expiry_panel_user;
     private javax.swing.Box.Filler filler1;
     private javax.swing.JButton find_button;
     private javax.swing.JLabel find_medicine_label;
@@ -3848,11 +3959,11 @@ public class medicine_management extends javax.swing.JFrame {
     private javax.swing.JTextField medicine_quantity_input;
     private javax.swing.JLabel medinine_label;
     private javax.swing.JLabel out_of_stock_icon;
-    private javax.swing.JLabel out_of_stock_icon1;
+    private javax.swing.JLabel out_of_stock_icon_user;
     private javax.swing.JLabel out_of_stock_label;
-    private javax.swing.JLabel out_of_stock_label1;
+    private javax.swing.JLabel out_of_stock_label_user;
     private javax.swing.JPanel out_of_stock_panel;
-    private javax.swing.JPanel out_of_stock_panel1;
+    private javax.swing.JPanel out_of_stock_panel_user;
     private javax.swing.JTextField paitent_contact_input;
     private javax.swing.JTextField patient_address_input;
     private javax.swing.JLabel patient_address_label;
@@ -3862,9 +3973,10 @@ public class medicine_management extends javax.swing.JFrame {
     private javax.swing.JTextField patient_name_input;
     private javax.swing.JLabel patient_name_label;
     private javax.swing.JLabel pharmacy_lable;
-    private javax.swing.JLabel pharmacy_lable2;
+    private javax.swing.JLabel pharmacy_lable1;
     private javax.swing.JLabel quantity_label;
     private javax.swing.JButton refrresh_for_status;
+    private javax.swing.JButton refrresh_for_status1;
     private javax.swing.JLabel requirements;
     private javax.swing.JInternalFrame salesIframe;
     private javax.swing.JButton sales_button;
@@ -3873,31 +3985,36 @@ public class medicine_management extends javax.swing.JFrame {
     private javax.swing.JPanel side_panel_menu;
     private javax.swing.JLabel software_version;
     private javax.swing.JPanel status_panel;
-    private javax.swing.JPanel status_panel1;
+    private javax.swing.JPanel status_panel_user;
     private javax.swing.JPanel title_pane;
     private javax.swing.JLabel total_cost_display;
+    private javax.swing.JLabel total_cost_display_user;
     private javax.swing.JLabel total_cost_icon;
-    private javax.swing.JLabel total_cost_icon1;
+    private javax.swing.JLabel total_cost_icon_user;
     private javax.swing.JLabel total_cost_label;
-    private javax.swing.JLabel total_cost_label1;
+    private javax.swing.JLabel total_cost_label_user;
     private javax.swing.JPanel total_cost_panel;
-    private javax.swing.JPanel total_cost_panel1;
+    private javax.swing.JPanel total_cost_panel_user;
     private javax.swing.JLabel total_expired_display;
+    private javax.swing.JLabel total_expired_display_user;
     private javax.swing.JLabel total_medicine_display;
+    private javax.swing.JLabel total_medicine_display_user;
     private javax.swing.JLabel total_medicine_icon;
-    private javax.swing.JLabel total_medicine_icon1;
+    private javax.swing.JLabel total_medicine_icon_user;
     private javax.swing.JLabel total_medicine_label;
-    private javax.swing.JLabel total_medicine_label1;
+    private javax.swing.JLabel total_medicine_label_user;
     private javax.swing.JPanel total_medicine_panel;
-    private javax.swing.JPanel total_medicine_panel1;
+    private javax.swing.JPanel total_medicine_panel_user;
     private javax.swing.JLabel total_out_display;
+    private javax.swing.JLabel total_out_display_user;
     private javax.swing.JLabel total_stock_icon;
-    private javax.swing.JLabel total_stock_icon1;
+    private javax.swing.JLabel total_stock_icon_user;
     private javax.swing.JLabel total_stock_label;
-    private javax.swing.JLabel total_stock_label1;
+    private javax.swing.JLabel total_stock_label_user;
     private javax.swing.JLabel total_stocks_display;
+    private javax.swing.JLabel total_stocks_display_user;
     private javax.swing.JPanel total_stocks_panel;
-    private javax.swing.JPanel total_stocks_panel1;
+    private javax.swing.JPanel total_stocks_panel_user;
     private javax.swing.JTextField uesr_details_name_input;
     private javax.swing.JInternalFrame userIframe;
     private javax.swing.JButton user_button;
