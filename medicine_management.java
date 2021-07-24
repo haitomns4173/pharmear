@@ -1149,14 +1149,14 @@ public class medicine_management extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Sn. No", "Medicine Name", "Batch", "Quantity", "Qunatity Type", "Rate", "Sub-Total"
+                "Sn. No", "Medicine Name", "Quantity", "Qunatity Type", "Rate", "Sub-Total"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Short.class, java.lang.String.class, java.lang.Short.class, java.lang.Short.class, java.lang.String.class, java.lang.String.class, java.lang.Double.class
+                java.lang.Short.class, java.lang.String.class, java.lang.Short.class, java.lang.String.class, java.lang.String.class, java.lang.Double.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false
+                false, false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -1173,8 +1173,7 @@ public class medicine_management extends javax.swing.JFrame {
             bill_table.getColumnModel().getColumn(0).setPreferredWidth(2);
             bill_table.getColumnModel().getColumn(1).setPreferredWidth(20);
             bill_table.getColumnModel().getColumn(2).setPreferredWidth(2);
-            bill_table.getColumnModel().getColumn(3).setPreferredWidth(2);
-            bill_table.getColumnModel().getColumn(4).setPreferredWidth(8);
+            bill_table.getColumnModel().getColumn(3).setPreferredWidth(8);
         }
 
         bill_total_panel.setBackground(new java.awt.Color(25, 130, 196));
@@ -2940,90 +2939,44 @@ public class medicine_management extends javax.swing.JFrame {
     }//GEN-LAST:event_billIframeInternalFrameActivated
 
     private void add_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_buttonActionPerformed
-        String medicine_with_under;
-        medicine_with_under = medicine_name_input.getText().replace(' ', '%');
-        boolean med_input_check;
-        
-        med_input_check = bill_table_entry_check(medicine_name_input.getText());
-        
-        if(!med_input_check){
-            try {
-                mysql.medicine_mrp(medicine_with_under);
-            }
-            catch (SQLException database_error_message) {
-                JOptionPane.showMessageDialog(null, database_error_message);
-            }
+        if(medicine_name_input.getText().trim().isEmpty() || medicine_quantity_input.getText().trim().isEmpty()){
+            add_button.setEnabled(false);
+            medicine_name_input.requestFocus();
+        }
+        else{
+            String medicine_with_under;
+            medicine_with_under = medicine_name_input.getText().replace(' ', '%');
 
-            if(mysql.medicine_mrp_result != 0 && mysql.medicine_mrp_out_of_stock != 0){
-                if(medicine_name_input.getText().trim().isEmpty() || medicine_quantity_input.getText().trim().isEmpty())
-                {
-                    add_button.setEnabled(false);
-                    medicine_name_input.requestFocus();
+            boolean med_input_check;
+            med_input_check = bill_table_entry_check(medicine_name_input.getText());
+
+            if(!med_input_check){
+                try {
+                    mysql.medicine_mrp(medicine_with_under);
+                }
+                catch (SQLException database_error_message) {
+                    JOptionPane.showMessageDialog(null, database_error_message);
+                }
+                
+                if(!(mysql.medicine_id_result == 0)){
+                    
+                    DefaultTableModel bill_table_add = (DefaultTableModel)bill_table.getModel();
+                    bill_table_add.addRow(new Object[]{medicine_bill_id++, medicine_name_input.getText(), 0, medicine_quantity_input.getText(), "Pack", medicine_price, 0});
+                
                 }
                 else{
-                    int temp_quantity = Integer.parseInt(medicine_quantity_input.getText());
-
-                    if(quantity_unit_pack == 0){
-                        if(medicine_quantity_check >= temp_quantity){
-
-                            medicine_total_quantity = medicine_total_quantity + Integer.parseInt(medicine_quantity_input.getText());
-                            bill_total_quantity.setText(String.valueOf(medicine_total_quantity));
-                            float medicine_total_cost = Float.parseFloat(medicine_quantity_input.getText()) * medicine_price;
-                            medicine_total_price = medicine_total_price + medicine_total_cost;
-                            bill_total_cost.setText(String.valueOf(String.format("%.1f", medicine_total_price)));
-
-                            DefaultTableModel bill_table_add = (DefaultTableModel)bill_table.getModel();
-                            bill_table_add.addRow(new Object[]{medicine_bill_id++,medicine_name_input.getText(), batch_no, medicine_quantity_input.getText(), "Unit", medicine_price, medicine_total_cost});
-
-                            medicine_name_input.setText(null);
-                            medicine_quantity_input.setText(null);
-                            medicine_name_input.requestFocus();
-                        }
-                        else{
-                        JOptionPane.showMessageDialog(null, medicine_name_input.getText()+" has no only "+medicine_quantity_check+" number of unit.\nYou can not input more than that!");
-                        medicine_quantity_input.setText("");
-                        }
-                    }
-                    else{
-                        if(medicine_quntity_sheet_check >= temp_quantity){
-                            medicine_total_quantity = medicine_total_quantity + Integer.parseInt(medicine_quantity_input.getText());
-                            bill_total_quantity.setText(String.valueOf(medicine_total_quantity));
-
-                            float medicine_total_cost = Float.parseFloat(medicine_quantity_input.getText()) * number_of_tablets_bill * medicine_price;
-                            medicine_total_price = medicine_total_price + medicine_total_cost;
-                            bill_total_cost.setText(String.valueOf(String.format("%.1f", medicine_total_price)));
-
-                            DefaultTableModel bill_table_add = (DefaultTableModel)bill_table.getModel();
-                            bill_table_add.addRow(new Object[]{medicine_bill_id++,medicine_name_input.getText(), batch_no, medicine_quantity_input.getText(), "Pack", medicine_price, medicine_total_cost});
-
-                            medicine_name_input.setText(null);
-                            medicine_quantity_input.setText(null);
-                            medicine_name_input.requestFocus();
-                        }
-                        else{
-                        JOptionPane.showMessageDialog(null, medicine_name_input.getText()+" has no only "+medicine_quntity_sheet_check+" number of pack.\nYou can not input more than that!");
-                        medicine_quantity_input.setText("");
-                        }
-                    }
-                }
+                    JOptionPane.showMessageDialog(null, "    The Medicine You Entered is was not found.\n Add the medicine in the Medicine Manage Page.\n                      Then make the bill.");
+                    medicine_name_input.setText("");
+                    medicine_quantity_input.setText("");
+                    medicine_name_input.requestFocus();
+                }  
             }
             else{
-                if(mysql.medicine_mrp_result == 0){
-                    JOptionPane.showMessageDialog(null, "    The Medicine You Entered is was not found.\n Add the medicine in the Medicine Manage Page.\n           Then make the bill.");
-                }
-                else{
-                    JOptionPane.showMessageDialog(null, " The Medicine you entered is out of stock.");
-                }
+                JOptionPane.showMessageDialog(null, "You have already entered "+medicine_name_input.getText());
                 medicine_name_input.setText("");
                 medicine_quantity_input.setText("");
                 medicine_name_input.requestFocus();
             }
-        }
-        else{
-            JOptionPane.showMessageDialog(null, "You have already entered "+medicine_name_input.getText());
-            medicine_name_input.setText("");
-            medicine_quantity_input.setText("");
-            medicine_name_input.requestFocus();
         }
     }//GEN-LAST:event_add_buttonActionPerformed
 
@@ -3531,9 +3484,6 @@ public class medicine_management extends javax.swing.JFrame {
     private void medMgr_add_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_medMgr_add_buttonActionPerformed
         String med_name, med_type, med_strength, med_sheet, med_tablet, med_box, med_expiry_month, med_expiry_year, med_mrp;
         String medicine_with_percentage;
-        
-        int total_no_tablets;
-        float total_cost_of_medicine;
 
         med_name = medMgr_name_input.getText();
         med_type = medMgr_type_input.getText();
@@ -3544,9 +3494,6 @@ public class medicine_management extends javax.swing.JFrame {
         med_box = medMgr_no_box_input.getText();
         med_expiry_month = medMgr_expiry_input_month.getText();
         med_expiry_year = medMgr_expiry_input_year.getText();
-        
-        total_no_tablets = ( Integer.parseInt(med_sheet) * Integer.parseInt(med_tablet) ) * Integer.parseInt(med_box);
-        total_cost_of_medicine = total_no_tablets * Float.parseFloat(med_mrp);
         
         int exp_date_check;
         exp_date_check = expiry_date_checker(med_expiry_month, med_expiry_year);
@@ -3572,7 +3519,7 @@ public class medicine_management extends javax.swing.JFrame {
                 medicine_with_percentage = medicine_with_percentage.substring(0, medicine_with_percentage.length()-1);
 
                 try {
-                    mysql.medicine_import_details__query(medicine_with_percentage, med_sheet, med_tablet, med_box, med_expiry_month, med_expiry_year, med_mrp, total_no_tablets, total_cost_of_medicine);
+                    mysql.medicine_import_details__query(medicine_with_percentage, med_sheet, med_tablet, med_box, med_expiry_month, med_expiry_year, med_mrp);
                 } catch (SQLException ex) {
                     Logger.getLogger(medicine_management.class.getName()).log(Level.SEVERE, null, ex);
                 }
@@ -4227,7 +4174,7 @@ public class medicine_management extends javax.swing.JFrame {
         
         while(bill_table_rows <= 0){
             try {
-                mysql.medicine_reduce(batch_no_bill[0], quantity_no_bill[0], quantity_type_add[0]);
+                mysql.medicine_sales(batch_no_bill[0], quantity_no_bill[0], quantity_type_add[0]);
             } catch (SQLException ex) {
                 Logger.getLogger(medicine_management.class.getName()).log(Level.SEVERE, null, ex);
             }

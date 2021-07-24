@@ -18,8 +18,10 @@ public class mysql {
     static String username;
     static String user_type;
     
-    static int medicine_mrp_result = 0;
+    static int medicine_id_result = 0;
     static int medicine_mrp_out_of_stock = 0;
+    
+    static int patient_id;
     
     public static void main(String args[]) {
         String db_url = "jdbc:mysql://localhost:3306/pharma_db";
@@ -181,8 +183,9 @@ public class mysql {
         stmt.executeUpdate(insert_query);
     }
     
-    public static void medicine_import_details__query(String med_name, String med_sheet, String med_tablet, String med_box,String med_expiry_month, String med_expiry_year, String med_mrp, int tablets_total, float cost_total) throws SQLException{
+    public static void medicine_import_details__query(String med_name, String med_sheet, String med_tablet, String med_box, String med_expiry_month, String med_expiry_year, String med_mrp) throws SQLException{
         int med_id = 0;
+        int med_batch = 0;
         
         stmt = connect.createStatement();
         String query = "SELECT * FROM `medicine_import` WHERE `medicine_name` LIKE '%"+med_name+"%'";
@@ -191,8 +194,27 @@ public class mysql {
             med_id = result.getInt(1);
         }
         
-        String insert_query = "INSERT INTO `medicine_import_details`(`medicine_id`, `number_of_sheets`, `number_of_tablets`, `number_of_box`, `expiry_date`, `mrp`, `total_tablets`, `total_cost`) VALUES ('"+med_id+"', '"+med_sheet+"','"+med_tablet+"','"+med_box+"','20"+med_expiry_year+"-"+med_expiry_month+"-01','"+med_mrp+"', "+tablets_total+", "+cost_total+")";
+        String insert_query = "INSERT INTO `medicine_import_details`( `medicine_id`, `number_of_sheets`, `number_of_tablets`, `number_of_box`, `expiry_date`, `mrp`) VALUES ('"+med_id+"', '"+med_sheet+"', '"+med_tablet+"','"+med_box+"','20"+med_expiry_year+"-"+med_expiry_month+"-01','"+med_mrp+"')";
         stmt.executeUpdate(insert_query);
+        
+        int sheet, tablets, box, total_quantity;
+        float mrp, total_cost;
+        sheet = Integer.parseInt(med_sheet);
+        tablets = Integer.parseInt(med_tablet);
+        box = Integer.parseInt(med_box);
+        mrp = Float.parseFloat(med_mrp);
+        total_quantity = sheet * tablets * box;
+        total_cost = total_quantity * mrp;
+        
+        stmt = connect.createStatement();
+        String query_barch = "SELECT * FROM `medicine_import_details` ORDER BY batch_no DESC LIMIT 1;";
+        result = stmt.executeQuery(query_barch);
+        while(result.next()) {
+            med_batch = result.getInt(1);
+        }
+        
+        String stocks_query = "INSERT INTO `medicine_stock`(`med_batch`, `total_stock`, `total_cost`, `sold_stock`, `sold_cost`) VALUES ('"+med_batch+"','"+total_quantity+"','"+total_cost+"','0','0')";
+        stmt.executeUpdate(stocks_query);
     }
     
     public static void medicine_mrp(String medicine_with_under) throws SQLException{
@@ -200,19 +222,14 @@ public class mysql {
         String query_id = "SELECT * FROM `medicine_import` WHERE `medicine_name` LIKE '%"+medicine_with_under+"%'";
         result = stmt.executeQuery(query_id);
         while(result.next()) {
-            medicine_mrp_result = result.getInt(1);
+            medicine_id_result = result.getInt(1);
         }
 
         stmt = connect.createStatement();
-        String query = "SELECT * FROM `medicine_import_details` WHERE medicine_id = "+medicine_mrp_result+" && total_tablets != 0 ORDER BY batch_no ASC LIMIT 1;";
+        String query = "SELECT * FROM `medicine_import_details` WHERE medicine_id = "+medicine_id_result+" ORDER BY batch_no ASC LIMIT 1";
         result = stmt.executeQuery(query);
         while(result.next()) {
-            medicine_mrp_out_of_stock++;
-            medicine_management.batch_no = result.getInt(1);
-            medicine_management.medicine_quntity_sheet_check = result.getInt(3);
-            medicine_management.number_of_tablets_bill = result.getInt(4);
             medicine_management.medicine_price = result.getFloat(7);
-            medicine_management.medicine_quantity_check = result.getInt(9); 
         }
     }
     
@@ -291,53 +308,39 @@ public class mysql {
     public static void patient_add(String pat_name, String pat_address, String pat_contact) throws SQLException{
         String insert_query = "INSERT INTO `patient_details`(`patient_name`, `patient_address`, `patient_contact`) VALUES ('"+pat_name+"','"+pat_address+"','"+pat_contact+"')";
         stmt.executeUpdate(insert_query);
+        
+        stmt = connect.createStatement();
+        String query = "SELECT * FROM `patient_details` WHERE ORDER BY id DESC LIMIT 1";
+        result = stmt.executeQuery(query);
+        while(result.next()) {
+            patient_id = result.getInt(1);
+        }
     }
     
-    public static void medicine_reduce(String batch_no, String quantity, String quantity_type) throws SQLException{
-        int nu_sheets = 0, nu_tablets = 0, to_tablets = 0;
-        float mrp = 0, to_cost = 0;
+    public static void medicine_sales(String batch_no, String quantity, String quantity_type) throws SQLException{
+        int nu_tablets = 0;
+        float mrp = 0;
+        
         String search_query = "SELECT * FROM `medicine_import_details` WHERE `batch_no` = "+batch_no+"";
         result = stmt.executeQuery(search_query); 
         while(result.next()){
-            nu_sheets = result.getInt(3);
             nu_tablets = result.getInt(4);
             mrp = result.getFloat(7);
-            to_tablets = result.getInt(9);
-            to_cost = result.getFloat(10);
         }
         
         int quantity_int = Integer.parseInt(quantity);
         
         if(quantity_type.equals("Pack")){
+            int total_quantity = quantity_int * nu_tablets;
+            float total_cost = total_quantity * mrp;
             
-            int tablets = quantity_int * nu_tablets;
-            float cost = tablets * mrp;
-            quantity_int = nu_sheets - quantity_int;
-            tablets = to_tablets - tablets;
-            cost = to_cost - cost;
-            
-            String insert_query = "UPDATE `medicine_import_details` SET `number_of_sheets`='"+quantity_int+"',`total_tablets`='"+tablets+"',`total_cost`='"+cost+"' WHERE batch_no = "+batch_no+"";
+            String insert_query = "INSERT INTO `sales`(`med_batch`, `patient_id`, `total_unit`, `total_cost`) VALUES ('"+batch_no+"','"+patient_id+"','"+total_quantity+"','"+total_cost+"')";
             stmt.executeUpdate(insert_query);
         }
         else{
-            if(nu_tablets >= quantity_int){
-                int left_tablets = nu_tablets - quantity_int;
-                int tablets = to_tablets - quantity_int;
-                float cost = quantity_int * mrp;
-                cost = to_cost - cost;
-                String insert_query_pack = "UPDATE `medicine_import_details` SET `total_tablets`='"+tablets+"',`total_cost`='"+cost+"', `left_medicine`='"+left_tablets+"' WHERE batch_no = "+batch_no+"";
-                stmt.executeUpdate(insert_query_pack);
-            }
-            else{
-                int left_tablets = quantity_int / nu_tablets;
-                int number_sheet = quantity_int % nu_tablets;
-                number_sheet = nu_sheets - number_sheet;
-                int tablets = to_tablets - quantity_int;
-                float cost = quantity_int * mrp;
-                cost = to_cost - cost;
-                String insert_query_unit = "UPDATE `medicine_import_details` SET `number_of_sheets`='"+number_sheet+"',`total_tablets`='"+tablets+"',`total_cost`='"+cost+"', `left_medicine`='"+left_tablets+"' WHERE batch_no = "+batch_no+"";
-                stmt.executeUpdate(insert_query_unit);
-            }
+            float total_cost = quantity_int * mrp;
+            String insert_query = "INSERT INTO `sales`(`med_batch`, `patient_id`, `total_unit`, `total_cost`) VALUES ('"+batch_no+"','"+patient_id+"','"+quantity_int+"','"+total_cost+"')";
+            stmt.executeUpdate(insert_query);
         }
     }
 }
