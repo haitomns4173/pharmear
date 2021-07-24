@@ -42,6 +42,7 @@ public class medicine_management extends javax.swing.JFrame {
     static int medicine_quantity_check = 0;
     static int medicine_quntity_sheet_check = 0;
     static int number_of_tablets_bill = 0;
+    static int batch_no = 0;
     static int quantity_unit_pack = 0;
     
     static String total_medicine;
@@ -59,26 +60,24 @@ public class medicine_management extends javax.swing.JFrame {
         welcomIframe.setVisible(true);
         
         switch(loginPage.user_code){
-            case 0:
-                break;
-            case 1:
-                break;
-            case 2:
-                sales_button.setEnabled(false);
-                break;
-            case 3:
+            case 0 -> {
+            }
+            case 1 -> {
+            }
+            case 2 -> sales_button.setEnabled(false);
+            case 3 -> {
                 medicine_manage_button.setEnabled(false);
                 sales_button.setEnabled(false);
-                break;
-            case 4:
+            }
+            case 4 -> {
                 bill_button.setEnabled(false);
                 sales_button.setEnabled(false);
-                break;
-            default:
+            }
+            default -> {
                 bill_button.setEnabled(false);
                 medicine_manage_button.setEnabled(false);
                 sales_button.setEnabled(false);
-                break;
+            }
         }
     }
     
@@ -1150,14 +1149,14 @@ public class medicine_management extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Sn. No", "Medicine Name", "Quantity (Unit)", "Rate", "Sub-Total"
+                "Sn. No", "Medicine Name", "Batch", "Quantity", "Qunatity Type", "Rate", "Sub-Total"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Short.class, java.lang.String.class, java.lang.Short.class, java.lang.String.class, java.lang.Double.class
+                java.lang.Short.class, java.lang.String.class, java.lang.Short.class, java.lang.Short.class, java.lang.String.class, java.lang.String.class, java.lang.Double.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
+                false, false, false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -2974,7 +2973,7 @@ public class medicine_management extends javax.swing.JFrame {
                             bill_total_cost.setText(String.valueOf(String.format("%.1f", medicine_total_price)));
 
                             DefaultTableModel bill_table_add = (DefaultTableModel)bill_table.getModel();
-                            bill_table_add.addRow(new Object[]{medicine_bill_id++,medicine_name_input.getText(), medicine_quantity_input.getText(), medicine_price, medicine_total_cost});
+                            bill_table_add.addRow(new Object[]{medicine_bill_id++,medicine_name_input.getText(), batch_no, medicine_quantity_input.getText(), "Unit", medicine_price, medicine_total_cost});
 
                             medicine_name_input.setText(null);
                             medicine_quantity_input.setText(null);
@@ -2987,9 +2986,6 @@ public class medicine_management extends javax.swing.JFrame {
                     }
                     else{
                         if(medicine_quntity_sheet_check >= temp_quantity){
-                            int temp_quantity_pack_display = Integer.parseInt(medicine_quantity_input.getText());
-                            temp_quantity_pack_display = temp_quantity_pack_display * number_of_tablets_bill;
-
                             medicine_total_quantity = medicine_total_quantity + Integer.parseInt(medicine_quantity_input.getText());
                             bill_total_quantity.setText(String.valueOf(medicine_total_quantity));
 
@@ -2998,7 +2994,7 @@ public class medicine_management extends javax.swing.JFrame {
                             bill_total_cost.setText(String.valueOf(String.format("%.1f", medicine_total_price)));
 
                             DefaultTableModel bill_table_add = (DefaultTableModel)bill_table.getModel();
-                            bill_table_add.addRow(new Object[]{medicine_bill_id++,medicine_name_input.getText(), temp_quantity_pack_display, medicine_price, medicine_total_cost});
+                            bill_table_add.addRow(new Object[]{medicine_bill_id++,medicine_name_input.getText(), batch_no, medicine_quantity_input.getText(), "Pack", medicine_price, medicine_total_cost});
 
                             medicine_name_input.setText(null);
                             medicine_quantity_input.setText(null);
@@ -3035,8 +3031,6 @@ public class medicine_management extends javax.swing.JFrame {
         int rowCount = bill_table.getRowCount();
         int index_med_name = 0;
         String med_input_name[] = new String[10000];
-        
-        System.out.println(rowCount);
         
         while(rowCount != 0)
         {
@@ -3291,21 +3285,12 @@ public class medicine_management extends javax.swing.JFrame {
         user_wel_users_name.setText(mysql.users_name);
         user_wel_user_type.setText(mysql.user_type);
         
-        if(loginPage.user_code == 0)
-        {
-            user_image_label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mms/src/admin.png")));
-        }
-        else if(loginPage.user_code == 1){
-            user_image_label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mms/src/manager.png")));
-        }
-        else if(loginPage.user_code == 3){
-            user_image_label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mms/src/bill.png")));
-        }
-        else if(loginPage.user_code == 4){
-            user_image_label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mms/src/pharmacist.png")));
-        }
-        else{
-            user_image_label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mms/src/employee.png")));
+        switch (loginPage.user_code) {
+            case 0 -> user_image_label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mms/src/admin.png")));
+            case 1 -> user_image_label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mms/src/manager.png")));
+            case 3 -> user_image_label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mms/src/bill.png")));
+            case 4 -> user_image_label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mms/src/pharmacist.png")));
+            default -> user_image_label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mms/src/employee.png")));
         }
         
         uesr_details_name_input.setText(mysql.users_name);
@@ -3547,8 +3532,8 @@ public class medicine_management extends javax.swing.JFrame {
         String med_name, med_type, med_strength, med_sheet, med_tablet, med_box, med_expiry_month, med_expiry_year, med_mrp;
         String medicine_with_percentage;
         
-        int total_no_tablets = 0;
-        float total_cost_of_medicine = 0;
+        int total_no_tablets;
+        float total_cost_of_medicine;
 
         med_name = medMgr_name_input.getText();
         med_type = medMgr_type_input.getText();
@@ -4184,11 +4169,17 @@ public class medicine_management extends javax.swing.JFrame {
             case JOptionPane.NO_OPTION -> {
             }
             case JOptionPane.YES_OPTION -> {
-                if(patient_name_input.getText().isEmpty() || patient_address_input.getText().isEmpty() || paitent_contact_input.getText().isEmpty()){
-                    if(bill_table.getRowCount() == 0)
-                    {
-                        JOptionPane.showMessageDialog(null, "There are no items in the bill");
-                        medicine_name_input.requestFocus();
+               if(patient_name_input.getText().isEmpty() || patient_address_input.getText().isEmpty() || paitent_contact_input.getText().isEmpty()){
+                    if(bill_table.getRowCount() == 0){
+                        String value_medcine_temp = bill_table.getValueAt(0, 1).toString();
+                        if(value_medcine_temp.trim().length() == 0) {
+                            System.out.println(bill_table.getRowCount());
+                            JOptionPane.showMessageDialog(null, "There are no items in the bill");
+                            medicine_name_input.requestFocus();
+                        }
+                        else{
+                            bill_save();
+                        }
                     }
                     else{
                         JOptionPane.showMessageDialog(null, "Patient Details are Empty");
@@ -4196,7 +4187,7 @@ public class medicine_management extends javax.swing.JFrame {
                     }
                 }
                 else{
-                    
+                   bill_save();
                 }
             }
             case JOptionPane.CLOSED_OPTION -> {
@@ -4206,6 +4197,41 @@ public class medicine_management extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_bill_save_buttonMouseClicked
 
+    public void bill_save(){
+        String pat_name, pat_address, pat_contact;
+        int bill_table_rows;
+        String batch_no_bill[] = new String[10000];
+        String quantity_no_bill[] = new String[10000];
+        String quantity_type_add[] = new String[10000];
+
+        pat_name = patient_name_input.getText();
+        pat_address = patient_address_input.getText();
+        pat_contact = paitent_contact_input.getText();
+        
+        bill_table_rows = bill_table.getRowCount();
+        if(bill_table_rows == 0){
+            bill_table_rows++;
+        }
+        
+        for(int bill_each_rows = 1; bill_each_rows <= bill_table_rows; bill_each_rows++){
+            batch_no_bill[bill_each_rows-1] = bill_table.getValueAt(bill_each_rows-1, 2).toString();
+            quantity_no_bill[bill_each_rows-1] = bill_table.getValueAt(bill_each_rows-1, 3).toString();
+            quantity_type_add[bill_each_rows-1] = bill_table.getValueAt(bill_each_rows-1, 4).toString();
+        }
+        
+        try {
+            mysql.patient_add(pat_name, pat_address, pat_contact);
+        } catch (SQLException ex) {
+            Logger.getLogger(medicine_management.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        try {
+            mysql.medicine_reduce(batch_no_bill[0], quantity_no_bill[0], quantity_type_add[0]);
+        } catch (SQLException ex) {
+            Logger.getLogger(medicine_management.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

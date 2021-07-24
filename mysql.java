@@ -208,6 +208,7 @@ public class mysql {
         result = stmt.executeQuery(query);
         while(result.next()) {
             medicine_mrp_out_of_stock++;
+            medicine_management.batch_no = result.getInt(1);
             medicine_management.medicine_quntity_sheet_check = result.getInt(3);
             medicine_management.number_of_tablets_bill = result.getInt(4);
             medicine_management.medicine_price = result.getFloat(7);
@@ -284,6 +285,40 @@ public class mysql {
         }
         else{
             stmt.executeUpdate(delete_query_details);
+        }
+    }
+
+    public static void patient_add(String pat_name, String pat_address, String pat_contact) throws SQLException{
+        String insert_query = "INSERT INTO `patient_details`(`patient_name`, `patient_address`, `patient_contact`) VALUES ('"+pat_name+"','"+pat_address+"','"+pat_contact+"')";
+        stmt.executeUpdate(insert_query);
+    }
+    
+    public static void medicine_reduce(String batch_no, String quantity, String quantity_type) throws SQLException{
+        int nu_sheets = 0, nu_tablets = 0, to_tablets = 0;
+        float mrp = 0, to_cost = 0;
+        String search_query = "SELECT * FROM `medicine_import_details` WHERE `batch_no` = "+batch_no+"";
+        result = stmt.executeQuery(search_query); 
+        while(result.next()){
+            nu_sheets = result.getInt(3);
+            nu_tablets = result.getInt(4);
+            mrp = result.getFloat(7);
+            to_tablets = result.getInt(9);
+            to_cost = result.getFloat(10);
+        }
+        
+        if(quantity_type.equals("Pack")){
+            int quantity_int = Integer.parseInt(quantity);
+            int tablets = quantity_int * nu_tablets;
+            float cost = tablets * mrp;
+            quantity_int = nu_sheets - quantity_int;
+            tablets = to_tablets - tablets;
+            cost = to_cost - cost;
+            
+            String insert_query = "UPDATE `medicine_import_details` SET `number_of_sheets`='"+quantity_int+"',`total_tablets`='"+tablets+"',`total_cost`='"+cost+"' WHERE batch_no = "+batch_no+"";
+            stmt.executeUpdate(insert_query);
+        }
+        else{
+            System.out.print("I is going to be made");
         }
     }
 }
