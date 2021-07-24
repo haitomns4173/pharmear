@@ -4225,10 +4225,13 @@ public class medicine_management extends javax.swing.JFrame {
             Logger.getLogger(medicine_management.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-        try {
-            mysql.medicine_reduce(batch_no_bill[0], quantity_no_bill[0], quantity_type_add[0]);
-        } catch (SQLException ex) {
-            Logger.getLogger(medicine_management.class.getName()).log(Level.SEVERE, null, ex);
+        while(bill_table_rows <= 0){
+            try {
+                mysql.medicine_reduce(batch_no_bill[0], quantity_no_bill[0], quantity_type_add[0]);
+            } catch (SQLException ex) {
+                Logger.getLogger(medicine_management.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            bill_table_rows--;
         }
     }
     

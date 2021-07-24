@@ -306,8 +306,10 @@ public class mysql {
             to_cost = result.getFloat(10);
         }
         
+        int quantity_int = Integer.parseInt(quantity);
+        
         if(quantity_type.equals("Pack")){
-            int quantity_int = Integer.parseInt(quantity);
+            
             int tablets = quantity_int * nu_tablets;
             float cost = tablets * mrp;
             quantity_int = nu_sheets - quantity_int;
@@ -318,7 +320,24 @@ public class mysql {
             stmt.executeUpdate(insert_query);
         }
         else{
-            System.out.print("I is going to be made");
+            if(nu_tablets >= quantity_int){
+                int left_tablets = nu_tablets - quantity_int;
+                int tablets = to_tablets - quantity_int;
+                float cost = quantity_int * mrp;
+                cost = to_cost - cost;
+                String insert_query_pack = "UPDATE `medicine_import_details` SET `total_tablets`='"+tablets+"',`total_cost`='"+cost+"', `left_medicine`='"+left_tablets+"' WHERE batch_no = "+batch_no+"";
+                stmt.executeUpdate(insert_query_pack);
+            }
+            else{
+                int left_tablets = quantity_int / nu_tablets;
+                int number_sheet = quantity_int % nu_tablets;
+                number_sheet = nu_sheets - number_sheet;
+                int tablets = to_tablets - quantity_int;
+                float cost = quantity_int * mrp;
+                cost = to_cost - cost;
+                String insert_query_unit = "UPDATE `medicine_import_details` SET `number_of_sheets`='"+number_sheet+"',`total_tablets`='"+tablets+"',`total_cost`='"+cost+"', `left_medicine`='"+left_tablets+"' WHERE batch_no = "+batch_no+"";
+                stmt.executeUpdate(insert_query_unit);
+            }
         }
     }
 }
