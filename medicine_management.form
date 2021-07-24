@@ -1392,7 +1392,7 @@
                                   <Component id="patient_details_panel" alignment="0" max="32767" attributes="0"/>
                               </Group>
                           </Group>
-                          <EmptySpace pref="133" max="32767" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -1563,7 +1563,7 @@
                           <Table columnCount="5" rowCount="0">
                             <Column editable="false" title="Sn. No" type="java.lang.Short"/>
                             <Column editable="false" title="Medicine Name" type="java.lang.String"/>
-                            <Column editable="true" title="Quantity" type="java.lang.Short"/>
+                            <Column editable="false" title="Quantity (Unit)" type="java.lang.Short"/>
                             <Column editable="false" title="Rate" type="java.lang.String"/>
                             <Column editable="false" title="Sub-Total" type="java.lang.Double"/>
                           </Table>
@@ -2207,6 +2207,7 @@
                         <Property name="opaque" type="boolean" value="true"/>
                       </Properties>
                       <Events>
+                        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="bill_save_buttonMouseClicked"/>
                         <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="bill_save_buttonMouseEntered"/>
                         <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="bill_save_buttonMouseExited"/>
                       </Events>

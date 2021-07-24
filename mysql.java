@@ -208,7 +208,10 @@ public class mysql {
         result = stmt.executeQuery(query);
         while(result.next()) {
             medicine_mrp_out_of_stock++;
+            medicine_management.medicine_quntity_sheet_check = result.getInt(3);
+            medicine_management.number_of_tablets_bill = result.getInt(4);
             medicine_management.medicine_price = result.getFloat(7);
+            medicine_management.medicine_quantity_check = result.getInt(9); 
         }
     }
     
@@ -221,7 +224,7 @@ public class mysql {
             medicine_management.medicine_strength = result.getString(4);
             medicine_management.mecicine_no_pack = result.getInt(5);
             medicine_management.medicine_no_quantity = result.getInt(6);
-            medicine_management.medicien_mrp = result.getFloat(7);
+            medicine_management.medicine_mrp = result.getFloat(7);
         }
     }
     

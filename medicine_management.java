@@ -27,7 +27,7 @@ public class medicine_management extends javax.swing.JFrame {
     int medicine_total_quantity = 0;
     float medicine_total_price = 0;
     int bill_id_delete = 0;
-    
+
     static Set<String> medicine_name_auto = new TreeSet<String>();
     static Set<String> medicine_name_auto_med_mgr = new TreeSet<String>();
     static float medicine_price = 0;
@@ -38,7 +38,10 @@ public class medicine_management extends javax.swing.JFrame {
     
     static String medicine_unit, medicine_strength;
     static int mecicine_no_pack, medicine_no_quantity;
-    static float medicien_mrp;
+    static float medicine_mrp;
+    static int medicine_quantity_check = 0;
+    static int medicine_quntity_sheet_check = 0;
+    static int number_of_tablets_bill = 0;
     static int quantity_unit_pack = 0;
     
     static String total_medicine;
@@ -1147,14 +1150,14 @@ public class medicine_management extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Sn. No", "Medicine Name", "Quantity", "Rate", "Sub-Total"
+                "Sn. No", "Medicine Name", "Quantity (Unit)", "Rate", "Sub-Total"
             }
         ) {
             Class[] types = new Class [] {
                 java.lang.Short.class, java.lang.String.class, java.lang.Short.class, java.lang.String.class, java.lang.Double.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, true, false, false
+                false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -1502,6 +1505,9 @@ public class medicine_management extends javax.swing.JFrame {
         bill_save_button.setContentAreaFilled(false);
         bill_save_button.setOpaque(true);
         bill_save_button.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                bill_save_buttonMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 bill_save_buttonMouseEntered(evt);
             }
@@ -1613,9 +1619,9 @@ public class medicine_management extends javax.swing.JFrame {
                 .addGroup(billIframeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(command_center_pane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(billIframeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(bill_input_panel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE)
+                        .addComponent(bill_input_panel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                         .addComponent(patient_details_panel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap(133, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         cardPane.add(billIframe, "card3");
@@ -2937,48 +2943,114 @@ public class medicine_management extends javax.swing.JFrame {
     private void add_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_buttonActionPerformed
         String medicine_with_under;
         medicine_with_under = medicine_name_input.getText().replace(' ', '%');
+        boolean med_input_check;
         
-        try {
-            mysql.medicine_mrp(medicine_with_under);
-        }
-        catch (SQLException database_error_message) {
-            JOptionPane.showMessageDialog(null, database_error_message);
-        }
+        med_input_check = bill_table_entry_check(medicine_name_input.getText());
         
-        if(mysql.medicine_mrp_result != 0 && mysql.medicine_mrp_out_of_stock != 0){
-            if(medicine_name_input.getText().trim().isEmpty() || medicine_quantity_input.getText().trim().isEmpty())
-            {
-                add_button.setEnabled(false);
-                medicine_name_input.requestFocus();
+        if(!med_input_check){
+            try {
+                mysql.medicine_mrp(medicine_with_under);
+            }
+            catch (SQLException database_error_message) {
+                JOptionPane.showMessageDialog(null, database_error_message);
+            }
+
+            if(mysql.medicine_mrp_result != 0 && mysql.medicine_mrp_out_of_stock != 0){
+                if(medicine_name_input.getText().trim().isEmpty() || medicine_quantity_input.getText().trim().isEmpty())
+                {
+                    add_button.setEnabled(false);
+                    medicine_name_input.requestFocus();
+                }
+                else{
+                    int temp_quantity = Integer.parseInt(medicine_quantity_input.getText());
+
+                    if(quantity_unit_pack == 0){
+                        if(medicine_quantity_check >= temp_quantity){
+
+                            medicine_total_quantity = medicine_total_quantity + Integer.parseInt(medicine_quantity_input.getText());
+                            bill_total_quantity.setText(String.valueOf(medicine_total_quantity));
+                            float medicine_total_cost = Float.parseFloat(medicine_quantity_input.getText()) * medicine_price;
+                            medicine_total_price = medicine_total_price + medicine_total_cost;
+                            bill_total_cost.setText(String.valueOf(String.format("%.1f", medicine_total_price)));
+
+                            DefaultTableModel bill_table_add = (DefaultTableModel)bill_table.getModel();
+                            bill_table_add.addRow(new Object[]{medicine_bill_id++,medicine_name_input.getText(), medicine_quantity_input.getText(), medicine_price, medicine_total_cost});
+
+                            medicine_name_input.setText(null);
+                            medicine_quantity_input.setText(null);
+                            medicine_name_input.requestFocus();
+                        }
+                        else{
+                        JOptionPane.showMessageDialog(null, medicine_name_input.getText()+" has no only "+medicine_quantity_check+" number of unit.\nYou can not input more than that!");
+                        medicine_quantity_input.setText("");
+                        }
+                    }
+                    else{
+                        if(medicine_quntity_sheet_check >= temp_quantity){
+                            int temp_quantity_pack_display = Integer.parseInt(medicine_quantity_input.getText());
+                            temp_quantity_pack_display = temp_quantity_pack_display * number_of_tablets_bill;
+
+                            medicine_total_quantity = medicine_total_quantity + Integer.parseInt(medicine_quantity_input.getText());
+                            bill_total_quantity.setText(String.valueOf(medicine_total_quantity));
+
+                            float medicine_total_cost = Float.parseFloat(medicine_quantity_input.getText()) * number_of_tablets_bill * medicine_price;
+                            medicine_total_price = medicine_total_price + medicine_total_cost;
+                            bill_total_cost.setText(String.valueOf(String.format("%.1f", medicine_total_price)));
+
+                            DefaultTableModel bill_table_add = (DefaultTableModel)bill_table.getModel();
+                            bill_table_add.addRow(new Object[]{medicine_bill_id++,medicine_name_input.getText(), temp_quantity_pack_display, medicine_price, medicine_total_cost});
+
+                            medicine_name_input.setText(null);
+                            medicine_quantity_input.setText(null);
+                            medicine_name_input.requestFocus();
+                        }
+                        else{
+                        JOptionPane.showMessageDialog(null, medicine_name_input.getText()+" has no only "+medicine_quntity_sheet_check+" number of pack.\nYou can not input more than that!");
+                        medicine_quantity_input.setText("");
+                        }
+                    }
+                }
             }
             else{
-                medicine_total_quantity = medicine_total_quantity + Integer.parseInt(medicine_quantity_input.getText());
-                bill_total_quantity.setText(String.valueOf(medicine_total_quantity));
-                float medicine_total_cost = Float.parseFloat(medicine_quantity_input.getText()) * medicine_price;
-                medicine_total_price = medicine_total_price + medicine_total_cost;
-                bill_total_cost.setText(String.valueOf(String.format("%.1f", medicine_total_price)));
-
-                DefaultTableModel bill_table_add = (DefaultTableModel)bill_table.getModel();
-                bill_table_add.addRow(new Object[]{medicine_bill_id++,medicine_name_input.getText(), medicine_quantity_input.getText(), medicine_price, medicine_total_cost});
-
-                medicine_name_input.setText(null);
-                medicine_quantity_input.setText(null);
+                if(mysql.medicine_mrp_result == 0){
+                    JOptionPane.showMessageDialog(null, "    The Medicine You Entered is was not found.\n Add the medicine in the Medicine Manage Page.\n           Then make the bill.");
+                }
+                else{
+                    JOptionPane.showMessageDialog(null, " The Medicine you entered is out of stock.");
+                }
+                medicine_name_input.setText("");
+                medicine_quantity_input.setText("");
                 medicine_name_input.requestFocus();
             }
         }
         else{
-            if(mysql.medicine_mrp_result == 0){
-                JOptionPane.showMessageDialog(null, "    The Medicine You Entered is was not found.\n Add the medicine in the Medicine Manage Page.\n           Then make the bill.");
-            }
-            else{
-                JOptionPane.showMessageDialog(null, " The Medicine you entered is out of stock.");
-            }
+            JOptionPane.showMessageDialog(null, "You have already entered "+medicine_name_input.getText());
             medicine_name_input.setText("");
             medicine_quantity_input.setText("");
             medicine_name_input.requestFocus();
         }
     }//GEN-LAST:event_add_buttonActionPerformed
 
+    public boolean bill_table_entry_check(String medicine_name){
+        int rowCount = bill_table.getRowCount();
+        int index_med_name = 0;
+        String med_input_name[] = new String[10000];
+        
+        System.out.println(rowCount);
+        
+        while(rowCount != 0)
+        {
+            TableModel bill_med_find = bill_table.getModel();
+            med_input_name[index_med_name] = bill_med_find.getValueAt(rowCount-1, 1).toString();
+            if(med_input_name[index_med_name].equals(medicine_name)){
+                return true;
+            }
+            index_med_name++;
+            rowCount--;
+        }
+        return false;
+    }
+    
     @SuppressWarnings("empty-statement")
     private void medicine_name_inputKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_medicine_name_inputKeyReleased
         medicine_name_input.setText(medicine_name_input.getText().toUpperCase());
@@ -3626,7 +3698,7 @@ public class medicine_management extends javax.swing.JFrame {
                 medMgr_strength_input.setText(medicine_strength);
                 medMgr_no_sheet_input.setText(String.valueOf(mecicine_no_pack));
                 medMgr_no_tablet_input.setText(String.valueOf(medicine_no_quantity));
-                medMgr_mrp_input.setText(String.valueOf(medicien_mrp));
+                medMgr_mrp_input.setText(String.valueOf(medicine_mrp));
                 medMgr_no_box_input.requestFocus();
             }
         }
@@ -4103,6 +4175,36 @@ public class medicine_management extends javax.swing.JFrame {
             user_shopDtr_update_button.doClick();
         }
     }//GEN-LAST:event_vat_no_inputKeyPressed
+
+    private void bill_save_buttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bill_save_buttonMouseClicked
+        int bill_save_confirm = JOptionPane.showConfirmDialog(null, "Are you sure you want to Save?", "Medicine Bill",
+        JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+
+        switch (bill_save_confirm) {
+            case JOptionPane.NO_OPTION -> {
+            }
+            case JOptionPane.YES_OPTION -> {
+                if(patient_name_input.getText().isEmpty() || patient_address_input.getText().isEmpty() || paitent_contact_input.getText().isEmpty()){
+                    if(bill_table.getRowCount() == 0)
+                    {
+                        JOptionPane.showMessageDialog(null, "There are no items in the bill");
+                        medicine_name_input.requestFocus();
+                    }
+                    else{
+                        JOptionPane.showMessageDialog(null, "Patient Details are Empty");
+                        patient_name_input.requestFocus();
+                    }
+                }
+                else{
+                    
+                }
+            }
+            case JOptionPane.CLOSED_OPTION -> {
+            }
+            default -> {
+            }
+        }
+    }//GEN-LAST:event_bill_save_buttonMouseClicked
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
