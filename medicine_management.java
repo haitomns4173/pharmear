@@ -2,11 +2,15 @@ package mms;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.Date;
 import javax.swing.*;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Set;
 import java.util.TreeSet;
 import java.util.logging.Level;
@@ -25,13 +29,15 @@ import org.jfree.data.category.DefaultCategoryDataset;
 public class medicine_management extends javax.swing.JFrame {
     int medicine_bill_id = 1;
     String patient_name, patient_address, patient_contact;
-    int medicine_total_quantity = 0;
-    float medicine_total_price = 0;
-    int bill_id_delete = 0;
-
+    static float medicine_price = 0;
+    static int batch_no = 0;
+    int bill_saved = 0;
+    
+    static int total_quantity_print = 0;
+    static float total_cost_print = 0;
+    
     static Set<String> medicine_name_auto = new TreeSet<String>();
     static Set<String> medicine_name_auto_med_mgr = new TreeSet<String>();
-    static float medicine_price = 0;
     static String expiry_cur_year, expiry_cur_month;
     static int duplicate_med_id;
     static String med_id_delete;
@@ -40,11 +46,6 @@ public class medicine_management extends javax.swing.JFrame {
     static String medicine_unit, medicine_strength;
     static int mecicine_no_pack, medicine_no_quantity;
     static float medicine_mrp;
-    static int medicine_quantity_check = 0;
-    static int medicine_quntity_sheet_check = 0;
-    static int number_of_tablets_bill = 0;
-    static int batch_no = 0;
-    static int quantity_unit_pack = 0;
     
     static String total_medicine;
     static String total_quantity;
@@ -188,8 +189,6 @@ public class medicine_management extends javax.swing.JFrame {
         quantity_label = new javax.swing.JLabel();
         medicine_quantity_input = new javax.swing.JTextField();
         medicine_input_error = new javax.swing.JLabel();
-        no_of_unit_toogle = new javax.swing.JToggleButton();
-        no_of_unit_status = new javax.swing.JLabel();
         add_button = new javax.swing.JButton();
         clear_button = new javax.swing.JButton();
         command_center_pane = new javax.swing.JPanel();
@@ -1150,11 +1149,11 @@ public class medicine_management extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Sn. No", "Medicine Name", "Quantity", "Qunatity Type", "Rate", "Sub-Total"
+                "Sn. No", "Batch Number", "Medicine Name", "Quantity", "Rate", "Sub-Total"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Short.class, java.lang.String.class, java.lang.Short.class, java.lang.String.class, java.lang.String.class, java.lang.Double.class
+                java.lang.Short.class, java.lang.Integer.class, java.lang.String.class, java.lang.Short.class, java.lang.String.class, java.lang.Double.class
             };
             boolean[] canEdit = new boolean [] {
                 false, false, false, false, false, false
@@ -1172,9 +1171,8 @@ public class medicine_management extends javax.swing.JFrame {
         bill_tabel_scrollpanel.setViewportView(bill_table);
         if (bill_table.getColumnModel().getColumnCount() > 0) {
             bill_table.getColumnModel().getColumn(0).setPreferredWidth(2);
-            bill_table.getColumnModel().getColumn(1).setPreferredWidth(20);
-            bill_table.getColumnModel().getColumn(2).setPreferredWidth(2);
-            bill_table.getColumnModel().getColumn(3).setPreferredWidth(8);
+            bill_table.getColumnModel().getColumn(2).setPreferredWidth(20);
+            bill_table.getColumnModel().getColumn(3).setPreferredWidth(2);
         }
 
         bill_total_panel.setBackground(new java.awt.Color(25, 130, 196));
@@ -1249,11 +1247,6 @@ public class medicine_management extends javax.swing.JFrame {
         patient_address_label.setForeground(new java.awt.Color(255, 255, 255));
         patient_address_label.setText("Patient Address");
 
-        patient_address_input.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                patient_address_inputActionPerformed(evt);
-            }
-        });
         patient_address_input.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 patient_address_inputKeyPressed(evt);
@@ -1393,21 +1386,6 @@ public class medicine_management extends javax.swing.JFrame {
         medicine_input_error.setForeground(new java.awt.Color(255, 255, 255));
         medicine_input_error.setText("  ");
 
-        no_of_unit_toogle.setBackground(new java.awt.Color(255, 159, 28));
-        no_of_unit_toogle.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        no_of_unit_toogle.setForeground(new java.awt.Color(255, 255, 255));
-        no_of_unit_toogle.setText("Number of Unit");
-        no_of_unit_toogle.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        no_of_unit_toogle.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                no_of_unit_toogleStateChanged(evt);
-            }
-        });
-
-        no_of_unit_status.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        no_of_unit_status.setForeground(new java.awt.Color(255, 255, 255));
-        no_of_unit_status.setText("ON");
-
         add_button.setBackground(new java.awt.Color(138, 201, 38));
         add_button.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
         add_button.setForeground(new java.awt.Color(255, 255, 255));
@@ -1450,16 +1428,13 @@ public class medicine_management extends javax.swing.JFrame {
                             .addComponent(medicine_name_input)
                             .addComponent(medicine_quantity_input)
                             .addGroup(bill_input_panelLayout.createSequentialGroup()
-                                .addGroup(bill_input_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(bill_input_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(medicine_input_error, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addGroup(bill_input_panelLayout.createSequentialGroup()
                                         .addComponent(add_button, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(clear_button, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(medicine_input_error)
-                                    .addComponent(no_of_unit_toogle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(no_of_unit_status)
-                                .addGap(0, 417, Short.MAX_VALUE)))))
+                                        .addComponent(clear_button, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(0, 447, Short.MAX_VALUE)))))
                 .addGap(25, 25, 25))
         );
         bill_input_panelLayout.setVerticalGroup(
@@ -1478,13 +1453,9 @@ public class medicine_management extends javax.swing.JFrame {
                     .addComponent(quantity_label)
                     .addGroup(bill_input_panelLayout.createSequentialGroup()
                         .addComponent(medicine_quantity_input, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(18, 18, 18)
                         .addComponent(medicine_input_error)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(bill_input_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(no_of_unit_toogle)
-                            .addComponent(no_of_unit_status))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(22, 22, 22)
                         .addGroup(bill_input_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(add_button, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(clear_button, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))))
@@ -1539,6 +1510,9 @@ public class medicine_management extends javax.swing.JFrame {
         bill_print_button.setContentAreaFilled(false);
         bill_print_button.setOpaque(true);
         bill_print_button.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                bill_print_buttonMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 bill_print_buttonMouseEntered(evt);
             }
@@ -2946,6 +2920,7 @@ public class medicine_management extends javax.swing.JFrame {
         }
         else{
             String medicine_with_under;
+            float total_price;
             medicine_with_under = medicine_name_input.getText().replace(' ', '%');
             int quantity_int = Integer.parseInt(medicine_quantity_input.getText());
 
@@ -2962,9 +2937,17 @@ public class medicine_management extends javax.swing.JFrame {
                 
                 if(!(mysql.medicine_id_result == 0)){
                     if(medicine_mrp_out_of_stock==1){
-                        if(mysql.left_stock>quantity_int){
+                        if(mysql.left_stock > quantity_int){
+                            total_price = quantity_int * medicine_price;
+                            
                             DefaultTableModel bill_table_add = (DefaultTableModel)bill_table.getModel();
-                            bill_table_add.addRow(new Object[]{medicine_bill_id++, medicine_name_input.getText(), medicine_quantity_input.getText(), "Pack", medicine_price, 0});
+                            bill_table_add.addRow(new Object[]{medicine_bill_id++, mysql.batch_no_find ,medicine_name_input.getText(), medicine_quantity_input.getText(), medicine_price, total_price});
+                            
+                            total_quantity_print= quantity_int + total_quantity_print;
+                            total_cost_print = total_price + total_cost_print;
+                            
+                            bill_total_quantity.setText(String.valueOf(total_quantity_print));
+                            bill_total_cost.setText(String.valueOf(total_cost_print));
                         }
                         else{
                             JOptionPane.showMessageDialog(null, medicine_name_input.getText()+" only has "+mysql.left_stock+".\n You can not input more than "+mysql.left_stock);
@@ -4024,31 +4007,18 @@ public class medicine_management extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_patient_name_inputKeyPressed
 
-    private void patient_address_inputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_patient_address_inputActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_patient_address_inputActionPerformed
-
     private void patient_details_saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_patient_details_saveActionPerformed
-        patient_name = patient_name_input.getText();
-        patient_address = patient_address_input.getText();
-        patient_contact = paitent_contact_input.getText();
-        
-        patient_input_error.setText("SAVED");
-        medicine_name_input.requestFocus();
-    }//GEN-LAST:event_patient_details_saveActionPerformed
+        if(patient_name_input.getText().isEmpty() || patient_address_input.getText().isEmpty() || paitent_contact_input.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Patient Details are Empty.");
+        }else{
+            patient_name = patient_name_input.getText();
+            patient_address = patient_address_input.getText();
+            patient_contact = paitent_contact_input.getText();
 
-    private void no_of_unit_toogleStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_no_of_unit_toogleStateChanged
-        if(no_of_unit_toogle.isSelected()){
-            no_of_unit_status.setText("OFF");
-            quantity_label.setText("Quantity (Pack)");
-            quantity_unit_pack = 1;
-        }
-        else{
-            no_of_unit_status.setText("ON");
-            quantity_label.setText("Quantity (Unit)");
-            quantity_unit_pack = 0;
-        }
-    }//GEN-LAST:event_no_of_unit_toogleStateChanged
+            patient_input_error.setText("SAVED");
+            medicine_name_input.requestFocus();
+        } 
+    }//GEN-LAST:event_patient_details_saveActionPerformed
 
     private void clear_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clear_buttonActionPerformed
         medicine_name_input.setText("");
@@ -4158,12 +4128,72 @@ public class medicine_management extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_bill_save_buttonMouseClicked
 
+    private void bill_print_buttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bill_print_buttonMouseClicked
+        if(bill_saved == 1){
+            if(patient_name == null){
+                JOptionPane.showMessageDialog(null, "You have not saved the patient name");
+            }
+            else{
+                int bill_table_rows;
+                String med_name_bill[] = new String[10000];
+                String med_quantity_bill[] = new String[10000];
+                String med_rate_bill[] = new String[10000];
+                String med_cost_bill[] = new String[10000];
+
+                String value_medcine_temp = bill_table.getValueAt(0, 1).toString();
+                if(value_medcine_temp == null){}
+                else{
+                    bill_table_rows = bill_table.getRowCount();
+                    if(bill_table_rows == 0){
+                        bill_table_rows++;
+                    }
+                    
+                    DateTimeFormatter tf = DateTimeFormatter.ofPattern("HH_mm_ss");  
+                    LocalDateTime now = LocalDateTime.now();
+
+                    DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");  
+                    LocalDateTime date_current = LocalDateTime.now();   
+
+                    FileWriter bill_print;
+                    try {
+                        bill_print = new FileWriter("src/mms/bill_print/"+patient_name+"_"+tf.format(now)+".doc");
+                        bill_print.write(mysql.company_name);
+                        bill_print.write("\n"+mysql.company_address);
+                        bill_print.write("\n"+mysql.company_phoneNo);
+                        bill_print.write("\n\n\nVAT No."+mysql.company_vatNo);
+                        bill_print.write("\nInvoice NO.\t\tTransaction Date : "+dtf.format(date_current));
+                        bill_print.write("\n\nPatient Name     : "+patient_name);
+                        bill_print.write("\nPatient Adddress : "+patient_address);
+                        bill_print.write("\nPatient Contact  : "+patient_contact);
+                        bill_print.write("\n\n+---+------------------------------------------------+--------+----+----+");
+                        bill_print.write("\n|Sn.|Medicine Name                                   |Quantity|Rate|Cost|");
+                        for(int bill_each_rows = 1; bill_each_rows <= bill_table_rows; bill_each_rows++){
+                            med_name_bill[bill_each_rows-1] = bill_table.getValueAt(bill_each_rows-1, 2).toString();
+                            med_quantity_bill[bill_each_rows-1] = bill_table.getValueAt(bill_each_rows-1, 3).toString();
+                            med_rate_bill[bill_each_rows-1] = bill_table.getValueAt(bill_each_rows-1, 4).toString();
+                            med_cost_bill[bill_each_rows-1] = bill_table.getValueAt(bill_each_rows-1, 5).toString();
+                            bill_print.write("\n|"+bill_each_rows+"|"+med_name_bill[bill_each_rows-1]+"|"+med_quantity_bill[bill_each_rows-1]+"|"+med_rate_bill[bill_each_rows-1]+"|"+med_cost_bill[bill_each_rows-1]+"|");
+                        }
+                        bill_print.write("\n+---+------------------------------------------------+--------+----+----+");
+                        bill_print.write("\n                                          Grand Total|"+total_cost_print+"|");
+                        bill_print.write("\n                                                     +--------+----+----+");
+                        bill_print.close();
+                    } catch (IOException ex) {
+                        Logger.getLogger(medicine_management.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
+            }
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "Bill is not saved. Save the bill and then print it!");
+        }
+    }//GEN-LAST:event_bill_print_buttonMouseClicked
+
     public void bill_save(){
         String pat_name, pat_address, pat_contact;
         int bill_table_rows;
         String batch_no_bill[] = new String[10000];
         String quantity_no_bill[] = new String[10000];
-        String quantity_type_add[] = new String[10000];
 
         pat_name = patient_name_input.getText();
         pat_address = patient_address_input.getText();
@@ -4174,26 +4204,22 @@ public class medicine_management extends javax.swing.JFrame {
             bill_table_rows++;
         }
         
-        for(int bill_each_rows = 1; bill_each_rows <= bill_table_rows; bill_each_rows++){
-            batch_no_bill[bill_each_rows-1] = bill_table.getValueAt(bill_each_rows-1, 2).toString();
-            quantity_no_bill[bill_each_rows-1] = bill_table.getValueAt(bill_each_rows-1, 3).toString();
-            quantity_type_add[bill_each_rows-1] = bill_table.getValueAt(bill_each_rows-1, 4).toString();
-        }
-        
         try {
             mysql.patient_add(pat_name, pat_address, pat_contact);
         } catch (SQLException ex) {
             Logger.getLogger(medicine_management.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-        while(bill_table_rows <= 0){
+        for(int bill_each_rows = 1; bill_each_rows <= bill_table_rows; bill_each_rows++){
+            batch_no_bill[bill_each_rows-1] = bill_table.getValueAt(bill_each_rows-1, 1).toString();
+            quantity_no_bill[bill_each_rows-1] = bill_table.getValueAt(bill_each_rows-1, 3).toString();
             try {
-                mysql.medicine_sales(batch_no_bill[0], quantity_no_bill[0], quantity_type_add[0]);
+                mysql.medicine_sales(batch_no_bill[bill_each_rows-1], quantity_no_bill[bill_each_rows-1]);
             } catch (SQLException ex) {
                 Logger.getLogger(medicine_management.class.getName()).log(Level.SEVERE, null, ex);
             }
-            bill_table_rows--;
         }
+        bill_saved = 1;
     }
     
     public static void main(String args[]) {
@@ -4317,8 +4343,6 @@ public class medicine_management extends javax.swing.JFrame {
     private javax.swing.JLabel medicine_name_label;
     private javax.swing.JTextField medicine_quantity_input;
     private javax.swing.JLabel medinine_label;
-    private javax.swing.JLabel no_of_unit_status;
-    private javax.swing.JToggleButton no_of_unit_toogle;
     private javax.swing.JLabel out_of_stock_icon;
     private javax.swing.JLabel out_of_stock_icon_user;
     private javax.swing.JLabel out_of_stock_label;

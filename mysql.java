@@ -19,6 +19,7 @@ public class mysql {
     static String user_type;
     
     static int medicine_id_result = 0;
+    static int batch_no_find = 0;
     static int medicine_mrp_out_of_stock = 0;
     static int left_stock = 0;
     
@@ -239,7 +240,7 @@ public class mysql {
         }
         
         int stocks_id = 0;
-        int batch_no = 0; 
+         
         String query_stock;
         index_temp = 0;
         
@@ -248,7 +249,7 @@ public class mysql {
             result = stmt.executeQuery(query_stock);
             while(result.next()) {
                 stocks_id = result.getInt(1);
-                batch_no = result.getInt(2);
+                batch_no_find = result.getInt(2);
                 left_stock = result.getInt(3);
             }
             if(stocks_id!=0){
@@ -340,14 +341,14 @@ public class mysql {
         stmt.executeUpdate(insert_query);
         
         stmt = connect.createStatement();
-        String query = "SELECT * FROM `patient_details` WHERE ORDER BY id DESC LIMIT 1";
+        String query = "SELECT * FROM `patient_details` ORDER BY id DESC LIMIT 1";
         result = stmt.executeQuery(query);
         while(result.next()) {
             patient_id = result.getInt(1);
         }
     }
     
-    public static void medicine_sales(String batch_no, String quantity, String quantity_type) throws SQLException{
+    public static void medicine_sales(String batch_no, String quantity) throws SQLException{
         int nu_tablets = 0;
         float mrp = 0;
         
@@ -359,18 +360,13 @@ public class mysql {
         }
         
         int quantity_int = Integer.parseInt(quantity);
+        int total_quantity = quantity_int * nu_tablets;
+        float total_cost = total_quantity * mrp;
+
+        String insert_query = "INSERT INTO `sales`(`med_batch`, `patient_id`, `total_unit`, `total_cost`) VALUES ('"+batch_no+"','"+patient_id+"','"+total_quantity+"','"+total_cost+"')";
+        stmt.executeUpdate(insert_query);
         
-        if(quantity_type.equals("Pack")){
-            int total_quantity = quantity_int * nu_tablets;
-            float total_cost = total_quantity * mrp;
-            
-            String insert_query = "INSERT INTO `sales`(`med_batch`, `patient_id`, `total_unit`, `total_cost`) VALUES ('"+batch_no+"','"+patient_id+"','"+total_quantity+"','"+total_cost+"')";
-            stmt.executeUpdate(insert_query);
-        }
-        else{
-            float total_cost = quantity_int * mrp;
-            String insert_query = "INSERT INTO `sales`(`med_batch`, `patient_id`, `total_unit`, `total_cost`) VALUES ('"+batch_no+"','"+patient_id+"','"+quantity_int+"','"+total_cost+"')";
-            stmt.executeUpdate(insert_query);
-        }
+        String update_stocks = "UPDATE `medicine_stock` SET `sold_stock`='"+total_quantity+"',`sold_cost`='"+total_cost+"' WHERE med_batch = "+batch_no+"";
+        stmt.executeUpdate(update_stocks);
     }
 }
