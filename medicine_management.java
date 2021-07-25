@@ -14,6 +14,7 @@ import java.util.logging.Logger;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
+import static mms.mysql.medicine_mrp_out_of_stock;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartFrame;
 import org.jfree.chart.JFreeChart;
@@ -2946,23 +2947,36 @@ public class medicine_management extends javax.swing.JFrame {
         else{
             String medicine_with_under;
             medicine_with_under = medicine_name_input.getText().replace(' ', '%');
+            int quantity_int = Integer.parseInt(medicine_quantity_input.getText());
 
             boolean med_input_check;
             med_input_check = bill_table_entry_check(medicine_name_input.getText());
 
             if(!med_input_check){
                 try {
-                    mysql.medicine_mrp(medicine_with_under);
+                    mysql.medicine_mrp(medicine_with_under, quantity_int);
                 }
                 catch (SQLException database_error_message) {
                     JOptionPane.showMessageDialog(null, database_error_message);
                 }
                 
                 if(!(mysql.medicine_id_result == 0)){
-                    
-                    DefaultTableModel bill_table_add = (DefaultTableModel)bill_table.getModel();
-                    bill_table_add.addRow(new Object[]{medicine_bill_id++, medicine_name_input.getText(), 0, medicine_quantity_input.getText(), "Pack", medicine_price, 0});
-                
+                    if(medicine_mrp_out_of_stock==1){
+                        if(mysql.left_stock>quantity_int){
+                            DefaultTableModel bill_table_add = (DefaultTableModel)bill_table.getModel();
+                            bill_table_add.addRow(new Object[]{medicine_bill_id++, medicine_name_input.getText(), medicine_quantity_input.getText(), "Pack", medicine_price, 0});
+                        }
+                        else{
+                            JOptionPane.showMessageDialog(null, medicine_name_input.getText()+" only has "+mysql.left_stock+".\n You can not input more than "+mysql.left_stock);
+                            medicine_quantity_input.setText("");
+                        }
+                    }
+                    else{
+                        JOptionPane.showMessageDialog(null, "    The Medicine You Entered is out of stock.\n Add the medicine in the Medicine Manage Page.\n                      Then make the bill.");
+                        medicine_name_input.setText("");
+                        medicine_quantity_input.setText("");
+                        medicine_name_input.requestFocus();
+                    }
                 }
                 else{
                     JOptionPane.showMessageDialog(null, "    The Medicine You Entered is was not found.\n Add the medicine in the Medicine Manage Page.\n                      Then make the bill.");

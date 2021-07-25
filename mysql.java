@@ -20,6 +20,7 @@ public class mysql {
     
     static int medicine_id_result = 0;
     static int medicine_mrp_out_of_stock = 0;
+    static int left_stock = 0;
     
     static int patient_id;
     
@@ -217,20 +218,49 @@ public class mysql {
         stmt.executeUpdate(stocks_query);
     }
     
-    public static void medicine_mrp(String medicine_with_under) throws SQLException{
+    public static void medicine_mrp(String medicine_with_under,int quantity) throws SQLException{
         stmt = connect.createStatement();
         String query_id = "SELECT * FROM `medicine_import` WHERE `medicine_name` LIKE '%"+medicine_with_under+"%'";
         result = stmt.executeQuery(query_id);
         while(result.next()) {
             medicine_id_result = result.getInt(1);
         }
-
+        
+        int temp_med_batch[] = new int[10000];
+        float temp_med_mrp[] = new float[10000];
+        int index_temp = 0 ;
         stmt = connect.createStatement();
-        String query = "SELECT * FROM `medicine_import_details` WHERE medicine_id = "+medicine_id_result+" ORDER BY batch_no ASC LIMIT 1";
+        String query = "SELECT * FROM `medicine_import_details` WHERE medicine_id = "+medicine_id_result+"";
         result = stmt.executeQuery(query);
         while(result.next()) {
-            medicine_management.medicine_price = result.getFloat(7);
+            temp_med_batch[index_temp] = result.getInt(1);
+            temp_med_mrp[index_temp] = result.getFloat(7);
+            index_temp++;
         }
+        
+        int stocks_id = 0;
+        int batch_no = 0; 
+        String query_stock;
+        index_temp = 0;
+        
+        for(int med_batch_item : temp_med_batch){           
+            query_stock = "SELECT id, med_batch, total_stock-sold_stock as left_stock FROM medicine_stock WHERE total_stock != sold_stock && med_batch = "+med_batch_item+"";
+            result = stmt.executeQuery(query_stock);
+            while(result.next()) {
+                stocks_id = result.getInt(1);
+                batch_no = result.getInt(2);
+                left_stock = result.getInt(3);
+            }
+            if(stocks_id!=0){
+                medicine_management.medicine_price = temp_med_mrp[index_temp]; 
+                medicine_mrp_out_of_stock = 1;
+                break;
+            }
+            else{
+                medicine_mrp_out_of_stock = 0;
+            }
+            index_temp++;
+        }  
     }
     
     public static void medicine_details(String medicine_search) throws SQLException{
