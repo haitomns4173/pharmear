@@ -68,14 +68,14 @@ public class mysql {
         }
         
         stmt = connect.createStatement();
-        String query_quantity = "SELECT SUM(total_tablets) FROM medicine_import_details;";
+        String query_quantity = "SELECT SUM(total_stock-sold_stock) as left_stock from medicine_stock;";
         result = stmt.executeQuery(query_quantity);
         while(result.next()) {
             medicine_management.total_quantity = result.getString(1);
         }
         
         stmt = connect.createStatement();
-        String query_cost = "select sum(cast(total_cost as decimal(10,2))) from medicine_import_details";
+        String query_cost = "SELECT SUM(total_cost-sold_cost) as left_stock from medicine_stock;";
         result = stmt.executeQuery(query_cost);
         while(result.next()) {
             medicine_management.total_cost = result.getString(1);
@@ -89,7 +89,7 @@ public class mysql {
         }
         
         stmt = connect.createStatement();
-        String query_out = "SELECT count(batch_no) FROM `medicine_import_details` WHERE total_tablets = 0;";
+        String query_out = "SELECT sum(total_stock=sold_stock) FROM `medicine_stock`";
         result = stmt.executeQuery(query_out);
         while(result.next()) {
             medicine_management.total_out = result.getString(1);

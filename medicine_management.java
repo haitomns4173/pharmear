@@ -112,7 +112,6 @@ public class medicine_management extends javax.swing.JFrame {
         icon_title = new javax.swing.JLabel();
         title_pharmaer = new javax.swing.JLabel();
         close_operation = new javax.swing.JButton();
-        maximize = new javax.swing.JButton();
         minimize = new javax.swing.JButton();
         cardPane = new javax.swing.JPanel();
         welcomIframe = new javax.swing.JInternalFrame();
@@ -441,8 +440,12 @@ public class medicine_management extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Pharmaer");
         setName("medicine"); // NOI18N
-        setUndecorated(true);
         setSize(new java.awt.Dimension(500, 500));
+        addWindowStateListener(new java.awt.event.WindowStateListener() {
+            public void windowStateChanged(java.awt.event.WindowEvent evt) {
+                formWindowStateChanged(evt);
+            }
+        });
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowActivated(java.awt.event.WindowEvent evt) {
                 formWindowActivated(evt);
@@ -459,6 +462,7 @@ public class medicine_management extends javax.swing.JFrame {
         bill_button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mms/src/icons8_billing_machine_48px.png"))); // NOI18N
         bill_button.setText("Bill Making");
         bill_button.setBorder(null);
+        bill_button.setFocusable(false);
         bill_button.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         bill_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -472,6 +476,7 @@ public class medicine_management extends javax.swing.JFrame {
         medicine_manage_button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mms/src/icons8_pill_45px.png"))); // NOI18N
         medicine_manage_button.setText("Medicine Manage");
         medicine_manage_button.setBorder(null);
+        medicine_manage_button.setFocusable(false);
         medicine_manage_button.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         medicine_manage_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -485,6 +490,7 @@ public class medicine_management extends javax.swing.JFrame {
         sales_button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mms/src/icons8_total_sales_45px.png"))); // NOI18N
         sales_button.setText("Sales Report");
         sales_button.setBorder(null);
+        sales_button.setFocusable(false);
         sales_button.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         sales_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -498,6 +504,7 @@ public class medicine_management extends javax.swing.JFrame {
         user_button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mms/src/icons8_person_45px.png"))); // NOI18N
         user_button.setText("User Account");
         user_button.setBorder(null);
+        user_button.setFocusable(false);
         user_button.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         user_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -532,11 +539,6 @@ public class medicine_management extends javax.swing.JFrame {
         );
 
         title_pane.setBackground(new java.awt.Color(193, 18, 31));
-        title_pane.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseDragged(java.awt.event.MouseEvent evt) {
-                title_paneMouseDragged(evt);
-            }
-        });
 
         icon_title.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mms/src/icon_40px.png"))); // NOI18N
 
@@ -544,11 +546,6 @@ public class medicine_management extends javax.swing.JFrame {
         title_pharmaer.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         title_pharmaer.setForeground(new java.awt.Color(255, 255, 255));
         title_pharmaer.setText("Pharmaer");
-        title_pharmaer.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                title_pharmaerMousePressed(evt);
-            }
-        });
 
         close_operation.setBackground(new java.awt.Color(193, 18, 31));
         close_operation.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mms/src/icons8_delete_20px.png"))); // NOI18N
@@ -566,25 +563,6 @@ public class medicine_management extends javax.swing.JFrame {
         close_operation.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 close_operationActionPerformed(evt);
-            }
-        });
-
-        maximize.setBackground(new java.awt.Color(193, 18, 31));
-        maximize.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mms/src/icons8_maximize_window_25px.png"))); // NOI18N
-        maximize.setBorder(null);
-        maximize.setBorderPainted(false);
-        maximize.setFocusable(false);
-        maximize.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                maximizeMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                maximizeMouseExited(evt);
-            }
-        });
-        maximize.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                maximizeActionPerformed(evt);
             }
         });
 
@@ -619,8 +597,6 @@ public class medicine_management extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(minimize, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(maximize, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(close_operation, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         title_paneLayout.setVerticalGroup(
@@ -630,7 +606,6 @@ public class medicine_management extends javax.swing.JFrame {
             .addGroup(title_paneLayout.createSequentialGroup()
                 .addGroup(title_paneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(close_operation, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(maximize, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(minimize, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
@@ -1699,7 +1674,7 @@ public class medicine_management extends javax.swing.JFrame {
                 .addGroup(billIframeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(command_center_pane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(billIframeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(bill_input_panel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE)
+                        .addComponent(bill_input_panel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                         .addComponent(patient_details_panel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -2926,7 +2901,7 @@ public class medicine_management extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(scroll_pane, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1328, Short.MAX_VALUE)
+            .addComponent(scroll_pane, javax.swing.GroupLayout.Alignment.TRAILING)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -3301,7 +3276,9 @@ public class medicine_management extends javax.swing.JFrame {
                 patient_input_error.setText(" ");
                 medicine_input_error.setText(" ");
                 paitent_contact_input.setEnabled(true);
-                add_button.setEnabled(true);            }
+                add_button.setEnabled(true);
+                bill_saved = 0;
+            }
             case JOptionPane.CLOSED_OPTION -> {
             }
             default -> {
@@ -4219,25 +4196,26 @@ public class medicine_management extends javax.swing.JFrame {
             case JOptionPane.NO_OPTION -> {
             }
             case JOptionPane.YES_OPTION -> {
-               if(patient_name_input.getText().isEmpty() || patient_address_input.getText().isEmpty() || paitent_contact_input.getText().isEmpty()){
-                    if(bill_table.getRowCount() == 0){
-                        String value_medcine_temp = bill_table.getValueAt(0, 1).toString();
-                        if(value_medcine_temp.trim().length() == 0) {
-                            System.out.println(bill_table.getRowCount());
-                            JOptionPane.showMessageDialog(null, "There are no items in the bill");
-                            medicine_name_input.requestFocus();
-                        }
-                        else{
-                            bill_save();
-                        }
-                    }
-                    else{
+                if(bill_saved == 0){
+                    if(patient_name_input.getText().isEmpty() || patient_address_input.getText().isEmpty() || paitent_contact_input.getText().isEmpty()){
                         JOptionPane.showMessageDialog(null, "Patient Details are Empty");
                         patient_name_input.requestFocus();
                     }
+                    else{
+                        if(bill_table.getRowCount() == 0){
+                            String value_medcine_temp = bill_table.getValueAt(0, 1).toString();
+                            if(value_medcine_temp.trim().length() == 0){
+                                JOptionPane.showMessageDialog(null, "There are no items in the bill");
+                                medicine_name_input.requestFocus();
+                            }
+                            else{
+                                bill_save();
+                            }
+                        }
+                    }
                 }
                 else{
-                   bill_save();
+                    JOptionPane.showMessageDialog(null, "You have already saved the bill.");
                 }
             }
             case JOptionPane.CLOSED_OPTION -> {
@@ -4248,6 +4226,7 @@ public class medicine_management extends javax.swing.JFrame {
     }//GEN-LAST:event_bill_save_buttonMouseClicked
 
     private void bill_print_buttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bill_print_buttonMouseClicked
+        System.out.println(bill_saved);
         if(bill_saved == 1){
             if(patient_name == null){
                 JOptionPane.showMessageDialog(null, "You have not saved the patient name");
@@ -4307,6 +4286,9 @@ public class medicine_management extends javax.swing.JFrame {
         else{
             JOptionPane.showMessageDialog(null, "Bill is not saved. Save the bill and then print it!");
         }
+        /*PrinterJob pj = PrinterJob.getPrinterJob();
+        PrintRequestAttributeSet attribute = new HashPrintRequestAttributeSet();
+        attribute.add(new PageRange(1, bill_print.getPageCount()));*/
     }//GEN-LAST:event_bill_print_buttonMouseClicked
 
     private void close_operationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_close_operationActionPerformed
@@ -4333,23 +4315,6 @@ public class medicine_management extends javax.swing.JFrame {
         close_operation.setBackground(new Color(193,18,31));
     }//GEN-LAST:event_close_operationMouseExited
 
-    private void maximizeMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_maximizeMouseEntered
-        maximize.setBackground(new Color(193,18,31).brighter());
-    }//GEN-LAST:event_maximizeMouseEntered
-
-    private void maximizeMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_maximizeMouseExited
-        maximize.setBackground(new Color(193,18,31));
-    }//GEN-LAST:event_maximizeMouseExited
-
-    private void maximizeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_maximizeActionPerformed
-        if(this.getExtendedState() != medicine_management.MAXIMIZED_BOTH){
-            this.setExtendedState(medicine_management.MAXIMIZED_BOTH);
-        }
-        else{
-            this.setExtendedState(medicine_management.NORMAL);
-        }
-    }//GEN-LAST:event_maximizeActionPerformed
-
     private void minimizeMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_minimizeMouseEntered
         minimize.setBackground(new Color(193,18,31).brighter());
     }//GEN-LAST:event_minimizeMouseEntered
@@ -4362,18 +4327,13 @@ public class medicine_management extends javax.swing.JFrame {
         this.setExtendedState(medicine_management.ICONIFIED);
     }//GEN-LAST:event_minimizeActionPerformed
 
-    private void title_paneMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_title_paneMouseDragged
-        int xpos = evt.getXOnScreen();
-        int ypos = evt.getYOnScreen();
-        this.setLocation(xpos - xMouse, ypos - yMouse);
-    }//GEN-LAST:event_title_paneMouseDragged
+    private void formWindowStateChanged(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowStateChanged
+        if(this.getState()==0){
+            setExtendedState(medicine_management.MAXIMIZED_BOTH);
+        }
+    }//GEN-LAST:event_formWindowStateChanged
 
-    private void title_pharmaerMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_title_pharmaerMousePressed
-        xMouse = evt.getX();
-        yMouse = evt.getY();
-    }//GEN-LAST:event_title_pharmaerMousePressed
-
-    public void bill_save(){
+    private void bill_save(){
         String pat_name, pat_address, pat_contact;
         int bill_table_rows;
         String batch_no_bill[] = new String[10000];
@@ -4404,6 +4364,7 @@ public class medicine_management extends javax.swing.JFrame {
             }
         }
         bill_saved = 1;
+        System.out.println(bill_saved);
     }
     
     public static void main(String args[]) {
@@ -4490,7 +4451,6 @@ public class medicine_management extends javax.swing.JFrame {
     private javax.swing.JLabel java_version;
     private javax.swing.JLabel java_version_value;
     private javax.swing.JButton justJoking;
-    private javax.swing.JButton maximize;
     private javax.swing.JButton medMgr_add_button;
     private javax.swing.JButton medMgr_clear_button;
     private javax.swing.JLabel medMgr_company_address;
