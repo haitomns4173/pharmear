@@ -18,6 +18,7 @@ public class mysql {
     static String username;
     static String user_type;
     
+    static String invoice_number;
     static int medicine_id_result = 0;
     static int batch_no_find = 0;
     static int medicine_mrp_out_of_stock = 0;
@@ -368,5 +369,14 @@ public class mysql {
         
         String update_stocks = "UPDATE `medicine_stock` SET `sold_stock`='"+total_quantity+"',`sold_cost`='"+total_cost+"' WHERE med_batch = "+batch_no+"";
         stmt.executeUpdate(update_stocks);
+    }
+    
+    public static void invoide_finder() throws SQLException{
+        stmt = connect.createStatement();
+        String query = "SELECT id FROM `patient_details` ORDER BY id DESC LIMIT 1;";
+        result = stmt.executeQuery(query);
+        while(result.next()) {
+            invoice_number = result.getString(1);
+        }
     }
 }
