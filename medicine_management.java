@@ -18,7 +18,6 @@ import java.util.logging.Logger;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
-import static mms.mysql.medicine_mrp_out_of_stock;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartFrame;
 import org.jfree.chart.JFreeChart;
@@ -2936,7 +2935,7 @@ public class medicine_management extends javax.swing.JFrame {
                 }
                 
                 if(!(mysql.medicine_id_result == 0)){
-                    if(medicine_mrp_out_of_stock==1){
+                    if(mysql.medicine_mrp_out_of_stock==1){
                         if(mysql.left_stock > quantity_int){
                             total_price = quantity_int * medicine_price;
                             
@@ -4165,18 +4164,19 @@ public class medicine_management extends javax.swing.JFrame {
                         bill_print.write("\n\nPatient Name     : "+patient_name);
                         bill_print.write("\nPatient Adddress : "+patient_address);
                         bill_print.write("\nPatient Contact  : "+patient_contact);
-                        bill_print.write("\n\n+---+------------------------------------------------+--------+----+----+");
-                        bill_print.write("\n|Sn.|Medicine Name                                   |Quantity|Rate|Cost|");
+                        bill_print.write("\n\n+---+----------------------------------------------+-----+------+-------+");
+                        bill_print.write("\n|Sn.|Medicine Name                                 |Qty  |Rate  |Cost   |");
+                        bill_print.write("\n+---+----------------------------------------------+-----+------+-------+");
                         for(int bill_each_rows = 1; bill_each_rows <= bill_table_rows; bill_each_rows++){
                             med_name_bill[bill_each_rows-1] = bill_table.getValueAt(bill_each_rows-1, 2).toString();
                             med_quantity_bill[bill_each_rows-1] = bill_table.getValueAt(bill_each_rows-1, 3).toString();
                             med_rate_bill[bill_each_rows-1] = bill_table.getValueAt(bill_each_rows-1, 4).toString();
                             med_cost_bill[bill_each_rows-1] = bill_table.getValueAt(bill_each_rows-1, 5).toString();
-                            bill_print.write("\n|"+bill_each_rows+"|"+med_name_bill[bill_each_rows-1]+"|"+med_quantity_bill[bill_each_rows-1]+"|"+med_rate_bill[bill_each_rows-1]+"|"+med_cost_bill[bill_each_rows-1]+"|");
+                            bill_print.write(String.format("\n|%3s|%-46s|%5s|%6s|%7s|",bill_each_rows, med_name_bill[bill_each_rows-1], med_quantity_bill[bill_each_rows-1], med_rate_bill[bill_each_rows-1] ,med_cost_bill[bill_each_rows-1]));
                         }
-                        bill_print.write("\n+---+------------------------------------------------+--------+----+----+");
-                        bill_print.write("\n                                          Grand Total|"+total_cost_print+"|");
-                        bill_print.write("\n                                                     +--------+----+----+");
+                        bill_print.write("\n+---+----------------------------------------------+-----+------+-------+");
+                        bill_print.write(String.format("\n                                        Grand Total|%20s|",total_cost_print));
+                        bill_print.write("\n                                                   +--------------------+");
                         bill_print.close();
                     } catch (IOException ex) {
                         Logger.getLogger(medicine_management.class.getName()).log(Level.SEVERE, null, ex);
