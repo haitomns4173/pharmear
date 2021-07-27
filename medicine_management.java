@@ -2,6 +2,8 @@ package mms;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
+import java.awt.print.PrinterJob;
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.sql.SQLException;
@@ -13,9 +15,16 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Set;
 import java.util.TreeSet;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.print.attribute.HashPrintRequestAttributeSet;
+import javax.print.attribute.PrintRequestAttributeSet;
+import javax.print.attribute.standard.PageRanges;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
+import javax.swing.text.Document;
+import javax.swing.text.PlainDocument;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartFrame;
 import org.jfree.chart.JFreeChart;
@@ -4261,6 +4270,12 @@ public class medicine_management extends javax.swing.JFrame {
                 String med_quantity_bill[] = new String[10000];
                 String med_rate_bill[] = new String[10000];
                 String med_cost_bill[] = new String[10000];
+                
+                DateTimeFormatter tf = DateTimeFormatter.ofPattern("HH_mm_ss");  
+                LocalDateTime now = LocalDateTime.now();
+
+                DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");  
+                LocalDateTime date_current = LocalDateTime.now();
 
                 String value_medcine_temp = bill_table.getValueAt(0, 1).toString();
                 if(value_medcine_temp == null){}
@@ -4269,13 +4284,6 @@ public class medicine_management extends javax.swing.JFrame {
                     if(bill_table_rows == 0){
                         bill_table_rows++;
                     }
-                    
-                    DateTimeFormatter tf = DateTimeFormatter.ofPattern("HH_mm_ss");  
-                    LocalDateTime now = LocalDateTime.now();
-
-                    DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");  
-                    LocalDateTime date_current = LocalDateTime.now();   
-
                     FileWriter bill_print;
                     try {
                         bill_print = new FileWriter("src/mms/bill_print/"+patient_name+"_"+tf.format(now)+".doc");
@@ -4301,6 +4309,16 @@ public class medicine_management extends javax.swing.JFrame {
                         bill_print.write(String.format("\n                                        Grand Total|%20s|",total_cost_print));
                         bill_print.write("\n                                                   +--------------------+");
                         bill_print.close();
+                        
+                        File file;
+                        file = new File(bill_print.toString());
+                        Process p = Runtime.getRuntime().exec("rundll32 url.dll,FileProtocolHandler "+file);
+                        try {
+                            p.waitFor();
+                        } catch (InterruptedException ex) {
+                            Logger.getLogger(medicine_management.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                        
                     } catch (IOException ex) {
                         JOptionPane.showMessageDialog(null, ex);
                     }
@@ -4310,9 +4328,6 @@ public class medicine_management extends javax.swing.JFrame {
         else{
             JOptionPane.showMessageDialog(null, "Bill is not saved. Save the bill and then print it!");
         }
-        /*PrinterJob pj = PrinterJob.getPrinterJob();
-        PrintRequestAttributeSet attribute = new HashPrintRequestAttributeSet();
-        attribute.add(new PageRange(1, bill_print.getPageCount()));*/
     }//GEN-LAST:event_bill_print_buttonMouseClicked
 
     private void close_operationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_close_operationActionPerformed
@@ -4381,10 +4396,7 @@ public class medicine_management extends javax.swing.JFrame {
         try {
             for(int bill_each_rows = 1; bill_each_rows <= bill_table_rows; bill_each_rows++){
                 batch_no_bill[bill_each_rows-1] = bill_table.getValueAt(bill_each_rows-1, 1).toString();
-                quantity_no_bill[bill_each_rows-1] = bill_table.getValueAt(bill_each_rows-1, 3).toString();
-                
-                System.out.println(batch_no_bill[bill_each_rows-1]+"  "+quantity_no_bill[bill_each_rows-1]);
-                
+                quantity_no_bill[bill_each_rows-1] = bill_table.getValueAt(bill_each_rows-1, 3).toString();              
                 mysql.medicine_sales(batch_no_bill[bill_each_rows-1], quantity_no_bill[bill_each_rows-1]);
             }
         } catch (SQLException ex) {
@@ -4394,6 +4406,21 @@ public class medicine_management extends javax.swing.JFrame {
         bill_saved = 1;
         return true;
     }
+    
+    /*private void print_print() throws Exception{
+        Document doc = new Document("C:\\bill_save.doc");
+        
+        PrinterJob pj = PrinterJob.getPrinterJob();
+        PrintRequestAttributeSet attributes = new HashPrintRequestAttributeSet();
+        attributes.add(new PageRanges(1, doc.getPageCount()));
+        
+        if(!pj.printDialog(attributes))
+        {
+            return;
+        }
+        
+        
+    }*/
     
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
