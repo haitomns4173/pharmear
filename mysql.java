@@ -26,10 +26,15 @@ public class mysql {
     
     static int patient_id;
     
+    static int bar_total_cost;
+    static int bar_total_quantity;
+    static int bar_sold_cost;
+    static int bar_sold_quantity;
+    
     public static void main(String args[]) {
         String db_url = "jdbc:mysql://localhost:3306/pharma_db";
         String db_username = "root";
-        String db_password = "";  
+        String db_password = "admin";  
         
         try {
             connect = DriverManager.getConnection(db_url, db_username, db_password);
@@ -388,6 +393,18 @@ public class mysql {
         result = stmt.executeQuery(query);
         while(result.next()) {
             invoice_number = result.getString(1);
+        }
+    }
+    
+    public static void bar_finder() throws SQLException{
+        stmt = connect.createStatement();
+        String query = "SELECT sum(total_stock), sum(total_cost), sum(sold_stock), sum(sold_cost) FROM pharma_db.medicine_stock;";
+        result = stmt.executeQuery(query);
+        while(result.next()) {
+            bar_total_quantity = result.getInt(1);
+            bar_total_cost = result.getInt(2);
+            bar_sold_quantity = result.getInt(3);
+            bar_sold_cost = result.getInt(4);
         }
     }
 }

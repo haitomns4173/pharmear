@@ -2,8 +2,6 @@ package mms;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
-import java.awt.print.PrinterJob;
-import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.sql.SQLException;
@@ -15,22 +13,20 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Set;
 import java.util.TreeSet;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.print.attribute.HashPrintRequestAttributeSet;
-import javax.print.attribute.PrintRequestAttributeSet;
-import javax.print.attribute.standard.PageRanges;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
-import javax.swing.text.Document;
-import javax.swing.text.PlainDocument;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartFrame;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.plot.CategoryPlot;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.category.DefaultCategoryDataset;
+import java.io.FileReader;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import org.jfree.chart.ChartPanel;
+
 
 public class medicine_management extends javax.swing.JFrame {
     int xMouse, yMouse;
@@ -255,8 +251,9 @@ public class medicine_management extends javax.swing.JFrame {
         medMgr_expiry_input_year = new javax.swing.JTextField();
         medMgr_expiry_lable1 = new javax.swing.JLabel();
         salesIframe = new javax.swing.JInternalFrame();
-        bar = new javax.swing.JPanel();
-        justJoking = new javax.swing.JButton();
+        sales_panel = new javax.swing.JPanel();
+        cost_graph = new javax.swing.JButton();
+        quantity_graph = new javax.swing.JButton();
         userIframe = new javax.swing.JInternalFrame();
         user_image_panel = new javax.swing.JPanel();
         user_image_label = new javax.swing.JLabel();
@@ -498,7 +495,7 @@ public class medicine_management extends javax.swing.JFrame {
         sales_button.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         sales_button.setForeground(new java.awt.Color(255, 255, 255));
         sales_button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mms/src/icons8_total_sales_45px.png"))); // NOI18N
-        sales_button.setText("Sales Report");
+        sales_button.setText("Sales Graph");
         sales_button.setBorder(null);
         sales_button.setFocusable(false);
         sales_button.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -701,7 +698,7 @@ public class medicine_management extends javax.swing.JFrame {
         welcome_sales_label.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         welcome_sales_label.setForeground(new java.awt.Color(255, 255, 255));
         welcome_sales_label.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        welcome_sales_label.setText("Sales Report");
+        welcome_sales_label.setText("Sales Graph");
 
         javax.swing.GroupLayout welcome_salesLayout = new javax.swing.GroupLayout(welcome_sales);
         welcome_sales.setLayout(welcome_salesLayout);
@@ -2197,21 +2194,23 @@ public class medicine_management extends javax.swing.JFrame {
         salesIframe.setBorder(null);
         salesIframe.setVisible(true);
 
-        javax.swing.GroupLayout barLayout = new javax.swing.GroupLayout(bar);
-        bar.setLayout(barLayout);
-        barLayout.setHorizontalGroup(
-            barLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        barLayout.setVerticalGroup(
-            barLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 500, Short.MAX_VALUE)
-        );
+        sales_panel.setLayout(new java.awt.BorderLayout());
 
-        justJoking.setText("The ULTIMATE BUTTON");
-        justJoking.addActionListener(new java.awt.event.ActionListener() {
+        cost_graph.setBackground(new java.awt.Color(42, 157, 143));
+        cost_graph.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        cost_graph.setText("Cost Graph");
+        cost_graph.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                justJokingActionPerformed(evt);
+                cost_graphActionPerformed(evt);
+            }
+        });
+
+        quantity_graph.setBackground(new java.awt.Color(42, 157, 143));
+        quantity_graph.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        quantity_graph.setText("Quantity Graph");
+        quantity_graph.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                quantity_graphActionPerformed(evt);
             }
         });
 
@@ -2222,20 +2221,24 @@ public class medicine_management extends javax.swing.JFrame {
             .addGroup(salesIframeLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(salesIframeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(bar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(sales_panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(salesIframeLayout.createSequentialGroup()
-                        .addComponent(justJoking)
-                        .addGap(0, 953, Short.MAX_VALUE)))
+                        .addComponent(cost_graph, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(quantity_graph)
+                        .addGap(0, 822, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         salesIframeLayout.setVerticalGroup(
             salesIframeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(salesIframeLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(bar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(justJoking)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(sales_panel, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
+                .addGroup(salesIframeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cost_graph)
+                    .addComponent(quantity_graph))
+                .addContainerGap())
         );
 
         cardPane.add(salesIframe, "card3");
@@ -3169,23 +3172,28 @@ public class medicine_management extends javax.swing.JFrame {
         expiry_cur_month = expiry_month_check.format(current_expiry_month);
     }//GEN-LAST:event_medicineIframeInternalFrameActivated
 
-    //This is just for testing
-    private void justJokingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_justJokingActionPerformed
-        DefaultCategoryDataset dcb = new DefaultCategoryDataset();
-        dcb.setValue(100, "Marks", "Haitomns");
-        dcb.setValue(89, "Marks", "Hai");
-        dcb.setValue(90, "Marks", "Haitom");
-        dcb.setValue(60, "Marks", "Haitom");
+    private void cost_graphActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cost_graphActionPerformed
+        try {
+            mysql.bar_finder();
+        } catch (SQLException ex) {
+             JOptionPane.showMessageDialog(null, ex);
+        }
         
-        JFreeChart jchart;
-        jchart = ChartFactory.createBarChart("std name", "std marks","std record", dcb, PlotOrientation.VERTICAL, true, true, false);
-        CategoryPlot plot = jchart.getCategoryPlot();
+        DefaultCategoryDataset bar_data_cost = new DefaultCategoryDataset();
+        bar_data_cost.setValue(mysql.bar_total_cost, "Cost", "Total Import");
+        bar_data_cost.setValue(mysql.bar_sold_cost, "Cost", "Total Sold");
         
-        ChartFrame chartFrame = new ChartFrame("Std Record", jchart, true);
-        chartFrame.setVisible(true);
-    }//GEN-LAST:event_justJokingActionPerformed
-    //here the testing ends
-    
+        JFreeChart jChartCost;
+        jChartCost = ChartFactory.createBarChart3D("Total Cost and Sold Cost", "","Cost", bar_data_cost, PlotOrientation.VERTICAL, true, true, false);
+        CategoryPlot plot_cost = jChartCost.getCategoryPlot();
+        plot_cost.setRangeGridlinePaint(Color.black);
+        
+        ChartPanel chartpanel = new ChartPanel(jChartCost);
+        sales_panel.removeAll();
+        sales_panel.add(chartpanel);
+        sales_panel.updateUI();
+    }//GEN-LAST:event_cost_graphActionPerformed
+
     private void welcome_userMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_welcome_userMouseEntered
         welcome_user.setBackground(new Color(25,130,196).darker());
     }//GEN-LAST:event_welcome_userMouseEntered
@@ -4286,12 +4294,13 @@ public class medicine_management extends javax.swing.JFrame {
                     }
                     FileWriter bill_print;
                     try {
-                        bill_print = new FileWriter("src/mms/bill_print/"+patient_name+"_"+tf.format(now)+".doc");
+                        String bill_path = "src/mms/bill_print/"+patient_name+"_"+tf.format(now)+".doc";
+                        bill_print = new FileWriter(bill_path);
                         bill_print.write(mysql.company_name);
                         bill_print.write("\n"+mysql.company_address);
                         bill_print.write("\n"+mysql.company_phoneNo);
                         bill_print.write("\n\n\nVAT No."+mysql.company_vatNo);
-                        bill_print.write("\nInvoice NO.: IN-"+mysql.invoice_number+"                    Transaction Date : "+dtf.format(date_current));
+                        bill_print.write("\nInvoice NO.: IN-"+mysql.invoice_number+"                      Transaction Date : "+dtf.format(date_current));
                         bill_print.write("\n\nPatient Name     : "+patient_name);
                         bill_print.write("\nPatient Adddress : "+patient_address);
                         bill_print.write("\nPatient Contact  : "+patient_contact);
@@ -4310,14 +4319,12 @@ public class medicine_management extends javax.swing.JFrame {
                         bill_print.write("\n                                                   +--------------------+");
                         bill_print.close();
                         
-                        File file;
-                        file = new File(bill_print.toString());
-                        Process p = Runtime.getRuntime().exec("rundll32 url.dll,FileProtocolHandler "+file);
-                        try {
-                            p.waitFor();
-                        } catch (InterruptedException ex) {
-                            Logger.getLogger(medicine_management.class.getName()).log(Level.SEVERE, null, ex);
+                        FileReader fr = new FileReader(bill_path);    
+                        int i;    
+                        while((i=fr.read())!=-1){    
+                            System.out.print((char)i); 
                         }
+                        fr.close();    
                         
                     } catch (IOException ex) {
                         JOptionPane.showMessageDialog(null, ex);
@@ -4371,6 +4378,28 @@ public class medicine_management extends javax.swing.JFrame {
             setExtendedState(medicine_management.MAXIMIZED_BOTH);
         }
     }//GEN-LAST:event_formWindowStateChanged
+
+    private void quantity_graphActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quantity_graphActionPerformed
+        try {
+            mysql.bar_finder();
+        } catch (SQLException ex) {
+             JOptionPane.showMessageDialog(null, ex);
+        }
+        
+        DefaultCategoryDataset bar_data_quanity = new DefaultCategoryDataset();
+        bar_data_quanity.setValue(mysql.bar_total_quantity, "Quantity", "Total Import");
+        bar_data_quanity.setValue(mysql.bar_sold_quantity, "Quantity", "Total Sold");
+        
+        JFreeChart jChartQuantity;
+        jChartQuantity = ChartFactory.createBarChart3D("Total Qunatity and Sold Quantity", "","Quantity", bar_data_quanity, PlotOrientation.VERTICAL, true, true, false);
+        CategoryPlot plot_quantity = jChartQuantity.getCategoryPlot();
+        plot_quantity.setRangeGridlinePaint(Color.black);
+        
+        ChartPanel chartPanelQuanity = new ChartPanel(jChartQuantity);
+        sales_panel.removeAll();
+        sales_panel.add(chartPanelQuanity);
+        sales_panel.updateUI();
+    }//GEN-LAST:event_quantity_graphActionPerformed
 
     private boolean bill_save(){
         String pat_name, pat_address, pat_contact;
@@ -4457,7 +4486,6 @@ public class medicine_management extends javax.swing.JFrame {
     private javax.swing.JLabel add_medicine_label;
     private javax.swing.JSeparator add_medicine_seperator;
     private javax.swing.JPanel background;
-    private javax.swing.JPanel bar;
     private javax.swing.JInternalFrame billIframe;
     protected javax.swing.JButton bill_button;
     private javax.swing.JLabel bill_company_address;
@@ -4481,6 +4509,7 @@ public class medicine_management extends javax.swing.JFrame {
     private javax.swing.JLabel command_center;
     private javax.swing.JPanel command_center_pane;
     private javax.swing.JSeparator command_center_seperator;
+    private javax.swing.JButton cost_graph;
     private javax.swing.JLabel date_display;
     private javax.swing.JLabel date_label;
     private javax.swing.JButton delete_button;
@@ -4505,7 +4534,6 @@ public class medicine_management extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel java_version;
     private javax.swing.JLabel java_version_value;
-    private javax.swing.JButton justJoking;
     private javax.swing.JButton medMgr_add_button;
     private javax.swing.JButton medMgr_clear_button;
     private javax.swing.JLabel medMgr_company_address;
@@ -4567,12 +4595,14 @@ public class medicine_management extends javax.swing.JFrame {
     private javax.swing.JLabel patient_name_label;
     private javax.swing.JLabel pharmacy_lable;
     private javax.swing.JLabel pharmacy_lable1;
+    private javax.swing.JButton quantity_graph;
     private javax.swing.JLabel quantity_label;
     private javax.swing.JButton refrresh_for_status;
     private javax.swing.JButton refrresh_for_status1;
     private javax.swing.JLabel requirements;
     private javax.swing.JInternalFrame salesIframe;
     private javax.swing.JButton sales_button;
+    private javax.swing.JPanel sales_panel;
     private javax.swing.JScrollPane scroll_pane;
     private javax.swing.JLabel shop_details_error;
     private javax.swing.JPanel shop_details_panel;
