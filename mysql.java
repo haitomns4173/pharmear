@@ -350,24 +350,35 @@ public class mysql {
     }
     
     public static void medicine_sales(String batch_no, String quantity) throws SQLException{
-        int nu_tablets = 0;
         float mrp = 0;
         
         String search_query = "SELECT * FROM `medicine_import_details` WHERE `batch_no` = "+batch_no+"";
         result = stmt.executeQuery(search_query); 
         while(result.next()){
-            nu_tablets = result.getInt(4);
             mrp = result.getFloat(7);
         }
         
         int quantity_int = Integer.parseInt(quantity);
-        int total_quantity = quantity_int * nu_tablets;
+        int total_quantity = quantity_int;
         float total_cost = total_quantity * mrp;
 
         String insert_query = "INSERT INTO `sales`(`med_batch`, `patient_id`, `total_unit`, `total_cost`) VALUES ('"+batch_no+"','"+patient_id+"','"+total_quantity+"','"+total_cost+"')";
         stmt.executeUpdate(insert_query);
         
-        String update_stocks = "UPDATE `medicine_stock` SET `sold_stock`='"+total_quantity+"',`sold_cost`='"+total_cost+"' WHERE med_batch = "+batch_no+"";
+        int current_stocks = 0;
+        float current_cost = 0;
+        
+        String stocks_query = "SELECT sold_stock, sold_cost FROM `medicine_stock` WHERE med_batch = "+batch_no+"";
+        result = stmt.executeQuery(stocks_query); 
+        while(result.next()){
+            current_stocks = result.getInt(1);
+            current_cost = result.getFloat(2);
+        }
+        
+        current_stocks = current_stocks + total_quantity;
+        current_cost = current_cost + total_cost;
+        
+        String update_stocks = "UPDATE `medicine_stock` SET `sold_stock`='"+current_stocks+"',`sold_cost`='"+current_cost+"' WHERE med_batch = "+batch_no+"";
         stmt.executeUpdate(update_stocks);
     }
     

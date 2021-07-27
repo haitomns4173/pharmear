@@ -159,7 +159,7 @@ public class medicine_management extends javax.swing.JFrame {
         bill_company_name = new javax.swing.JLabel();
         bill_company_phone = new javax.swing.JLabel();
         bill_company_address = new javax.swing.JLabel();
-        invoide_date_panel = new javax.swing.JPanel();
+        invoice_date_panel = new javax.swing.JPanel();
         invoice_label = new javax.swing.JLabel();
         date_label = new javax.swing.JLabel();
         date_display = new javax.swing.JLabel();
@@ -440,6 +440,7 @@ public class medicine_management extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Pharmaer");
         setName("medicine"); // NOI18N
+        setUndecorated(true);
         setSize(new java.awt.Dimension(500, 500));
         addWindowStateListener(new java.awt.event.WindowStateListener() {
             public void windowStateChanged(java.awt.event.WindowEvent evt) {
@@ -1178,7 +1179,7 @@ public class medicine_management extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        invoide_date_panel.setBackground(new java.awt.Color(25, 130, 196));
+        invoice_date_panel.setBackground(new java.awt.Color(25, 130, 196));
 
         invoice_label.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         invoice_label.setForeground(new java.awt.Color(255, 255, 255));
@@ -1195,11 +1196,11 @@ public class medicine_management extends javax.swing.JFrame {
         invoice_display.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         invoice_display.setForeground(new java.awt.Color(255, 255, 255));
 
-        javax.swing.GroupLayout invoide_date_panelLayout = new javax.swing.GroupLayout(invoide_date_panel);
-        invoide_date_panel.setLayout(invoide_date_panelLayout);
-        invoide_date_panelLayout.setHorizontalGroup(
-            invoide_date_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(invoide_date_panelLayout.createSequentialGroup()
+        javax.swing.GroupLayout invoice_date_panelLayout = new javax.swing.GroupLayout(invoice_date_panel);
+        invoice_date_panel.setLayout(invoice_date_panelLayout);
+        invoice_date_panelLayout.setHorizontalGroup(
+            invoice_date_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(invoice_date_panelLayout.createSequentialGroup()
                 .addGap(24, 24, 24)
                 .addComponent(invoice_label)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -1209,16 +1210,16 @@ public class medicine_management extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(date_display, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
-        invoide_date_panelLayout.setVerticalGroup(
-            invoide_date_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(invoide_date_panelLayout.createSequentialGroup()
+        invoice_date_panelLayout.setVerticalGroup(
+            invoice_date_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(invoice_date_panelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(invoide_date_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(invoice_date_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(invoice_display, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(invoide_date_panelLayout.createSequentialGroup()
-                        .addGroup(invoide_date_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(invoice_date_panelLayout.createSequentialGroup()
+                        .addGroup(invoice_date_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(invoice_label)
-                            .addGroup(invoide_date_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addGroup(invoice_date_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(date_display)
                                 .addComponent(date_label)))
                         .addGap(0, 0, Short.MAX_VALUE)))
@@ -1645,7 +1646,7 @@ public class medicine_management extends javax.swing.JFrame {
             .addGroup(billIframeLayout.createSequentialGroup()
                 .addGap(30, 30, 30)
                 .addGroup(billIframeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(invoide_date_panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(invoice_date_panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(billIframeLayout.createSequentialGroup()
                         .addComponent(bill_title_label, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
@@ -1665,7 +1666,7 @@ public class medicine_management extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(bill_title_label, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(invoide_date_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(invoice_date_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(bill_tabel_scrollpanel, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1674,7 +1675,7 @@ public class medicine_management extends javax.swing.JFrame {
                 .addGroup(billIframeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(command_center_pane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(billIframeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(bill_input_panel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                        .addComponent(bill_input_panel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE)
                         .addComponent(patient_details_panel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -3031,7 +3032,7 @@ public class medicine_management extends javax.swing.JFrame {
                 
                 if(!(mysql.medicine_id_result == 0)){
                     if(mysql.medicine_mrp_out_of_stock==1){
-                        if(mysql.left_stock > quantity_int){
+                        if(mysql.left_stock >= quantity_int){
                             total_price = quantity_int * medicine_price;
                             
                             DefaultTableModel bill_table_add = (DefaultTableModel)bill_table.getModel();
@@ -3042,6 +3043,10 @@ public class medicine_management extends javax.swing.JFrame {
                             
                             bill_total_quantity.setText(String.valueOf(total_quantity_print));
                             bill_total_cost.setText(String.valueOf(total_cost_print));
+                            
+                            medicine_name_input.setText("");
+                            medicine_quantity_input.setText("");
+                            medicine_name_input.requestFocus();
                         }
                         else{
                             JOptionPane.showMessageDialog(null, medicine_name_input.getText()+" only has "+mysql.left_stock+".\n You can not input more than "+mysql.left_stock);
@@ -4191,31 +4196,51 @@ public class medicine_management extends javax.swing.JFrame {
     private void bill_save_buttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bill_save_buttonMouseClicked
         int bill_save_confirm = JOptionPane.showConfirmDialog(null, "Are you sure you want to Save?", "Medicine Bill",
         JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
-
+        String value_medcine_temp = bill_table.getValueAt(0, 1).toString();
         switch (bill_save_confirm) {
             case JOptionPane.NO_OPTION -> {
             }
             case JOptionPane.YES_OPTION -> {
                 if(bill_saved == 0){
                     if(patient_name_input.getText().isEmpty() || patient_address_input.getText().isEmpty() || paitent_contact_input.getText().isEmpty()){
-                        JOptionPane.showMessageDialog(null, "Patient Details are Empty");
-                        patient_name_input.requestFocus();
-                    }
-                    else{
                         if(bill_table.getRowCount() == 0){
-                            String value_medcine_temp = bill_table.getValueAt(0, 1).toString();
-                            if(value_medcine_temp.trim().length() == 0){
+                            if(value_medcine_temp.trim().length() == 0) {
                                 JOptionPane.showMessageDialog(null, "There are no items in the bill");
                                 medicine_name_input.requestFocus();
                             }
                             else{
-                                bill_save();
+                                if(bill_save() == true)
+                                {
+                                    JOptionPane.showMessageDialog(null, "Bill is saved now you can print the bill.");
+                                }
+                                else{
+                                    JOptionPane.showMessageDialog(null, "An Error occured while saving the bill.");
+                                }
+                            }
+                        }
+                        else{
+                            JOptionPane.showMessageDialog(null, "Patient Details are Empty");
+                            patient_name_input.requestFocus();
+                        }
+                    }
+                    else{
+                        if(value_medcine_temp.trim().length() == 0) {
+                            JOptionPane.showMessageDialog(null, "There are no items in the bill");
+                            medicine_name_input.requestFocus();
+                        }
+                        else{
+                            if(bill_save() == true)
+                            {
+                                JOptionPane.showMessageDialog(null, "Bill is saved now you can print the bill.");
+                            }
+                            else{
+                                JOptionPane.showMessageDialog(null, "An Error occured while saving the bill.");
                             }
                         }
                     }
                 }
                 else{
-                    JOptionPane.showMessageDialog(null, "You have already saved the bill.");
+                    JOptionPane.showMessageDialog(null, "Bill has already been saved");
                 }
             }
             case JOptionPane.CLOSED_OPTION -> {
@@ -4226,7 +4251,6 @@ public class medicine_management extends javax.swing.JFrame {
     }//GEN-LAST:event_bill_save_buttonMouseClicked
 
     private void bill_print_buttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bill_print_buttonMouseClicked
-        System.out.println(bill_saved);
         if(bill_saved == 1){
             if(patient_name == null){
                 JOptionPane.showMessageDialog(null, "You have not saved the patient name");
@@ -4259,7 +4283,7 @@ public class medicine_management extends javax.swing.JFrame {
                         bill_print.write("\n"+mysql.company_address);
                         bill_print.write("\n"+mysql.company_phoneNo);
                         bill_print.write("\n\n\nVAT No."+mysql.company_vatNo);
-                        bill_print.write("\nInvoice NO.\t\tTransaction Date : "+dtf.format(date_current));
+                        bill_print.write("\nInvoice NO.: IN-"+mysql.invoice_number+"                    Transaction Date : "+dtf.format(date_current));
                         bill_print.write("\n\nPatient Name     : "+patient_name);
                         bill_print.write("\nPatient Adddress : "+patient_address);
                         bill_print.write("\nPatient Contact  : "+patient_contact);
@@ -4333,7 +4357,7 @@ public class medicine_management extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_formWindowStateChanged
 
-    private void bill_save(){
+    private boolean bill_save(){
         String pat_name, pat_address, pat_contact;
         int bill_table_rows;
         String batch_no_bill[] = new String[10000];
@@ -4353,18 +4377,22 @@ public class medicine_management extends javax.swing.JFrame {
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, ex);
         }
-        
-        for(int bill_each_rows = 1; bill_each_rows <= bill_table_rows; bill_each_rows++){
-            batch_no_bill[bill_each_rows-1] = bill_table.getValueAt(bill_each_rows-1, 1).toString();
-            quantity_no_bill[bill_each_rows-1] = bill_table.getValueAt(bill_each_rows-1, 3).toString();
-            try {
+         
+        try {
+            for(int bill_each_rows = 1; bill_each_rows <= bill_table_rows; bill_each_rows++){
+                batch_no_bill[bill_each_rows-1] = bill_table.getValueAt(bill_each_rows-1, 1).toString();
+                quantity_no_bill[bill_each_rows-1] = bill_table.getValueAt(bill_each_rows-1, 3).toString();
+                
+                System.out.println(batch_no_bill[bill_each_rows-1]+"  "+quantity_no_bill[bill_each_rows-1]);
+                
                 mysql.medicine_sales(batch_no_bill[bill_each_rows-1], quantity_no_bill[bill_each_rows-1]);
-            } catch (SQLException ex) {
-                JOptionPane.showMessageDialog(null, ex);
             }
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex);
+            return false;
         }
         bill_saved = 1;
-        System.out.println(bill_saved);
+        return true;
     }
     
     public static void main(String args[]) {
@@ -4444,9 +4472,9 @@ public class medicine_management extends javax.swing.JFrame {
     private javax.swing.JLabel find_medicine_label;
     private javax.swing.JSeparator find_medicine_seperator;
     private javax.swing.JLabel icon_title;
+    private javax.swing.JPanel invoice_date_panel;
     private javax.swing.JLabel invoice_display;
     private javax.swing.JLabel invoice_label;
-    private javax.swing.JPanel invoide_date_panel;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel java_version;
     private javax.swing.JLabel java_version_value;

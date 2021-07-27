@@ -259,6 +259,7 @@
     <Property name="defaultCloseOperation" type="int" value="3"/>
     <Property name="title" type="java.lang.String" value="Pharmaer"/>
     <Property name="name" type="java.lang.String" value="medicine" noResource="true"/>
+    <Property name="undecorated" type="boolean" value="true"/>
     <Property name="size" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
       <Dimension value="[500, 500]"/>
     </Property>
@@ -1444,7 +1445,7 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="invoide_date_panel" max="32767" attributes="0"/>
+                                  <Component id="invoice_date_panel" max="32767" attributes="0"/>
                                   <Group type="102" attributes="0">
                                       <Component id="bill_title_label" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
@@ -1469,7 +1470,7 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="bill_title_label" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="invoide_date_panel" min="-2" max="-2" attributes="0"/>
+                              <Component id="invoice_date_panel" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="bill_tabel_scrollpanel" min="-2" pref="225" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
@@ -1565,7 +1566,7 @@
                         </Component>
                       </SubComponents>
                     </Container>
-                    <Container class="javax.swing.JPanel" name="invoide_date_panel">
+                    <Container class="javax.swing.JPanel" name="invoice_date_panel">
                       <Properties>
                         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="c4" green="82" red="19" type="rgb"/>
