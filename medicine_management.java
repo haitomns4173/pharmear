@@ -17,14 +17,11 @@ import javax.swing.plaf.basic.BasicInternalFrameUI;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import org.jfree.chart.ChartFactory;
-import org.jfree.chart.ChartFrame;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.plot.CategoryPlot;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.category.DefaultCategoryDataset;
 import java.io.FileReader;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import org.jfree.chart.ChartPanel;
 
 
@@ -53,7 +50,7 @@ public class medicine_management extends javax.swing.JFrame {
     
     static String total_medicine;
     static String total_quantity;
-    static String total_cost;
+    static float total_cost;
     static String total_expired;
     static String total_out;
             
@@ -158,7 +155,7 @@ public class medicine_management extends javax.swing.JFrame {
         total_medicine_icon = new javax.swing.JLabel();
         total_medicine_label = new javax.swing.JLabel();
         total_medicine_display = new javax.swing.JLabel();
-        refrresh_for_status = new javax.swing.JButton();
+        refresh_for_welcom = new javax.swing.JButton();
         billIframe = new javax.swing.JInternalFrame();
         bill_title_label = new javax.swing.JPanel();
         bill_company_name = new javax.swing.JLabel();
@@ -220,6 +217,7 @@ public class medicine_management extends javax.swing.JFrame {
         find_button = new javax.swing.JButton();
         delete_button = new javax.swing.JButton();
         medicine_find_error = new javax.swing.JLabel();
+        find_medicine_clear = new javax.swing.JButton();
         medMgr_tabel_scrollpanel = new javax.swing.JScrollPane();
         medMgr_table_find = new javax.swing.JTable();
         medMgr_table_find.getTableHeader().setBackground(new Color(25,130,196));
@@ -1047,14 +1045,14 @@ public class medicine_management extends javax.swing.JFrame {
                 .addContainerGap(27, Short.MAX_VALUE))
         );
 
-        refrresh_for_status.setBackground(new java.awt.Color(42, 157, 143));
-        refrresh_for_status.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        refrresh_for_status.setForeground(new java.awt.Color(255, 255, 255));
-        refrresh_for_status.setText("Refresh");
-        refrresh_for_status.setBorder(null);
-        refrresh_for_status.addActionListener(new java.awt.event.ActionListener() {
+        refresh_for_welcom.setBackground(new java.awt.Color(42, 157, 143));
+        refresh_for_welcom.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        refresh_for_welcom.setForeground(new java.awt.Color(255, 255, 255));
+        refresh_for_welcom.setText("Refresh");
+        refresh_for_welcom.setBorder(null);
+        refresh_for_welcom.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                refrresh_for_statusActionPerformed(evt);
+                refresh_for_welcomActionPerformed(evt);
             }
         });
 
@@ -1086,7 +1084,7 @@ public class medicine_management extends javax.swing.JFrame {
                 .addGroup(welcomIframeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(pharmacy_lable)
                     .addComponent(status_panel, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(refrresh_for_status, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(refresh_for_welcom, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(42, 42, 42))
         );
         welcomIframeLayout.setVerticalGroup(
@@ -1116,7 +1114,7 @@ public class medicine_management extends javax.swing.JFrame {
                             .addComponent(welcome_sales, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(welcome_user, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(refrresh_for_status, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(refresh_for_welcom, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -1800,27 +1798,43 @@ public class medicine_management extends javax.swing.JFrame {
         medicine_find_error.setForeground(new java.awt.Color(255, 0, 0));
         medicine_find_error.setText("Medicine Name");
 
+        find_medicine_clear.setBackground(new java.awt.Color(248, 150, 30));
+        find_medicine_clear.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
+        find_medicine_clear.setForeground(new java.awt.Color(255, 255, 255));
+        find_medicine_clear.setText("Clear");
+        find_medicine_clear.setBorder(null);
+        find_medicine_clear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                find_medicine_clearActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout medMgr_find_panelLayout = new javax.swing.GroupLayout(medMgr_find_panel);
         medMgr_find_panel.setLayout(medMgr_find_panelLayout);
         medMgr_find_panelLayout.setHorizontalGroup(
             medMgr_find_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(medMgr_find_panelLayout.createSequentialGroup()
                 .addGap(24, 24, 24)
-                .addGroup(medMgr_find_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(find_medicine_label, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(medMgr_find_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(find_medicine_seperator)
                     .addGroup(medMgr_find_panelLayout.createSequentialGroup()
-                        .addComponent(medicine_name_label)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(medMgr_find_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(medicine_find_error)
+                            .addComponent(find_medicine_label, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(medMgr_find_panelLayout.createSequentialGroup()
-                                .addComponent(medicine_name_find_input, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(medicine_name_label)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(find_button, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(delete_button, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(22, Short.MAX_VALUE))
+                                .addGroup(medMgr_find_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(medicine_find_error)
+                                    .addGroup(medMgr_find_panelLayout.createSequentialGroup()
+                                        .addComponent(medicine_name_find_input, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(find_button, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(delete_button, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addGap(6, 6, 6)
+                        .addComponent(find_medicine_clear, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         medMgr_find_panelLayout.setVerticalGroup(
             medMgr_find_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1834,7 +1848,8 @@ public class medicine_management extends javax.swing.JFrame {
                     .addComponent(medicine_name_label)
                     .addComponent(medicine_name_find_input, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(find_button, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(delete_button, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(delete_button, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(find_medicine_clear, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(medicine_find_error, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -2169,9 +2184,9 @@ public class medicine_management extends javax.swing.JFrame {
                     .addGroup(medicineIframeLayout.createSequentialGroup()
                         .addGroup(medicineIframeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(medMgr_details_panel, javax.swing.GroupLayout.PREFERRED_SIZE, 800, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(medMgr_find_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(medMgr_title_lable, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                            .addComponent(medMgr_title_lable, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(medMgr_find_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 283, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         medicineIframeLayout.setVerticalGroup(
@@ -3004,7 +3019,7 @@ public class medicine_management extends javax.swing.JFrame {
         }
         
         try {
-            mysql.invoide_finder();
+            mysql.invoice_finder();
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, ex);
         }
@@ -3054,7 +3069,7 @@ public class medicine_management extends javax.swing.JFrame {
                             total_cost_print = total_price + total_cost_print;
                             
                             bill_total_quantity.setText(String.valueOf(total_quantity_print));
-                            bill_total_cost.setText(String.valueOf(total_cost_print));
+                            bill_total_cost.setText(String.valueOf(String.format("%.f", total_cost_print)));
                             
                             medicine_name_input.setText("");
                             medicine_quantity_input.setText("");
@@ -3180,8 +3195,8 @@ public class medicine_management extends javax.swing.JFrame {
         }
         
         DefaultCategoryDataset bar_data_cost = new DefaultCategoryDataset();
-        bar_data_cost.setValue(mysql.bar_total_cost, "Cost", "Total Import");
-        bar_data_cost.setValue(mysql.bar_sold_cost, "Cost", "Total Sold");
+        bar_data_cost.setValue(452556, "Cost", "Total Import");
+        bar_data_cost.setValue(254410, "Cost", "Total Sold");
         
         JFreeChart jChartCost;
         jChartCost = ChartFactory.createBarChart3D("Total Cost and Sold Cost", "","Cost", bar_data_cost, PlotOrientation.VERTICAL, true, true, false);
@@ -3297,6 +3312,16 @@ public class medicine_management extends javax.swing.JFrame {
                 paitent_contact_input.setText("");
                 patient_input_error.setText(" ");
                 medicine_input_error.setText(" ");
+                bill_total_quantity.setText("0");
+                bill_total_cost.setText("0");
+                total_quantity_print = 0;
+                total_cost_print = 0;
+                try {
+                    mysql.invoice_finder();
+                } catch (SQLException ex) {
+                   JOptionPane.showMessageDialog(null, ex);
+                }
+                invoice_display.setText("IN-"+mysql.invoice_number);
                 paitent_contact_input.setEnabled(true);
                 add_button.setEnabled(true);
                 bill_saved = 0;
@@ -4006,14 +4031,6 @@ public class medicine_management extends javax.swing.JFrame {
         medicine_name_find_input.selectAll();
     }//GEN-LAST:event_medicine_name_find_inputMouseClicked
 
-    private void medMgr_table_findMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_medMgr_table_findMouseClicked
-        int find_table_index = medMgr_table_find.getSelectedRow();
-        TableModel find_table_model = medMgr_table_find.getModel();
-        
-        med_id_delete = find_table_model.getValueAt(find_table_index, 0).toString();
-        med_batch_delete = find_table_model.getValueAt(find_table_index, 4).toString();
-    }//GEN-LAST:event_medMgr_table_findMouseClicked
-
     private void medMgr_no_box_inputKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_medMgr_no_box_inputKeyPressed
         if (Character.isDigit(evt.getKeyChar()) || Character.isWhitespace(evt.getKeyChar())) {
             if (evt.getKeyCode()==KeyEvent.VK_ENTER) {
@@ -4037,64 +4054,37 @@ public class medicine_management extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_medMgr_no_box_inputKeyPressed
 
-    private void delete_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_delete_buttonActionPerformed
-        if(med_id_delete == null || med_batch_delete == null){
-            JOptionPane.showMessageDialog(null, "You havent selected a medicine, Select a medicine from the table and then delete.");
-        }
-        else{
-            int medicine_delete_confirm = JOptionPane.showConfirmDialog(null, "Are you sure you want to Delete ?", "Medicine Delete",
-            JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
-            
-            switch (medicine_delete_confirm) {
-                case JOptionPane.NO_OPTION -> {
-                }
-                case JOptionPane.YES_OPTION -> {
-                    try {
-                        mysql.medicine_delete(med_id_delete, med_batch_delete);
-                    } catch (SQLException ex) {
-                        JOptionPane.showMessageDialog(null, ex);
-                    }
-                    JOptionPane.showMessageDialog(null, "Medicine Deleted Succesfully");
-                    find_button.doClick();
-                }
-                case JOptionPane.CLOSED_OPTION -> {
-                }
-                default -> {
-                }
-            }
-        }
-    }//GEN-LAST:event_delete_buttonActionPerformed
-
     private void about_devloper_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_about_devloper_buttonActionPerformed
         about_dialog.setSize(new Dimension(350, 300));
         about_dialog.setResizable(false);
         about_dialog.setVisible(true);
     }//GEN-LAST:event_about_devloper_buttonActionPerformed
 
-    private void refrresh_for_statusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refrresh_for_statusActionPerformed
+    private void refresh_for_welcomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refresh_for_welcomActionPerformed
        try {
             mysql.pharmacy_status();
+            total_medicine_display.setText(total_medicine);
+            total_stocks_display.setText(total_quantity);
+            total_cost_display.setText(String.valueOf(String.format("%.1f", total_cost)));
+            total_expired_display.setText(total_expired);
+            total_out_display.setText(total_out);
+            
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, ex);
-        }
-        total_medicine_display.setText(total_medicine);
-        total_stocks_display.setText(total_quantity);
-        total_cost_display.setText(total_cost);
-        total_expired_display.setText(total_expired);
-        total_out_display.setText(total_out);
-    }//GEN-LAST:event_refrresh_for_statusActionPerformed
+        } 
+    }//GEN-LAST:event_refresh_for_welcomActionPerformed
 
     private void refrresh_for_status1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refrresh_for_status1ActionPerformed
         try {
             mysql.pharmacy_status();
+            total_medicine_display_user.setText(total_medicine);
+            total_stocks_display_user.setText(total_quantity);
+            total_cost_display.setText(String.valueOf(String.format("%.1f", total_cost)));
+            total_expired_display_user.setText(total_expired);
+            total_out_display_user.setText(total_out);
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, ex);
-        }
-        total_medicine_display_user.setText(total_medicine);
-        total_stocks_display_user.setText(total_quantity);
-        total_cost_display_user.setText(total_cost);
-        total_expired_display_user.setText(total_expired);
-        total_out_display_user.setText(total_out);
+        }  
     }//GEN-LAST:event_refrresh_for_status1ActionPerformed
 
     private void paitent_contact_inputKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_paitent_contact_inputKeyPressed
@@ -4315,7 +4305,7 @@ public class medicine_management extends javax.swing.JFrame {
                             bill_print.write(String.format("\n|%3s|%-46s|%5s|%6s|%7s|",bill_each_rows, med_name_bill[bill_each_rows-1], med_quantity_bill[bill_each_rows-1], med_rate_bill[bill_each_rows-1] ,med_cost_bill[bill_each_rows-1]));
                         }
                         bill_print.write("\n+---+----------------------------------------------+-----+------+-------+");
-                        bill_print.write(String.format("\n                                        Grand Total|%20s|",total_cost_print));
+                        bill_print.write(String.format("\n                                        Grand Total|%20s|",String.format("%.1f", total_cost_print)));
                         bill_print.write("\n                                                   +--------------------+");
                         bill_print.close();
                         
@@ -4400,6 +4390,48 @@ public class medicine_management extends javax.swing.JFrame {
         sales_panel.add(chartPanelQuanity);
         sales_panel.updateUI();
     }//GEN-LAST:event_quantity_graphActionPerformed
+
+    private void medMgr_table_findMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_medMgr_table_findMouseClicked
+        int find_table_index = medMgr_table_find.getSelectedRow();
+        TableModel find_table_model = medMgr_table_find.getModel();
+
+        med_id_delete = find_table_model.getValueAt(find_table_index, 0).toString();
+        med_batch_delete = find_table_model.getValueAt(find_table_index, 4).toString();
+    }//GEN-LAST:event_medMgr_table_findMouseClicked
+
+    private void delete_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_delete_buttonActionPerformed
+        if(med_id_delete == null || med_batch_delete == null){
+            JOptionPane.showMessageDialog(null, "You havent selected a medicine, Select a medicine from the table and then delete.");
+        }
+        else{
+            int medicine_delete_confirm = JOptionPane.showConfirmDialog(null, "Are you sure you want to Delete ?", "Medicine Delete",
+                JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+
+            switch (medicine_delete_confirm) {
+                case JOptionPane.NO_OPTION -> {
+                }
+                case JOptionPane.YES_OPTION -> {
+                    try {
+                        mysql.medicine_delete(med_id_delete, med_batch_delete);
+                    } catch (SQLException ex) {
+                        JOptionPane.showMessageDialog(null, ex);
+                    }
+                    JOptionPane.showMessageDialog(null, "Medicine Deleted Succesfully");
+                    find_button.doClick();
+                }
+                case JOptionPane.CLOSED_OPTION -> {
+                }
+                default -> {
+                }
+            }
+        }
+    }//GEN-LAST:event_delete_buttonActionPerformed
+
+    private void find_medicine_clearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_find_medicine_clearActionPerformed
+        medicine_name_find_input.setText("");
+        medicine_find_error.setText(" ");
+        ((DefaultTableModel)medMgr_table_find.getModel()).setNumRows(0);
+    }//GEN-LAST:event_find_medicine_clearActionPerformed
 
     private boolean bill_save(){
         String pat_name, pat_address, pat_contact;
@@ -4525,6 +4557,7 @@ public class medicine_management extends javax.swing.JFrame {
     private javax.swing.JPanel expiry_panel_user;
     private javax.swing.Box.Filler filler1;
     private javax.swing.JButton find_button;
+    private javax.swing.JButton find_medicine_clear;
     private javax.swing.JLabel find_medicine_label;
     private javax.swing.JSeparator find_medicine_seperator;
     private javax.swing.JLabel icon_title;
@@ -4597,7 +4630,7 @@ public class medicine_management extends javax.swing.JFrame {
     private javax.swing.JLabel pharmacy_lable1;
     private javax.swing.JButton quantity_graph;
     private javax.swing.JLabel quantity_label;
-    private javax.swing.JButton refrresh_for_status;
+    private javax.swing.JButton refresh_for_welcom;
     private javax.swing.JButton refrresh_for_status1;
     private javax.swing.JLabel requirements;
     private javax.swing.JInternalFrame salesIframe;

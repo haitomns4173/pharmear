@@ -1,0 +1,21 @@
+Sample Pharma
+Sample Address
+9800000000
+
+
+VAT No.123456789
+Invoice NO.: IN-001                     Transaction Date : 2021-07-29
+
+Patient Name     : Admin
+Patient Adddress : Knowhere
+Patient Contact  : 9800000000
+
++---+----------------------------------------------+-----+------+-------+
+|Sn.|Medicine Name                                 |Qty  |Rate  |Cost   |
++---+----------------------------------------------+-----+------+-------+
+|  1|EBAST 10                                      |   10|9.52  |95.2005|
+|  2|THALIX 100 CAPSULE                            |   14|  45.0|  630.0|
+|  3|UBIQ 30 CAPSULE                               |    4|  31.2|  124.8|
++---+----------------------------------------------+-----+------+-------+
+                                        Grand Total|              1068.4|
+                                                   +--------------------+

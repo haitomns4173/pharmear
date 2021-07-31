@@ -633,7 +633,7 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="pharmacy_lable" min="-2" max="-2" attributes="0"/>
                                   <Component id="status_panel" min="-2" pref="300" max="-2" attributes="0"/>
-                                  <Component id="refrresh_for_status" min="-2" pref="116" max="-2" attributes="0"/>
+                                  <Component id="refresh_for_welcom" min="-2" pref="116" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
                           </Group>
@@ -674,7 +674,7 @@
                                   </Group>
                               </Group>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="refrresh_for_status" min="-2" pref="41" max="-2" attributes="0"/>
+                              <Component id="refresh_for_welcom" min="-2" pref="41" max="-2" attributes="0"/>
                               <EmptySpace max="32767" attributes="0"/>
                           </Group>
                       </Group>
@@ -1398,7 +1398,7 @@
                         </Container>
                       </SubComponents>
                     </Container>
-                    <Component class="javax.swing.JButton" name="refrresh_for_status">
+                    <Component class="javax.swing.JButton" name="refresh_for_welcom">
                       <Properties>
                         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="8f" green="9d" red="2a" type="rgb"/>
@@ -1415,7 +1415,7 @@
                         </Property>
                       </Properties>
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="refrresh_for_statusActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="refresh_for_welcomActionPerformed"/>
                       </Events>
                     </Component>
                   </SubComponents>
@@ -2359,10 +2359,10 @@
                                   <Group type="102" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="medMgr_details_panel" min="-2" pref="800" max="-2" attributes="0"/>
-                                          <Component id="medMgr_find_panel" alignment="0" min="-2" max="-2" attributes="0"/>
                                           <Component id="medMgr_title_lable" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="medMgr_find_panel" alignment="0" min="-2" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                      <EmptySpace min="0" pref="283" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
@@ -2472,25 +2472,32 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="find_medicine_label" min="-2" pref="124" max="-2" attributes="0"/>
-                                      <Component id="find_medicine_seperator" alignment="0" max="32767" attributes="0"/>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Component id="medicine_name_label" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="find_medicine_seperator" max="32767" attributes="0"/>
+                                      <Group type="102" attributes="0">
                                           <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="medicine_find_error" min="-2" max="-2" attributes="0"/>
-                                              <Group type="102" attributes="0">
-                                                  <Component id="medicine_name_find_input" min="-2" pref="279" max="-2" attributes="0"/>
+                                              <Component id="find_medicine_label" min="-2" pref="124" max="-2" attributes="0"/>
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <Component id="medicine_name_label" min="-2" max="-2" attributes="0"/>
                                                   <EmptySpace max="-2" attributes="0"/>
-                                                  <Component id="find_button" min="-2" pref="73" max="-2" attributes="0"/>
-                                                  <EmptySpace max="-2" attributes="0"/>
-                                                  <Component id="delete_button" min="-2" pref="73" max="-2" attributes="0"/>
+                                                  <Group type="103" groupAlignment="0" attributes="0">
+                                                      <Component id="medicine_find_error" min="-2" max="-2" attributes="0"/>
+                                                      <Group type="102" attributes="0">
+                                                          <Component id="medicine_name_find_input" min="-2" pref="279" max="-2" attributes="0"/>
+                                                          <EmptySpace max="-2" attributes="0"/>
+                                                          <Component id="find_button" min="-2" pref="73" max="-2" attributes="0"/>
+                                                          <EmptySpace max="-2" attributes="0"/>
+                                                          <Component id="delete_button" min="-2" pref="73" max="-2" attributes="0"/>
+                                                      </Group>
+                                                  </Group>
                                               </Group>
                                           </Group>
+                                          <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
+                                          <Component id="find_medicine_clear" min="-2" pref="73" max="-2" attributes="0"/>
+                                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
-                                  <EmptySpace pref="22" max="32767" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
@@ -2507,6 +2514,7 @@
                                       <Component id="medicine_name_find_input" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="find_button" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
                                       <Component id="delete_button" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
+                                      <Component id="find_medicine_clear" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="medicine_find_error" min="-2" pref="14" max="-2" attributes="0"/>
@@ -2597,6 +2605,26 @@
                             </Property>
                             <Property name="text" type="java.lang.String" value="Medicine Name"/>
                           </Properties>
+                        </Component>
+                        <Component class="javax.swing.JButton" name="find_medicine_clear">
+                          <Properties>
+                            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                              <Color blue="1e" green="96" red="f8" type="rgb"/>
+                            </Property>
+                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                              <Font name="Segoe UI" size="11" style="1"/>
+                            </Property>
+                            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                            </Property>
+                            <Property name="text" type="java.lang.String" value="Clear"/>
+                            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                              <Border info="null"/>
+                            </Property>
+                          </Properties>
+                          <Events>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="find_medicine_clearActionPerformed"/>
+                          </Events>
                         </Component>
                       </SubComponents>
                     </Container>

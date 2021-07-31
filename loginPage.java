@@ -31,7 +31,7 @@ public class loginPage extends javax.swing.JFrame {
         login_buttom = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Login");
+        setTitle("Pharmear Login");
         setFont(new java.awt.Font("Microsoft Sans Serif", 0, 10)); // NOI18N
         setName("login_page"); // NOI18N
         setResizable(false);

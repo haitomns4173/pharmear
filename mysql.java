@@ -83,7 +83,7 @@ public class mysql {
         String query_cost = "SELECT SUM(total_cost-sold_cost) as left_stock from medicine_stock;";
         result = stmt.executeQuery(query_cost);
         while(result.next()) {
-            medicine_management.total_cost = result.getString(1);
+            medicine_management.total_cost = result.getFloat(1);
         }
         
         stmt = connect.createStatement();
@@ -323,23 +323,19 @@ public class mysql {
     }
     
     public static void medicine_delete(String medicine_id, String medicine_batch) throws SQLException{
-        int number_of_rows_delete = 0;
+        int temp_stock = 0;
+        float temp_cost = 0;
         stmt = connect.createStatement();
-        String query = "SELECT * FROM `medicine_import_details` WHERE `medicine_id` = "+medicine_id+"";
+        String query = "SELECT total_stock, total_cost FROM pharma_db.medicine_stock where med_batch = "+medicine_batch+"";
         result = stmt.executeQuery(query);
         while(result.next()) {
-            number_of_rows_delete++;
+            temp_stock = result.getInt(1);
+            temp_cost = result.getFloat(2);
         }
         
-        String delete_query_details = "DELETE FROM `medicine_import_details` WHERE batch_no = "+medicine_batch+"";
-        String delete_query_import = "DELETE FROM `medicine_import` WHERE id = "+medicine_id+"";
-        if(number_of_rows_delete == 1){
-            stmt.executeUpdate(delete_query_details);
-            stmt.executeUpdate(delete_query_import);
-        }
-        else{
-            stmt.executeUpdate(delete_query_details);
-        }
+        stmt = connect.createStatement();
+        String query_delete = "update medicine_stock set sold_stock = "+temp_stock+", sold_cost = "+temp_cost+" where med_batch = "+medicine_batch+"";
+        stmt.executeUpdate(query_delete);
     }
 
     public static void patient_add(String pat_name, String pat_address, String pat_contact) throws SQLException{
@@ -387,7 +383,7 @@ public class mysql {
         stmt.executeUpdate(update_stocks);
     }
     
-    public static void invoide_finder() throws SQLException{
+    public static void invoice_finder() throws SQLException{
         stmt = connect.createStatement();
         String query = "SELECT id FROM `patient_details` ORDER BY id DESC LIMIT 1;";
         result = stmt.executeQuery(query);
