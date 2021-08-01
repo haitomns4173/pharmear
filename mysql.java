@@ -31,16 +31,18 @@ public class mysql {
     static int bar_sold_cost;
     static int bar_sold_quantity;
     
-    public static void main(String args[]) {
+    public static boolean main(String args[]) {
         String db_url = "jdbc:mysql://localhost:3306/pharma_db";
         String db_username = "root";
-        String db_password = "admin";  
+        String db_password = MMS.db_passcode;  
         
         try {
             connect = DriverManager.getConnection(db_url, db_username, db_password);
+            return true;
         }
         catch(SQLException database_error_message){
             JOptionPane.showMessageDialog(null, database_error_message);
+            return false;
         }
     }
     

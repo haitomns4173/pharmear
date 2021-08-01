@@ -3069,7 +3069,7 @@ public class medicine_management extends javax.swing.JFrame {
                             total_cost_print = total_price + total_cost_print;
                             
                             bill_total_quantity.setText(String.valueOf(total_quantity_print));
-                            bill_total_cost.setText(String.valueOf(String.format("%.f", total_cost_print)));
+                            bill_total_cost.setText(String.valueOf(String.format("%.1f", total_cost_print)));
                             
                             medicine_name_input.setText("");
                             medicine_quantity_input.setText("");
@@ -4309,13 +4309,13 @@ public class medicine_management extends javax.swing.JFrame {
                         bill_print.write("\n                                                   +--------------------+");
                         bill_print.close();
                         
-                        FileReader fr = new FileReader(bill_path);    
+                        // File Print still in testing
+                        /*FileReader fr = new FileReader(getClass().getResource(bill_path));    
                         int i;    
                         while((i=fr.read())!=-1){    
                             System.out.print((char)i); 
                         }
-                        fr.close();    
-                        
+                        fr.close();*/    
                     } catch (IOException ex) {
                         JOptionPane.showMessageDialog(null, ex);
                     }
