@@ -405,4 +405,26 @@ public class mysql {
             bar_sold_cost = result.getInt(4);
         }
     }
+    
+    public static void backup_pharma_db() throws SQLException{
+        Process pr;
+        String path = "C:/Users/haito/Desktop/jaa.sql";
+        try {
+            Runtime run= Runtime.getRuntime();
+            pr =run.exec("C:/Program Files/MySQL/MySQL Server 8.0/bin/mysqldump -uroot -padmin --add-drop-database -B pharma_db -r"+path);
+
+            int processComplete= pr.waitFor();
+            if(processComplete==0)
+            {
+            JOptionPane.showMessageDialog(null, "Backup Success");
+            }
+            else
+            {
+            JOptionPane.showMessageDialog(null, "Fail");
+            }
+        } 
+        catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }
 }

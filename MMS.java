@@ -8,9 +8,8 @@ public class MMS {
     static String db_passcode;
     
     public static void main(String[] args) throws FileNotFoundException {
-        
         File setup = new File("setup_test.txt");
-        
+            
         if(setup.exists()){
             try (Scanner setupReader = new Scanner(setup)) {
                 while (setupReader.hasNextLine())
@@ -18,13 +17,15 @@ public class MMS {
                     db_passcode = setupReader.nextLine();
                 }
                 setupReader.close();
-                
-                //Connectioin to the database
-                mysql.main(args);
-        
-                //Login form Called
-                loginPage main_login = new loginPage();
-                main_login.setVisible(true);
+
+                if(mysql.main(args)){
+                    loginPage main_login = new loginPage();
+                    main_login.setVisible(true);
+                }
+                else{
+                    pharmear_setup main = new pharmear_setup();
+                    main.setVisible(true);
+                }
             }
             catch(FileNotFoundException e)
             {
@@ -35,6 +36,6 @@ public class MMS {
         else{
             pharmear_setup main = new pharmear_setup();
             main.setVisible(true);
-        }   
+        }
     } 
 }

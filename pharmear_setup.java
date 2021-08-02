@@ -1,10 +1,19 @@
 package mms;
 
+import java.io.FileWriter;
+import java.io.IOException;
+import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import static mms.mysql.connect;
+import static mms.mysql.result;
+import static mms.mysql.stmt;
 
 public class pharmear_setup extends javax.swing.JFrame {
     
@@ -268,7 +277,7 @@ public class pharmear_setup extends javax.swing.JFrame {
 
     private void mysql_save_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mysql_save_buttonActionPerformed
         if(mysql_password_input.getText().isEmpty()){
-            JOptionPane.showMessageDialog(null, "MySQL Password is Empty.");
+            JOptionPane.showMessageDialog(rootPane, "Mysql Password is Empty");
         }
         else{
             db_code_write = mysql_password_input.getText();
@@ -277,16 +286,37 @@ public class pharmear_setup extends javax.swing.JFrame {
     }//GEN-LAST:event_mysql_save_buttonActionPerformed
 
     private void mysql_test_connection_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mysql_test_connection_buttonActionPerformed
-        String db_url = "jdbc:mysql://localhost:3306/pharma_db";
+        String db_url = "jdbc:mysql://localhost:3306";
         String db_username = "root";
-        String db_password = db_code_write;  
+        String db_password = db_code_write; 
         
         try {
             connect = DriverManager.getConnection(db_url, db_username, db_password);
             JOptionPane.showMessageDialog(null, "Connection Successful now you can create a user.");
+            
+            FileWriter myWriter;
+            try {
+                myWriter = new FileWriter("setup_test.txt");
+                myWriter.write(db_code_write);
+                myWriter.close();
+            } catch (IOException ex) {
+                JOptionPane.showMessageDialog(null, ex);
+            } 
+            
+            try{
+                mysql.stmt = connect.createStatement();
+                String sql = "use pharma_db;";
+                mysql.result = mysql.stmt.executeQuery(sql);
+            }
+            catch(SQLException database_error_message){
+                mysql.stmt = connect.createStatement();
+                String sql = "CREATE DATABASE pharma_db";
+                mysql.result = mysql.stmt.executeQuery(sql);
+            }
         }
         catch(SQLException database_error_message){
-            JOptionPane.showMessageDialog(null, database_error_message);
+            JOptionPane.showMessageDialog(null, "Wrong Password or you have not installed MYSQL");
+            mysql_password_input.setText("");
         }
     }//GEN-LAST:event_mysql_test_connection_buttonActionPerformed
 
