@@ -13,6 +13,8 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Set;
 import java.util.TreeSet;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
@@ -21,7 +23,6 @@ import org.jfree.chart.JFreeChart;
 import org.jfree.chart.plot.CategoryPlot;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.category.DefaultCategoryDataset;
-import java.io.FileReader;
 import org.jfree.chart.ChartPanel;
 
 
@@ -454,6 +455,9 @@ public class medicine_management extends javax.swing.JFrame {
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowActivated(java.awt.event.WindowEvent evt) {
                 formWindowActivated(evt);
+            }
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
             }
         });
 
@@ -1679,7 +1683,7 @@ public class medicine_management extends javax.swing.JFrame {
                 .addGroup(billIframeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(command_center_pane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(billIframeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(bill_input_panel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE)
+                        .addComponent(bill_input_panel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                         .addComponent(patient_details_panel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -4284,7 +4288,7 @@ public class medicine_management extends javax.swing.JFrame {
                     }
                     FileWriter bill_print;
                     try {
-                        String bill_path = "src/mms/bill_print/"+patient_name+"_"+tf.format(now)+".doc";
+                        String bill_path = "bill_print/"+patient_name+"_"+tf.format(now)+".doc";
                         bill_print = new FileWriter(bill_path);
                         bill_print.write(mysql.company_name);
                         bill_print.write("\n"+mysql.company_address);
@@ -4307,15 +4311,7 @@ public class medicine_management extends javax.swing.JFrame {
                         bill_print.write("\n+---+----------------------------------------------+-----+------+-------+");
                         bill_print.write(String.format("\n                                        Grand Total|%20s|",String.format("%.1f", total_cost_print)));
                         bill_print.write("\n                                                   +--------------------+");
-                        bill_print.close();
-                        
-                        // File Print still in testing
-                        /*FileReader fr = new FileReader(getClass().getResource(bill_path));    
-                        int i;    
-                        while((i=fr.read())!=-1){    
-                            System.out.print((char)i); 
-                        }
-                        fr.close();*/    
+                        bill_print.close();    
                     } catch (IOException ex) {
                         JOptionPane.showMessageDialog(null, ex);
                     }
@@ -4413,11 +4409,11 @@ public class medicine_management extends javax.swing.JFrame {
                 case JOptionPane.YES_OPTION -> {
                     try {
                         mysql.medicine_delete(med_id_delete, med_batch_delete);
+                        JOptionPane.showMessageDialog(null, "Medicine Deleted Succesfully");
+                    find_button.doClick();
                     } catch (SQLException ex) {
                         JOptionPane.showMessageDialog(null, ex);
                     }
-                    JOptionPane.showMessageDialog(null, "Medicine Deleted Succesfully");
-                    find_button.doClick();
                 }
                 case JOptionPane.CLOSED_OPTION -> {
                 }
@@ -4432,6 +4428,15 @@ public class medicine_management extends javax.swing.JFrame {
         medicine_find_error.setText(" ");
         ((DefaultTableModel)medMgr_table_find.getModel()).setNumRows(0);
     }//GEN-LAST:event_find_medicine_clearActionPerformed
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        try {
+            mysql.backup_pharma_db();
+        } 
+        catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error Occured While Backing up data");
+        }
+    }//GEN-LAST:event_formWindowClosing
 
     private boolean bill_save(){
         String pat_name, pat_address, pat_contact;
@@ -4467,21 +4472,6 @@ public class medicine_management extends javax.swing.JFrame {
         bill_saved = 1;
         return true;
     }
-    
-    /*private void print_print() throws Exception{
-        Document doc = new Document("C:\\bill_save.doc");
-        
-        PrinterJob pj = PrinterJob.getPrinterJob();
-        PrintRequestAttributeSet attributes = new HashPrintRequestAttributeSet();
-        attributes.add(new PageRanges(1, doc.getPageCount()));
-        
-        if(!pj.printDialog(attributes))
-        {
-            return;
-        }
-        
-        
-    }*/
     
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */

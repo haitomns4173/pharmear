@@ -2,13 +2,19 @@ package mms;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.sql.SQLException;
 import java.util.Scanner;
 
 public class MMS {
     static String db_passcode;
     
-    public static void main(String[] args) throws FileNotFoundException {
-        File setup = new File("setup_test.txt");
+    public static void main(String[] args) throws FileNotFoundException, SQLException {
+        File setup = new File("setup_test.phe");
+        File bill_print_folder = new File("bill_print");
+        File backup_folder = new File("pharmear_backup");
+        
+        bill_print_folder.mkdir();
+        backup_folder.mkdir();
             
         if(setup.exists()){
             try (Scanner setupReader = new Scanner(setup)) {

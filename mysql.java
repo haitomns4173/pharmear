@@ -1,5 +1,9 @@
 package mms;
+import java.io.File;
 import java.sql.*;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Arrays;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 
@@ -406,25 +410,48 @@ public class mysql {
         }
     }
     
-    public static void backup_pharma_db() throws SQLException{
-        Process pr;
-        String path = "C:/Users/haito/Desktop/jaa.sql";
-        try {
-            Runtime run= Runtime.getRuntime();
-            pr =run.exec("C:/Program Files/MySQL/MySQL Server 8.0/bin/mysqldump -uroot -padmin --add-drop-database -B pharma_db -r"+path);
+    public static void backup_pharma_db() throws SQLException{    
+        File directory_backup = new File("pharmear_backup");
+        File[] files_backup = directory_backup.listFiles();
+        for (File file : files_backup)
+        {
+           if (!file.delete())
+           {
+               JOptionPane.showMessageDialog(null, "Multiple Database Backup Error");
+           }
+        }
 
-            int processComplete= pr.waitFor();
+        DateTimeFormatter tf = DateTimeFormatter.ofPattern("yyyy_MM_dd_HH_mm_ss");  
+        LocalDateTime now = LocalDateTime.now();
+        
+        String backup_path = "pharmear_backup/backup_"+tf.format(now)+".sql";
+        Process process_backup;
+        
+        try {
+            Runtime run_pharmear_backup = Runtime.getRuntime();
+            process_backup = run_pharmear_backup.exec("C:/Program Files/MySQL/MySQL Server 8.0/bin/mysqldump -uroot -padmin --add-drop-database -B pharma_db -r"+backup_path);
+
+            int processComplete= process_backup.waitFor();
             if(processComplete==0)
             {
-            JOptionPane.showMessageDialog(null, "Backup Success");
+                //Backup Done
             }
             else
             {
-            JOptionPane.showMessageDialog(null, "Fail");
+                JOptionPane.showMessageDialog(null, "Backup Failed, Error with application!");
             }
         } 
         catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e);
+            JOptionPane.showMessageDialog(null, "Backup Not Completed, MYSQL is not installed in C: Drive");
         }
+    }
+    
+    public static void restore_from_setup(){
+        File directory_restore = new File("pharmear_backup");
+        File[] files_restore = directory_restore.listFiles();
+        Arrays.sort(files_restore);
+        
+        String path_restore;
+        path_restore = Arrays.toString(files_restore[files_restore.length - 1]);
     }
 }

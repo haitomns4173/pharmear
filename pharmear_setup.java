@@ -1,19 +1,13 @@
 package mms;
 
+import java.awt.event.KeyEvent;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import static mms.mysql.connect;
-import static mms.mysql.result;
-import static mms.mysql.stmt;
 
 public class pharmear_setup extends javax.swing.JFrame {
     
@@ -49,6 +43,19 @@ public class pharmear_setup extends javax.swing.JFrame {
         password_label = new javax.swing.JLabel();
         new_user_password_input = new javax.swing.JPasswordField();
         new_user_save = new javax.swing.JButton();
+        shop_details_panel2 = new javax.swing.JPanel();
+        user_shopDtr_label2 = new javax.swing.JLabel();
+        user_shopDtr_seperator2 = new javax.swing.JSeparator();
+        user_shopDtr_shop_name2 = new javax.swing.JLabel();
+        user_shopDtr_shop_name_input2 = new javax.swing.JTextField();
+        user_shopDtr_address_label2 = new javax.swing.JLabel();
+        user_shopDtr_address_input2 = new javax.swing.JTextField();
+        user_shopDtr_shop_contact2 = new javax.swing.JLabel();
+        user_shopDtr_shop_contact_input2 = new javax.swing.JTextField();
+        user_shopDtr_update_button2 = new javax.swing.JButton();
+        shop_details_error2 = new javax.swing.JLabel();
+        vat_no_label2 = new javax.swing.JLabel();
+        vat_no_input2 = new javax.swing.JTextField();
 
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
@@ -118,7 +125,7 @@ public class pharmear_setup extends javax.swing.JFrame {
                                 .addComponent(mysql_save_button, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(mysql_test_connection_button, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 132, Short.MAX_VALUE)))
+                        .addGap(0, 183, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         mysql_panelLayout.setVerticalGroup(
@@ -235,6 +242,134 @@ public class pharmear_setup extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        shop_details_panel2.setBackground(new java.awt.Color(25, 130, 196));
+
+        user_shopDtr_label2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        user_shopDtr_label2.setForeground(new java.awt.Color(255, 255, 255));
+        user_shopDtr_label2.setText("Shop Details");
+
+        user_shopDtr_shop_name2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        user_shopDtr_shop_name2.setForeground(new java.awt.Color(255, 255, 255));
+        user_shopDtr_shop_name2.setText("Shop Name");
+
+        user_shopDtr_shop_name_input2.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
+        user_shopDtr_shop_name_input2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                user_shopDtr_shop_name_input2KeyPressed(evt);
+            }
+        });
+
+        user_shopDtr_address_label2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        user_shopDtr_address_label2.setForeground(new java.awt.Color(255, 255, 255));
+        user_shopDtr_address_label2.setText("Address");
+
+        user_shopDtr_address_input2.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
+        user_shopDtr_address_input2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                user_shopDtr_address_input2KeyPressed(evt);
+            }
+        });
+
+        user_shopDtr_shop_contact2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        user_shopDtr_shop_contact2.setForeground(new java.awt.Color(255, 255, 255));
+        user_shopDtr_shop_contact2.setText("Contact");
+
+        user_shopDtr_shop_contact_input2.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
+        user_shopDtr_shop_contact_input2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                user_shopDtr_shop_contact_input2KeyPressed(evt);
+            }
+        });
+
+        user_shopDtr_update_button2.setBackground(new java.awt.Color(248, 150, 30));
+        user_shopDtr_update_button2.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
+        user_shopDtr_update_button2.setForeground(new java.awt.Color(255, 255, 255));
+        user_shopDtr_update_button2.setText("Update");
+        user_shopDtr_update_button2.setBorder(null);
+        user_shopDtr_update_button2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                user_shopDtr_update_button2ActionPerformed(evt);
+            }
+        });
+
+        shop_details_error2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        shop_details_error2.setForeground(new java.awt.Color(255, 255, 255));
+        shop_details_error2.setText("Shop Error");
+
+        vat_no_label2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        vat_no_label2.setForeground(new java.awt.Color(255, 255, 255));
+        vat_no_label2.setText("VAT No.");
+
+        vat_no_input2.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
+        vat_no_input2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                vat_no_input2KeyPressed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout shop_details_panel2Layout = new javax.swing.GroupLayout(shop_details_panel2);
+        shop_details_panel2.setLayout(shop_details_panel2Layout);
+        shop_details_panel2Layout.setHorizontalGroup(
+            shop_details_panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(shop_details_panel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(shop_details_panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(user_shopDtr_label2)
+                    .addGroup(shop_details_panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(user_shopDtr_seperator2, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(shop_details_panel2Layout.createSequentialGroup()
+                            .addGroup(shop_details_panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(shop_details_panel2Layout.createSequentialGroup()
+                                    .addGroup(shop_details_panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(user_shopDtr_shop_name2)
+                                        .addComponent(user_shopDtr_shop_contact2))
+                                    .addGap(24, 24, 24))
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, shop_details_panel2Layout.createSequentialGroup()
+                                    .addGroup(shop_details_panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(user_shopDtr_address_label2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(vat_no_label2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                            .addGroup(shop_details_panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(shop_details_error2)
+                                .addComponent(user_shopDtr_update_button2, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(user_shopDtr_address_input2, javax.swing.GroupLayout.DEFAULT_SIZE, 360, Short.MAX_VALUE)
+                                .addComponent(user_shopDtr_shop_contact_input2)
+                                .addComponent(user_shopDtr_shop_name_input2)
+                                .addComponent(vat_no_input2)))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        shop_details_panel2Layout.setVerticalGroup(
+            shop_details_panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(shop_details_panel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(user_shopDtr_label2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(user_shopDtr_seperator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(shop_details_panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(user_shopDtr_shop_name2)
+                    .addGroup(shop_details_panel2Layout.createSequentialGroup()
+                        .addComponent(user_shopDtr_shop_name_input2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(shop_details_panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(user_shopDtr_address_input2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(user_shopDtr_address_label2))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(shop_details_panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(user_shopDtr_shop_contact2)
+                    .addComponent(user_shopDtr_shop_contact_input2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(shop_details_panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(shop_details_panel2Layout.createSequentialGroup()
+                        .addComponent(vat_no_input2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(shop_details_error2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(user_shopDtr_update_button2, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(vat_no_label2))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout setup_backgroundLayout = new javax.swing.GroupLayout(setup_background);
         setup_background.setLayout(setup_backgroundLayout);
         setup_backgroundLayout.setHorizontalGroup(
@@ -243,7 +378,8 @@ public class pharmear_setup extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(setup_backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(mysql_panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(new_user_panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(new_user_panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(shop_details_panel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         setup_backgroundLayout.setVerticalGroup(
@@ -253,6 +389,8 @@ public class pharmear_setup extends javax.swing.JFrame {
                 .addComponent(mysql_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(12, 12, 12)
                 .addComponent(new_user_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(shop_details_panel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 12, Short.MAX_VALUE))
         );
 
@@ -264,7 +402,9 @@ public class pharmear_setup extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(setup_background, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(setup_background, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -296,7 +436,7 @@ public class pharmear_setup extends javax.swing.JFrame {
             
             FileWriter myWriter;
             try {
-                myWriter = new FileWriter("setup_test.txt");
+                myWriter = new FileWriter("setup_test.phe");
                 myWriter.write(db_code_write);
                 myWriter.close();
             } catch (IOException ex) {
@@ -307,6 +447,7 @@ public class pharmear_setup extends javax.swing.JFrame {
                 mysql.stmt = connect.createStatement();
                 String sql = "use pharma_db;";
                 mysql.result = mysql.stmt.executeQuery(sql);
+                
             }
             catch(SQLException database_error_message){
                 mysql.stmt = connect.createStatement();
@@ -319,6 +460,122 @@ public class pharmear_setup extends javax.swing.JFrame {
             mysql_password_input.setText("");
         }
     }//GEN-LAST:event_mysql_test_connection_buttonActionPerformed
+
+    private void user_shopDtr_shop_name_input2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_user_shopDtr_shop_name_input2KeyPressed
+        user_shopDtr_update_button.setEnabled(true);
+        shop_details_error.setText("");
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+            user_shopDtr_address_input.requestFocus();
+        }
+    }//GEN-LAST:event_user_shopDtr_shop_name_input2KeyPressed
+
+    private void user_shopDtr_address_input2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_user_shopDtr_address_input2KeyPressed
+        user_shopDtr_update_button.setEnabled(true);
+        shop_details_error.setText("");
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+            user_shopDtr_shop_contact_input.requestFocus();
+        }
+    }//GEN-LAST:event_user_shopDtr_address_input2KeyPressed
+
+    private void user_shopDtr_shop_contact_input2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_user_shopDtr_shop_contact_input2KeyPressed
+        user_shopDtr_update_button.setEnabled(true);
+        shop_details_error.setText("");
+
+        char text_in_shop_contact = evt.getKeyChar();
+        if (Character.isDigit(text_in_shop_contact)||Character.isISOControl(text_in_shop_contact)) {
+            shop_details_error.setText("");
+            user_shopDtr_shop_contact_input.setEditable(true);
+        }
+        else{
+            shop_details_error.setText("Wrong Number");
+            user_shopDtr_shop_contact_input.setEditable(false);
+        }
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+            vat_no_input.requestFocus();
+        }
+    }//GEN-LAST:event_user_shopDtr_shop_contact_input2KeyPressed
+
+    private void user_shopDtr_update_button2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_user_shopDtr_update_button2ActionPerformed
+        String shop_name_update, shop_address_update, shop_contact_update, shop_vat;
+        shop_name_update = user_shopDtr_shop_name_input.getText();
+        shop_address_update = user_shopDtr_address_input.getText();
+        shop_contact_update = user_shopDtr_shop_contact_input.getText();
+        shop_vat = vat_no_input.getText();
+
+        if(shop_name_update.trim().isEmpty() || shop_address_update.trim().isEmpty() || shop_contact_update.trim().isEmpty() || shop_vat.trim().isEmpty()){
+            user_shopDtr_update_button.setEnabled(false);
+            shop_details_error.setText("Details are Empty");
+            if(shop_name_update.trim().isEmpty()){
+                user_shopDtr_shop_name_input.requestFocus();
+            }
+            else if(shop_address_update.trim().isEmpty()){
+                user_shopDtr_address_input.requestFocus();
+            }
+            else if(shop_vat.trim().isEmpty()){
+                vat_no_input.requestFocus();
+            }
+            else{
+                user_shopDtr_shop_contact_input.requestFocus();
+            }
+        }
+        else if(user_shopDtr_shop_contact_input.getText().length() != 10){
+            shop_details_error.setText("Phone Nuumber is of 10 Digits");
+        }
+        else if(vat_no_input.getText().length() < 4 || vat_no_input.getText().length() > 15){
+            shop_details_error.setText("Vat Number is of 4-15 Digits");
+        }
+        else{
+            int shopDtr_update_confirm = JOptionPane.showConfirmDialog(null, "Are you sure you want to update the details ?", "Update Shop Details",
+                JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+            switch (shopDtr_update_confirm) {
+                case JOptionPane.NO_OPTION -> {
+                    user_shopDtr_shop_name_input.setText(mysql.company_name);
+                    user_shopDtr_address_input.setText(mysql.company_address);
+                    user_shopDtr_shop_contact_input.setText(mysql.company_phoneNo);
+                    shop_details_error.setText("");
+                }
+                case JOptionPane.YES_OPTION -> {
+                    try {
+                        mysql.company_update_query(shop_name_update, shop_address_update, shop_contact_update);
+                    } catch (SQLException ex) {
+                        JOptionPane.showMessageDialog(null, ex);
+                    }
+
+                    JOptionPane.showMessageDialog(null, "Shop Details Updated");
+                }
+                case JOptionPane.CLOSED_OPTION -> {
+                    user_shopDtr_shop_name_input.setText(mysql.company_name);
+                    user_shopDtr_address_input.setText(mysql.company_address);
+                    user_shopDtr_shop_contact_input.setText(mysql.company_phoneNo);
+                    shop_details_error.setText("");
+                }
+                default -> {
+                    user_shopDtr_shop_name_input.setText(mysql.company_name);
+                    user_shopDtr_address_input.setText(mysql.company_address);
+                    user_shopDtr_shop_contact_input.setText(mysql.company_phoneNo);
+                    shop_details_error.setText("");
+                }
+            }
+        }
+    }//GEN-LAST:event_user_shopDtr_update_button2ActionPerformed
+
+    private void vat_no_input2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_vat_no_input2KeyPressed
+        user_shopDtr_update_button.setEnabled(true);
+        shop_details_error.setText("");
+
+        char text_in_shop_vat = evt.getKeyChar();
+        if (Character.isDigit(text_in_shop_vat)||Character.isISOControl(text_in_shop_vat)) {
+            shop_details_error.setText("");
+            vat_no_input.setEditable(true);
+        }
+        else{
+            shop_details_error.setText("Wrong Number");
+            vat_no_input.setEditable(false);
+        }
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+            user_shopDtr_update_button.doClick();
+        }
+    }//GEN-LAST:event_vat_no_input2KeyPressed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -372,8 +629,47 @@ public class pharmear_setup extends javax.swing.JFrame {
     private javax.swing.JTextField new_user_username_input;
     private javax.swing.JLabel password_label;
     private javax.swing.JPanel setup_background;
+    private javax.swing.JLabel shop_details_error;
+    private javax.swing.JLabel shop_details_error1;
+    private javax.swing.JLabel shop_details_error2;
+    private javax.swing.JPanel shop_details_panel;
+    private javax.swing.JPanel shop_details_panel1;
+    private javax.swing.JPanel shop_details_panel2;
+    private javax.swing.JTextField user_shopDtr_address_input;
+    private javax.swing.JTextField user_shopDtr_address_input1;
+    private javax.swing.JTextField user_shopDtr_address_input2;
+    private javax.swing.JLabel user_shopDtr_address_label;
+    private javax.swing.JLabel user_shopDtr_address_label1;
+    private javax.swing.JLabel user_shopDtr_address_label2;
+    private javax.swing.JLabel user_shopDtr_label;
+    private javax.swing.JLabel user_shopDtr_label1;
+    private javax.swing.JLabel user_shopDtr_label2;
+    private javax.swing.JSeparator user_shopDtr_seperator;
+    private javax.swing.JSeparator user_shopDtr_seperator1;
+    private javax.swing.JSeparator user_shopDtr_seperator2;
+    private javax.swing.JLabel user_shopDtr_shop_contact;
+    private javax.swing.JLabel user_shopDtr_shop_contact1;
+    private javax.swing.JLabel user_shopDtr_shop_contact2;
+    private javax.swing.JTextField user_shopDtr_shop_contact_input;
+    private javax.swing.JTextField user_shopDtr_shop_contact_input1;
+    private javax.swing.JTextField user_shopDtr_shop_contact_input2;
+    private javax.swing.JLabel user_shopDtr_shop_name;
+    private javax.swing.JLabel user_shopDtr_shop_name1;
+    private javax.swing.JLabel user_shopDtr_shop_name2;
+    private javax.swing.JTextField user_shopDtr_shop_name_input;
+    private javax.swing.JTextField user_shopDtr_shop_name_input1;
+    private javax.swing.JTextField user_shopDtr_shop_name_input2;
+    private javax.swing.JButton user_shopDtr_update_button;
+    private javax.swing.JButton user_shopDtr_update_button1;
+    private javax.swing.JButton user_shopDtr_update_button2;
     private javax.swing.JComboBox<String> user_type_comboBox;
     private javax.swing.JLabel user_type_label;
     private javax.swing.JLabel username_label;
+    private javax.swing.JTextField vat_no_input;
+    private javax.swing.JTextField vat_no_input1;
+    private javax.swing.JTextField vat_no_input2;
+    private javax.swing.JLabel vat_no_label;
+    private javax.swing.JLabel vat_no_label1;
+    private javax.swing.JLabel vat_no_label2;
     // End of variables declaration//GEN-END:variables
 }
