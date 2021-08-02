@@ -1,9 +1,10 @@
 package mms;
+import java.awt.HeadlessException;
 import java.io.File;
+import java.io.IOException;
 import java.sql.*;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.Arrays;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 
@@ -429,29 +430,41 @@ public class mysql {
         
         try {
             Runtime run_pharmear_backup = Runtime.getRuntime();
-            process_backup = run_pharmear_backup.exec("C:/Program Files/MySQL/MySQL Server 8.0/bin/mysqldump -uroot -padmin --add-drop-database -B pharma_db -r"+backup_path);
+            process_backup = run_pharmear_backup.exec("C:/Program Files/MySQL/MySQL Server 8.0/bin/mysqldump -uroot -p"+MMS.db_passcode+" --add-drop-database -B pharma_db -r"+backup_path);
 
             int processComplete= process_backup.waitFor();
-            if(processComplete==0)
+            if(processComplete == 0)
             {
                 //Backup Done
             }
             else
             {
-                JOptionPane.showMessageDialog(null, "Backup Failed, Error with application!");
+                JOptionPane.showMessageDialog(null, "Backup Failed, Error with MySQL Server!");
             }
         } 
-        catch (Exception e) {
+        catch (HeadlessException | IOException | InterruptedException e) {
             JOptionPane.showMessageDialog(null, "Backup Not Completed, MYSQL is not installed in C: Drive");
         }
     }
     
-    public static void restore_from_setup(){
-        File directory_restore = new File("pharmear_backup");
-        File[] files_restore = directory_restore.listFiles();
-        Arrays.sort(files_restore);
-        
-        String path_restore;
-        path_restore = Arrays.toString(files_restore[files_restore.length - 1]);
+    public static void restore_from_setup(String restore_path) throws SQLException, IOException{
+        Process process_restore;
+        try {
+            Runtime run_pharmear_backup = Runtime.getRuntime();
+            process_restore = run_pharmear_backup.exec("C:/Program Files/MySQL/MySQL Server 8.0/bin/mysql.exe -uroot -padmin pharma_db < "+restore_path);
+
+            int processComplete= process_restore.waitFor();
+            if(processComplete == 0)
+            {
+                //Restore Done
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(null, "Restore Failed, Error with MySQL Server!");
+            }
+        } 
+        catch (HeadlessException | InterruptedException e) {
+            JOptionPane.showMessageDialog(null, "Restore Not Completed, MYSQL is not installed in C: Drive");
+        }
     }
 }

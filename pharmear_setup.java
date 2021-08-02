@@ -1,10 +1,14 @@
 package mms;
 
 import java.awt.event.KeyEvent;
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.Arrays;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import static mms.mysql.connect;
@@ -432,13 +436,13 @@ public class pharmear_setup extends javax.swing.JFrame {
         
         try {
             connect = DriverManager.getConnection(db_url, db_username, db_password);
-            JOptionPane.showMessageDialog(null, "Connection Successful now you can create a user.");
             
             FileWriter myWriter;
             try {
                 myWriter = new FileWriter("setup_test.phe");
                 myWriter.write(db_code_write);
                 myWriter.close();
+                JOptionPane.showMessageDialog(null, "Connection Successful now you can create a user.");
             } catch (IOException ex) {
                 JOptionPane.showMessageDialog(null, ex);
             } 
@@ -447,12 +451,13 @@ public class pharmear_setup extends javax.swing.JFrame {
                 mysql.stmt = connect.createStatement();
                 String sql = "use pharma_db;";
                 mysql.result = mysql.stmt.executeQuery(sql);
-                
+                restore_find();
             }
             catch(SQLException database_error_message){
                 mysql.stmt = connect.createStatement();
                 String sql = "CREATE DATABASE pharma_db";
-                mysql.result = mysql.stmt.executeQuery(sql);
+                mysql.stmt.executeUpdate(sql);
+                restore_find();
             }
         }
         catch(SQLException database_error_message){
@@ -577,6 +582,35 @@ public class pharmear_setup extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_vat_no_input2KeyPressed
 
+    public static void restore_find(){
+        String[] multiple_database;
+        int restore_file_check;
+        String  restore_file_path;
+        
+        File directory_restore = new File("pharmear_backup");
+        multiple_database = directory_restore.list();
+        
+        Arrays.sort(multiple_database);
+        restore_file_check = multiple_database.length - 1;
+        
+        if(restore_file_check < 0){
+            restore_file_path = "main_database/pharmear_db.sql";
+            try {
+                mysql.restore_from_setup(restore_file_path);
+            } catch (SQLException | IOException ex) {
+                Logger.getLogger(pharmear_setup.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        else{
+            restore_file_path = "pharmear_backup/"+multiple_database[restore_file_check];
+            try {
+                mysql.restore_from_setup(restore_file_path);
+            } catch (SQLException | IOException ex) {
+                Logger.getLogger(pharmear_setup.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -590,22 +624,16 @@ public class pharmear_setup extends javax.swing.JFrame {
                     break;
                 }
             }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(pharmear_setup.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(pharmear_setup.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(pharmear_setup.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(pharmear_setup.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        
+        //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new pharmear_setup().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new pharmear_setup().setVisible(true);
         });
     }
 

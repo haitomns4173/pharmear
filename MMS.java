@@ -24,13 +24,13 @@ public class MMS {
                 }
                 setupReader.close();
 
-                if(mysql.main(args)){
-                    loginPage main_login = new loginPage();
-                    main_login.setVisible(true);
-                }
-                else{
+                if(!mysql.main(args)){
                     pharmear_setup main = new pharmear_setup();
                     main.setVisible(true);
+                }
+                else{
+                    loginPage main_login = new loginPage();
+                    main_login.setVisible(true);
                 }
             }
             catch(FileNotFoundException e)
