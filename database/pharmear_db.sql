@@ -1,29 +1,19 @@
 -- MySQL dump 10.13  Distrib 8.0.26, for Win64 (x86_64)
 --
--- Host: localhost    Database: pharma_db
+-- Host: localhost    Database: pharmear_db
 -- ------------------------------------------------------
 -- Server version	8.0.26
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!50503 SET NAMES utf8mb4 */;
+/*!50503 SET NAMES utf8 */;
 /*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
 /*!40103 SET TIME_ZONE='+00:00' */;
 /*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-
---
--- Current Database: `pharma_db`
---
-
-/*!40000 DROP DATABASE IF EXISTS `pharma_db`*/;
-
-CREATE DATABASE /*!32312 IF NOT EXISTS*/ `pharma_db` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
-
-USE `pharma_db`;
 
 --
 -- Table structure for table `company`
@@ -37,9 +27,9 @@ CREATE TABLE `company` (
   `name` varchar(200) NOT NULL,
   `address` varchar(250) NOT NULL,
   `phone` varchar(10) NOT NULL,
-  `vat_no` varchar(9) NOT NULL,
+  `vat_no` varchar(15) NOT NULL,
   PRIMARY KEY (`company_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -48,7 +38,7 @@ CREATE TABLE `company` (
 
 LOCK TABLES `company` WRITE;
 /*!40000 ALTER TABLE `company` DISABLE KEYS */;
-INSERT INTO `company` VALUES (2,'Sample PHARMACY','Knowhere','9800000001','123456789');
+INSERT INTO `company` VALUES (1,'Sample Pharmacy','Sample Addrress','9800000000','123456789');
 /*!40000 ALTER TABLE `company` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -65,7 +55,7 @@ CREATE TABLE `medicine_import` (
   `medicine_type` varchar(100) NOT NULL,
   `medicine_strength` varchar(100) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=43 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -74,7 +64,6 @@ CREATE TABLE `medicine_import` (
 
 LOCK TABLES `medicine_import` WRITE;
 /*!40000 ALTER TABLE `medicine_import` DISABLE KEYS */;
-INSERT INTO `medicine_import` VALUES (38,'THALIX 100 CAPSULE ','CAPSULE ','100 MG '),(39,'OPEN PATELLA KNEE CAP (S, M, L,) ','PCS ','200'),(40,'UBIQ 30 CAPSULE ','CAPSULE ','30 MG '),(41,'G-VANC INJ 500 ','VIAL ','500 MG '),(42,'EBAST 10 ','TABLET ','10 MG ');
 /*!40000 ALTER TABLE `medicine_import` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -97,7 +86,7 @@ CREATE TABLE `medicine_import_details` (
   PRIMARY KEY (`batch_no`),
   KEY `medicine_id` (`medicine_id`),
   CONSTRAINT `medicine_import_details_ibfk_1` FOREIGN KEY (`medicine_id`) REFERENCES `medicine_import` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -106,7 +95,6 @@ CREATE TABLE `medicine_import_details` (
 
 LOCK TABLES `medicine_import_details` WRITE;
 /*!40000 ALTER TABLE `medicine_import_details` DISABLE KEYS */;
-INSERT INTO `medicine_import_details` VALUES (9,38,5,30,5,'2025-12-01',45,'2021-07-29 11:37:39'),(10,39,1,1,5,'2022-04-01',78,'2021-07-29 11:38:37'),(11,40,10,10,7,'2023-06-01',31.2,'2021-07-29 11:38:52'),(12,41,1,1,6,'2023-12-01',12,'2021-07-29 11:39:09'),(13,42,10,10,10,'2022-12-01',9.52,'2021-07-29 11:39:29');
 /*!40000 ALTER TABLE `medicine_import_details` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -156,7 +144,7 @@ CREATE TABLE `medicine_stock` (
   PRIMARY KEY (`id`),
   KEY `med_batch` (`med_batch`),
   CONSTRAINT `medicine_stock_ibfk_1` FOREIGN KEY (`med_batch`) REFERENCES `medicine_import_details` (`batch_no`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -165,7 +153,6 @@ CREATE TABLE `medicine_stock` (
 
 LOCK TABLES `medicine_stock` WRITE;
 /*!40000 ALTER TABLE `medicine_stock` DISABLE KEYS */;
-INSERT INTO `medicine_stock` VALUES (5,9,750,33750,25,1125),(6,10,5,390,10,20),(7,11,700,21840,11,343.2),(8,12,6,72,0,0),(9,13,1000,9520,1000,9520);
 /*!40000 ALTER TABLE `medicine_stock` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -182,7 +169,7 @@ CREATE TABLE `patient_details` (
   `patient_address` varchar(300) NOT NULL,
   `patient_contact` varchar(10) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -191,7 +178,6 @@ CREATE TABLE `patient_details` (
 
 LOCK TABLES `patient_details` WRITE;
 /*!40000 ALTER TABLE `patient_details` DISABLE KEYS */;
-INSERT INTO `patient_details` VALUES (33,'Admin','Knowhere','9800000000'),(34,'gorgr','sadf','9864766576'),(35,'sadf','345345','9845222555'),(36,'sopop','safddsd3','9844744745');
 /*!40000 ALTER TABLE `patient_details` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -213,7 +199,7 @@ CREATE TABLE `sales` (
   KEY `patient_id` (`patient_id`),
   CONSTRAINT `sales_ibfk_1` FOREIGN KEY (`med_batch`) REFERENCES `medicine_import_details` (`batch_no`),
   CONSTRAINT `sales_ibfk_2` FOREIGN KEY (`patient_id`) REFERENCES `patient_details` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=47 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -222,7 +208,6 @@ CREATE TABLE `sales` (
 
 LOCK TABLES `sales` WRITE;
 /*!40000 ALTER TABLE `sales` DISABLE KEYS */;
-INSERT INTO `sales` VALUES (40,13,33,10,95.2),(41,9,33,14,630),(42,11,33,4,124.8),(43,9,34,4,180),(44,11,35,3,93.6),(45,11,36,4,124.8),(46,9,36,7,315);
 /*!40000 ALTER TABLE `sales` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -264,4 +249,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-08-02 13:04:57
+-- Dump completed on 2021-08-03 17:18:45

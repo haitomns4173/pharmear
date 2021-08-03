@@ -594,7 +594,11 @@ public class pharmear_setup extends javax.swing.JFrame {
         restore_file_check = multiple_database.length - 1;
         
         if(restore_file_check < 0){
-            restore_file_path = "main_database/pharmear_db.sql";
+            File restore_full_path = new File("main_database/pharmear_db.sql");
+            restore_file_path = restore_full_path.getAbsolutePath();
+            
+            System.out.println(restore_file_path);
+            
             try {
                 mysql.restore_from_setup(restore_file_path);
             } catch (SQLException | IOException ex) {
@@ -602,7 +606,11 @@ public class pharmear_setup extends javax.swing.JFrame {
             }
         }
         else{
-            restore_file_path = "pharmear_backup/"+multiple_database[restore_file_check];
+            File restore_full_path = new File("pharmear_backup/"+multiple_database[restore_file_check]);
+            restore_file_path = restore_full_path.getAbsolutePath();
+            
+            System.out.println(restore_file_path);
+            
             try {
                 mysql.restore_from_setup(restore_file_path);
             } catch (SQLException | IOException ex) {

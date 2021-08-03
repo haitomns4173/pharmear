@@ -451,7 +451,7 @@ public class mysql {
         Process process_restore;
         try {
             Runtime run_pharmear_backup = Runtime.getRuntime();
-            process_restore = run_pharmear_backup.exec("C:/Program Files/MySQL/MySQL Server 8.0/bin/mysql.exe -uroot -padmin pharma_db < "+restore_path);
+            process_restore = run_pharmear_backup.exec("C:/Program Files/MySQL/MySQL Server 8.0/bin/mysql -uroot -padmin pharma_db < "+restore_path);
 
             int processComplete= process_restore.waitFor();
             if(processComplete == 0)
