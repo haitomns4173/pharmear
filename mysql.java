@@ -449,9 +449,12 @@ public class mysql {
     
     public static void restore_from_setup(String restore_path) throws SQLException, IOException{
         Process process_restore;
+        
+        String[] restoreCmd = new String[]{"C:/Program Files/MySQL/MySQL Server 8.0/bin/mysql ", "--user=root", "--password=admin", "pharma_db" ,"-e", "source " + restore_path};
+        
         try {
             Runtime run_pharmear_backup = Runtime.getRuntime();
-            process_restore = run_pharmear_backup.exec("C:/Program Files/MySQL/MySQL Server 8.0/bin/mysql -uroot -padmin pharma_db < "+restore_path);
+            process_restore = run_pharmear_backup.exec(restoreCmd);
 
             int processComplete= process_restore.waitFor();
             if(processComplete == 0)
