@@ -2,6 +2,7 @@ package mms;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.sql.SQLException;
@@ -13,6 +14,8 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Set;
 import java.util.TreeSet;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
@@ -4307,6 +4310,16 @@ public class medicine_management extends javax.swing.JFrame {
                         bill_print.write(String.format("\n                                        Grand Total|%20s|",String.format("%.1f", total_cost_print)));
                         bill_print.write("\n                                                   +--------------------+");
                         bill_print.close();    
+                        
+                        String bill_full_path;
+                        File bill_print_path = new File(bill_path);
+                        bill_full_path = bill_print_path.getAbsolutePath();
+                        
+                        System.out.println(bill_full_path);
+                        
+                        Process exec_bill = Runtime.getRuntime().exec("rundll32 url.dll,FileProtocolHandler "+bill_full_path);
+                        this.setExtendedState(medicine_management.ICONIFIED);
+                        
                     } catch (IOException ex) {
                         JOptionPane.showMessageDialog(null, ex);
                     }
