@@ -396,6 +396,9 @@ public class mysql {
         while(result.next()) {
             invoice_number = result.getString(1);
         }
+        if(invoice_number == null){
+            invoice_number = "1";
+        }
     }
     
     public static void bar_finder() throws SQLException{
@@ -449,16 +452,22 @@ public class mysql {
     public static void restore_from_setup(String restore_path) throws SQLException, IOException{
         Process process_restore;
         
-        String[] restoreCmd = new String[]{"C:/Program Files/MySQL/MySQL Server 8.0/bin/mysql ", "--user=root", "--password="+MMS.db_passcode, "pharma_db" ,"-e", "source " + restore_path};
+        String[] restoreCmd = new String[]{"C:/Program Files/MySQL/MySQL Server 8.0/bin/mysql ", "--user=root", "--password="+pharmear_setup.db_code_write, "pharma_db" ,"-e", "source " + restore_path};
         
         try {
             Runtime run_pharmear_backup = Runtime.getRuntime();
             process_restore = run_pharmear_backup.exec(restoreCmd);
 
-            int processComplete= process_restore.waitFor();
+            int processComplete = process_restore.waitFor();
             if(processComplete == 0)
             {
-                //Restore Done
+                JOptionPane.showMessageDialog(null, "Restore Completed Succesfully.");
+                if(owner_security_check()){
+                    pharmear_setup.setup_tabbed_panel.setSelectedIndex(1);
+                }
+                else{
+                    pharmear_setup.setup_tabbed_panel.setSelectedIndex(3);
+                }
             }
             else
             {
@@ -468,5 +477,41 @@ public class mysql {
         catch (HeadlessException | InterruptedException e) {
             JOptionPane.showMessageDialog(null, "Restore Not Completed, MYSQL is not installed in C: Drive");
         }
+    }
+    
+    public static boolean user_add(String setup_user_name, String setup_user_type, String setup_username, String setup_password, int setup_code) throws SQLException{
+        int username_duplicate = 0;
+        
+        String query_user = "use pharma_db;";
+        stmt.executeQuery(query_user);
+        
+        stmt = connect.createStatement(); 
+        String query = "SELECT * FROM `user` WHERE `username` LIKE '"+setup_username+"'";
+        result = stmt.executeQuery(query);
+        while(result.next()) {
+            username_duplicate++;
+        }
+        
+        if(username_duplicate == 0){
+            String insert_query = "insert into user(name, user_type, username, password, user_code) values('"+setup_user_name+"', '"+setup_user_type+"', '"+setup_username+"', '"+setup_password+"', '"+setup_code+"');";
+            stmt.executeUpdate(insert_query);
+            return true;
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "Username Already Exists");
+            return false;
+        }
+    }
+    
+    public static boolean owner_security_check() throws SQLException{
+        int owner_presence = 0;
+        stmt = connect.createStatement(); 
+        String query = "select * from user where user_code = 1;";
+        result = stmt.executeQuery(query);
+        while(result.next()) {
+            owner_presence++;
+            return false;
+        }
+        return true;
     }
 }

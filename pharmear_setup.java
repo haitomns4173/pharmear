@@ -1,5 +1,6 @@
 package mms;
 
+import java.awt.Color;
 import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.FileWriter;
@@ -15,7 +16,7 @@ import static mms.mysql.connect;
 
 public class pharmear_setup extends javax.swing.JFrame {
     
-    String db_code_write;
+    static String db_code_write;
     
     public pharmear_setup() {
         initComponents();
@@ -32,9 +33,14 @@ public class pharmear_setup extends javax.swing.JFrame {
         sertup_pharmear_icon = new javax.swing.JLabel();
         setup_pharmear_panel = new javax.swing.JPanel();
         setup_pharmear_label = new javax.swing.JLabel();
-        setup_mysql = new javax.swing.JButton();
-        setup_user_add = new javax.swing.JButton();
-        setup_store_details = new javax.swing.JButton();
+        setup_mysql_panel = new javax.swing.JPanel();
+        mysql_label = new javax.swing.JLabel();
+        setup_user_panel = new javax.swing.JPanel();
+        user_label = new javax.swing.JLabel();
+        setup_shop_panel = new javax.swing.JPanel();
+        shop_label = new javax.swing.JLabel();
+        setup_finish_display_panel = new javax.swing.JPanel();
+        finish_display_label = new javax.swing.JLabel();
         setup_tabbed_panel = new javax.swing.JTabbedPane();
         mysql_panel = new javax.swing.JPanel();
         mysql_conn_label = new javax.swing.JLabel();
@@ -57,6 +63,7 @@ public class pharmear_setup extends javax.swing.JFrame {
         setup_requirements = new javax.swing.JLabel();
         requirements_seperator = new javax.swing.JSeparator();
         requirement_value = new javax.swing.JLabel();
+        requirement_value1 = new javax.swing.JLabel();
         new_user_panel = new javax.swing.JPanel();
         new_user_label = new javax.swing.JLabel();
         new_user_seperator = new javax.swing.JSeparator();
@@ -93,13 +100,14 @@ public class pharmear_setup extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
+        jLabel3 = new javax.swing.JLabel();
         setup_finish_panel = new javax.swing.JPanel();
         finish_thanks_label = new javax.swing.JLabel();
         thanks_label_1 = new javax.swing.JLabel();
         thanks_label_2 = new javax.swing.JLabel();
         thanks_email = new javax.swing.JLabel();
         thanks_label_3 = new javax.swing.JLabel();
-        thanks_label_4 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
         finish_note_lable = new javax.swing.JLabel();
         finish_note_seperator = new javax.swing.JSeparator();
         finish_note_1 = new javax.swing.JLabel();
@@ -144,38 +152,113 @@ public class pharmear_setup extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        setup_mysql.setBackground(new java.awt.Color(36, 130, 119));
-        setup_mysql.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        setup_mysql.setForeground(new java.awt.Color(255, 255, 255));
-        setup_mysql.setText("MySQL Connection");
-        setup_mysql.setBorder(null);
+        setup_mysql_panel.setBackground(new java.awt.Color(224, 225, 221));
 
-        setup_user_add.setBackground(new java.awt.Color(20, 116, 111));
-        setup_user_add.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        setup_user_add.setForeground(new java.awt.Color(255, 255, 255));
-        setup_user_add.setText("User Add");
-        setup_user_add.setBorder(null);
+        mysql_label.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        mysql_label.setForeground(new java.awt.Color(51, 51, 51));
+        mysql_label.setText("1. MySQL Connection");
 
-        setup_store_details.setBackground(new java.awt.Color(3, 102, 102));
-        setup_store_details.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        setup_store_details.setForeground(new java.awt.Color(255, 255, 255));
-        setup_store_details.setText("Store Details");
-        setup_store_details.setBorder(null);
+        javax.swing.GroupLayout setup_mysql_panelLayout = new javax.swing.GroupLayout(setup_mysql_panel);
+        setup_mysql_panel.setLayout(setup_mysql_panelLayout);
+        setup_mysql_panelLayout.setHorizontalGroup(
+            setup_mysql_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(setup_mysql_panelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(mysql_label)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        setup_mysql_panelLayout.setVerticalGroup(
+            setup_mysql_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, setup_mysql_panelLayout.createSequentialGroup()
+                .addContainerGap(13, Short.MAX_VALUE)
+                .addComponent(mysql_label)
+                .addContainerGap())
+        );
+
+        setup_user_panel.setBackground(new java.awt.Color(224, 225, 221));
+
+        user_label.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        user_label.setForeground(new java.awt.Color(51, 51, 51));
+        user_label.setText("2. New User");
+
+        javax.swing.GroupLayout setup_user_panelLayout = new javax.swing.GroupLayout(setup_user_panel);
+        setup_user_panel.setLayout(setup_user_panelLayout);
+        setup_user_panelLayout.setHorizontalGroup(
+            setup_user_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(setup_user_panelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(user_label)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        setup_user_panelLayout.setVerticalGroup(
+            setup_user_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(setup_user_panelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(user_label)
+                .addContainerGap(13, Short.MAX_VALUE))
+        );
+
+        setup_shop_panel.setBackground(new java.awt.Color(224, 225, 221));
+
+        shop_label.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        shop_label.setForeground(new java.awt.Color(51, 51, 51));
+        shop_label.setText("3. Shop Details");
+
+        javax.swing.GroupLayout setup_shop_panelLayout = new javax.swing.GroupLayout(setup_shop_panel);
+        setup_shop_panel.setLayout(setup_shop_panelLayout);
+        setup_shop_panelLayout.setHorizontalGroup(
+            setup_shop_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(setup_shop_panelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(shop_label)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        setup_shop_panelLayout.setVerticalGroup(
+            setup_shop_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, setup_shop_panelLayout.createSequentialGroup()
+                .addContainerGap(13, Short.MAX_VALUE)
+                .addComponent(shop_label)
+                .addContainerGap())
+        );
+
+        setup_finish_display_panel.setBackground(new java.awt.Color(224, 225, 221));
+
+        finish_display_label.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        finish_display_label.setForeground(new java.awt.Color(51, 51, 51));
+        finish_display_label.setText("4. Finish");
+
+        javax.swing.GroupLayout setup_finish_display_panelLayout = new javax.swing.GroupLayout(setup_finish_display_panel);
+        setup_finish_display_panel.setLayout(setup_finish_display_panelLayout);
+        setup_finish_display_panelLayout.setHorizontalGroup(
+            setup_finish_display_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(setup_finish_display_panelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(finish_display_label)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        setup_finish_display_panelLayout.setVerticalGroup(
+            setup_finish_display_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, setup_finish_display_panelLayout.createSequentialGroup()
+                .addContainerGap(13, Short.MAX_VALUE)
+                .addComponent(finish_display_label)
+                .addContainerGap())
+        );
 
         javax.swing.GroupLayout setup_menu_panelLayout = new javax.swing.GroupLayout(setup_menu_panel);
         setup_menu_panel.setLayout(setup_menu_panelLayout);
         setup_menu_panelLayout.setHorizontalGroup(
             setup_menu_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(setup_store_details, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(setup_mysql, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(setup_user_add, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(setup_menu_panelLayout.createSequentialGroup()
-                .addComponent(setup_pharmear_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 1, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, setup_menu_panelLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(sertup_pharmear_icon, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(60, 60, 60))
+            .addComponent(setup_user_panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(setup_mysql_panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(setup_shop_panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(setup_menu_panelLayout.createSequentialGroup()
+                .addComponent(setup_pharmear_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 1, Short.MAX_VALUE))
+            .addComponent(setup_finish_display_panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         setup_menu_panelLayout.setVerticalGroup(
             setup_menu_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -185,17 +268,20 @@ public class pharmear_setup extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(setup_pharmear_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(31, 31, 31)
-                .addComponent(setup_mysql, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(setup_mysql_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(setup_user_add, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(setup_user_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(setup_store_details, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(setup_shop_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(setup_finish_display_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        setup_tabbed_panel.setBackground(new java.awt.Color(11, 119, 169));
+        setup_tabbed_panel.setBackground(new java.awt.Color(255, 255, 255));
         setup_tabbed_panel.setForeground(new java.awt.Color(255, 255, 255));
-        setup_tabbed_panel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        setup_tabbed_panel.setEnabled(false);
+        setup_tabbed_panel.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
         mysql_panel.setBackground(new java.awt.Color(11, 119, 169));
 
@@ -208,6 +294,12 @@ public class pharmear_setup extends javax.swing.JFrame {
         mysql_password_label.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         mysql_password_label.setForeground(new java.awt.Color(255, 255, 255));
         mysql_password_label.setText("MySQL Password");
+
+        mysql_password_input.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                mysql_password_inputKeyPressed(evt);
+            }
+        });
 
         mysql_save_button.setBackground(new java.awt.Color(138, 201, 38));
         mysql_save_button.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
@@ -282,6 +374,10 @@ public class pharmear_setup extends javax.swing.JFrame {
         requirement_value.setForeground(new java.awt.Color(255, 255, 255));
         requirement_value.setText("1. MySQL Should be installed, and you should have the password to installed it.");
 
+        requirement_value1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        requirement_value1.setForeground(new java.awt.Color(255, 255, 255));
+        requirement_value1.setText("2. You Should install MySQL in C: Drive in Windows");
+
         javax.swing.GroupLayout mysql_panelLayout = new javax.swing.GroupLayout(mysql_panel);
         mysql_panel.setLayout(mysql_panelLayout);
         mysql_panelLayout.setHorizontalGroup(
@@ -303,7 +399,7 @@ public class pharmear_setup extends javax.swing.JFrame {
                             .addComponent(mysql_password_input)))
                     .addComponent(setup_about_developer_seperator)
                     .addComponent(setup_software_version_seperator)
-                    .addComponent(requirement_value, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(requirement_value, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 511, Short.MAX_VALUE)
                     .addComponent(requirements_seperator)
                     .addGroup(mysql_panelLayout.createSequentialGroup()
                         .addGroup(mysql_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -323,7 +419,8 @@ public class pharmear_setup extends javax.swing.JFrame {
                                     .addComponent(version_value)
                                     .addComponent(email_value)))
                             .addComponent(setup_requirements))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(requirement_value1, javax.swing.GroupLayout.DEFAULT_SIZE, 511, Short.MAX_VALUE))
                 .addContainerGap())
         );
         mysql_panelLayout.setVerticalGroup(
@@ -342,7 +439,7 @@ public class pharmear_setup extends javax.swing.JFrame {
                     .addComponent(mysql_save_button, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(mysql_test_connection_button, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(mysql_next_button, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(about_developer)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(setup_about_developer_seperator, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -368,6 +465,8 @@ public class pharmear_setup extends javax.swing.JFrame {
                 .addComponent(requirements_seperator, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(requirement_value)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(requirement_value1)
                 .addContainerGap())
         );
 
@@ -571,7 +670,7 @@ public class pharmear_setup extends javax.swing.JFrame {
         user_shopDtr_update_button.setBackground(new java.awt.Color(138, 201, 38));
         user_shopDtr_update_button.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
         user_shopDtr_update_button.setForeground(new java.awt.Color(255, 255, 255));
-        user_shopDtr_update_button.setText("Add");
+        user_shopDtr_update_button.setText("Set");
         user_shopDtr_update_button.setBorder(null);
         user_shopDtr_update_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -609,8 +708,13 @@ public class pharmear_setup extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Note : ");
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jLabel2.setText("1. Enter all the details correct because these details will appear in the bill that you make");
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("1. Enter all the details correct because these details will appear in the bill you");
+
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("make in the pharmear");
 
         javax.swing.GroupLayout shop_details_panelLayout = new javax.swing.GroupLayout(shop_details_panel);
         shop_details_panel.setLayout(shop_details_panelLayout);
@@ -618,33 +722,37 @@ public class pharmear_setup extends javax.swing.JFrame {
             shop_details_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(shop_details_panelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(shop_details_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(user_shopDtr_label)
-                    .addGroup(shop_details_panelLayout.createSequentialGroup()
-                        .addComponent(user_shopDtr_shop_name)
-                        .addGap(30, 30, 30)
-                        .addComponent(user_shopDtr_shop_name_input))
-                    .addGroup(shop_details_panelLayout.createSequentialGroup()
-                        .addGroup(shop_details_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(user_shopDtr_address_label, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(vat_no_label, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(user_shopDtr_shop_contact))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(shop_details_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(shop_details_panelLayout.createSequentialGroup()
-                                .addComponent(shop_details_error)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(shop_details_panelLayout.createSequentialGroup()
-                                .addComponent(user_shopDtr_update_button, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 207, Short.MAX_VALUE)
-                                .addComponent(mysql_test_connection_button3, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(user_shopDtr_shop_contact_input)
-                            .addComponent(vat_no_input)
-                            .addComponent(user_shopDtr_address_input)))
-                    .addComponent(user_shopDtr_seperator)
-                    .addComponent(jLabel1)
+                .addGroup(shop_details_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2)
-                    .addComponent(jSeparator1))
+                    .addGroup(shop_details_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(user_shopDtr_label)
+                        .addGroup(shop_details_panelLayout.createSequentialGroup()
+                            .addComponent(user_shopDtr_shop_name)
+                            .addGap(30, 30, 30)
+                            .addComponent(user_shopDtr_shop_name_input))
+                        .addGroup(shop_details_panelLayout.createSequentialGroup()
+                            .addGroup(shop_details_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(user_shopDtr_address_label, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(vat_no_label, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(user_shopDtr_shop_contact))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(shop_details_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(shop_details_panelLayout.createSequentialGroup()
+                                    .addComponent(shop_details_error)
+                                    .addGap(0, 0, Short.MAX_VALUE))
+                                .addGroup(shop_details_panelLayout.createSequentialGroup()
+                                    .addComponent(user_shopDtr_update_button, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 207, Short.MAX_VALUE)
+                                    .addComponent(mysql_test_connection_button3, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(user_shopDtr_shop_contact_input)
+                                .addComponent(vat_no_input)
+                                .addComponent(user_shopDtr_address_input)))
+                        .addComponent(user_shopDtr_seperator)
+                        .addComponent(jLabel1)
+                        .addComponent(jSeparator1))
+                    .addGroup(shop_details_panelLayout.createSequentialGroup()
+                        .addGap(13, 13, 13)
+                        .addComponent(jLabel3)))
                 .addContainerGap(28, Short.MAX_VALUE))
         );
         shop_details_panelLayout.setVerticalGroup(
@@ -683,7 +791,9 @@ public class pharmear_setup extends javax.swing.JFrame {
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(2, 2, 2)
                 .addComponent(jLabel2)
-                .addContainerGap(89, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel3)
+                .addContainerGap(59, Short.MAX_VALUE))
         );
 
         setup_tabbed_panel.addTab("Shop Details", shop_details_panel);
@@ -710,9 +820,9 @@ public class pharmear_setup extends javax.swing.JFrame {
         thanks_label_3.setForeground(new java.awt.Color(255, 255, 255));
         thanks_label_3.setText("Hope you daily store management will be ");
 
-        thanks_label_4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        thanks_label_4.setForeground(new java.awt.Color(255, 255, 255));
-        thanks_label_4.setText("easy with our software.");
+        jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setText("easy with our software.");
 
         finish_note_lable.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         finish_note_lable.setForeground(new java.awt.Color(255, 255, 255));
@@ -760,7 +870,7 @@ public class pharmear_setup extends javax.swing.JFrame {
                                 .addComponent(thanks_label_2)
                                 .addGroup(setup_finish_panelLayout.createSequentialGroup()
                                     .addGap(57, 57, 57)
-                                    .addComponent(thanks_label_4))))
+                                    .addComponent(jLabel8))))
                         .addGroup(setup_finish_panelLayout.createSequentialGroup()
                             .addContainerGap()
                             .addComponent(finish_note_lable))
@@ -789,7 +899,7 @@ public class pharmear_setup extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(thanks_label_3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(thanks_label_4)
+                .addComponent(jLabel8)
                 .addGap(64, 64, 64)
                 .addComponent(finish_note_lable)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -818,9 +928,7 @@ public class pharmear_setup extends javax.swing.JFrame {
         setup_backgroundLayout.setVerticalGroup(
             setup_backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(setup_menu_panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(setup_backgroundLayout.createSequentialGroup()
-                .addComponent(setup_tabbed_panel, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(setup_tabbed_panel, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         setup_scroll.setViewportView(setup_background);
@@ -842,6 +950,7 @@ public class pharmear_setup extends javax.swing.JFrame {
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
         ImageIcon icon = new ImageIcon(getClass().getResource("/mms/src/icon.png"));
         setIconImage(icon.getImage());
+        mysql_password_input.requestFocus();
     }//GEN-LAST:event_formWindowActivated
 
     private void mysql_save_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mysql_save_buttonActionPerformed
@@ -867,7 +976,7 @@ public class pharmear_setup extends javax.swing.JFrame {
                 myWriter = new FileWriter("setup_test.phe");
                 myWriter.write(db_code_write);
                 myWriter.close();
-                JOptionPane.showMessageDialog(null, "Connection Successful now you can create a user.");
+                JOptionPane.showMessageDialog(null, "Connection Successful now you can create a user. \n          Wait for the database to restore.");
             } catch (IOException ex) {
                 JOptionPane.showMessageDialog(null, ex);
             } 
@@ -892,11 +1001,44 @@ public class pharmear_setup extends javax.swing.JFrame {
     }//GEN-LAST:event_mysql_test_connection_buttonActionPerformed
 
     private void mysql_next_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mysql_next_buttonActionPerformed
-        // TODO add your handling code here:
+        setup_tabbed_panel.setSelectedIndex(1);
     }//GEN-LAST:event_mysql_next_buttonActionPerformed
 
     private void new_user_saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_new_user_saveActionPerformed
-        // TODO add your handling code here:
+        String setup_user_name, setup_user_type, setup_username, setup_password;
+        int setup_code;
+        
+        setup_user_name = new_user_name_input.getText();
+        setup_user_type = user_type_comboBox.getSelectedItem().toString();
+        setup_username = new_user_username_input.getText();
+        setup_password = new_user_password_input.getText();
+        
+        setup_code = user_type_comboBox.getSelectedIndex() + 1;
+        
+        if(setup_code == 0){
+            JOptionPane.showMessageDialog(null, "Select a User Type");
+        }
+        
+        if(setup_user_name.isBlank() || setup_user_type.isBlank() || setup_username.isBlank() || setup_password.isBlank()){
+            JOptionPane.showMessageDialog(null, "Fill in all the details");
+        }
+        else{
+            try {
+                if(mysql.user_add(setup_user_name, setup_user_type, setup_username, setup_password, setup_code)){
+                    JOptionPane.showMessageDialog(null, "User Succesfully Added");
+                    new_user_name_input.setText("");
+                    new_user_username_input.setText("");
+                    new_user_password_input.setText("");
+                }
+                else{
+                    new_user_name_input.setText("");
+                    new_user_username_input.setText("");
+                    new_user_password_input.setText("");
+                }
+            } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(null, ex);
+            }
+        }
     }//GEN-LAST:event_new_user_saveActionPerformed
 
     private void user_shopDtr_shop_name_inputKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_user_shopDtr_shop_name_inputKeyPressed
@@ -963,36 +1105,12 @@ public class pharmear_setup extends javax.swing.JFrame {
             shop_details_error.setText("Vat Number is of 4-15 Digits");
         }
         else{
-            int shopDtr_update_confirm = JOptionPane.showConfirmDialog(null, "Are you sure you want to update the details ?", "Update Shop Details",
-                JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
-            switch (shopDtr_update_confirm) {
-                case JOptionPane.NO_OPTION -> {
-                    user_shopDtr_shop_name_input.setText(mysql.company_name);
-                    user_shopDtr_address_input.setText(mysql.company_address);
-                    user_shopDtr_shop_contact_input.setText(mysql.company_phoneNo);
-                    shop_details_error.setText("");
-                }
-                case JOptionPane.YES_OPTION -> {
-                    try {
-                        mysql.company_update_query(shop_name_update, shop_address_update, shop_contact_update);
-                    } catch (SQLException ex) {
-                        JOptionPane.showMessageDialog(null, ex);
-                    }
-
-                    JOptionPane.showMessageDialog(null, "Shop Details Updated");
-                }
-                case JOptionPane.CLOSED_OPTION -> {
-                    user_shopDtr_shop_name_input.setText(mysql.company_name);
-                    user_shopDtr_address_input.setText(mysql.company_address);
-                    user_shopDtr_shop_contact_input.setText(mysql.company_phoneNo);
-                    shop_details_error.setText("");
-                }
-                default -> {
-                    user_shopDtr_shop_name_input.setText(mysql.company_name);
-                    user_shopDtr_address_input.setText(mysql.company_address);
-                    user_shopDtr_shop_contact_input.setText(mysql.company_phoneNo);
-                    shop_details_error.setText("");
-                }
+            try {
+                mysql.company_update_query(shop_name_update, shop_address_update, shop_contact_update);
+                JOptionPane.showMessageDialog(null, "Shop Details Added");
+            shop_details_error.setText("");
+            } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(null, ex);
             }
         }
     }//GEN-LAST:event_user_shopDtr_update_buttonActionPerformed
@@ -1016,16 +1134,22 @@ public class pharmear_setup extends javax.swing.JFrame {
     }//GEN-LAST:event_vat_no_inputKeyPressed
 
     private void new_user_nextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_new_user_nextActionPerformed
-        // TODO add your handling code here:
+        setup_tabbed_panel.setSelectedIndex(2);
     }//GEN-LAST:event_new_user_nextActionPerformed
 
     private void mysql_test_connection_button3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mysql_test_connection_button3ActionPerformed
-        // TODO add your handling code here:
+        setup_tabbed_panel.setSelectedIndex(3);
     }//GEN-LAST:event_mysql_test_connection_button3ActionPerformed
 
     private void complete_finishActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_complete_finishActionPerformed
-        // TODO add your handling code here:
+        System.exit(0);
     }//GEN-LAST:event_complete_finishActionPerformed
+
+    private void mysql_password_inputKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_mysql_password_inputKeyPressed
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+            mysql_save_button.doClick();
+        }
+    }//GEN-LAST:event_mysql_password_inputKeyPressed
 
     public static void restore_find(){
         String[] multiple_database;
@@ -1042,8 +1166,6 @@ public class pharmear_setup extends javax.swing.JFrame {
             File restore_full_path = new File("main_database/pharmear_db.sql");
             restore_file_path = restore_full_path.getAbsolutePath();
             
-            System.out.println(restore_file_path);
-            
             try {
                 mysql.restore_from_setup(restore_file_path);
             } catch (SQLException | IOException ex) {
@@ -1053,8 +1175,6 @@ public class pharmear_setup extends javax.swing.JFrame {
         else{
             File restore_full_path = new File("pharmear_backup/"+multiple_database[restore_file_check]);
             restore_file_path = restore_full_path.getAbsolutePath();
-            
-            System.out.println(restore_file_path);
             
             try {
                 mysql.restore_from_setup(restore_file_path);
@@ -1098,6 +1218,7 @@ public class pharmear_setup extends javax.swing.JFrame {
     private javax.swing.JLabel developer_name;
     private javax.swing.JLabel email;
     private javax.swing.JLabel email_value;
+    private javax.swing.JLabel finish_display_label;
     private javax.swing.JLabel finish_note_1;
     private javax.swing.JLabel finish_note_2;
     private javax.swing.JLabel finish_note_lable;
@@ -1105,11 +1226,14 @@ public class pharmear_setup extends javax.swing.JFrame {
     private javax.swing.JLabel finish_thanks_label;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel med_bill_info;
     private javax.swing.JLabel med_info;
     private javax.swing.JLabel mysql_conn_label;
     private javax.swing.JSeparator mysql_conn_seperator;
+    private javax.swing.JLabel mysql_label;
     private javax.swing.JButton mysql_next_button;
     private javax.swing.JPanel mysql_panel;
     private javax.swing.JPasswordField mysql_password_input;
@@ -1129,30 +1253,33 @@ public class pharmear_setup extends javax.swing.JFrame {
     private javax.swing.JLabel owner_info;
     private javax.swing.JLabel password_label;
     private javax.swing.JLabel requirement_value;
+    private javax.swing.JLabel requirement_value1;
     private javax.swing.JSeparator requirements_seperator;
     private javax.swing.JLabel sertup_pharmear_icon;
     private javax.swing.JSeparator setup_about_developer_seperator;
     private javax.swing.JPanel setup_background;
+    private javax.swing.JPanel setup_finish_display_panel;
     private javax.swing.JPanel setup_finish_panel;
     private javax.swing.JPanel setup_menu_panel;
-    private javax.swing.JButton setup_mysql;
+    private javax.swing.JPanel setup_mysql_panel;
     private javax.swing.JLabel setup_pharmear_label;
     private javax.swing.JPanel setup_pharmear_panel;
     private javax.swing.JLabel setup_requirements;
     private javax.swing.JScrollPane setup_scroll;
+    private javax.swing.JPanel setup_shop_panel;
     private javax.swing.JSeparator setup_software_version_seperator;
-    private javax.swing.JButton setup_store_details;
-    private javax.swing.JTabbedPane setup_tabbed_panel;
-    private javax.swing.JButton setup_user_add;
+    public static javax.swing.JTabbedPane setup_tabbed_panel;
+    private javax.swing.JPanel setup_user_panel;
     private javax.swing.JLabel shop_details_error;
     private javax.swing.JPanel shop_details_panel;
+    private javax.swing.JLabel shop_label;
     private javax.swing.JLabel software_version;
     private javax.swing.JLabel thanks_email;
     private javax.swing.JLabel thanks_label_1;
     private javax.swing.JLabel thanks_label_2;
     private javax.swing.JLabel thanks_label_3;
-    private javax.swing.JLabel thanks_label_4;
     private javax.swing.JSeparator user_info_seperator;
+    private javax.swing.JLabel user_label;
     private javax.swing.JTextField user_shopDtr_address_input;
     private javax.swing.JLabel user_shopDtr_address_label;
     private javax.swing.JLabel user_shopDtr_label;
