@@ -46,7 +46,6 @@ public class mysql {
             return true;
         }
         catch(SQLException database_error_message){
-            JOptionPane.showMessageDialog(null, database_error_message);
             return false;
         }
     }
@@ -450,7 +449,7 @@ public class mysql {
     public static void restore_from_setup(String restore_path) throws SQLException, IOException{
         Process process_restore;
         
-        String[] restoreCmd = new String[]{"C:/Program Files/MySQL/MySQL Server 8.0/bin/mysql ", "--user=root", "--password=admin", "pharma_db" ,"-e", "source " + restore_path};
+        String[] restoreCmd = new String[]{"C:/Program Files/MySQL/MySQL Server 8.0/bin/mysql ", "--user=root", "--password="+MMS.db_passcode, "pharma_db" ,"-e", "source " + restore_path};
         
         try {
             Runtime run_pharmear_backup = Runtime.getRuntime();

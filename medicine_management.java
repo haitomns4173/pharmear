@@ -454,9 +454,6 @@ public class medicine_management extends javax.swing.JFrame {
             public void windowActivated(java.awt.event.WindowEvent evt) {
                 formWindowActivated(evt);
             }
-            public void windowClosing(java.awt.event.WindowEvent evt) {
-                formWindowClosing(evt);
-            }
         });
 
         background.setBackground(new java.awt.Color(168, 218, 220));
@@ -4328,6 +4325,12 @@ public class medicine_management extends javax.swing.JFrame {
             case JOptionPane.NO_OPTION -> {
             }
             case JOptionPane.YES_OPTION -> {
+                try {
+                    mysql.backup_pharma_db();
+                } 
+                catch (SQLException ex) {
+                    JOptionPane.showMessageDialog(null, "Error Occured While Backing up data");
+                }
                 System.exit(0);
             }
             case JOptionPane.CLOSED_OPTION -> {
@@ -4426,15 +4429,6 @@ public class medicine_management extends javax.swing.JFrame {
         medicine_find_error.setText(" ");
         ((DefaultTableModel)medMgr_table_find.getModel()).setNumRows(0);
     }//GEN-LAST:event_find_medicine_clearActionPerformed
-
-    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
-        try {
-            mysql.backup_pharma_db();
-        } 
-        catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Error Occured While Backing up data");
-        }
-    }//GEN-LAST:event_formWindowClosing
 
     private boolean bill_save(){
         String pat_name, pat_address, pat_contact;
