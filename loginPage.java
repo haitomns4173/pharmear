@@ -1,19 +1,20 @@
 package mms;
+
 import java.awt.event.KeyEvent;
 import javax.swing.*;
 import java.sql.*;
 
 public class loginPage extends javax.swing.JFrame {
-    
+
     static String username_stored;
     static int user_id_stored;
     static int user_code;
-    
+
     public loginPage() {
         initComponents();
         setLocationRelativeTo(null);
     }
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -176,19 +177,18 @@ public class loginPage extends javax.swing.JFrame {
     private void login_buttomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_login_buttomActionPerformed
         String username = username_input.getText().trim();
         String password = password_input.getText();
-        
+
         username_stored = username;
-        
+
         try {
-            mysql.login_validator(username, password) ;
-        } 
-        catch (SQLException database_error_message) {
+            mysql.login_validator(username, password);
+        } catch (SQLException database_error_message) {
             JOptionPane.showMessageDialog(null, database_error_message);
         }
-        if(mysql.login_status){
+        if (mysql.login_status) {
             setVisible(false);
             dispose();
-            
+
             medicine_management main_medicine = new medicine_management();
             main_medicine.setVisible(true);
         }
@@ -200,13 +200,13 @@ public class loginPage extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowActivated
 
     private void username_inputKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_username_inputKeyPressed
-       if (evt.getKeyCode()==KeyEvent.VK_ENTER) {
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             password_input.requestFocus();
         }
     }//GEN-LAST:event_username_inputKeyPressed
 
     private void password_inputKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_password_inputKeyPressed
-        if (evt.getKeyCode()==KeyEvent.VK_ENTER) {
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             login_buttom.doClick(1);
         }
     }//GEN-LAST:event_password_inputKeyPressed
@@ -228,7 +228,7 @@ public class loginPage extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(loginPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        
+
         //</editor-fold>
 
         /* Create and display the form */

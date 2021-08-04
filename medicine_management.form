@@ -257,7 +257,7 @@
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
-    <Property name="title" type="java.lang.String" value="Pharmaer"/>
+    <Property name="title" type="java.lang.String" value="Pharmear"/>
     <Property name="name" type="java.lang.String" value="medicine" noResource="true"/>
     <Property name="undecorated" type="boolean" value="true"/>
     <Property name="size" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
@@ -493,7 +493,7 @@
                           <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
                           <Component id="icon_title" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="title_pharmaer" min="-2" pref="219" max="-2" attributes="0"/>
+                          <Component id="title_pharmear" min="-2" pref="219" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
                           <Component id="minimize" min="-2" pref="35" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
@@ -503,7 +503,7 @@
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="title_pharmaer" max="32767" attributes="0"/>
+                      <Component id="title_pharmear" max="32767" attributes="0"/>
                       <Component id="icon_title" alignment="0" pref="51" max="32767" attributes="0"/>
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
@@ -523,7 +523,7 @@
                     </Property>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="title_pharmaer">
+                <Component class="javax.swing.JLabel" name="title_pharmear">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -534,7 +534,7 @@
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Pharmaer"/>
+                    <Property name="text" type="java.lang.String" value="Pharmear"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JButton" name="close_operation">
@@ -697,7 +697,7 @@
                           <Color blue="ff" green="ff" red="ff" type="rgb"/>
                         </Property>
                         <Property name="horizontalAlignment" type="int" value="2"/>
-                        <Property name="text" type="java.lang.String" value="Welcome To Pharmaer"/>
+                        <Property name="text" type="java.lang.String" value="Welcome To Pharmear"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JLabel" name="welcome_sub_title">

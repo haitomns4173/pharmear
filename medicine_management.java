@@ -14,8 +14,6 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Set;
 import java.util.TreeSet;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
@@ -26,50 +24,51 @@ import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.category.DefaultCategoryDataset;
 import org.jfree.chart.ChartPanel;
 
-
 public class medicine_management extends javax.swing.JFrame {
+
     int xMouse, yMouse;
-    
+
     int medicine_bill_id = 1;
     String patient_name, patient_address, patient_contact;
     static float medicine_price = 0;
     static int batch_no = 0;
     int bill_saved = 0;
-    
+
     static int total_quantity_print = 0;
     static float total_cost_print = 0;
-    
+
     static Set<String> medicine_name_auto = new TreeSet<String>();
     static Set<String> medicine_name_auto_med_mgr = new TreeSet<String>();
     static String expiry_cur_year, expiry_cur_month;
     static int duplicate_med_id;
     static String med_id_delete;
     static String med_batch_delete;
-    
+
     static String medicine_unit, medicine_strength;
     static int mecicine_no_pack, medicine_no_quantity;
     static float medicine_mrp;
-    
+
     static String total_medicine;
     static String total_quantity;
     static float total_cost;
     static String total_expired;
     static String total_out;
-            
+
     public medicine_management() {
         initComponents();
         setExtendedState(medicine_management.MAXIMIZED_BOTH);
-        
-        BasicInternalFrameUI welcom_titel_hide = (BasicInternalFrameUI)welcomIframe.getUI();
+
+        BasicInternalFrameUI welcom_titel_hide = (BasicInternalFrameUI) welcomIframe.getUI();
         welcom_titel_hide.setNorthPane(null);
         welcomIframe.setVisible(true);
-        
-        switch(loginPage.user_code){
+
+        switch (loginPage.user_code) {
             case 0 -> {
             }
             case 1 -> {
             }
-            case 2 -> sales_button.setEnabled(false);
+            case 2 ->
+                sales_button.setEnabled(false);
             case 3 -> {
                 medicine_manage_button.setEnabled(false);
                 sales_button.setEnabled(false);
@@ -85,7 +84,7 @@ public class medicine_management extends javax.swing.JFrame {
             }
         }
     }
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -114,7 +113,7 @@ public class medicine_management extends javax.swing.JFrame {
         user_button = new javax.swing.JButton();
         title_pane = new javax.swing.JPanel();
         icon_title = new javax.swing.JLabel();
-        title_pharmaer = new javax.swing.JLabel();
+        title_pharmear = new javax.swing.JLabel();
         close_operation = new javax.swing.JButton();
         minimize = new javax.swing.JButton();
         cardPane = new javax.swing.JPanel();
@@ -444,7 +443,7 @@ public class medicine_management extends javax.swing.JFrame {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Pharmaer");
+        setTitle("Pharmear");
         setName("medicine"); // NOI18N
         setUndecorated(true);
         setSize(new java.awt.Dimension(500, 500));
@@ -549,10 +548,10 @@ public class medicine_management extends javax.swing.JFrame {
 
         icon_title.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mms/src/icon_40px.png"))); // NOI18N
 
-        title_pharmaer.setBackground(new java.awt.Color(255, 255, 255));
-        title_pharmaer.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        title_pharmaer.setForeground(new java.awt.Color(255, 255, 255));
-        title_pharmaer.setText("Pharmaer");
+        title_pharmear.setBackground(new java.awt.Color(255, 255, 255));
+        title_pharmear.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        title_pharmear.setForeground(new java.awt.Color(255, 255, 255));
+        title_pharmear.setText("Pharmear");
 
         close_operation.setBackground(new java.awt.Color(193, 18, 31));
         close_operation.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mms/src/icons8_delete_20px.png"))); // NOI18N
@@ -600,7 +599,7 @@ public class medicine_management extends javax.swing.JFrame {
                 .addGap(8, 8, 8)
                 .addComponent(icon_title)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(title_pharmaer, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(title_pharmear, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(minimize, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -608,7 +607,7 @@ public class medicine_management extends javax.swing.JFrame {
         );
         title_paneLayout.setVerticalGroup(
             title_paneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(title_pharmaer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(title_pharmear, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(icon_title, javax.swing.GroupLayout.DEFAULT_SIZE, 51, Short.MAX_VALUE)
             .addGroup(title_paneLayout.createSequentialGroup()
                 .addGroup(title_paneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -628,7 +627,7 @@ public class medicine_management extends javax.swing.JFrame {
         welcome_title.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         welcome_title.setForeground(new java.awt.Color(255, 255, 255));
         welcome_title.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        welcome_title.setText("Welcome To Pharmaer");
+        welcome_title.setText("Welcome To Pharmear");
 
         welcome_sub_title.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         welcome_sub_title.setForeground(new java.awt.Color(255, 255, 255));
@@ -2949,14 +2948,14 @@ public class medicine_management extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowActivated
 
     private void bill_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bill_buttonActionPerformed
-        bill_button.setBackground(new Color(137,194,217));
-        medicine_manage_button.setBackground(new Color(69,123,157));
-        sales_button.setBackground(new Color(69,123,157));
-        user_button.setBackground(new Color(69,123,157));
-        
-        BasicInternalFrameUI bill_titel_hide = (BasicInternalFrameUI)billIframe.getUI();
+        bill_button.setBackground(new Color(137, 194, 217));
+        medicine_manage_button.setBackground(new Color(69, 123, 157));
+        sales_button.setBackground(new Color(69, 123, 157));
+        user_button.setBackground(new Color(69, 123, 157));
+
+        BasicInternalFrameUI bill_titel_hide = (BasicInternalFrameUI) billIframe.getUI();
         bill_titel_hide.setNorthPane(null);
-        
+
         welcomIframe.setVisible(false);
         billIframe.setVisible(true);
         medicineIframe.setVisible(false);
@@ -2965,14 +2964,14 @@ public class medicine_management extends javax.swing.JFrame {
     }//GEN-LAST:event_bill_buttonActionPerformed
 
     private void medicine_manage_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_medicine_manage_buttonActionPerformed
-        bill_button.setBackground(new Color(69,123,157));
-        medicine_manage_button.setBackground(new Color(137,194,217));
-        sales_button.setBackground(new Color(69,123,157));
-        user_button.setBackground(new Color(69,123,157));
-        
-        BasicInternalFrameUI medicine_titel_hide = (BasicInternalFrameUI)medicineIframe.getUI();
+        bill_button.setBackground(new Color(69, 123, 157));
+        medicine_manage_button.setBackground(new Color(137, 194, 217));
+        sales_button.setBackground(new Color(69, 123, 157));
+        user_button.setBackground(new Color(69, 123, 157));
+
+        BasicInternalFrameUI medicine_titel_hide = (BasicInternalFrameUI) medicineIframe.getUI();
         medicine_titel_hide.setNorthPane(null);
-        
+
         welcomIframe.setVisible(false);
         billIframe.setVisible(false);
         medicineIframe.setVisible(true);
@@ -2981,14 +2980,14 @@ public class medicine_management extends javax.swing.JFrame {
     }//GEN-LAST:event_medicine_manage_buttonActionPerformed
 
     private void sales_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sales_buttonActionPerformed
-        bill_button.setBackground(new Color(69,123,157));
-        medicine_manage_button.setBackground(new Color(69,123,157));
-        sales_button.setBackground(new Color(137,194,217));
-        user_button.setBackground(new Color(69,123,157));
-        
-        BasicInternalFrameUI sales_titel_hide = (BasicInternalFrameUI)salesIframe.getUI();
+        bill_button.setBackground(new Color(69, 123, 157));
+        medicine_manage_button.setBackground(new Color(69, 123, 157));
+        sales_button.setBackground(new Color(137, 194, 217));
+        user_button.setBackground(new Color(69, 123, 157));
+
+        BasicInternalFrameUI sales_titel_hide = (BasicInternalFrameUI) salesIframe.getUI();
         sales_titel_hide.setNorthPane(null);
-        
+
         welcomIframe.setVisible(false);
         billIframe.setVisible(false);
         medicineIframe.setVisible(false);
@@ -2997,14 +2996,14 @@ public class medicine_management extends javax.swing.JFrame {
     }//GEN-LAST:event_sales_buttonActionPerformed
 
     private void user_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_user_buttonActionPerformed
-        bill_button.setBackground(new Color(69,123,157));
-        medicine_manage_button.setBackground(new Color(69,123,157));
-        sales_button.setBackground(new Color(69,123,157));
-        user_button.setBackground(new Color(137,194,217));
-        
-        BasicInternalFrameUI user_titel_hide = (BasicInternalFrameUI)userIframe.getUI();
+        bill_button.setBackground(new Color(69, 123, 157));
+        medicine_manage_button.setBackground(new Color(69, 123, 157));
+        sales_button.setBackground(new Color(69, 123, 157));
+        user_button.setBackground(new Color(137, 194, 217));
+
+        BasicInternalFrameUI user_titel_hide = (BasicInternalFrameUI) userIframe.getUI();
         user_titel_hide.setNorthPane(null);
-        
+
         welcomIframe.setVisible(false);
         billIframe.setVisible(false);
         medicineIframe.setVisible(false);
@@ -3015,34 +3014,32 @@ public class medicine_management extends javax.swing.JFrame {
     private void billIframeInternalFrameActivated(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_billIframeInternalFrameActivated
         try {
             mysql.company_find_query();
-        }
-        catch (SQLException database_error_message) {
+        } catch (SQLException database_error_message) {
             JOptionPane.showMessageDialog(null, database_error_message);
         }
-        
+
         try {
             mysql.invoice_finder();
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, ex);
         }
-        
+
         bill_company_name.setText(mysql.company_name);
         bill_company_address.setText(mysql.company_address);
         bill_company_phone.setText(mysql.company_phoneNo);
 
-        invoice_display.setText("IN-"+mysql.invoice_number);
-        
+        invoice_display.setText("IN-" + mysql.invoice_number);
+
         DateFormat current_date = new SimpleDateFormat("dd/MM/yyyy");
         Date current_dateObj = new Date();
         date_display.setText(current_date.format(current_dateObj));
     }//GEN-LAST:event_billIframeInternalFrameActivated
 
     private void add_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_buttonActionPerformed
-        if(medicine_name_input.getText().trim().isEmpty() || medicine_quantity_input.getText().trim().isEmpty()){
+        if (medicine_name_input.getText().trim().isEmpty() || medicine_quantity_input.getText().trim().isEmpty()) {
             add_button.setEnabled(false);
             medicine_name_input.requestFocus();
-        }
-        else{
+        } else {
             String medicine_with_under;
             float total_price;
             medicine_with_under = medicine_name_input.getText().replace(' ', '%');
@@ -3051,53 +3048,48 @@ public class medicine_management extends javax.swing.JFrame {
             boolean med_input_check;
             med_input_check = bill_table_entry_check(medicine_name_input.getText());
 
-            if(!med_input_check){
+            if (!med_input_check) {
                 try {
                     mysql.medicine_mrp(medicine_with_under, quantity_int);
-                }
-                catch (SQLException database_error_message) {
+                } catch (SQLException database_error_message) {
                     JOptionPane.showMessageDialog(null, database_error_message);
                 }
-                
-                if(!(mysql.medicine_id_result == 0)){
-                    if(mysql.medicine_mrp_out_of_stock==1){
-                        if(mysql.left_stock >= quantity_int){
+
+                if (!(mysql.medicine_id_result == 0)) {
+                    if (mysql.medicine_mrp_out_of_stock == 1) {
+                        if (mysql.left_stock >= quantity_int) {
                             total_price = quantity_int * medicine_price;
-                            
-                            DefaultTableModel bill_table_add = (DefaultTableModel)bill_table.getModel();
-                            bill_table_add.addRow(new Object[]{medicine_bill_id++, mysql.batch_no_find ,medicine_name_input.getText(), medicine_quantity_input.getText(), medicine_price, total_price});
-                            
-                            total_quantity_print= quantity_int + total_quantity_print;
+
+                            DefaultTableModel bill_table_add = (DefaultTableModel) bill_table.getModel();
+                            bill_table_add.addRow(new Object[]{medicine_bill_id++, mysql.batch_no_find, medicine_name_input.getText(), medicine_quantity_input.getText(), medicine_price, total_price});
+
+                            total_quantity_print = quantity_int + total_quantity_print;
                             total_cost_print = total_price + total_cost_print;
-                            
+
                             bill_total_quantity.setText(String.valueOf(total_quantity_print));
                             bill_total_cost.setText(String.valueOf(String.format("%.1f", total_cost_print)));
-                            
+
                             medicine_name_input.setText("");
                             medicine_quantity_input.setText("");
                             medicine_name_input.requestFocus();
-                        }
-                        else{
-                            JOptionPane.showMessageDialog(null, medicine_name_input.getText()+" only has "+mysql.left_stock+".\n You can not input more than "+mysql.left_stock);
+                        } else {
+                            JOptionPane.showMessageDialog(null, medicine_name_input.getText() + " only has " + mysql.left_stock + ".\n You can not input more than " + mysql.left_stock);
                             medicine_quantity_input.setText("");
                         }
-                    }
-                    else{
+                    } else {
                         JOptionPane.showMessageDialog(null, "    The Medicine You Entered is out of stock.\n Add the medicine in the Medicine Manage Page.\n                      Then make the bill.");
                         medicine_name_input.setText("");
                         medicine_quantity_input.setText("");
                         medicine_name_input.requestFocus();
                     }
-                }
-                else{
+                } else {
                     JOptionPane.showMessageDialog(null, "    The Medicine You Entered is was not found.\n Add the medicine in the Medicine Manage Page.\n                      Then make the bill.");
                     medicine_name_input.setText("");
                     medicine_quantity_input.setText("");
                     medicine_name_input.requestFocus();
-                }  
-            }
-            else{
-                JOptionPane.showMessageDialog(null, "You have already entered "+medicine_name_input.getText());
+                }
+            } else {
+                JOptionPane.showMessageDialog(null, "You have already entered " + medicine_name_input.getText());
                 medicine_name_input.setText("");
                 medicine_quantity_input.setText("");
                 medicine_name_input.requestFocus();
@@ -3105,16 +3097,15 @@ public class medicine_management extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_add_buttonActionPerformed
 
-    public boolean bill_table_entry_check(String medicine_name){
+    public boolean bill_table_entry_check(String medicine_name) {
         int rowCount = bill_table.getRowCount();
         int index_med_name = 0;
         String med_input_name[] = new String[10000];
-        
-        while(rowCount != 0)
-        {
+
+        while (rowCount != 0) {
             TableModel bill_med_find = bill_table.getModel();
-            med_input_name[index_med_name] = bill_med_find.getValueAt(rowCount-1, 1).toString();
-            if(med_input_name[index_med_name].equals(medicine_name)){
+            med_input_name[index_med_name] = bill_med_find.getValueAt(rowCount - 1, 1).toString();
+            if (med_input_name[index_med_name].equals(medicine_name)) {
                 return true;
             }
             index_med_name++;
@@ -3122,35 +3113,29 @@ public class medicine_management extends javax.swing.JFrame {
         }
         return false;
     }
-    
+
     @SuppressWarnings("empty-statement")
     private void medicine_name_inputKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_medicine_name_inputKeyReleased
         medicine_name_input.setText(medicine_name_input.getText().toUpperCase());
 
         try {
             mysql.auto_suggestion_medicine();
-        }
-        catch (SQLException database_error_message) {
+        } catch (SQLException database_error_message) {
             JOptionPane.showMessageDialog(null, database_error_message);
         }
 
-        if(evt.getKeyCode()==KeyEvent.VK_BACK_SPACE||evt.getKeyCode()==KeyEvent.VK_DELETE){}
-        else
-        {
+        if (evt.getKeyCode() == KeyEvent.VK_BACK_SPACE || evt.getKeyCode() == KeyEvent.VK_DELETE) {
+        } else {
             String to_check = medicine_name_input.getText();
             int to_check_len = to_check.length();
-            for(String data:medicine_name_auto)
-            {
-                String check_from_data="";
-                for(int checking=0;checking<to_check_len;checking++)
-                {
-                    if(to_check_len<=data.length())
-                    {
-                        check_from_data = check_from_data+data.charAt(checking);
+            for (String data : medicine_name_auto) {
+                String check_from_data = "";
+                for (int checking = 0; checking < to_check_len; checking++) {
+                    if (to_check_len <= data.length()) {
+                        check_from_data = check_from_data + data.charAt(checking);
                     }
                 }
-                if(check_from_data.equals(to_check))
-                {
+                if (check_from_data.equals(to_check)) {
                     medicine_name_input.setText(data);
                     medicine_name_input.setSelectionStart(to_check_len);
                     medicine_name_input.setSelectionEnd(data.length());
@@ -3161,7 +3146,7 @@ public class medicine_management extends javax.swing.JFrame {
     }//GEN-LAST:event_medicine_name_inputKeyReleased
 
     private void medicine_name_inputKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_medicine_name_inputKeyPressed
-        if (evt.getKeyCode()==KeyEvent.VK_ENTER) {
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             medicine_quantity_input.requestFocus();
         }
     }//GEN-LAST:event_medicine_name_inputKeyPressed
@@ -3169,21 +3154,20 @@ public class medicine_management extends javax.swing.JFrame {
     private void medicineIframeInternalFrameActivated(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_medicineIframeInternalFrameActivated
         try {
             mysql.company_find_query();
-        }
-        catch (SQLException database_error_message) {
+        } catch (SQLException database_error_message) {
             JOptionPane.showMessageDialog(null, database_error_message);
         }
         medMgr_company_name.setText(mysql.company_name);
         medMgr_company_address.setText(mysql.company_address);
         medMgr_company_phone.setText(mysql.company_phoneNo);
-        
+
         medicine_find_error.setText("  ");
         medicine_error.setText("   ");
-        
+
         DateFormat expiry_year_check = new SimpleDateFormat("yyyy");
         Date current_expiry_year = new Date();
         expiry_cur_year = expiry_year_check.format(current_expiry_year);
-        
+
         DateFormat expiry_month_check = new SimpleDateFormat("MM");
         Date current_expiry_month = new Date();
         expiry_cur_month = expiry_month_check.format(current_expiry_month);
@@ -3193,18 +3177,18 @@ public class medicine_management extends javax.swing.JFrame {
         try {
             mysql.bar_finder();
         } catch (SQLException ex) {
-             JOptionPane.showMessageDialog(null, ex);
+            JOptionPane.showMessageDialog(null, ex);
         }
-        
+
         DefaultCategoryDataset bar_data_cost = new DefaultCategoryDataset();
         bar_data_cost.setValue(452556, "Cost", "Total Import");
         bar_data_cost.setValue(254410, "Cost", "Total Sold");
-        
+
         JFreeChart jChartCost;
-        jChartCost = ChartFactory.createBarChart3D("Total Cost and Sold Cost", "","Cost", bar_data_cost, PlotOrientation.VERTICAL, true, true, false);
+        jChartCost = ChartFactory.createBarChart3D("Total Cost and Sold Cost", "", "Cost", bar_data_cost, PlotOrientation.VERTICAL, true, true, false);
         CategoryPlot plot_cost = jChartCost.getCategoryPlot();
         plot_cost.setRangeGridlinePaint(Color.black);
-        
+
         ChartPanel chartpanel = new ChartPanel(jChartCost);
         sales_panel.removeAll();
         sales_panel.add(chartpanel);
@@ -3212,60 +3196,57 @@ public class medicine_management extends javax.swing.JFrame {
     }//GEN-LAST:event_cost_graphActionPerformed
 
     private void welcome_userMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_welcome_userMouseEntered
-        welcome_user.setBackground(new Color(25,130,196).darker());
+        welcome_user.setBackground(new Color(25, 130, 196).darker());
     }//GEN-LAST:event_welcome_userMouseEntered
 
     private void welcome_userMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_welcome_userMouseExited
-        welcome_user.setBackground(new Color(25,130,196));
+        welcome_user.setBackground(new Color(25, 130, 196));
     }//GEN-LAST:event_welcome_userMouseExited
 
     private void welcome_salesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_welcome_salesMouseEntered
-        welcome_sales.setBackground(new Color(25,130,196).darker());
+        welcome_sales.setBackground(new Color(25, 130, 196).darker());
     }//GEN-LAST:event_welcome_salesMouseEntered
 
     private void welcome_salesMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_welcome_salesMouseExited
-        welcome_sales.setBackground(new Color(25,130,196));
+        welcome_sales.setBackground(new Color(25, 130, 196));
     }//GEN-LAST:event_welcome_salesMouseExited
 
     private void welcome_medicineMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_welcome_medicineMouseEntered
-        welcome_medicine.setBackground(new Color(25,130,196).darker());
+        welcome_medicine.setBackground(new Color(25, 130, 196).darker());
     }//GEN-LAST:event_welcome_medicineMouseEntered
 
     private void welcome_medicineMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_welcome_medicineMouseExited
-        welcome_medicine.setBackground(new Color(25,130,196));
+        welcome_medicine.setBackground(new Color(25, 130, 196));
     }//GEN-LAST:event_welcome_medicineMouseExited
 
     private void welcome_billMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_welcome_billMouseEntered
-        welcome_bill.setBackground(new Color(25,130,196).darker());
+        welcome_bill.setBackground(new Color(25, 130, 196).darker());
     }//GEN-LAST:event_welcome_billMouseEntered
 
     private void welcome_billMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_welcome_billMouseExited
-        welcome_bill.setBackground(new Color(25,130,196));
+        welcome_bill.setBackground(new Color(25, 130, 196));
     }//GEN-LAST:event_welcome_billMouseExited
 
     private void welcome_billMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_welcome_billMouseClicked
-        if(loginPage.user_code == 4){
+        if (loginPage.user_code == 4) {
             JOptionPane.showMessageDialog(null, "You do not have permission for Bill Management");
-        }
-        else{
+        } else {
             bill_button.doClick();
         }
     }//GEN-LAST:event_welcome_billMouseClicked
 
     private void welcome_medicineMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_welcome_medicineMouseClicked
-        if(loginPage.user_code == 3){
+        if (loginPage.user_code == 3) {
             JOptionPane.showMessageDialog(null, "You do not have permission for Medicine Management");
-        }
-        else{
+        } else {
             medicine_manage_button.doClick();
         }
     }//GEN-LAST:event_welcome_medicineMouseClicked
 
     private void welcome_salesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_welcome_salesMouseClicked
-        if(loginPage.user_code == 1 || loginPage.user_code == 2){
+        if (loginPage.user_code == 1 || loginPage.user_code == 2) {
             sales_button.doClick();
-        }
-        else{
+        } else {
             JOptionPane.showMessageDialog(null, "You do not have permission for Sales Report");
         }
     }//GEN-LAST:event_welcome_salesMouseClicked
@@ -3275,37 +3256,37 @@ public class medicine_management extends javax.swing.JFrame {
     }//GEN-LAST:event_welcome_userMouseClicked
 
     private void bill_save_buttonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bill_save_buttonMouseEntered
-        bill_save_button.setBackground(new Color(25,130,196).darker());
+        bill_save_button.setBackground(new Color(25, 130, 196).darker());
     }//GEN-LAST:event_bill_save_buttonMouseEntered
 
     private void bill_save_buttonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bill_save_buttonMouseExited
-        bill_save_button.setBackground(new Color(25,130,196));
+        bill_save_button.setBackground(new Color(25, 130, 196));
     }//GEN-LAST:event_bill_save_buttonMouseExited
 
     private void bill_discard_buttonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bill_discard_buttonMouseEntered
-        bill_discard_button.setBackground(new Color(25,130,196).darker());
+        bill_discard_button.setBackground(new Color(25, 130, 196).darker());
     }//GEN-LAST:event_bill_discard_buttonMouseEntered
 
     private void bill_discard_buttonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bill_discard_buttonMouseExited
-        bill_discard_button.setBackground(new Color(25,130,196));
+        bill_discard_button.setBackground(new Color(25, 130, 196));
     }//GEN-LAST:event_bill_discard_buttonMouseExited
 
     private void bill_print_buttonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bill_print_buttonMouseEntered
-        bill_print_button.setBackground(new Color(25,130,196).darker());
+        bill_print_button.setBackground(new Color(25, 130, 196).darker());
     }//GEN-LAST:event_bill_print_buttonMouseEntered
 
     private void bill_print_buttonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bill_print_buttonMouseExited
-        bill_print_button.setBackground(new Color(25,130,196));
+        bill_print_button.setBackground(new Color(25, 130, 196));
     }//GEN-LAST:event_bill_print_buttonMouseExited
 
     private void bill_discard_buttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bill_discard_buttonMouseClicked
         int discard_bill_table_confirm = JOptionPane.showConfirmDialog(null, "Are you sure you want to delete the Bill ?", "Delete Bill",
-        JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+                JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
         switch (discard_bill_table_confirm) {
             case JOptionPane.NO_OPTION -> {
             }
             case JOptionPane.YES_OPTION -> {
-                ((DefaultTableModel)bill_table.getModel()).setNumRows(0);
+                ((DefaultTableModel) bill_table.getModel()).setNumRows(0);
                 medicine_bill_id = 1;
                 medicine_name_input.setText("");
                 medicine_quantity_input.setText("");
@@ -3321,9 +3302,9 @@ public class medicine_management extends javax.swing.JFrame {
                 try {
                     mysql.invoice_finder();
                 } catch (SQLException ex) {
-                   JOptionPane.showMessageDialog(null, ex);
+                    JOptionPane.showMessageDialog(null, ex);
                 }
-                invoice_display.setText("IN-"+mysql.invoice_number);
+                invoice_display.setText("IN-" + mysql.invoice_number);
                 paitent_contact_input.setEnabled(true);
                 add_button.setEnabled(true);
                 bill_saved = 0;
@@ -3332,30 +3313,28 @@ public class medicine_management extends javax.swing.JFrame {
             }
             default -> {
             }
-        }   
+        }
     }//GEN-LAST:event_bill_discard_buttonMouseClicked
 
     private void medicine_quantity_inputKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_medicine_quantity_inputKeyPressed
         if (Character.isDigit(evt.getKeyChar()) || Character.isISOControl(evt.getKeyChar())) {
             medicine_quantity_input.setEditable(true);
             medicine_input_error.setText(" ");
-            if (evt.getKeyCode()==KeyEvent.VK_ENTER) {
-                if(medicine_quantity_input.getText().isEmpty()){
+            if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+                if (medicine_quantity_input.getText().isEmpty()) {
                     medicine_input_error.setText("No of Quantity can not be Empty!");
                     add_button.setEnabled(false);
-                }else{
+                } else {
                     add_button.doClick();
                     medicine_input_error.setText(" ");
                     add_button.setEnabled(true);
                 }
-            } 
-        } 
-        else if(medMgr_no_box_input.getText().length() <= 0){
+            }
+        } else if (medMgr_no_box_input.getText().length() <= 0) {
             medicine_input_error.setText("No of Quantity can not be NULL!");
             medicine_quantity_input.setEditable(false);
             add_button.setEnabled(false);
-        }
-        else{
+        } else {
             medicine_error.setText("Details Need To be filled!");
             medMgr_add_button.setEnabled(false);
         }
@@ -3367,40 +3346,44 @@ public class medicine_management extends javax.swing.JFrame {
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, ex);
         }
-        
+
         try {
             mysql.user_find_query();
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, ex);
         }
-        
+
         user_wel_shop_name.setText(mysql.company_name);
         user_wel_shop_contact.setText(mysql.company_phoneNo);
-        
+
         user_wel_users_name.setText(mysql.users_name);
         user_wel_user_type.setText(mysql.user_type);
-        
+
         switch (loginPage.user_code) {
-            case 0 -> user_image_label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mms/src/admin.png")));
-            case 1 -> user_image_label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mms/src/manager.png")));
-            case 3 -> user_image_label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mms/src/bill.png")));
-            case 4 -> user_image_label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mms/src/pharmacist.png")));
-            default -> user_image_label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mms/src/employee.png")));
+            case 0 ->
+                user_image_label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mms/src/admin.png")));
+            case 1 ->
+                user_image_label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mms/src/manager.png")));
+            case 3 ->
+                user_image_label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mms/src/bill.png")));
+            case 4 ->
+                user_image_label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mms/src/pharmacist.png")));
+            default ->
+                user_image_label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mms/src/employee.png")));
         }
-        
+
         uesr_details_name_input.setText(mysql.users_name);
         user_details_username_input.setText(mysql.username);
         user_details_password_input.setText("password");
         username_error.setText("");
-        
+
         user_shopDtr_shop_name_input.setText(mysql.company_name);
         user_shopDtr_address_input.setText(mysql.company_address);
         user_shopDtr_shop_contact_input.setText(mysql.company_phoneNo);
         vat_no_input.setText(mysql.company_vatNo);
         shop_details_error.setText("");
-        
-        if(!(loginPage.user_code == 1 || loginPage.user_code == 0))
-        {
+
+        if (!(loginPage.user_code == 1 || loginPage.user_code == 0)) {
             user_shopDtr_shop_name_input.setEnabled(false);
             user_shopDtr_address_input.setEnabled(false);
             user_shopDtr_shop_contact_input.setEnabled(false);
@@ -3410,31 +3393,28 @@ public class medicine_management extends javax.swing.JFrame {
 
     private void user_details_updateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_user_details_updateActionPerformed
         int user_Dtr_update_result = 0;
-        
+
         String users_name_update, username_update, password_update;
         users_name_update = uesr_details_name_input.getText();
         username_update = user_details_username_input.getText();
         password_update = user_details_password_input.getText();
-        
-        if(users_name_update.trim().isEmpty() || username_update.trim().isEmpty() || password_update.trim().isEmpty()){
+
+        if (users_name_update.trim().isEmpty() || username_update.trim().isEmpty() || password_update.trim().isEmpty()) {
             username_error.setText("Details are Empty");
             user_details_update.setEnabled(false);
-            if(users_name_update.trim().isEmpty()){
+            if (users_name_update.trim().isEmpty()) {
                 uesr_details_name_input.requestFocus();
-            }
-            else if(username_update.trim().isEmpty()){
+            } else if (username_update.trim().isEmpty()) {
                 user_details_username_input.requestFocus();
-            }
-            else{
+            } else {
                 user_details_password_input.requestFocus();
-            }    
-        }
-        else{
+            }
+        } else {
             username_error.setText("");
             user_details_update.setEnabled(true);
-            
+
             var update_user_deatils_confirm = JOptionPane.showConfirmDialog(null, "Are you sure you want to update the details ?", "Update User Details", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
-            
+
             switch (update_user_deatils_confirm) {
                 case JOptionPane.NO_OPTION -> {
                     uesr_details_name_input.setText(mysql.users_name);
@@ -3442,20 +3422,19 @@ public class medicine_management extends javax.swing.JFrame {
                     user_details_password_input.setText("password");
                 }
                 case JOptionPane.YES_OPTION -> {
-                    
+
                     try {
                         user_Dtr_update_result = mysql.user_update_query(users_name_update, username_update, password_update, loginPage.username_stored);
                     } catch (SQLException ex) {
                         JOptionPane.showMessageDialog(null, ex);
                     }
 
-                    if(user_Dtr_update_result == 0){
+                    if (user_Dtr_update_result == 0) {
                         JOptionPane.showMessageDialog(null, "User Details Updated");
                         user_wel_users_name.setText(users_name_update);
                         user_wel_user_type.setText(mysql.user_type);
                         loginPage.username_stored = username_update;
-                    }
-                    else{
+                    } else {
                         JOptionPane.showMessageDialog(null, "Username Already Taken");
                         uesr_details_name_input.setText(mysql.users_name);
                         user_details_username_input.setText(mysql.username);
@@ -3472,7 +3451,7 @@ public class medicine_management extends javax.swing.JFrame {
                     user_details_username_input.setText(mysql.username);
                     user_details_password_input.setText("password");
                 }
-            }   
+            }
         }
     }//GEN-LAST:event_user_details_updateActionPerformed
 
@@ -3481,31 +3460,28 @@ public class medicine_management extends javax.swing.JFrame {
             username_error.setText("NO spaces in username");
             user_details_username_input.setEditable(false);
             user_details_update.setEnabled(false);
-        }
-        else if(user_details_username_input.getText().length() < 3){
+        } else if (user_details_username_input.getText().length() < 3) {
             username_error.setText("Username should be at least 4 Digits");
             user_details_username_input.setEditable(true);
             user_details_update.setEnabled(false);
-        }
-        else{
+        } else {
             username_error.setText("");
             user_details_username_input.setEditable(true);
             user_details_update.setEnabled(true);
-            if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+            if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
                 user_details_password_input.requestFocus();
             }
         }
     }//GEN-LAST:event_user_details_username_inputKeyPressed
 
     private void user_details_password_inputKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_user_details_password_inputKeyPressed
-        if(user_details_password_input.getText().isEmpty() || user_details_password_input.getText().length() < 2){
+        if (user_details_password_input.getText().isEmpty() || user_details_password_input.getText().length() < 2) {
             username_error.setText("Password Should be at least 3 Digits");
             user_details_update.setEnabled(false);
-        }
-        else{
+        } else {
             user_details_update.setEnabled(true);
             username_error.setText("");
-            if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+            if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
                 user_details_update.doClick();
             }
         }
@@ -3513,7 +3489,7 @@ public class medicine_management extends javax.swing.JFrame {
 
     private void uesr_details_name_inputKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_uesr_details_name_inputKeyPressed
         user_details_update.setEnabled(true);
-        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             user_details_username_input.requestFocus();
         }
     }//GEN-LAST:event_uesr_details_name_inputKeyPressed
@@ -3525,31 +3501,25 @@ public class medicine_management extends javax.swing.JFrame {
         shop_contact_update = user_shopDtr_shop_contact_input.getText();
         shop_vat = vat_no_input.getText();
 
-        if(shop_name_update.trim().isEmpty() || shop_address_update.trim().isEmpty() || shop_contact_update.trim().isEmpty() || shop_vat.trim().isEmpty()){
+        if (shop_name_update.trim().isEmpty() || shop_address_update.trim().isEmpty() || shop_contact_update.trim().isEmpty() || shop_vat.trim().isEmpty()) {
             user_shopDtr_update_button.setEnabled(false);
             shop_details_error.setText("Details are Empty");
-            if(shop_name_update.trim().isEmpty()){
+            if (shop_name_update.trim().isEmpty()) {
                 user_shopDtr_shop_name_input.requestFocus();
-            }
-            else if(shop_address_update.trim().isEmpty()){
+            } else if (shop_address_update.trim().isEmpty()) {
                 user_shopDtr_address_input.requestFocus();
-            }
-            else if(shop_vat.trim().isEmpty()){
+            } else if (shop_vat.trim().isEmpty()) {
                 vat_no_input.requestFocus();
-            }
-            else{
+            } else {
                 user_shopDtr_shop_contact_input.requestFocus();
             }
-        }
-        else if(user_shopDtr_shop_contact_input.getText().length() != 10){
+        } else if (user_shopDtr_shop_contact_input.getText().length() != 10) {
             shop_details_error.setText("Phone Nuumber is of 10 Digits");
-        }
-        else if(vat_no_input.getText().length() < 4 || vat_no_input.getText().length() > 15){
+        } else if (vat_no_input.getText().length() < 4 || vat_no_input.getText().length() > 15) {
             shop_details_error.setText("Vat Number is of 4-15 Digits");
-        }
-        else{
+        } else {
             int shopDtr_update_confirm = JOptionPane.showConfirmDialog(null, "Are you sure you want to update the details ?", "Update Shop Details",
-            JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+                    JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
             switch (shopDtr_update_confirm) {
                 case JOptionPane.NO_OPTION -> {
                     user_shopDtr_shop_name_input.setText(mysql.company_name);
@@ -3560,7 +3530,7 @@ public class medicine_management extends javax.swing.JFrame {
                 case JOptionPane.YES_OPTION -> {
                     try {
                         mysql.company_update_query(shop_name_update, shop_address_update, shop_contact_update);
-                     } catch (SQLException ex) {
+                    } catch (SQLException ex) {
                         JOptionPane.showMessageDialog(null, ex);
                     }
 
@@ -3581,14 +3551,14 @@ public class medicine_management extends javax.swing.JFrame {
                     user_shopDtr_shop_contact_input.setText(mysql.company_phoneNo);
                     shop_details_error.setText("");
                 }
-            }   
+            }
         }
     }//GEN-LAST:event_user_shopDtr_update_buttonActionPerformed
 
     private void user_shopDtr_shop_name_inputKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_user_shopDtr_shop_name_inputKeyPressed
         user_shopDtr_update_button.setEnabled(true);
         shop_details_error.setText("");
-        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             user_shopDtr_address_input.requestFocus();
         }
     }//GEN-LAST:event_user_shopDtr_shop_name_inputKeyPressed
@@ -3596,7 +3566,7 @@ public class medicine_management extends javax.swing.JFrame {
     private void user_shopDtr_address_inputKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_user_shopDtr_address_inputKeyPressed
         user_shopDtr_update_button.setEnabled(true);
         shop_details_error.setText("");
-        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             user_shopDtr_shop_contact_input.requestFocus();
         }
     }//GEN-LAST:event_user_shopDtr_address_inputKeyPressed
@@ -3604,17 +3574,16 @@ public class medicine_management extends javax.swing.JFrame {
     private void user_shopDtr_shop_contact_inputKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_user_shopDtr_shop_contact_inputKeyPressed
         user_shopDtr_update_button.setEnabled(true);
         shop_details_error.setText("");
-        
+
         char text_in_shop_contact = evt.getKeyChar();
-        if (Character.isDigit(text_in_shop_contact)||Character.isISOControl(text_in_shop_contact)) {
+        if (Character.isDigit(text_in_shop_contact) || Character.isISOControl(text_in_shop_contact)) {
             shop_details_error.setText("");
             user_shopDtr_shop_contact_input.setEditable(true);
-        }
-        else{
+        } else {
             shop_details_error.setText("Wrong Number");
             user_shopDtr_shop_contact_input.setEditable(false);
         }
-        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             vat_no_input.requestFocus();
         }
     }//GEN-LAST:event_user_shopDtr_shop_contact_inputKeyPressed
@@ -3636,20 +3605,17 @@ public class medicine_management extends javax.swing.JFrame {
         med_box = medMgr_no_box_input.getText();
         med_expiry_month = medMgr_expiry_input_month.getText();
         med_expiry_year = medMgr_expiry_input_year.getText();
-        
+
         int exp_date_check;
         exp_date_check = expiry_date_checker(med_expiry_month, med_expiry_year);
-        
-        if(exp_date_check == 0){
+
+        if (exp_date_check == 0) {
             JOptionPane.showMessageDialog(null, "You can not input EXPIRED Medicine");
-        }
-        else{
-            if(med_name.isEmpty() || med_type.isEmpty() || med_strength.isEmpty() || med_sheet.isEmpty() || med_tablet.isEmpty() || med_box.isEmpty() || med_mrp.isEmpty() || med_expiry_month.isEmpty() || med_expiry_year.isEmpty())
-            {
+        } else {
+            if (med_name.isEmpty() || med_type.isEmpty() || med_strength.isEmpty() || med_sheet.isEmpty() || med_tablet.isEmpty() || med_box.isEmpty() || med_mrp.isEmpty() || med_expiry_month.isEmpty() || med_expiry_year.isEmpty()) {
                 JOptionPane.showMessageDialog(null, "Fill all the details!");
-            }
-            else{
-                if(duplicate_med_id <= 0 ){
+            } else {
+                if (duplicate_med_id <= 0) {
                     try {
                         mysql.medicine_import_query(med_name, med_type, med_strength);
                     } catch (SQLException ex) {
@@ -3658,7 +3624,7 @@ public class medicine_management extends javax.swing.JFrame {
                 }
 
                 medicine_with_percentage = med_name.replace(' ', '%');
-                medicine_with_percentage = medicine_with_percentage.substring(0, medicine_with_percentage.length()-1);
+                medicine_with_percentage = medicine_with_percentage.substring(0, medicine_with_percentage.length() - 1);
 
                 try {
                     mysql.medicine_import_details__query(medicine_with_percentage, med_sheet, med_tablet, med_box, med_expiry_month, med_expiry_year, med_mrp);
@@ -3672,45 +3638,40 @@ public class medicine_management extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_medMgr_add_buttonActionPerformed
 
-    public static int expiry_date_checker(String med_expiry_month, String med_expiry_year){
+    public static int expiry_date_checker(String med_expiry_month, String med_expiry_year) {
         int month_check;
-        int year_check;       
+        int year_check;
         int cur_month;
         int cur_year;
-        
-        if(med_expiry_month.equals("MM") || med_expiry_year.equals("yy")){
+
+        if (med_expiry_month.equals("MM") || med_expiry_year.equals("yy")) {
             return 0;
-        }else{
-            try{
+        } else {
+            try {
                 month_check = Integer.parseInt(med_expiry_month);
                 year_check = Integer.parseInt(med_expiry_year);
                 cur_month = Integer.parseInt(expiry_cur_month);
-                cur_year = Integer.parseInt(expiry_cur_year)-2000;
-            }
-            catch(NumberFormatException ex){
+                cur_year = Integer.parseInt(expiry_cur_year) - 2000;
+            } catch (NumberFormatException ex) {
                 return 1;
             }
 
-            if(year_check >= cur_year){
-                if(cur_year == year_check)
-                {
-                    if(month_check > cur_month){
+            if (year_check >= cur_year) {
+                if (cur_year == year_check) {
+                    if (month_check > cur_month) {
                         return 1;
-                    }
-                    else{
+                    } else {
                         return 0;
                     }
-                }
-                else{
+                } else {
                     return 1;
-                }       
-            }
-            else{
+                }
+            } else {
                 return 0;
             }
         }
     }
-    
+
     private void medMgr_mrp_inputMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_medMgr_mrp_inputMouseClicked
         medMgr_mrp_input.selectAll();
     }//GEN-LAST:event_medMgr_mrp_inputMouseClicked
@@ -3721,23 +3682,20 @@ public class medicine_management extends javax.swing.JFrame {
 
     private void medMgr_no_sheet_inputKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_medMgr_no_sheet_inputKeyPressed
         if (Character.isDigit(evt.getKeyChar()) || Character.isWhitespace(evt.getKeyChar())) {
-            if (evt.getKeyCode()==KeyEvent.VK_ENTER) {
-                if(medMgr_no_sheet_input.getText().equals("0")){
+            if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+                if (medMgr_no_sheet_input.getText().equals("0")) {
                     medicine_error.setText("No of Sheets can not be zero!");
                     medMgr_add_button.setEnabled(false);
-                }
-                else{
+                } else {
                     medMgr_no_tablet_input.requestFocus();
                     medicine_error.setText("  ");
                     medMgr_add_button.setEnabled(true);
                 }
-            } 
-        } 
-        else if(medMgr_no_sheet_input.getText().length() <= 0){
+            }
+        } else if (medMgr_no_sheet_input.getText().length() <= 0) {
             medicine_error.setText("No of Sheets can not be NULL!");
             medMgr_add_button.setEnabled(false);
-        }
-        else{
+        } else {
             medicine_error.setText("Details Need To be filled!");
             medMgr_add_button.setEnabled(false);
         }
@@ -3751,7 +3709,7 @@ public class medicine_management extends javax.swing.JFrame {
         String medicine_with_search;
         medicine_with_search = medMgr_name_input.getText().replace(' ', '%');
 
-        if (evt.getKeyCode()==KeyEvent.VK_ENTER) {
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             try {
                 mysql.medicine_details(medicine_with_search);
             } catch (SQLException ex) {
@@ -3762,12 +3720,10 @@ public class medicine_management extends javax.swing.JFrame {
             } catch (SQLException ex) {
                 JOptionPane.showMessageDialog(null, ex);
             }
-            
-            if(medicine_unit == null)
-            {
+
+            if (medicine_unit == null) {
                 medMgr_type_input.requestFocus();
-            }
-            else{
+            } else {
                 medMgr_type_input.setText(medicine_unit);
                 medMgr_strength_input.setText(medicine_strength);
                 medMgr_no_sheet_input.setText(String.valueOf(mecicine_no_pack));
@@ -3787,28 +3743,22 @@ public class medicine_management extends javax.swing.JFrame {
 
         try {
             mysql.auto_suggestion_medicine_for_mrdMgr();
-        }
-        catch (SQLException database_error_message) {
+        } catch (SQLException database_error_message) {
             JOptionPane.showMessageDialog(null, database_error_message);
         }
 
-        if(evt.getKeyCode()==KeyEvent.VK_BACK_SPACE||evt.getKeyCode()==KeyEvent.VK_DELETE){}
-        else
-        {
+        if (evt.getKeyCode() == KeyEvent.VK_BACK_SPACE || evt.getKeyCode() == KeyEvent.VK_DELETE) {
+        } else {
             String to_check = medMgr_name_input.getText();
             int to_check_len = to_check.length();
-            for(String data:medicine_name_auto_med_mgr)
-            {
-                String check_from_data="";
-                for(int checking=0;checking<to_check_len;checking++)
-                {
-                    if(to_check_len<=data.length())
-                    {
-                        check_from_data = check_from_data+data.charAt(checking);
+            for (String data : medicine_name_auto_med_mgr) {
+                String check_from_data = "";
+                for (int checking = 0; checking < to_check_len; checking++) {
+                    if (to_check_len <= data.length()) {
+                        check_from_data = check_from_data + data.charAt(checking);
                     }
                 }
-                if(check_from_data.equals(to_check))
-                {
+                if (check_from_data.equals(to_check)) {
                     medMgr_name_input.setText(data);
                     medMgr_name_input.setSelectionStart(to_check_len);
                     medMgr_name_input.setSelectionEnd(data.length());
@@ -3819,13 +3769,13 @@ public class medicine_management extends javax.swing.JFrame {
     }//GEN-LAST:event_medMgr_name_inputKeyReleased
 
     private void medMgr_type_inputKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_medMgr_type_inputKeyPressed
-        if (evt.getKeyCode()==KeyEvent.VK_ENTER) {
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             medMgr_strength_input.requestFocus();
         }
     }//GEN-LAST:event_medMgr_type_inputKeyPressed
 
     private void medMgr_strength_inputKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_medMgr_strength_inputKeyPressed
-        if (evt.getKeyCode()==KeyEvent.VK_ENTER) {
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             medMgr_no_sheet_input.requestFocus();
         }
     }//GEN-LAST:event_medMgr_strength_inputKeyPressed
@@ -3835,25 +3785,21 @@ public class medicine_management extends javax.swing.JFrame {
     }//GEN-LAST:event_medMgr_strength_inputMouseClicked
 
     private void medMgr_no_tablet_inputKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_medMgr_no_tablet_inputKeyPressed
-         if (Character.isDigit(evt.getKeyChar()) || Character.isWhitespace(evt.getKeyChar())) {
-            if (evt.getKeyCode()==KeyEvent.VK_ENTER) {
-                if(medMgr_no_tablet_input.getText().equals("0")){
-                       medicine_error.setText("No of Tablet can not be zero!");
-                       medMgr_add_button.setEnabled(false);
-                }
-                else{
+        if (Character.isDigit(evt.getKeyChar()) || Character.isWhitespace(evt.getKeyChar())) {
+            if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+                if (medMgr_no_tablet_input.getText().equals("0")) {
+                    medicine_error.setText("No of Tablet can not be zero!");
+                    medMgr_add_button.setEnabled(false);
+                } else {
                     medMgr_mrp_input.requestFocus();
                     medicine_error.setText("  ");
                     medMgr_add_button.setEnabled(true);
                 }
             }
-         }
-        else if(medMgr_no_tablet_input.getText().length() <= 0)
-        {
+        } else if (medMgr_no_tablet_input.getText().length() <= 0) {
             medicine_error.setText("No of Tablet can not be zero!");
             medMgr_add_button.setEnabled(false);
-        }
-        else{
+        } else {
             medicine_error.setText("Details Need To be filled!");
             medMgr_add_button.setEnabled(false);
         }
@@ -3863,40 +3809,35 @@ public class medicine_management extends javax.swing.JFrame {
         if (Character.isDigit(evt.getKeyChar()) || evt.getKeyChar() == '.' || Character.isWhitespace(evt.getKeyChar())) {
             medicine_error.setText("  ");
             medMgr_add_button.setEnabled(true);
-        }  
-        else{
+        } else {
             evt.consume();
             medicine_error.setText("Only Numbers Allowed!");
             medMgr_add_button.setEnabled(false);
-        }       
+        }
     }//GEN-LAST:event_medMgr_mrp_inputKeyTyped
 
     private void medMgr_mrp_inputKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_medMgr_mrp_inputKeyPressed
-        if (evt.getKeyCode()==KeyEvent.VK_ENTER) {
-                medMgr_no_box_input.requestFocus();
-            }
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            medMgr_no_box_input.requestFocus();
+        }
     }//GEN-LAST:event_medMgr_mrp_inputKeyPressed
 
     private void medMgr_expiry_input_monthKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_medMgr_expiry_input_monthKeyPressed
-         if (Character.isDigit(evt.getKeyChar()) || Character.isWhitespace(evt.getKeyChar())) {
-            if (evt.getKeyCode()==KeyEvent.VK_ENTER) {
-                if(medMgr_expiry_input_month.getText().equals("0")){
-                        medicine_error.setText("Month can not be Zero!");
-                        medMgr_add_button.setEnabled(false);
-                    }
-                    else{
-                        medMgr_expiry_input_year.requestFocus();
-                        medicine_error.setText("  ");
-                        medMgr_add_button.setEnabled(true);
-                    }
+        if (Character.isDigit(evt.getKeyChar()) || Character.isWhitespace(evt.getKeyChar())) {
+            if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+                if (medMgr_expiry_input_month.getText().equals("0")) {
+                    medicine_error.setText("Month can not be Zero!");
+                    medMgr_add_button.setEnabled(false);
+                } else {
+                    medMgr_expiry_input_year.requestFocus();
+                    medicine_error.setText("  ");
+                    medMgr_add_button.setEnabled(true);
                 }
-         }
-        else if(medMgr_expiry_input_month.getText().length() <= 0)
-        {
+            }
+        } else if (medMgr_expiry_input_month.getText().length() <= 0) {
             medicine_error.setText("Month can not be Zero!");
             medMgr_add_button.setEnabled(false);
-        }
-        else{
+        } else {
             medicine_error.setText("Details Need To be filled!");
             medMgr_add_button.setEnabled(false);
         }
@@ -3904,24 +3845,20 @@ public class medicine_management extends javax.swing.JFrame {
 
     private void medMgr_expiry_input_yearKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_medMgr_expiry_input_yearKeyPressed
         if (Character.isDigit(evt.getKeyChar()) || Character.isWhitespace(evt.getKeyChar())) {
-            if (evt.getKeyCode()==KeyEvent.VK_ENTER) {
-                if(medMgr_expiry_input_year.getText().equals("0")){
-                        medicine_error.setText("Year can not be Zero!");
-                        medMgr_add_button.setEnabled(false);
-                    }
-                    else{
-                        medMgr_add_button.doClick();
-                        medicine_error.setText("  ");
-                        medMgr_add_button.setEnabled(true);
-                    }
+            if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+                if (medMgr_expiry_input_year.getText().equals("0")) {
+                    medicine_error.setText("Year can not be Zero!");
+                    medMgr_add_button.setEnabled(false);
+                } else {
+                    medMgr_add_button.doClick();
+                    medicine_error.setText("  ");
+                    medMgr_add_button.setEnabled(true);
                 }
             }
-        else if(medMgr_expiry_input_year.getText().length() <= 0)
-        {
+        } else if (medMgr_expiry_input_year.getText().length() <= 0) {
             medicine_error.setText("Year can not be Zero!");
             medMgr_add_button.setEnabled(false);
-        }
-        else{
+        } else {
             medicine_error.setText("Details Need To be filled!");
             medMgr_add_button.setEnabled(false);
         }
@@ -3936,17 +3873,16 @@ public class medicine_management extends javax.swing.JFrame {
     }//GEN-LAST:event_medMgr_expiry_input_yearFocusGained
 
     private void medMgr_expiry_input_monthFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_medMgr_expiry_input_monthFocusLost
-        try{
+        try {
             int month_check = Integer.parseInt(medMgr_expiry_input_month.getText());
-            if(month_check<1 || month_check>12){
+            if (month_check < 1 || month_check > 12) {
                 medicine_error.setText("Invalid Month!");
                 JOptionPane.showMessageDialog(null, "Invalid Month!");
                 medMgr_expiry_input_month.setText("");
                 medMgr_add_button.setEnabled(false);
                 medMgr_expiry_input_month.requestFocus();
             }
-        }
-        catch(NumberFormatException ex){
+        } catch (NumberFormatException ex) {
             medicine_error.setText("You can not enter Letters in Date!");
             medMgr_add_button.setEnabled(false);
             medMgr_expiry_input_month.setText("");
@@ -3968,32 +3904,26 @@ public class medicine_management extends javax.swing.JFrame {
     }//GEN-LAST:event_medMgr_clear_buttonActionPerformed
 
     private void medicine_name_find_inputKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_medicine_name_find_inputKeyReleased
-       medicine_name_find_input.setText(medicine_name_find_input.getText().toUpperCase());
+        medicine_name_find_input.setText(medicine_name_find_input.getText().toUpperCase());
 
         try {
             mysql.auto_suggestion_medicine();
-        }
-        catch (SQLException database_error_message) {
+        } catch (SQLException database_error_message) {
             JOptionPane.showMessageDialog(null, database_error_message);
         }
 
-        if(evt.getKeyCode()==KeyEvent.VK_BACK_SPACE||evt.getKeyCode()==KeyEvent.VK_DELETE){}
-        else
-        {
+        if (evt.getKeyCode() == KeyEvent.VK_BACK_SPACE || evt.getKeyCode() == KeyEvent.VK_DELETE) {
+        } else {
             String to_check = medicine_name_find_input.getText();
             int to_check_len = to_check.length();
-            for(String data:medicine_name_auto)
-            {
-                String check_from_data="";
-                for(int checking=0;checking<to_check_len;checking++)
-                {
-                    if(to_check_len<=data.length())
-                    {
-                        check_from_data = check_from_data+data.charAt(checking);
+            for (String data : medicine_name_auto) {
+                String check_from_data = "";
+                for (int checking = 0; checking < to_check_len; checking++) {
+                    if (to_check_len <= data.length()) {
+                        check_from_data = check_from_data + data.charAt(checking);
                     }
                 }
-                if(check_from_data.equals(to_check))
-                {
+                if (check_from_data.equals(to_check)) {
                     medicine_name_find_input.setText(data);
                     medicine_name_find_input.setSelectionStart(to_check_len);
                     medicine_name_find_input.setSelectionEnd(data.length());
@@ -4013,18 +3943,17 @@ public class medicine_management extends javax.swing.JFrame {
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, ex);
         }
-        
-        if(find_result < 1){
+
+        if (find_result < 1) {
             medicine_find_error.setText("No Medicine Found");
-            ((DefaultTableModel)medMgr_table_find.getModel()).setNumRows(0);
-        }
-        else{
+            ((DefaultTableModel) medMgr_table_find.getModel()).setNumRows(0);
+        } else {
             medicine_find_error.setText("  ");
         }
     }//GEN-LAST:event_find_buttonActionPerformed
 
     private void medicine_name_find_inputKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_medicine_name_find_inputKeyPressed
-        if (evt.getKeyCode()==KeyEvent.VK_ENTER) {
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             find_button.doClick();
         }
     }//GEN-LAST:event_medicine_name_find_inputKeyPressed
@@ -4035,22 +3964,20 @@ public class medicine_management extends javax.swing.JFrame {
 
     private void medMgr_no_box_inputKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_medMgr_no_box_inputKeyPressed
         if (Character.isDigit(evt.getKeyChar()) || Character.isWhitespace(evt.getKeyChar())) {
-            if (evt.getKeyCode()==KeyEvent.VK_ENTER) {
-                if(medMgr_no_tablet_input.getText().isEmpty()){
+            if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+                if (medMgr_no_tablet_input.getText().isEmpty()) {
                     medicine_error.setText("No of Tablet can not be Empty!");
                     medMgr_add_button.setEnabled(false);
-                }else{
+                } else {
                     medMgr_expiry_input_month.requestFocus();
                     medicine_error.setText("  ");
                     medMgr_add_button.setEnabled(true);
                 }
-            } 
-        } 
-        else if(medMgr_no_box_input.getText().length() <= 0){
+            }
+        } else if (medMgr_no_box_input.getText().length() <= 0) {
             medicine_error.setText("No of Boxes can not be NULL!");
             medMgr_add_button.setEnabled(false);
-        }
-        else{
+        } else {
             medicine_error.setText("Details Need To be filled!");
             medMgr_add_button.setEnabled(false);
         }
@@ -4063,17 +3990,17 @@ public class medicine_management extends javax.swing.JFrame {
     }//GEN-LAST:event_about_devloper_buttonActionPerformed
 
     private void refresh_for_welcomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refresh_for_welcomActionPerformed
-       try {
+        try {
             mysql.pharmacy_status();
             total_medicine_display.setText(total_medicine);
             total_stocks_display.setText(total_quantity);
             total_cost_display.setText(String.valueOf(String.format("%.1f", total_cost)));
             total_expired_display.setText(total_expired);
             total_out_display.setText(total_out);
-            
+
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, ex);
-        } 
+        }
     }//GEN-LAST:event_refresh_for_welcomActionPerformed
 
     private void refrresh_for_status1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refrresh_for_status1ActionPerformed
@@ -4086,48 +4013,45 @@ public class medicine_management extends javax.swing.JFrame {
             total_out_display_user.setText(total_out);
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, ex);
-        }  
+        }
     }//GEN-LAST:event_refrresh_for_status1ActionPerformed
 
     private void paitent_contact_inputKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_paitent_contact_inputKeyPressed
         char text_in_patient_contact = evt.getKeyChar();
-        if (Character.isDigit(text_in_patient_contact)||Character.isISOControl(text_in_patient_contact)) {
+        if (Character.isDigit(text_in_patient_contact) || Character.isISOControl(text_in_patient_contact)) {
             patient_input_error.setText(" ");
             paitent_contact_input.setEditable(true);
-            if(evt.getKeyCode()==KeyEvent.VK_ENTER){
-                if(paitent_contact_input.getText().length() != 10)
-                {
+            if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+                if (paitent_contact_input.getText().length() != 10) {
                     paitent_contact_input.setEditable(false);
                     patient_input_error.setText("Phone Number is of 10 Digits");
-                }
-                else{
+                } else {
                     patient_details_save.doClick();
                 }
             }
-        }
-        else{
+        } else {
             paitent_contact_input.setEditable(false);
             patient_input_error.setText("Worong Phone");
         }
     }//GEN-LAST:event_paitent_contact_inputKeyPressed
 
     private void patient_name_inputKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_patient_name_inputKeyPressed
-        if (evt.getKeyCode()==KeyEvent.VK_ENTER) {
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             patient_address_input.requestFocus();
         }
     }//GEN-LAST:event_patient_name_inputKeyPressed
 
     private void patient_details_saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_patient_details_saveActionPerformed
-        if(patient_name_input.getText().isEmpty() || patient_address_input.getText().isEmpty() || paitent_contact_input.getText().isEmpty()){
+        if (patient_name_input.getText().isEmpty() || patient_address_input.getText().isEmpty() || paitent_contact_input.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Patient Details are Empty.");
-        }else{
+        } else {
             patient_name = patient_name_input.getText();
             patient_address = patient_address_input.getText();
             patient_contact = paitent_contact_input.getText();
 
             patient_input_error.setText("SAVED");
             medicine_name_input.requestFocus();
-        } 
+        }
     }//GEN-LAST:event_patient_details_saveActionPerformed
 
     private void clear_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clear_buttonActionPerformed
@@ -4143,18 +4067,18 @@ public class medicine_management extends javax.swing.JFrame {
     }//GEN-LAST:event_patient_details_clearActionPerformed
 
     private void patient_address_inputKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_patient_address_inputKeyPressed
-        if (evt.getKeyCode()==KeyEvent.VK_ENTER) {
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             paitent_contact_input.requestFocus();
         }
     }//GEN-LAST:event_patient_address_inputKeyPressed
 
     private void bill_delete_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bill_delete_buttonActionPerformed
-        DefaultTableModel delete_bill_table = (DefaultTableModel)bill_table.getModel();
-        
-        if(bill_table.getSelectedRowCount()==1){
+        DefaultTableModel delete_bill_table = (DefaultTableModel) bill_table.getModel();
+
+        if (bill_table.getSelectedRowCount() == 1) {
             int bill_delete_confirm = JOptionPane.showConfirmDialog(null, "Are you sure you want to Delete ?", "Medicine Delete",
-            JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
-            
+                    JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+
             switch (bill_delete_confirm) {
                 case JOptionPane.NO_OPTION -> {
                 }
@@ -4164,13 +4088,13 @@ public class medicine_management extends javax.swing.JFrame {
                     int index_re = 1;
                     int rows_inc = 0;
                     int rows_in_bill = bill_table.getModel().getRowCount();
-                    
-                    while(rows_in_bill > 0){
+
+                    while (rows_in_bill > 0) {
                         bill_table_model.setValueAt(index_re++, rows_inc, 0);
                         rows_in_bill--;
                         rows_inc++;
                     }
-                    
+
                     medicine_bill_id = index_re;
                 }
                 case JOptionPane.CLOSED_OPTION -> {
@@ -4178,8 +4102,7 @@ public class medicine_management extends javax.swing.JFrame {
                 default -> {
                 }
             }
-        }
-        else{
+        } else {
             JOptionPane.showMessageDialog(null, "Select a row to Delete!");
         }
     }//GEN-LAST:event_bill_delete_buttonActionPerformed
@@ -4187,68 +4110,58 @@ public class medicine_management extends javax.swing.JFrame {
     private void vat_no_inputKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_vat_no_inputKeyPressed
         user_shopDtr_update_button.setEnabled(true);
         shop_details_error.setText("");
-        
+
         char text_in_shop_vat = evt.getKeyChar();
-        if (Character.isDigit(text_in_shop_vat)||Character.isISOControl(text_in_shop_vat)) {
+        if (Character.isDigit(text_in_shop_vat) || Character.isISOControl(text_in_shop_vat)) {
             shop_details_error.setText("");
             vat_no_input.setEditable(true);
-        }
-        else{
+        } else {
             shop_details_error.setText("Wrong Number");
             vat_no_input.setEditable(false);
         }
-        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             user_shopDtr_update_button.doClick();
         }
     }//GEN-LAST:event_vat_no_inputKeyPressed
 
     private void bill_save_buttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bill_save_buttonMouseClicked
         int bill_save_confirm = JOptionPane.showConfirmDialog(null, "Are you sure you want to Save?", "Medicine Bill",
-        JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+                JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
         String value_medcine_temp = bill_table.getValueAt(0, 1).toString();
         switch (bill_save_confirm) {
             case JOptionPane.NO_OPTION -> {
             }
             case JOptionPane.YES_OPTION -> {
-                if(bill_saved == 0){
-                    if(patient_name_input.getText().isEmpty() || patient_address_input.getText().isEmpty() || paitent_contact_input.getText().isEmpty()){
-                        if(bill_table.getRowCount() == 0){
-                            if(value_medcine_temp.trim().length() == 0) {
+                if (bill_saved == 0) {
+                    if (patient_name_input.getText().isEmpty() || patient_address_input.getText().isEmpty() || paitent_contact_input.getText().isEmpty()) {
+                        if (bill_table.getRowCount() == 0) {
+                            if (value_medcine_temp.trim().length() == 0) {
                                 JOptionPane.showMessageDialog(null, "There are no items in the bill");
                                 medicine_name_input.requestFocus();
-                            }
-                            else{
-                                if(bill_save() == true)
-                                {
+                            } else {
+                                if (bill_save() == true) {
                                     JOptionPane.showMessageDialog(null, "Bill is saved now you can print the bill.");
-                                }
-                                else{
+                                } else {
                                     JOptionPane.showMessageDialog(null, "An Error occured while saving the bill.");
                                 }
                             }
-                        }
-                        else{
+                        } else {
                             JOptionPane.showMessageDialog(null, "Patient Details are Empty");
                             patient_name_input.requestFocus();
                         }
-                    }
-                    else{
-                        if(value_medcine_temp.trim().length() == 0) {
+                    } else {
+                        if (value_medcine_temp.trim().length() == 0) {
                             JOptionPane.showMessageDialog(null, "There are no items in the bill");
                             medicine_name_input.requestFocus();
-                        }
-                        else{
-                            if(bill_save() == true)
-                            {
+                        } else {
+                            if (bill_save() == true) {
                                 JOptionPane.showMessageDialog(null, "Bill is saved now you can print the bill.");
-                            }
-                            else{
+                            } else {
                                 JOptionPane.showMessageDialog(null, "An Error occured while saving the bill.");
                             }
                         }
                     }
-                }
-                else{
+                } else {
                     JOptionPane.showMessageDialog(null, "Bill has already been saved");
                 }
             }
@@ -4260,88 +4173,85 @@ public class medicine_management extends javax.swing.JFrame {
     }//GEN-LAST:event_bill_save_buttonMouseClicked
 
     private void bill_print_buttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bill_print_buttonMouseClicked
-        if(bill_saved == 1){
-            if(patient_name == null){
+        if (bill_saved == 1) {
+            if (patient_name == null) {
                 JOptionPane.showMessageDialog(null, "You have not saved the patient name");
-            }
-            else{
+            } else {
                 int bill_table_rows;
                 String med_name_bill[] = new String[10000];
                 String med_quantity_bill[] = new String[10000];
                 String med_rate_bill[] = new String[10000];
                 String med_cost_bill[] = new String[10000];
-                
-                DateTimeFormatter tf = DateTimeFormatter.ofPattern("HH_mm_ss");  
+
+                DateTimeFormatter tf = DateTimeFormatter.ofPattern("HH_mm_ss");
                 LocalDateTime now = LocalDateTime.now();
 
-                DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");  
+                DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
                 LocalDateTime date_current = LocalDateTime.now();
 
                 String value_medcine_temp = bill_table.getValueAt(0, 1).toString();
-                if(value_medcine_temp == null){}
-                else{
+                if (value_medcine_temp == null) {
+                } else {
                     bill_table_rows = bill_table.getRowCount();
-                    if(bill_table_rows == 0){
+                    if (bill_table_rows == 0) {
                         bill_table_rows++;
                     }
                     FileWriter bill_print;
                     try {
-                        String bill_path = "bill_print/"+patient_name+"_"+tf.format(now)+".doc";
+                        String bill_path = "bill_print/" + patient_name + "_" + tf.format(now) + ".doc";
                         bill_print = new FileWriter(bill_path);
                         bill_print.write(mysql.company_name);
-                        bill_print.write("\n"+mysql.company_address);
-                        bill_print.write("\n"+mysql.company_phoneNo);
-                        bill_print.write("\n\n\nVAT No."+mysql.company_vatNo);
-                        bill_print.write("\nInvoice NO.: IN-"+mysql.invoice_number+"                      Transaction Date : "+dtf.format(date_current));
-                        bill_print.write("\n\nPatient Name     : "+patient_name);
-                        bill_print.write("\nPatient Adddress : "+patient_address);
-                        bill_print.write("\nPatient Contact  : "+patient_contact);
+                        bill_print.write("\n" + mysql.company_address);
+                        bill_print.write("\n" + mysql.company_phoneNo);
+                        bill_print.write("\n\n\nVAT No." + mysql.company_vatNo);
+                        bill_print.write("\nInvoice NO.: IN-" + mysql.invoice_number + "                      Transaction Date : " + dtf.format(date_current));
+                        bill_print.write("\n\nPatient Name     : " + patient_name);
+                        bill_print.write("\nPatient Adddress : " + patient_address);
+                        bill_print.write("\nPatient Contact  : " + patient_contact);
                         bill_print.write("\n\n+---+----------------------------------------------+-----+------+-------+");
                         bill_print.write("\n|Sn.|Medicine Name                                 |Qty  |Rate  |Cost   |");
                         bill_print.write("\n+---+----------------------------------------------+-----+------+-------+");
-                        for(int bill_each_rows = 1; bill_each_rows <= bill_table_rows; bill_each_rows++){
-                            med_name_bill[bill_each_rows-1] = bill_table.getValueAt(bill_each_rows-1, 2).toString();
-                            med_quantity_bill[bill_each_rows-1] = bill_table.getValueAt(bill_each_rows-1, 3).toString();
-                            med_rate_bill[bill_each_rows-1] = bill_table.getValueAt(bill_each_rows-1, 4).toString();
-                            med_cost_bill[bill_each_rows-1] = bill_table.getValueAt(bill_each_rows-1, 5).toString();
-                            bill_print.write(String.format("\n|%3s|%-46s|%5s|%6s|%7s|",bill_each_rows, med_name_bill[bill_each_rows-1], med_quantity_bill[bill_each_rows-1], med_rate_bill[bill_each_rows-1] ,med_cost_bill[bill_each_rows-1]));
+                        for (int bill_each_rows = 1; bill_each_rows <= bill_table_rows; bill_each_rows++) {
+                            med_name_bill[bill_each_rows - 1] = bill_table.getValueAt(bill_each_rows - 1, 2).toString();
+                            med_quantity_bill[bill_each_rows - 1] = bill_table.getValueAt(bill_each_rows - 1, 3).toString();
+                            med_rate_bill[bill_each_rows - 1] = bill_table.getValueAt(bill_each_rows - 1, 4).toString();
+                            med_cost_bill[bill_each_rows - 1] = bill_table.getValueAt(bill_each_rows - 1, 5).toString();
+                            bill_print.write(String.format("\n|%3s|%-46s|%5s|%6s|%7s|", bill_each_rows, med_name_bill[bill_each_rows - 1], med_quantity_bill[bill_each_rows - 1], med_rate_bill[bill_each_rows - 1], med_cost_bill[bill_each_rows - 1]));
                         }
                         bill_print.write("\n+---+----------------------------------------------+-----+------+-------+");
-                        bill_print.write(String.format("\n                                        Grand Total|%20s|",String.format("%.1f", total_cost_print)));
+                        bill_print.write(String.format("\n                                        Grand Total|%20s|", String.format("%.1f", total_cost_print)));
                         bill_print.write("\n                                                   +--------------------+");
-                        bill_print.close();    
-                        
+                        bill_print.close();
+
                         String bill_full_path;
                         File bill_print_path = new File(bill_path);
                         bill_full_path = bill_print_path.getAbsolutePath();
-                        
+
                         System.out.println(bill_full_path);
-                        
-                        Process exec_bill = Runtime.getRuntime().exec("rundll32 url.dll,FileProtocolHandler "+bill_full_path);
+
+                        Process exec_bill = Runtime.getRuntime().exec("rundll32 url.dll,FileProtocolHandler " + bill_full_path);
                         this.setExtendedState(medicine_management.ICONIFIED);
-                        
+
                     } catch (IOException ex) {
                         JOptionPane.showMessageDialog(null, ex);
                     }
                 }
             }
-        }
-        else{
+        } else {
             JOptionPane.showMessageDialog(null, "Bill is not saved. Save the bill and then print it!");
         }
     }//GEN-LAST:event_bill_print_buttonMouseClicked
 
     private void close_operationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_close_operationActionPerformed
-        int confirm_close = JOptionPane.showConfirmDialog(null, "Are you sure you want to Close?", "Close Pharmaer",
-            JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+        int confirm_close = JOptionPane.showConfirmDialog(null, "Are you sure you want to Close?", "Close Pharmear",
+                JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
         switch (confirm_close) {
             case JOptionPane.NO_OPTION -> {
             }
             case JOptionPane.YES_OPTION -> {
                 try {
-                    mysql.backup_pharma_db();
-                } 
-                catch (SQLException ex) {
+                    mysql.backup_pharmear_db();
+                } catch (SQLException ex) {
                     JOptionPane.showMessageDialog(null, "Error Occured While Backing up data");
                 }
                 System.exit(0);
@@ -4354,19 +4264,19 @@ public class medicine_management extends javax.swing.JFrame {
     }//GEN-LAST:event_close_operationActionPerformed
 
     private void close_operationMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_close_operationMouseEntered
-        close_operation.setBackground(new Color(193,18,31).brighter());
+        close_operation.setBackground(new Color(193, 18, 31).brighter());
     }//GEN-LAST:event_close_operationMouseEntered
 
     private void close_operationMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_close_operationMouseExited
-        close_operation.setBackground(new Color(193,18,31));
+        close_operation.setBackground(new Color(193, 18, 31));
     }//GEN-LAST:event_close_operationMouseExited
 
     private void minimizeMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_minimizeMouseEntered
-        minimize.setBackground(new Color(193,18,31).brighter());
+        minimize.setBackground(new Color(193, 18, 31).brighter());
     }//GEN-LAST:event_minimizeMouseEntered
 
     private void minimizeMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_minimizeMouseExited
-        minimize.setBackground(new Color(193,18,31));
+        minimize.setBackground(new Color(193, 18, 31));
     }//GEN-LAST:event_minimizeMouseExited
 
     private void minimizeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_minimizeActionPerformed
@@ -4374,7 +4284,7 @@ public class medicine_management extends javax.swing.JFrame {
     }//GEN-LAST:event_minimizeActionPerformed
 
     private void formWindowStateChanged(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowStateChanged
-        if(this.getState()==0){
+        if (this.getState() == 0) {
             setExtendedState(medicine_management.MAXIMIZED_BOTH);
         }
     }//GEN-LAST:event_formWindowStateChanged
@@ -4383,18 +4293,18 @@ public class medicine_management extends javax.swing.JFrame {
         try {
             mysql.bar_finder();
         } catch (SQLException ex) {
-             JOptionPane.showMessageDialog(null, ex);
+            JOptionPane.showMessageDialog(null, ex);
         }
-        
+
         DefaultCategoryDataset bar_data_quanity = new DefaultCategoryDataset();
         bar_data_quanity.setValue(mysql.bar_total_quantity, "Quantity", "Total Import");
         bar_data_quanity.setValue(mysql.bar_sold_quantity, "Quantity", "Total Sold");
-        
+
         JFreeChart jChartQuantity;
-        jChartQuantity = ChartFactory.createBarChart3D("Total Qunatity and Sold Quantity", "","Quantity", bar_data_quanity, PlotOrientation.VERTICAL, true, true, false);
+        jChartQuantity = ChartFactory.createBarChart3D("Total Qunatity and Sold Quantity", "", "Quantity", bar_data_quanity, PlotOrientation.VERTICAL, true, true, false);
         CategoryPlot plot_quantity = jChartQuantity.getCategoryPlot();
         plot_quantity.setRangeGridlinePaint(Color.black);
-        
+
         ChartPanel chartPanelQuanity = new ChartPanel(jChartQuantity);
         sales_panel.removeAll();
         sales_panel.add(chartPanelQuanity);
@@ -4410,12 +4320,11 @@ public class medicine_management extends javax.swing.JFrame {
     }//GEN-LAST:event_medMgr_table_findMouseClicked
 
     private void delete_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_delete_buttonActionPerformed
-        if(med_id_delete == null || med_batch_delete == null){
+        if (med_id_delete == null || med_batch_delete == null) {
             JOptionPane.showMessageDialog(null, "You havent selected a medicine, Select a medicine from the table and then delete.");
-        }
-        else{
+        } else {
             int medicine_delete_confirm = JOptionPane.showConfirmDialog(null, "Are you sure you want to Delete ?", "Medicine Delete",
-                JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+                    JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
 
             switch (medicine_delete_confirm) {
                 case JOptionPane.NO_OPTION -> {
@@ -4424,7 +4333,7 @@ public class medicine_management extends javax.swing.JFrame {
                     try {
                         mysql.medicine_delete(med_id_delete, med_batch_delete);
                         JOptionPane.showMessageDialog(null, "Medicine Deleted Succesfully");
-                    find_button.doClick();
+                        find_button.doClick();
                     } catch (SQLException ex) {
                         JOptionPane.showMessageDialog(null, ex);
                     }
@@ -4440,10 +4349,10 @@ public class medicine_management extends javax.swing.JFrame {
     private void find_medicine_clearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_find_medicine_clearActionPerformed
         medicine_name_find_input.setText("");
         medicine_find_error.setText(" ");
-        ((DefaultTableModel)medMgr_table_find.getModel()).setNumRows(0);
+        ((DefaultTableModel) medMgr_table_find.getModel()).setNumRows(0);
     }//GEN-LAST:event_find_medicine_clearActionPerformed
 
-    private boolean bill_save(){
+    private boolean bill_save() {
         String pat_name, pat_address, pat_contact;
         int bill_table_rows;
         String batch_no_bill[] = new String[10000];
@@ -4452,23 +4361,23 @@ public class medicine_management extends javax.swing.JFrame {
         pat_name = patient_name_input.getText();
         pat_address = patient_address_input.getText();
         pat_contact = paitent_contact_input.getText();
-        
+
         bill_table_rows = bill_table.getRowCount();
-        if(bill_table_rows == 0){
+        if (bill_table_rows == 0) {
             bill_table_rows++;
         }
-        
+
         try {
             mysql.patient_add(pat_name, pat_address, pat_contact);
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, ex);
         }
-         
+
         try {
-            for(int bill_each_rows = 1; bill_each_rows <= bill_table_rows; bill_each_rows++){
-                batch_no_bill[bill_each_rows-1] = bill_table.getValueAt(bill_each_rows-1, 1).toString();
-                quantity_no_bill[bill_each_rows-1] = bill_table.getValueAt(bill_each_rows-1, 3).toString();              
-                mysql.medicine_sales(batch_no_bill[bill_each_rows-1], quantity_no_bill[bill_each_rows-1]);
+            for (int bill_each_rows = 1; bill_each_rows <= bill_table_rows; bill_each_rows++) {
+                batch_no_bill[bill_each_rows - 1] = bill_table.getValueAt(bill_each_rows - 1, 1).toString();
+                quantity_no_bill[bill_each_rows - 1] = bill_table.getValueAt(bill_each_rows - 1, 3).toString();
+                mysql.medicine_sales(batch_no_bill[bill_each_rows - 1], quantity_no_bill[bill_each_rows - 1]);
             }
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, ex);
@@ -4477,7 +4386,7 @@ public class medicine_management extends javax.swing.JFrame {
         bill_saved = 1;
         return true;
     }
-    
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -4495,7 +4404,7 @@ public class medicine_management extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(medicine_management.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        
+
         //</editor-fold>
 
         /* Create and display the form */
@@ -4639,7 +4548,7 @@ public class medicine_management extends javax.swing.JFrame {
     private javax.swing.JPanel status_panel;
     private javax.swing.JPanel status_panel_user;
     private javax.swing.JPanel title_pane;
-    private javax.swing.JLabel title_pharmaer;
+    private javax.swing.JLabel title_pharmear;
     private javax.swing.JLabel total_cost_display;
     private javax.swing.JLabel total_cost_display_user;
     private javax.swing.JLabel total_cost_icon;

@@ -1,6 +1,5 @@
 package mms;
 
-import java.awt.Color;
 import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.FileWriter;
@@ -15,14 +14,14 @@ import javax.swing.JOptionPane;
 import static mms.mysql.connect;
 
 public class pharmear_setup extends javax.swing.JFrame {
-    
+
     static String db_code_write;
-    
+
     public pharmear_setup() {
         initComponents();
         setLocationRelativeTo(null);
     }
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -97,10 +96,10 @@ public class pharmear_setup extends javax.swing.JFrame {
         vat_no_label = new javax.swing.JLabel();
         vat_no_input = new javax.swing.JTextField();
         mysql_test_connection_button3 = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jSeparator1 = new javax.swing.JSeparator();
-        jLabel3 = new javax.swing.JLabel();
+        shop_note = new javax.swing.JLabel();
+        shop_note_seperator = new javax.swing.JSeparator();
+        shop_note_1 = new javax.swing.JLabel();
+        shop_note_2 = new javax.swing.JLabel();
         setup_finish_panel = new javax.swing.JPanel();
         finish_thanks_label = new javax.swing.JLabel();
         thanks_label_1 = new javax.swing.JLabel();
@@ -704,17 +703,17 @@ public class pharmear_setup extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Note : ");
+        shop_note.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        shop_note.setForeground(new java.awt.Color(255, 255, 255));
+        shop_note.setText("Note : ");
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("1. Enter all the details correct because these details will appear in the bill you");
+        shop_note_1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        shop_note_1.setForeground(new java.awt.Color(255, 255, 255));
+        shop_note_1.setText("1. Enter all the details correct because these details will appear in the bill you");
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("make in the pharmear");
+        shop_note_2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        shop_note_2.setForeground(new java.awt.Color(255, 255, 255));
+        shop_note_2.setText("make in the pharmear");
 
         javax.swing.GroupLayout shop_details_panelLayout = new javax.swing.GroupLayout(shop_details_panel);
         shop_details_panel.setLayout(shop_details_panelLayout);
@@ -723,7 +722,7 @@ public class pharmear_setup extends javax.swing.JFrame {
             .addGroup(shop_details_panelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(shop_details_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
+                    .addComponent(shop_note_1)
                     .addGroup(shop_details_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(user_shopDtr_label)
                         .addGroup(shop_details_panelLayout.createSequentialGroup()
@@ -748,11 +747,11 @@ public class pharmear_setup extends javax.swing.JFrame {
                                 .addComponent(vat_no_input)
                                 .addComponent(user_shopDtr_address_input)))
                         .addComponent(user_shopDtr_seperator)
-                        .addComponent(jLabel1)
-                        .addComponent(jSeparator1))
+                        .addComponent(shop_note)
+                        .addComponent(shop_note_seperator))
                     .addGroup(shop_details_panelLayout.createSequentialGroup()
                         .addGap(13, 13, 13)
-                        .addComponent(jLabel3)))
+                        .addComponent(shop_note_2)))
                 .addContainerGap(28, Short.MAX_VALUE))
         );
         shop_details_panelLayout.setVerticalGroup(
@@ -786,13 +785,13 @@ public class pharmear_setup extends javax.swing.JFrame {
                             .addComponent(mysql_test_connection_button3, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(vat_no_label))
                 .addGap(25, 25, 25)
-                .addComponent(jLabel1)
+                .addComponent(shop_note)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(shop_note_seperator, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(2, 2, 2)
-                .addComponent(jLabel2)
+                .addComponent(shop_note_1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel3)
+                .addComponent(shop_note_2)
                 .addContainerGap(59, Short.MAX_VALUE))
         );
 
@@ -954,10 +953,9 @@ public class pharmear_setup extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowActivated
 
     private void mysql_save_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mysql_save_buttonActionPerformed
-        if(mysql_password_input.getText().isEmpty()){
+        if (mysql_password_input.getText().isEmpty()) {
             JOptionPane.showMessageDialog(rootPane, "Mysql Password is Empty");
-        }
-        else{
+        } else {
             db_code_write = mysql_password_input.getText();
             JOptionPane.showMessageDialog(null, "MySQL Password Saved. Now You Test the connection");
         }
@@ -966,35 +964,33 @@ public class pharmear_setup extends javax.swing.JFrame {
     private void mysql_test_connection_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mysql_test_connection_buttonActionPerformed
         String db_url = "jdbc:mysql://localhost:3306";
         String db_username = "root";
-        String db_password = db_code_write; 
-        
+        String db_password = db_code_write;
+
         try {
             connect = DriverManager.getConnection(db_url, db_username, db_password);
-            
+
             FileWriter myWriter;
             try {
-                myWriter = new FileWriter("setup_test.phe");
+                myWriter = new FileWriter("setup_pharmear.phe");
                 myWriter.write(db_code_write);
                 myWriter.close();
                 JOptionPane.showMessageDialog(null, "Connection Successful now you can create a user. \n          Wait for the database to restore.");
             } catch (IOException ex) {
                 JOptionPane.showMessageDialog(null, ex);
-            } 
-            
-            try{
+            }
+
+            try {
                 mysql.stmt = connect.createStatement();
-                String sql = "use pharma_db;";
+                String sql = "use pharmear_db;";
                 mysql.result = mysql.stmt.executeQuery(sql);
                 restore_find();
-            }
-            catch(SQLException database_error_message){
+            } catch (SQLException database_error_message) {
                 mysql.stmt = connect.createStatement();
-                String sql = "CREATE DATABASE pharma_db";
+                String sql = "CREATE DATABASE pharmear_db";
                 mysql.stmt.executeUpdate(sql);
                 restore_find();
             }
-        }
-        catch(SQLException database_error_message){
+        } catch (SQLException database_error_message) {
             JOptionPane.showMessageDialog(null, "Wrong Password or you have not installed MYSQL");
             mysql_password_input.setText("");
         }
@@ -1007,30 +1003,28 @@ public class pharmear_setup extends javax.swing.JFrame {
     private void new_user_saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_new_user_saveActionPerformed
         String setup_user_name, setup_user_type, setup_username, setup_password;
         int setup_code;
-        
+
         setup_user_name = new_user_name_input.getText();
         setup_user_type = user_type_comboBox.getSelectedItem().toString();
         setup_username = new_user_username_input.getText();
         setup_password = new_user_password_input.getText();
-        
+
         setup_code = user_type_comboBox.getSelectedIndex() + 1;
-        
-        if(setup_code == 0){
+
+        if (setup_code == 0) {
             JOptionPane.showMessageDialog(null, "Select a User Type");
         }
-        
-        if(setup_user_name.isBlank() || setup_user_type.isBlank() || setup_username.isBlank() || setup_password.isBlank()){
+
+        if (setup_user_name.isBlank() || setup_user_type.isBlank() || setup_username.isBlank() || setup_password.isBlank()) {
             JOptionPane.showMessageDialog(null, "Fill in all the details");
-        }
-        else{
+        } else {
             try {
-                if(mysql.user_add(setup_user_name, setup_user_type, setup_username, setup_password, setup_code)){
+                if (mysql.user_add(setup_user_name, setup_user_type, setup_username, setup_password, setup_code)) {
                     JOptionPane.showMessageDialog(null, "User Succesfully Added");
                     new_user_name_input.setText("");
                     new_user_username_input.setText("");
                     new_user_password_input.setText("");
-                }
-                else{
+                } else {
                     new_user_name_input.setText("");
                     new_user_username_input.setText("");
                     new_user_password_input.setText("");
@@ -1044,7 +1038,7 @@ public class pharmear_setup extends javax.swing.JFrame {
     private void user_shopDtr_shop_name_inputKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_user_shopDtr_shop_name_inputKeyPressed
         user_shopDtr_update_button.setEnabled(true);
         shop_details_error.setText("");
-        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             user_shopDtr_address_input.requestFocus();
         }
     }//GEN-LAST:event_user_shopDtr_shop_name_inputKeyPressed
@@ -1052,7 +1046,7 @@ public class pharmear_setup extends javax.swing.JFrame {
     private void user_shopDtr_address_inputKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_user_shopDtr_address_inputKeyPressed
         user_shopDtr_update_button.setEnabled(true);
         shop_details_error.setText("");
-        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             user_shopDtr_shop_contact_input.requestFocus();
         }
     }//GEN-LAST:event_user_shopDtr_address_inputKeyPressed
@@ -1062,15 +1056,14 @@ public class pharmear_setup extends javax.swing.JFrame {
         shop_details_error.setText("");
 
         char text_in_shop_contact = evt.getKeyChar();
-        if (Character.isDigit(text_in_shop_contact)||Character.isISOControl(text_in_shop_contact)) {
+        if (Character.isDigit(text_in_shop_contact) || Character.isISOControl(text_in_shop_contact)) {
             shop_details_error.setText("");
             user_shopDtr_shop_contact_input.setEditable(true);
-        }
-        else{
+        } else {
             shop_details_error.setText("Wrong Number");
             user_shopDtr_shop_contact_input.setEditable(false);
         }
-        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             vat_no_input.requestFocus();
         }
     }//GEN-LAST:event_user_shopDtr_shop_contact_inputKeyPressed
@@ -1082,33 +1075,27 @@ public class pharmear_setup extends javax.swing.JFrame {
         shop_contact_update = user_shopDtr_shop_contact_input.getText();
         shop_vat = vat_no_input.getText();
 
-        if(shop_name_update.trim().isEmpty() || shop_address_update.trim().isEmpty() || shop_contact_update.trim().isEmpty() || shop_vat.trim().isEmpty()){
+        if (shop_name_update.trim().isEmpty() || shop_address_update.trim().isEmpty() || shop_contact_update.trim().isEmpty() || shop_vat.trim().isEmpty()) {
             user_shopDtr_update_button.setEnabled(false);
             shop_details_error.setText("Details are Empty");
-            if(shop_name_update.trim().isEmpty()){
+            if (shop_name_update.trim().isEmpty()) {
                 user_shopDtr_shop_name_input.requestFocus();
-            }
-            else if(shop_address_update.trim().isEmpty()){
+            } else if (shop_address_update.trim().isEmpty()) {
                 user_shopDtr_address_input.requestFocus();
-            }
-            else if(shop_vat.trim().isEmpty()){
+            } else if (shop_vat.trim().isEmpty()) {
                 vat_no_input.requestFocus();
-            }
-            else{
+            } else {
                 user_shopDtr_shop_contact_input.requestFocus();
             }
-        }
-        else if(user_shopDtr_shop_contact_input.getText().length() != 10){
+        } else if (user_shopDtr_shop_contact_input.getText().length() != 10) {
             shop_details_error.setText("Phone Nuumber is of 10 Digits");
-        }
-        else if(vat_no_input.getText().length() < 4 || vat_no_input.getText().length() > 15){
+        } else if (vat_no_input.getText().length() < 4 || vat_no_input.getText().length() > 15) {
             shop_details_error.setText("Vat Number is of 4-15 Digits");
-        }
-        else{
+        } else {
             try {
                 mysql.company_update_query(shop_name_update, shop_address_update, shop_contact_update);
                 JOptionPane.showMessageDialog(null, "Shop Details Added");
-            shop_details_error.setText("");
+                shop_details_error.setText("");
             } catch (SQLException ex) {
                 JOptionPane.showMessageDialog(null, ex);
             }
@@ -1120,15 +1107,14 @@ public class pharmear_setup extends javax.swing.JFrame {
         shop_details_error.setText("");
 
         char text_in_shop_vat = evt.getKeyChar();
-        if (Character.isDigit(text_in_shop_vat)||Character.isISOControl(text_in_shop_vat)) {
+        if (Character.isDigit(text_in_shop_vat) || Character.isISOControl(text_in_shop_vat)) {
             shop_details_error.setText("");
             vat_no_input.setEditable(true);
-        }
-        else{
+        } else {
             shop_details_error.setText("Wrong Number");
             vat_no_input.setEditable(false);
         }
-        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             user_shopDtr_update_button.doClick();
         }
     }//GEN-LAST:event_vat_no_inputKeyPressed
@@ -1146,36 +1132,35 @@ public class pharmear_setup extends javax.swing.JFrame {
     }//GEN-LAST:event_complete_finishActionPerformed
 
     private void mysql_password_inputKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_mysql_password_inputKeyPressed
-        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             mysql_save_button.doClick();
         }
     }//GEN-LAST:event_mysql_password_inputKeyPressed
 
-    public static void restore_find(){
+    public static void restore_find() {
         String[] multiple_database;
         int restore_file_check;
         String restore_file_path;
-        
+
         File directory_restore = new File("pharmear_backup");
         multiple_database = directory_restore.list();
-        
+
         Arrays.sort(multiple_database);
         restore_file_check = multiple_database.length - 1;
-        
-        if(restore_file_check < 0){
+
+        if (restore_file_check < 0) {
             File restore_full_path = new File("main_database/pharmear_db.sql");
             restore_file_path = restore_full_path.getAbsolutePath();
-            
+
             try {
                 mysql.restore_from_setup(restore_file_path);
             } catch (SQLException | IOException ex) {
                 Logger.getLogger(pharmear_setup.class.getName()).log(Level.SEVERE, null, ex);
             }
-        }
-        else{
-            File restore_full_path = new File("pharmear_backup/"+multiple_database[restore_file_check]);
+        } else {
+            File restore_full_path = new File("pharmear_backup/" + multiple_database[restore_file_check]);
             restore_file_path = restore_full_path.getAbsolutePath();
-            
+
             try {
                 mysql.restore_from_setup(restore_file_path);
             } catch (SQLException | IOException ex) {
@@ -1183,7 +1168,7 @@ public class pharmear_setup extends javax.swing.JFrame {
             }
         }
     }
-    
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -1201,7 +1186,7 @@ public class pharmear_setup extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(pharmear_setup.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        
+
         //</editor-fold>
 
         /* Create and display the form */
@@ -1224,11 +1209,7 @@ public class pharmear_setup extends javax.swing.JFrame {
     private javax.swing.JLabel finish_note_lable;
     private javax.swing.JSeparator finish_note_seperator;
     private javax.swing.JLabel finish_thanks_label;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel med_bill_info;
     private javax.swing.JLabel med_info;
     private javax.swing.JLabel mysql_conn_label;
@@ -1273,6 +1254,10 @@ public class pharmear_setup extends javax.swing.JFrame {
     private javax.swing.JLabel shop_details_error;
     private javax.swing.JPanel shop_details_panel;
     private javax.swing.JLabel shop_label;
+    private javax.swing.JLabel shop_note;
+    private javax.swing.JLabel shop_note_1;
+    private javax.swing.JLabel shop_note_2;
+    private javax.swing.JSeparator shop_note_seperator;
     private javax.swing.JLabel software_version;
     private javax.swing.JLabel thanks_email;
     private javax.swing.JLabel thanks_label_1;
