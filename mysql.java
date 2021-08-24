@@ -300,12 +300,18 @@ public class mysql {
     public static int medicine_find(String medicine_find) throws SQLException {
         String medicine_id, medicine_name, medicine_strength, box_no, batch_no, find_mrp, import_date;
         int number_of_rows_find = 0;
+        String query;
 
         DefaultTableModel medMgr_find_table_add = (DefaultTableModel) medicine_management.medMgr_table_find.getModel();
         medMgr_find_table_add.getDataVector().removeAllElements();
 
         stmt = connect.createStatement();
-        String query = "select medicine_import.id, medicine_import.medicine_name, medicine_import.medicine_strength, medicine_import_details.number_of_box, medicine_import_details.batch_no, medicine_import_details.mrp, medicine_import_details.med_import_date FROM medicine_import INNER JOIN medicine_import_details on medicine_import.id = medicine_import_details.medicine_id WHERE medicine_name LIKE '%" + medicine_find + "%';";
+        if(medicine_find.equals("*")){
+            query = "select medicine_import.id, medicine_import.medicine_name, medicine_import.medicine_strength, medicine_import_details.number_of_box, medicine_import_details.batch_no, medicine_import_details.mrp, medicine_import_details.med_import_date FROM medicine_import INNER JOIN medicine_import_details on medicine_import.id = medicine_import_details.medicine_id;";
+
+        }else{
+            query = "select medicine_import.id, medicine_import.medicine_name, medicine_import.medicine_strength, medicine_import_details.number_of_box, medicine_import_details.batch_no, medicine_import_details.mrp, medicine_import_details.med_import_date FROM medicine_import INNER JOIN medicine_import_details on medicine_import.id = medicine_import_details.medicine_id WHERE medicine_name LIKE '%" + medicine_find + "%';";
+        }
         result = stmt.executeQuery(query);
         while (result.next()) {
             number_of_rows_find++;
