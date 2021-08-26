@@ -1,3 +1,5 @@
+# Pharmear 
+
 PHARMEAR an open-source software for Pharmacy Store
 
 PHARMEAR is open source, free to use, it offers a modern UI, with less clutter, easy to learn, easy to use, makes bills fast, shows you the status of your store, has intellisense to make bills with ease, user management and a lot more.
