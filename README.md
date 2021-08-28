@@ -25,4 +25,28 @@ After installing pharemear you will get a setup screen where you need to add the
 ### Add User 
 To add the user we need fill a small form that contains the name of the user, user-type, and the username and the password then just click add. You can add as much users as you   want. Then click next.
 
+User Permission Control:
+* Owner                 : Can access all the parts of Pharmear
+* Medicine/Bill Manager : Can access all the parts except for the sales report
+* Medicine              : Can access all except for Bill, and sales report
+* Bill                  : Can access all except for Medicine and sales Reprot
+
 ![setup_user](https://user-images.githubusercontent.com/67961014/131214750-eda03415-064b-4d57-90d5-1102656e62c3.png)
+
+### Shop Details
+In Shop Details you can add the details of your shop, shop name, address, contact number and vat number. Then just press set.
+
+![setup_shop](https://user-images.githubusercontent.com/67961014/131215675-d0f0f4af-99a6-4437-9b01-3d6bc152977f.png)
+
+### Finish
+Once you are in the finish screen you just need to press Complete button to finilize the setup. The program will close once you press comoplete and then you need to reopen it for login page.
+
+![shop_finish](https://user-images.githubusercontent.com/67961014/131215890-1cdb7e51-31d1-420d-9eb0-cf7383a12b30.png)
+
+# Login Page 
+After the setup is completed Pharmear will open a login screen for you to input the credentials and you are in the program. You will be assigned with the permission according to the type of user you are.
+
+![login_page](https://user-images.githubusercontent.com/67961014/131216369-756afdd0-e7b2-4a9c-87f0-e4e839715736.png)
+
+# Welcome Page
+This will be the page that will come first to you when open the program from here you can navigate yourself to the tabs you want also there is a Status of your pharmacy to get information about the out of stock, expired, total cost, total quantity, total medcicine in your pharmacy.
