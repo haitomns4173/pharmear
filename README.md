@@ -1,3 +1,4 @@
+![welcome_page](https://user-images.githubusercontent.com/67961014/131216478-7923adcb-fd36-4958-98db-155282d08aef.png)
 # Pharmear 
 
 PHARMEAR an open-source software for Pharmacy Store
@@ -50,3 +51,16 @@ After the setup is completed Pharmear will open a login screen for you to input 
 
 # Welcome Page
 This will be the page that will come first to you when open the program from here you can navigate yourself to the tabs you want also there is a Status of your pharmacy to get information about the out of stock, expired, total cost, total quantity, total medcicine in your pharmacy.
+
+![welcome_page](https://user-images.githubusercontent.com/67961014/131216483-fbfec2bd-7e75-4655-9611-22a3990ef0b0.png)
+
+# Medicine Manage
+In Medcine Manage you can add, view and delete medicines in your store.
+* It has a find tab to search medicine you can also type * to view all the medicines in your pharmacy.
+* The table shows the result of the search.
+* You can select a row in the medicine to delete it.
+* Clear button clears the table and other text feilds.
+* Medicine Details is used to add medicines to your store, you just need to fill the details and click add.
+* Medicine Details has Intellisese to make the process easy.
+
+![medicine_manage](https://user-images.githubusercontent.com/67961014/131216686-9b61d800-c59d-4c8c-8df3-696d6c19c902.png)
