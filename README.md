@@ -1,4 +1,3 @@
-![welcome_page](https://user-images.githubusercontent.com/67961014/131216478-7923adcb-fd36-4958-98db-155282d08aef.png)
 # Pharmear 
 
 PHARMEAR an open-source software for Pharmacy Store
