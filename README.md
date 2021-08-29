@@ -13,6 +13,7 @@ The theme of the project revolves around Medication. PHARMEAR is a simple progra
 1. MySQL Database version 8.0
 2. MySQL should be installed default location
 3. MySQL Database Password
+4. Microsoft Office Package
 
 # Installing 
 For the setup you need to download the [pharmear_setup.exe](https://github.com/haitomns4173/pharmear/releases) and [mysql_database.exe](https://dev.mysql.com/downloads/installer/) the you need to first install the MySQL Database and then install the Pharmear Program. While installing the MySQL you need to note down the admin password because while setting up the pharmear you need the password to connect to the database.Installing Pharmear is as simple as installing any other program in windows.
@@ -64,3 +65,25 @@ In Medcine Manage you can add, view and delete medicines in your store.
 * Medicine Details has Intellisese to make the process easy.
 
 ![medicine_manage](https://user-images.githubusercontent.com/67961014/131216686-9b61d800-c59d-4c8c-8df3-696d6c19c902.png)
+
+# Bill Making 
+This is the main part of pharmear that makes the bill.
+* On top we have the invoice number and date.
+* There a table that shows the medicine in the bill when you add it.
+* Patient details is the area where you add the name of the paitent/customer.
+* Add Medicine is where you add the medicine to the bill, just input the quantity and name of medicine then press add.
+* Command center is the area where you can control the functionalities like saving, printing and saving.
+
+![bill_making](https://user-images.githubusercontent.com/67961014/131241064-8deb7d89-2b9d-44e8-9b9b-4d7481bbb7b9.png)
+
+# Sales Report
+Here you can see the total cost of medicine, total cost of sold medicine and total quantity, total sold quantity.
+
+![sales_cost](https://user-images.githubusercontent.com/67961014/131241253-d98f876d-4a02-433f-bfec-fdd7451dbdbc.png)
+
+# User Account
+* User Account you change your name, username and password.
+* You can also change the shop name, address, contact and vat no.
+* In the right side there is a Pharmacy Status.
+
+![user_account](https://user-images.githubusercontent.com/67961014/131241973-c4a11e27-e977-4d47-b0da-f229e052af33.png)
